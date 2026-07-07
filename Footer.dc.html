@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<footer style="background:#07101F;border-top:1px solid rgba(255,255,255,.08)">
+  <div style="max-width:1280px;margin:0 auto;padding:56px 32px 32px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <div style="width:30px;height:30px;border-radius:6px;background:linear-gradient(135deg,#E2861B,#C96F0F);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;color:#0A1930;font-size:15px">G</div>
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:#fff">GLABAN</span>
+      </div>
+      <p style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.7;color:rgba(255,255,255,.55);max-width:320px;margin:0 0 20px">Complete digital, cybersecurity, and physical security solutions for fuel, oil, gas, refinery, and energy companies across KRG and the wider region.</p>
+      <div style="display:flex;gap:10px">
+        <sc-for list="{{ social }}" as="s" hint-placeholder-count="3">
+          <a href="{{ s.href }}" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,.6);font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:600">{{ s.label }}</a>
+        </sc-for>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;color:#fff;letter-spacing:.05em;text-transform:uppercase;margin-bottom:16px">Products</div>
+      <div style="display:flex;flex-direction:column;gap:11px">
+        <sc-for list="{{ productLinks }}" as="l" hint-placeholder-count="6">
+          <a href="{{ l.href }}" style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:rgba(255,255,255,.55);text-decoration:none" style-hover="color:#E2861B">{{ l.label }}</a>
+        </sc-for>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;color:#fff;letter-spacing:.05em;text-transform:uppercase;margin-bottom:16px">Services</div>
+      <div style="display:flex;flex-direction:column;gap:11px">
+        <sc-for list="{{ serviceLinks }}" as="l" hint-placeholder-count="6">
+          <a href="{{ l.href }}" style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:rgba(255,255,255,.55);text-decoration:none" style-hover="color:#E2861B">{{ l.label }}</a>
+        </sc-for>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;color:#fff;letter-spacing:.05em;text-transform:uppercase;margin-bottom:16px">Company</div>
+      <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:20px">
+        <sc-for list="{{ companyLinks }}" as="l" hint-placeholder-count="6">
+          <a href="{{ l.href }}" style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:rgba(255,255,255,.55);text-decoration:none" style-hover="color:#E2861B">{{ l.label }}</a>
+        </sc-for>
+      </div>
+      <div style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:rgba(255,255,255,.55);line-height:1.8">
+        <div>info@glaban.com</div>
+        <div>+964 750 000 0000</div>
+        <div>Erbil, KRG, Iraq</div>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.08);padding:20px 32px;max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+    <span style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:rgba(255,255,255,.4)">© 2026 Glaban. All rights reserved.</span>
+    <span style="font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:rgba(255,255,255,.4)">Software · Cybersecurity · Physical Security for the Energy Sector</span>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:420}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      social: [
+        { label: 'in', href: '#' },
+        { label: 'FB', href: '#' },
+        { label: 'X', href: '#' },
+      ],
+      productLinks: [
+        { label: 'Fuel ERP Platform', href: 'Product-Fuel-ERP.dc.html' },
+        { label: 'Gas Station POS', href: 'Product-POS.dc.html' },
+        { label: 'Fuel Card & Fleet System', href: 'Product-Fuel-Card.dc.html' },
+        { label: 'Propane Cylinder Mgmt', href: 'Product-Propane.dc.html' },
+        { label: 'Location-Based Task Mgmt', href: 'Task-Management.dc.html' },
+        { label: 'View all products', href: 'Products.dc.html' },
+      ],
+      serviceLinks: [
+        { label: 'Cybersecurity', href: 'Cybersecurity.dc.html' },
+        { label: 'CCTV & Physical Security', href: 'CCTV-Security.dc.html' },
+        { label: 'ERP Implementation', href: 'Service-ERP-Implementation.dc.html' },
+        { label: 'Hosting & Backup', href: 'Service-Hosting-Backup.dc.html' },
+        { label: 'Training & Support', href: 'Service-Training-Support.dc.html' },
+        { label: 'View all services', href: 'Services.dc.html' },
+      ],
+      companyLinks: [
+        { label: 'About Us', href: 'About.dc.html' },
+        { label: 'Case Studies', href: 'Case-Studies.dc.html' },
+        { label: 'Support', href: 'Support.dc.html' },
+        { label: 'FAQ', href: 'FAQ.dc.html' },
+        { label: 'Contact', href: 'Contact.dc.html' },
+      ],
+    };
+  }
+}
+
+</script>
+</body>
+</html>

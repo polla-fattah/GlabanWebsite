@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { margin:0; background:#F5F6F4; }
+  a { color:#E2861B; }
+  a:hover { color:#C96F0F; }
+</style>
+</helmet>
+<div style="font-family:'IBM Plex Sans',sans-serif">
+<dc-import name="Header" active-page="about" hint-size="100%,76px"></dc-import>
+
+<section style="background:#0A1930;padding:72px 32px 64px">
+  <div style="max-width:900px;margin:0 auto;text-align:center">
+    <div style="font-size:13px;font-weight:600;color:#F0A85B;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px">About Glaban</div>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:38px;color:#fff;margin:0 0 18px;line-height:1.25">A technology partner built around the fuel and energy sector</h1>
+    <p style="font-size:16.5px;color:rgba(255,255,255,.65);line-height:1.7;margin:0">Glaban provides software, cybersecurity, and physical security solutions for oil, gas, refinery, station, propane, and industrial businesses across KRG and the wider region.</p>
+  </div>
+</section>
+
+<section style="max-width:1280px;margin:0 auto;padding:80px 32px">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:72px">
+    <div style="background:#fff;border:1px solid rgba(10,25,48,.08);border-radius:16px;padding:36px">
+      <div style="font-size:13px;font-weight:600;color:#C96F0F;letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px">Mission</div>
+      <p style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;color:#16212B;line-height:1.5;margin:0">To help fuel, oil, gas, and energy companies modernise their operations through reliable software, practical automation, secure systems, physical security, and long-term technical support.</p>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(10,25,48,.08);border-radius:16px;padding:36px">
+      <div style="font-size:13px;font-weight:600;color:#2F6FE0;letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px">Vision</div>
+      <p style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;color:#16212B;line-height:1.5;margin:0">To become a trusted technology partner for fuel and energy businesses in KRG and the wider region.</p>
+    </div>
+  </div>
+
+  <div style="margin-bottom:24px">
+    <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#16212B;margin-bottom:32px;text-align:center">Our values</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
+      <sc-for list="{{ values }}" as="v" hint-placeholder-count="8">
+        <div style="background:#fff;border:1px solid rgba(10,25,48,.08);border-radius:12px;padding:22px;text-align:center">
+          <div style="font-weight:700;font-size:15px;color:#16212B">{{ v }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="background:#0F1B2E">
+  <div style="max-width:1280px;margin:0 auto;padding:72px 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;color:#fff;margin-bottom:10px">Industry focus</div>
+      <p style="font-size:14.5px;color:rgba(255,255,255,.6);line-height:1.65;margin:0">We build exclusively for fuel, oil, gas, refinery, and energy operations — not generic business software adapted after the fact.</p>
+    </div>
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;color:#fff;margin-bottom:10px">Technical expertise</div>
+      <p style="font-size:14.5px;color:rgba(255,255,255,.6);line-height:1.65;margin:0">Software development, ERP, cybersecurity, and physical security under one roof, so systems work together by design.</p>
+    </div>
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;color:#fff;margin-bottom:10px">Local understanding</div>
+      <p style="font-size:14.5px;color:rgba(255,255,255,.6);line-height:1.65;margin:0">We understand the operational, regulatory, and connectivity realities of running a fuel business in KRG and the region.</p>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1280px;margin:0 auto;padding:72px 32px;text-align:center">
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:28px;color:#16212B;margin:0 0 14px">Let's talk about your operation</h2>
+  <a href="Contact.dc.html" style="display:inline-block;background:#E2861B;color:#0A1930;font-weight:600;font-size:15px;padding:14px 26px;border-radius:8px;text-decoration:none">Contact Us</a>
+</section>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      values: ['Reliability', 'Security', 'Practical solutions', 'Long-term support', 'Business understanding', 'Transparency', 'Local expertise', 'Continuous improvement'],
+    };
+  }
+}
+
+</script>
+</body>
+</html>
