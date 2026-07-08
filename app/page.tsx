@@ -77,7 +77,7 @@ export default function HomePage() {
               <span style={{ fontSize: 13, color: colors.orangeLight, fontWeight: 600 }}>Built for the fuel &amp; energy sector</span>
             </div>
             <h1 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 52, lineHeight: 1.12, color: '#fff', margin: '0 0 22px', letterSpacing: '-.01em' }}>
-              Complete digital, cybersecurity, and physical security solutions for fuel and energy companies
+              Complete solutions for energy companies
             </h1>
             <p style={{ fontSize: 18, lineHeight: 1.65, color: 'rgba(255,255,255,.68)', maxWidth: 560, margin: '0 0 34px' }}>
               ERP, POS, fuel quota, propane and bulk gas delivery, location-based task management, cybersecurity, CCTV, and surveillance — built for oil, gas, refinery, station, and energy businesses in KRG and beyond.
