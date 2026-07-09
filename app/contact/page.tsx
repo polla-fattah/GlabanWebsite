@@ -7,7 +7,7 @@ import { colors } from '@/lib/colors';
 import { CONTACT_FORM_ENDPOINT } from '@/lib/formEndpoints';
 
 const industryOptions = ['Oil company', 'Refinery', 'Gas station', 'Propane cylinder company', 'Bulk gas delivery company', 'Fuel distribution company', 'Fuel depot', 'Industrial gas customer', 'Company with employee fuel limits', 'Other'];
-const interestOptions = ['Fuel ERP', 'Gas Station POS', 'Forecourt Management', 'Fuel Card / Fleet Card System', 'Fuel Limit / Quota System', 'Propane Cylinder System', 'Bulk Gas Delivery System', 'Delivery Dispatch', 'Location-Based Task Management', 'CCTV and Surveillance', 'Access Control', 'Cybersecurity', 'Fleet Tracking', 'Hosting and Maintenance', 'Custom Software', 'Consultation'];
+const interestOptions = ['Fuel ERP', 'Gas Station POS', 'Fuel Card / Fleet Card System', 'Fuel Limit / Quota System', 'Propane Cylinder System', 'Bulk Gas Delivery System', 'Delivery Dispatch', 'Location-Based Task Management', 'CCTV and Surveillance', 'Access Control', 'Cybersecurity', 'Fleet Tracking', 'Hosting and Maintenance', 'Custom Software', 'Consultation'];
 const contactMethods = ['Email', 'Phone', 'WhatsApp'];
 
 const info = [
