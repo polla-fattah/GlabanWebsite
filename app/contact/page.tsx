@@ -60,7 +60,7 @@ export default function ContactPage() {
           <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeLight, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 14 }}>
             Contact
           </div>
-          <h1 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 40, color: '#fff', margin: '0 0 16px', maxWidth: 640, lineHeight: 1.2 }}>
+          <h1 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 40, color: '#fff', margin: '0 0 16px', maxWidth: 640, lineHeight: 1.2 }}>
             Let&apos;s talk about your operation
           </h1>
           <p style={{ fontSize: 17, color: 'rgba(255,255,255,.65)', maxWidth: 600, lineHeight: 1.6, margin: 0 }}>
@@ -148,10 +148,10 @@ export default function ContactPage() {
             </form>
           ) : (
             <div style={{ textAlign: 'center', padding: '50px 0' }}>
-              <div style={{ width: 52, height: 52, borderRadius: '50%', background: colors.greenTint, color: colors.green, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, margin: '0 auto 18px' }}>
-                ✓
+              <div style={{ width: 52, height: 52, borderRadius: '50%', background: colors.orangeTint, color: colors.orange, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, margin: '0 auto 18px' }}>
+                <i className="fa-solid fa-check"></i>
               </div>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 19, color: colors.textDark, marginBottom: 8 }}>Message sent</div>
+              <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 19, color: colors.textDark, marginBottom: 8 }}>Message sent</div>
               <p style={{ fontSize: 14.5, color: colors.textBody, margin: 0 }}>Thanks for reaching out — our team will contact you within one business day.</p>
             </div>
           )}

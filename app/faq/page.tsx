@@ -18,7 +18,7 @@ export default function FaqPage() {
           <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeLight, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 14 }}>
             FAQ
           </div>
-          <h1 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 40, color: '#fff', margin: '0 0 12px' }}>
+          <h1 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 40, color: '#fff', margin: '0 0 12px' }}>
             Frequently asked questions
           </h1>
         </div>
@@ -61,7 +61,7 @@ export default function FaqPage() {
 
       <section style={{ background: colors.grayBg }}>
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '64px 32px', textAlign: 'center' }}>
-          <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 26, color: colors.textDark, margin: '0 0 14px' }}>
+          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 26, color: colors.textDark, margin: '0 0 14px' }}>
             Still have questions?
           </h2>
           <Link href="/contact" style={{ display: 'inline-block', background: colors.orange, color: colors.navy, fontWeight: 600, fontSize: 15, padding: '14px 26px', borderRadius: 8, textDecoration: 'none' }}>

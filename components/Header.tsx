@@ -53,7 +53,7 @@ export default function Header() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontFamily: "'Space Grotesk', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontWeight: 700,
               color: colors.navy,
               fontSize: 17,
@@ -61,7 +61,7 @@ export default function Header() {
           >
             G
           </div>
-          <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 20, color: '#fff', letterSpacing: '.2px' }}>
+          <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 20, color: '#fff', letterSpacing: '.2px' }}>
             GLABAN
           </span>
         </Link>
@@ -74,7 +74,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 style={{
-                  fontFamily: "'IBM Plex Sans', sans-serif",
+                  fontFamily: "'Inter', sans-serif",
                   fontSize: 14.5,
                   fontWeight: active ? 600 : 500,
                   color: active ? '#fff' : 'rgba(255,255,255,.65)',
@@ -97,7 +97,7 @@ export default function Header() {
             style={{
               background: colors.orange,
               color: colors.navy,
-              fontFamily: "'IBM Plex Sans', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontWeight: 600,
               fontSize: 14.5,
               padding: '11px 22px',
@@ -152,7 +152,7 @@ export default function Header() {
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
                 style={{
-                  fontFamily: "'IBM Plex Sans', sans-serif",
+                  fontFamily: "'Inter', sans-serif",
                   fontSize: 15.5,
                   fontWeight: active ? 600 : 500,
                   color: active ? colors.orange : 'rgba(255,255,255,.8)',
@@ -172,7 +172,7 @@ export default function Header() {
               marginTop: 12,
               background: colors.orange,
               color: colors.navy,
-              fontFamily: "'IBM Plex Sans', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontWeight: 600,
               fontSize: 15,
               padding: '12px 22px',

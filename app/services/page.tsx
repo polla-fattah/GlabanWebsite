@@ -9,9 +9,9 @@ export const metadata = { title: 'Services | Glaban' };
 
 const cards = [
   ...services.slice(0, 4).map((s) => ({ icon: s.listingIcon, name: s.name, desc: s.listingDesc, href: `/services/${s.slug}` })),
-  { icon: '🔐', name: 'Cybersecurity Services', desc: 'Website, server, ERP, and network security for fuel-sector businesses.', href: '/cybersecurity' },
-  { icon: '🏭', name: 'Industrial & OT Cybersecurity Assessment', desc: services.find((s) => s.slug === 'industrial-ot-cybersecurity')!.listingDesc, href: '/services/industrial-ot-cybersecurity' },
-  { icon: '📹', name: 'CCTV, Surveillance & Physical Security', desc: 'Camera installation, monitoring, and control-room setup for every site.', href: '/cctv-physical-security' },
+  { icon: 'fa-solid fa-shield-halved', name: 'Cybersecurity Services', desc: 'Secure your web applications, servers, ERP platforms, and business networks.', href: '/cybersecurity' },
+  { icon: 'fa-solid fa-industry', name: 'Industrial & OT Cybersecurity Assessment', desc: services.find((s) => s.slug === 'industrial-ot-cybersecurity')!.listingDesc, href: '/services/industrial-ot-cybersecurity' },
+  { icon: 'fa-solid fa-video', name: 'CCTV, Surveillance & Physical Security', desc: 'Professional camera installation, monitoring, and control-room setup for every site.', href: '/cctv-physical-security' },
   ...services.slice(5).map((s) => ({ icon: s.listingIcon, name: s.name, desc: s.listingDesc, href: `/services/${s.slug}` })),
 ];
 
@@ -21,7 +21,7 @@ export default function ServicesPage() {
       <Header />
       <PageHero
         eyebrow="Services"
-        eyebrowColor={colors.blueLight}
+        eyebrowColor={colors.orangeLight}
         title="End-to-end delivery, security, and long-term support"
         subtitle="From custom development and implementation to cybersecurity, physical security, and ongoing maintenance — we stay with you after go-live."
       />
@@ -35,12 +35,12 @@ export default function ServicesPage() {
               className="glb-card-link"
               style={{ display: 'block', background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 14, padding: 28, textDecoration: 'none' }}
             >
-              <div style={{ width: 44, height: 44, borderRadius: 10, background: colors.navy, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, marginBottom: 18 }}>
-                {c.icon}
+              <div style={{ fontSize: 24, color: colors.orange, marginBottom: 20 }}>
+                <i className={c.icon}></i>
               </div>
               <div style={{ fontWeight: 700, fontSize: 18, color: colors.textDark, marginBottom: 10 }}>{c.name}</div>
               <div style={{ fontSize: 14.5, color: colors.textBody, lineHeight: 1.6, marginBottom: 16 }}>{c.desc}</div>
-              <div style={{ fontSize: 13.5, fontWeight: 600, color: colors.blue }}>Learn more →</div>
+              <div style={{ fontSize: 13.5, fontWeight: 600, color: colors.orange }}>Learn more →</div>
             </Link>
           ))}
         </div>
@@ -48,7 +48,7 @@ export default function ServicesPage() {
 
       <section style={{ background: colors.navyMid }}>
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px', textAlign: 'center' }}>
-          <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 28, color: '#fff', margin: '0 0 14px' }}>
+          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 28, color: '#fff', margin: '0 0 14px' }}>
             Need a service package for your business?
           </h2>
           <p style={{ fontSize: 15.5, color: 'rgba(255,255,255,.6)', margin: '0 0 26px' }}>

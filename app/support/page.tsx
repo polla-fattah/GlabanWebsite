@@ -64,7 +64,7 @@ export default function SupportPage() {
           <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeLight, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 14 }}>
             Support
           </div>
-          <h1 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 40, color: '#fff', margin: '0 0 16px', maxWidth: 720, lineHeight: 1.2 }}>
+          <h1 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 40, color: '#fff', margin: '0 0 16px', maxWidth: 720, lineHeight: 1.2 }}>
             We&apos;re here after go-live
           </h1>
           <p style={{ fontSize: 17, color: 'rgba(255,255,255,.65)', maxWidth: 640, lineHeight: 1.6, margin: 0 }}>
@@ -83,11 +83,11 @@ export default function SupportPage() {
               </div>
             ))}
           </div>
-          <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 18, color: colors.textDark, marginBottom: 14 }}>What we cover</div>
+          <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 18, color: colors.textDark, marginBottom: 14 }}>What we cover</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
             {covered.map((i) => (
               <div key={i} style={{ display: 'flex', gap: 9, alignItems: 'flex-start' }}>
-                <span style={{ color: colors.green, fontSize: 13, marginTop: 2 }}>✓</span>
+                <span style={{ color: colors.orange, fontSize: 13, marginTop: 2 }}>✓</span>
                 <span style={{ fontSize: 14, color: colors.textBody2 }}>{i}</span>
               </div>
             ))}
@@ -98,7 +98,7 @@ export default function SupportPage() {
           {!submitted ? (
             <form onSubmit={handleSubmit}>
               <input type="text" name="_gotcha" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 20, color: colors.textDark, marginBottom: 22 }}>
+              <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 20, color: colors.textDark, marginBottom: 22 }}>
                 Submit a support request
               </div>
               <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
@@ -162,10 +162,10 @@ export default function SupportPage() {
             </form>
           ) : (
             <div style={{ textAlign: 'center', padding: '40px 0' }}>
-              <div style={{ width: 52, height: 52, borderRadius: '50%', background: colors.greenTint, color: colors.green, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, margin: '0 auto 18px' }}>
-                ✓
+              <div style={{ width: 52, height: 52, borderRadius: '50%', background: colors.orangeTint, color: colors.orange, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, margin: '0 auto 18px' }}>
+                <i className="fa-solid fa-check"></i>
               </div>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 19, color: colors.textDark, marginBottom: 8 }}>Request received</div>
+              <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 19, color: colors.textDark, marginBottom: 8 }}>Request received</div>
               <p style={{ fontSize: 14.5, color: colors.textBody, margin: 0 }}>Our support team will contact you shortly.</p>
             </div>
           )}

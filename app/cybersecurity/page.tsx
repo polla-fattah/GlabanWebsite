@@ -24,17 +24,17 @@ export default function CybersecurityPage() {
       <Header />
       <DetailHero
         icon="fa-solid fa-shield-halved"
-        iconBg="rgba(47,111,224,.18)"
-        iconColor={colors.blueLight}
+        iconBg="rgba(226,134,27,.18)"
+        iconColor={colors.orangeLight}
         eyebrow="Service · Cybersecurity"
-        eyebrowColor={colors.blueLight}
+        eyebrowColor={colors.orangeLight}
         title="Protect the systems your fuel business runs on"
         subtitle="From your website to your ERP and POS access controls, we harden the systems that keep your operation running — and cover the industrial networks unique to fuel and energy sites."
         ctaLabel="Request a Security Review"
       />
 
       <section style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px' }}>
-        <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 26, color: colors.textDark, margin: '0 0 32px' }}>
+        <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 26, color: colors.textDark, margin: '0 0 32px' }}>
           Cybersecurity services
         </div>
         <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18, marginBottom: 64 }}>
@@ -46,11 +46,11 @@ export default function CybersecurityPage() {
         </div>
 
         <div style={{ background: colors.navyMid, borderRadius: 16, padding: 44 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 18 }}>
-            <div style={{ width: 38, height: 38, borderRadius: 9, background: 'rgba(31,157,110,.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 17 }}>
-              🏭
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 18 }}>
+            <div style={{ fontSize: 22, color: colors.orange }}>
+              <i className="fa-solid fa-industry"></i>
             </div>
-            <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 22, color: '#fff' }}>Industrial &amp; OT Cybersecurity Assessment</div>
+            <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 22, color: '#fff' }}>Industrial &amp; OT Cybersecurity Assessment</div>
           </div>
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,.62)', lineHeight: 1.65, maxWidth: 760, margin: '0 0 24px' }}>
             A dedicated assessment and protection service covering the operational technology unique to fuel and energy sites — pump and tank system exposure, CCTV/NVR networks, and remote access.
@@ -58,7 +58,7 @@ export default function CybersecurityPage() {
           <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px 32px' }}>
             {otItems.map((o) => (
               <div key={o} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                <span style={{ color: colors.greenLight, fontSize: 13, marginTop: 2 }}>✓</span>
+                <span style={{ color: colors.orangeLight, fontSize: 13, marginTop: 2 }}>✓</span>
                 <span style={{ fontSize: 14, color: 'rgba(255,255,255,.78)' }}>{o}</span>
               </div>
             ))}

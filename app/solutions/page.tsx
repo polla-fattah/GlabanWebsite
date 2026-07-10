@@ -20,7 +20,7 @@ export default function SolutionsPage() {
       <section style={{ maxWidth: 1000, margin: '0 auto', padding: '64px 32px 96px', display: 'flex', flexDirection: 'column', gap: 16 }}>
         {solutionItems.map((it) => (
           <div key={it.problem} style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 14, padding: '28px 30px' }}>
-            <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600, fontSize: 18, color: colors.textDark, marginBottom: 8 }}>
+            <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: 18, color: colors.textDark, marginBottom: 8 }}>
               &quot;{it.problem}&quot;
             </div>
             <div style={{ fontSize: 15, color: colors.textBody, lineHeight: 1.6, marginBottom: 16 }}>{it.solution}</div>

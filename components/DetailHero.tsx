@@ -24,24 +24,13 @@ export default function DetailHero({
     <section style={{ background: colors.navy, padding: '72px 32px 64px' }}>
       <div className="glb-grid" style={{ maxWidth: 1280, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr auto', gap: 40, alignItems: 'center' }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 18 }}>
-            <div
-              style={{
-                width: 44,
-                height: 44,
-                borderRadius: 10,
-                background: iconBg,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 20,
-              }}
-            >
-              <i className={icon} style={{ color: iconColor }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 20 }}>
+            <div style={{ fontSize: 24, color: iconColor }}>
+              <i className={icon} />
             </div>
             <div style={{ fontSize: 13, fontWeight: 600, color: eyebrowColor, letterSpacing: '.06em', textTransform: 'uppercase' }}>{eyebrow}</div>
           </div>
-          <h1 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 38, color: '#fff', margin: '0 0 16px', maxWidth: 680, lineHeight: 1.2 }}>
+          <h1 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 38, color: '#fff', margin: '0 0 16px', maxWidth: 680, lineHeight: 1.2 }}>
             {title}
           </h1>
           <p style={{ fontSize: 16.5, color: 'rgba(255,255,255,.65)', maxWidth: 620, lineHeight: 1.65, margin: 0 }}>{subtitle}</p>

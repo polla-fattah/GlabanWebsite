@@ -37,7 +37,7 @@ function FooterLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, color: 'rgba(255,255,255,.55)', textDecoration: 'none' }}
+      style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: 'rgba(255,255,255,.55)', textDecoration: 'none' }}
     >
       {label}
     </Link>
@@ -68,7 +68,7 @@ export default function Footer() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontFamily: "'Space Grotesk', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontWeight: 700,
                 color: colors.navy,
                 fontSize: 15,
@@ -76,9 +76,9 @@ export default function Footer() {
             >
               G
             </div>
-            <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 18, color: '#fff' }}>GLABAN</span>
+            <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 18, color: '#fff' }}>GLABAN</span>
           </div>
-          <p style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,.55)', maxWidth: 320, margin: '0 0 20px' }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,.55)', maxWidth: 320, margin: '0 0 20px' }}>
             Complete digital, cybersecurity, and physical security solutions for fuel, oil, gas, refinery, and energy companies across KRG and the wider region.
           </p>
           <div style={{ display: 'flex', gap: 10 }}>
@@ -96,7 +96,7 @@ export default function Footer() {
                   justifyContent: 'center',
                   textDecoration: 'none',
                   color: 'rgba(255,255,255,.6)',
-                  fontFamily: "'IBM Plex Sans', sans-serif",
+                  fontFamily: "'Inter', sans-serif",
                   fontSize: 12,
                   fontWeight: 600,
                 }}
@@ -108,7 +108,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600, fontSize: 13, color: '#fff', letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
+          <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: 13, color: '#fff', letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
             Products
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 11 }}>
@@ -119,7 +119,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600, fontSize: 13, color: '#fff', letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
+          <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: 13, color: '#fff', letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
             Services
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 11 }}>
@@ -130,7 +130,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600, fontSize: 13, color: '#fff', letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
+          <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: 13, color: '#fff', letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
             Company
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 11, marginBottom: 20 }}>
@@ -138,7 +138,7 @@ export default function Footer() {
               <FooterLink key={l.href} {...l} />
             ))}
           </div>
-          <div style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 14, color: 'rgba(255,255,255,.55)', lineHeight: 1.8 }}>
+          <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: 'rgba(255,255,255,.55)', lineHeight: 1.8 }}>
             <div>info@glaban.com</div>
             <div>+964 750 000 0000</div>
             <div>Erbil, KRG, Iraq</div>
@@ -158,8 +158,8 @@ export default function Footer() {
           gap: 10,
         }}
       >
-        <span style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 13, color: 'rgba(255,255,255,.4)' }}>© 2026 Glaban. All rights reserved.</span>
-        <span style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 13, color: 'rgba(255,255,255,.4)' }}>Software · Cybersecurity · Physical Security for the Energy Sector</span>
+        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(255,255,255,.4)' }}>© 2026 Glaban. All rights reserved.</span>
+        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(255,255,255,.4)' }}>Software · Cybersecurity · Physical Security for the Energy Sector</span>
       </div>
     </footer>
   );

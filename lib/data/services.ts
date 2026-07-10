@@ -22,23 +22,19 @@ export interface Service {
   };
 }
 
-const blueBg = 'rgba(47,111,224,.18)';
-const blueColor = '#8AB2F5';
 const orangeBg = 'rgba(226,134,27,.18)';
 const orangeColor = '#F0A85B';
-const greenBg = 'rgba(31,157,110,.18)';
-const greenColor = '#7FD8B0';
 
 export const services: Service[] = [
   {
     slug: 'custom-software-development',
     name: 'Custom Software Development',
-    listingIcon: '💻',
-    listingDesc: 'Web, mobile, and desktop applications, admin panels, and API integrations.',
+    listingIcon: 'fa-solid fa-code',
+    listingDesc: 'Tailored web, mobile, and desktop applications built to solve your specific operational challenges.',
     detail: {
       icon: 'fa-solid fa-code',
-      iconBg: blueBg,
-      iconColor: blueColor,
+      iconBg: orangeBg,
+      iconColor: orangeColor,
       eyebrow: 'Service · Development',
       heroSubtitle: "When ready-made products aren't enough, we build web, mobile, and desktop applications tailored to your operation.",
       ctaLabel: 'Discuss a Project',
@@ -51,12 +47,12 @@ export const services: Service[] = [
   {
     slug: 'erp-implementation',
     name: 'ERP Implementation',
-    listingIcon: '⚙️',
-    listingDesc: 'Business analysis, configuration, data setup, training, and deployment.',
+    listingIcon: 'fa-solid fa-gear',
+    listingDesc: 'Professional rollout of the Fuel ERP Platform, from business analysis to final staff training.',
     detail: {
       icon: 'fa-solid fa-gear',
-      iconBg: blueBg,
-      iconColor: blueColor,
+      iconBg: orangeBg,
+      iconColor: orangeColor,
       eyebrow: 'Service · Implementation',
       heroSubtitle: 'From business analysis to go-live — a structured rollout of the Fuel ERP Platform across your branches.',
       ctaLabel: 'Request Consultation',
@@ -69,12 +65,12 @@ export const services: Service[] = [
   {
     slug: 'pos-forecourt-deployment',
     name: 'POS & Forecourt Deployment',
-    listingIcon: '🖥️',
-    listingDesc: 'Installation, cashier training, and reporting setup for station operations.',
+    listingIcon: 'fa-solid fa-desktop',
+    listingDesc: 'Complete station setup, including POS installation, cashier training, and manager reporting.',
     detail: {
       icon: 'fa-solid fa-desktop',
-      iconBg: blueBg,
-      iconColor: blueColor,
+      iconBg: orangeBg,
+      iconColor: orangeColor,
       eyebrow: 'Service · Deployment',
       heroSubtitle: 'Installation, configuration, and hands-on training to get your stations live and running smoothly.',
       ctaLabel: 'Request Consultation',
@@ -87,12 +83,12 @@ export const services: Service[] = [
   {
     slug: 'delivery-system-implementation',
     name: 'Delivery System Implementation',
-    listingIcon: '🚚',
-    listingDesc: 'Rollout of dispatch, propane, and bulk gas delivery workflows.',
+    listingIcon: 'fa-solid fa-truck',
+    listingDesc: 'Modernise your logistics with integrated dispatch and tonnage-based delivery workflows.',
     detail: {
       icon: 'fa-solid fa-truck',
-      iconBg: blueBg,
-      iconColor: blueColor,
+      iconBg: orangeBg,
+      iconColor: orangeColor,
       eyebrow: 'Service · Implementation',
       heroSubtitle: 'We roll out dispatch, propane, and bulk gas delivery workflows so your drivers and planners adopt them from day one.',
       ctaLabel: 'Request Consultation',
@@ -105,12 +101,12 @@ export const services: Service[] = [
   {
     slug: 'industrial-ot-cybersecurity',
     name: 'Industrial & OT Cybersecurity Assessment',
-    listingIcon: '🏭',
-    listingDesc: 'Risk assessment for industrial networks, pumps, tanks, and CCTV systems.',
+    listingIcon: 'fa-solid fa-industry',
+    listingDesc: 'Protect your critical infrastructure, including pumps, tanks, and industrial control networks.',
     detail: {
       icon: 'fa-solid fa-industry',
-      iconBg: blueBg,
-      iconColor: blueColor,
+      iconBg: orangeBg,
+      iconColor: orangeColor,
       eyebrow: 'Service · Industrial Security',
       heroSubtitle: 'A dedicated assessment covering the operational technology unique to fuel and energy sites — pumps, tanks, and CCTV networks.',
       ctaLabel: 'Request an Assessment',
@@ -124,12 +120,12 @@ export const services: Service[] = [
   {
     slug: 'access-control-attendance',
     name: 'Access Control & Attendance Systems',
-    listingIcon: '🪪',
-    listingDesc: 'Staff access cards, biometrics, door and gate control, visitor logs.',
+    listingIcon: 'fa-solid fa-id-badge',
+    listingDesc: 'Secure your premises with biometric access control, staff ID cards, and automated attendance.',
     detail: {
       icon: 'fa-solid fa-id-badge',
-      iconBg: greenBg,
-      iconColor: greenColor,
+      iconBg: orangeBg,
+      iconColor: orangeColor,
       eyebrow: 'Service · Physical Security',
       heroSubtitle: 'Control who enters your sites and when, and turn attendance tracking into an automatic byproduct.',
       ctaLabel: 'Request Consultation',
@@ -142,8 +138,8 @@ export const services: Service[] = [
   {
     slug: 'fleet-vehicle-tracking',
     name: 'Fleet & Vehicle Tracking',
-    listingIcon: '🚛',
-    listingDesc: 'Live location, trip history, and driver performance reporting.',
+    listingIcon: 'fa-solid fa-truck-fast',
+    listingDesc: 'Real-time GPS tracking and performance monitoring for your delivery and service vehicles.',
     detail: {
       icon: 'fa-solid fa-truck-fast',
       iconBg: orangeBg,
@@ -160,12 +156,12 @@ export const services: Service[] = [
   {
     slug: 'hosting-backup-disaster-recovery',
     name: 'Hosting, Backup & Disaster Recovery',
-    listingIcon: '☁️',
-    listingDesc: 'VPS or cloud hosting, SSL, daily backups, and recovery planning.',
+    listingIcon: 'fa-solid fa-cloud',
+    listingDesc: 'Secure cloud hosting with automated daily backups and comprehensive disaster recovery plans.',
     detail: {
       icon: 'fa-solid fa-cloud',
-      iconBg: blueBg,
-      iconColor: blueColor,
+      iconBg: orangeBg,
+      iconColor: orangeColor,
       eyebrow: 'Service · Infrastructure',
       heroSubtitle: 'Reliable infrastructure with automated backups and a clear recovery plan if something goes wrong.',
       ctaLabel: 'Request Consultation',
@@ -178,8 +174,8 @@ export const services: Service[] = [
   {
     slug: 'training-support',
     name: 'Training & Support',
-    listingIcon: '🧑‍🏫',
-    listingDesc: 'Role-based training for owners, managers, cashiers, drivers, and IT staff.',
+    listingIcon: 'fa-solid fa-chalkboard-user',
+    listingDesc: 'Hands-on training for owners, managers, and field staff to ensure smooth system adoption.',
     detail: {
       icon: 'fa-solid fa-chalkboard-user',
       iconBg: orangeBg,
@@ -197,8 +193,8 @@ export const services: Service[] = [
   {
     slug: 'maintenance-long-term-support',
     name: 'Maintenance & Long-Term Support',
-    listingIcon: '🔧',
-    listingDesc: 'Ongoing updates, monitoring, and dedicated support packages.',
+    listingIcon: 'fa-solid fa-wrench',
+    listingDesc: 'Keep your systems secure and up-to-date with our dedicated maintenance and support packages.',
     detail: {
       icon: 'fa-solid fa-wrench',
       iconBg: orangeBg,

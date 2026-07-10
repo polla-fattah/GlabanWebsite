@@ -24,7 +24,7 @@ export default function ProductDetailTemplate({ product }: { product: Product })
       <section style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px' }}>
         <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr .9fr', gap: 56, marginBottom: 56 }}>
           <div>
-            <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 24, color: colors.textDark, marginBottom: 16 }}>
+            <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 24, color: colors.textDark, marginBottom: 16 }}>
               {d.sectionHeading}
             </div>
             <p style={{ fontSize: 15.5, color: colors.textBody, lineHeight: 1.7, margin: '0 0 20px' }}>{d.sectionBody}</p>
@@ -46,7 +46,7 @@ export default function ProductDetailTemplate({ product }: { product: Product })
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {d.features.map((f) => (
                 <div key={f} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                  <span style={{ color: colors.green, fontSize: 13, marginTop: 2 }}>✓</span>
+                  <span style={{ color: colors.orange, fontSize: 13, marginTop: 2 }}>✓</span>
                   <span style={{ fontSize: 14, color: colors.textBody2 }}>{f}</span>
                 </div>
               ))}

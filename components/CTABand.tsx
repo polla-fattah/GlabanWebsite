@@ -19,7 +19,7 @@ export default function CTABand({
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px', textAlign: 'center' }}>
         <h2
           style={{
-            fontFamily: "'Space Grotesk', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontWeight: 700,
             fontSize: 28,
             color: onDark ? '#fff' : colors.textDark,

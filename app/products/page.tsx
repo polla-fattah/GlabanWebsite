@@ -26,8 +26,8 @@ export default function ProductsPage() {
               className="glb-card-link"
               style={{ display: 'block', background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 14, padding: 28, textDecoration: 'none' }}
             >
-              <div style={{ width: 44, height: 44, borderRadius: 10, background: colors.navy, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, marginBottom: 18 }}>
-                {p.listingIcon}
+              <div style={{ fontSize: 24, color: colors.orange, marginBottom: 20 }}>
+                <i className={p.listingIcon}></i>
               </div>
               <div style={{ fontSize: 11.5, fontWeight: 600, color: colors.orangeDark, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 8 }}>
                 {p.category}
@@ -42,7 +42,7 @@ export default function ProductsPage() {
 
       <section style={{ background: colors.navyMid }}>
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px', textAlign: 'center' }}>
-          <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 28, color: '#fff', margin: '0 0 14px' }}>
+          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 28, color: '#fff', margin: '0 0 14px' }}>
             Not sure which product fits your business?
           </h2>
           <p style={{ fontSize: 15.5, color: 'rgba(255,255,255,.6)', margin: '0 0 26px' }}>

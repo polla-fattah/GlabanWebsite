@@ -13,7 +13,7 @@ export default function IndustriesPage() {
       <Header />
       <PageHero
         eyebrow="Industries"
-        eyebrowColor={colors.greenLight}
+        eyebrowColor={colors.orangeLight}
         title="Built for every part of the fuel and energy value chain"
         subtitle="Each industry has different operational risks. We tailor products and services to match."
       />
@@ -22,8 +22,8 @@ export default function IndustriesPage() {
         {industries.map((ind) => (
           <div key={ind.name} className="glb-grid" style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 16, padding: 36, display: 'grid', gridTemplateColumns: '.6fr 1.4fr', gap: 36 }}>
             <div>
-              <div style={{ width: 46, height: 46, borderRadius: 10, background: colors.greenTint, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 21, marginBottom: 16 }}>
-                {ind.icon}
+              <div style={{ fontSize: 26, color: colors.orange, marginBottom: 18 }}>
+                <i className={ind.icon}></i>
               </div>
               <div style={{ fontWeight: 700, fontSize: 21, color: colors.textDark, marginBottom: 10 }}>{ind.name}</div>
               <div style={{ fontSize: 14.5, color: colors.textBody, lineHeight: 1.6 }}>{ind.desc}</div>
@@ -42,7 +42,7 @@ export default function IndustriesPage() {
                 </div>
               </div>
               <div>
-                <div style={{ fontSize: 12, fontWeight: 600, color: colors.green, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 10 }}>
+                <div style={{ fontSize: 12, fontWeight: 600, color: colors.orange, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 10 }}>
                   Recommended
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>

@@ -23,17 +23,17 @@ export default function CctvPage() {
       <Header />
       <DetailHero
         icon="fa-solid fa-video"
-        iconBg="rgba(31,157,110,.18)"
-        iconColor={colors.greenLight}
+        iconBg="rgba(226,134,27,.18)"
+        iconColor={colors.orangeLight}
         eyebrow="Service · Physical Security"
-        eyebrowColor={colors.greenLight}
+        eyebrowColor={colors.orangeLight}
         title="CCTV, surveillance, and physical security for every site"
         subtitle="Coverage designed around fuel operations — pump areas, cashier counters, warehouses, tanks, gates, and perimeters — with central monitoring for multi-branch visibility."
         ctaLabel="Request a Site Survey"
       />
 
       <section style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px' }}>
-        <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 26, color: colors.textDark, margin: '0 0 32px' }}>
+        <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 26, color: colors.textDark, margin: '0 0 32px' }}>
           Standard coverage
         </div>
         <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18, marginBottom: 64 }}>
@@ -45,7 +45,7 @@ export default function CctvPage() {
         </div>
 
         <div style={{ background: colors.navyMid, borderRadius: 16, padding: 44 }}>
-          <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 22, color: '#fff', marginBottom: 8 }}>
+          <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 22, color: '#fff', marginBottom: 8 }}>
             For larger sites &amp; depots
           </div>
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,.62)', lineHeight: 1.65, maxWidth: 760, margin: '0 0 24px' }}>
@@ -54,7 +54,7 @@ export default function CctvPage() {
           <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px 32px' }}>
             {advanced.map((a) => (
               <div key={a} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                <span style={{ color: colors.greenLight, fontSize: 13, marginTop: 2 }}>✓</span>
+                <span style={{ color: colors.orangeLight, fontSize: 13, marginTop: 2 }}>✓</span>
                 <span style={{ fontSize: 14, color: 'rgba(255,255,255,.78)' }}>{a}</span>
               </div>
             ))}

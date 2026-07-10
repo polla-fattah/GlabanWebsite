@@ -22,7 +22,7 @@ export default function ServiceDetailTemplate({ service }: { service: Service })
       />
 
       <section style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px' }}>
-        <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 26, color: colors.textDark, margin: '0 0 32px' }}>
+        <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 26, color: colors.textDark, margin: '0 0 32px' }}>
           {d.sectionHeading}
         </div>
 
@@ -68,7 +68,7 @@ export default function ServiceDetailTemplate({ service }: { service: Service })
             <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 18, marginBottom: 24 }}>
               {d.items.map((item) => (
                 <div key={item} style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 12, padding: 20, display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                  <span style={{ color: colors.green, fontSize: 13, marginTop: 2 }}>✓</span>
+                  <span style={{ color: colors.orange, fontSize: 13, marginTop: 2 }}>✓</span>
                   <span style={{ fontSize: 14.5, fontWeight: 600, color: colors.textDark }}>{item}</span>
                 </div>
               ))}
@@ -80,7 +80,7 @@ export default function ServiceDetailTemplate({ service }: { service: Service })
         {d.layout === 'training' && d.roles && d.items && (
           <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56 }}>
             <div>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 20, color: colors.textDark, marginBottom: 18 }}>Who we train</div>
+              <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 20, color: colors.textDark, marginBottom: 18 }}>Who we train</div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                 {d.roles.map((r) => (
                   <span key={r} style={{ background: colors.orangeTint, color: colors.orangeDark, fontSize: 13, fontWeight: 600, padding: '7px 14px', borderRadius: 16 }}>
@@ -90,11 +90,11 @@ export default function ServiceDetailTemplate({ service }: { service: Service })
               </div>
             </div>
             <div>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 20, color: colors.textDark, marginBottom: 18 }}>What&apos;s included</div>
+              <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 20, color: colors.textDark, marginBottom: 18 }}>What&apos;s included</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {d.items.map((i) => (
                   <div key={i} style={{ display: 'flex', gap: 9, alignItems: 'flex-start' }}>
-                    <span style={{ color: colors.green, fontSize: 13, marginTop: 2 }}>✓</span>
+                    <span style={{ color: colors.orange, fontSize: 13, marginTop: 2 }}>✓</span>
                     <span style={{ fontSize: 14, color: colors.textBody2 }}>{i}</span>
                   </div>
                 ))}
