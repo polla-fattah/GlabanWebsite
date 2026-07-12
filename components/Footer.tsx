@@ -46,7 +46,7 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 
 export default function Footer() {
   return (
-    <footer style={{ background: colors.navyDeep, borderTop: '1px solid rgba(255,255,255,.08)' }}>
+    <footer style={{ background: colors.navyDeep, borderTop: '1px solid rgba(255,255,255,.08)', width: '100%', overflow: 'hidden' }}>
       <div
         className="glb-grid"
         style={{
@@ -58,7 +58,7 @@ export default function Footer() {
           gap: 40,
         }}
       >
-        <div>
+        <div style={{ minWidth: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
             <div
               style={{
@@ -79,10 +79,10 @@ export default function Footer() {
             </div>
             <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 18, color: '#fff' }}>GLABAN</span>
           </div>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,.55)', maxWidth: 320, margin: '0 0 20px' }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,.55)', maxWidth: '100%', margin: '0 0 20px', overflowWrap: 'break-word' }}>
             Complete digital, cybersecurity, and physical security solutions for fuel, oil, gas, refinery, and energy companies across KRG and the wider region.
           </p>
-          <div style={{ display: 'flex', gap: 10 }}>
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
             {social.map((s) => (
               <a
                 key={s.label}
@@ -108,7 +108,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div>
+        <div style={{ minWidth: 0 }}>
           <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: 13, color: '#fff', letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
             Products
           </div>
@@ -119,7 +119,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div>
+        <div style={{ minWidth: 0 }}>
           <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: 13, color: '#fff', letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
             Services
           </div>
@@ -130,7 +130,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div>
+        <div style={{ minWidth: 0 }}>
           <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: 13, color: '#fff', letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
             Company
           </div>
@@ -139,7 +139,7 @@ export default function Footer() {
               <FooterLink key={l.href} {...l} />
             ))}
           </div>
-          <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: 'rgba(255,255,255,.55)', lineHeight: 1.8, marginTop: 12 }}>
+          <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: 'rgba(255,255,255,.55)', lineHeight: 1.8, marginTop: 12, overflowWrap: 'break-word' }}>
             <div style={{ color: colors.orangeLight, fontWeight: 600, marginBottom: 4 }}>info@glaban.com</div>
             <div style={{ marginBottom: 12 }}>+964 750 7700409</div>
             <div>Glaban Office, Makhmur Road,</div>
