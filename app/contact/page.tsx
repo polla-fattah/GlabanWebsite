@@ -12,9 +12,9 @@ const contactMethods = ['Email', 'Phone', 'WhatsApp'];
 
 const info = [
   { label: 'Company', value: 'Glaban' },
-  { label: 'Phone', value: '+964 750 000 0000' },
+  { label: 'Phone', value: '+964 750 7700409' },
   { label: 'Email', value: 'info@glaban.com' },
-  { label: 'Office', value: 'Erbil, Kurdistan Region, Iraq' },
+  { label: 'Office', value: 'Glaban Office, Makhmur Road, Erbil, Kurdistan Region (KRG), Iraq' },
   { label: 'Working Hours', value: 'Sat–Thu, 8:00–18:00' },
 ];
 
