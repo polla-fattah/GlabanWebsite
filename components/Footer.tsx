@@ -48,6 +48,7 @@ export default function Footer() {
   return (
     <footer style={{ background: colors.navyDeep, borderTop: '1px solid rgba(255,255,255,.08)' }}>
       <div
+        className="glb-grid"
         style={{
           maxWidth: 1280,
           margin: '0 auto',
@@ -138,10 +139,11 @@ export default function Footer() {
               <FooterLink key={l.href} {...l} />
             ))}
           </div>
-          <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: 'rgba(255,255,255,.55)', lineHeight: 1.8 }}>
-            <div>info@glaban.com</div>
-            <div>+964 750 7700409</div>
-            <div>Glaban Office, Makhmur Road, Erbil, Kurdistan Region (KRG), Iraq</div>
+          <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: 'rgba(255,255,255,.55)', lineHeight: 1.8, marginTop: 12 }}>
+            <div style={{ color: colors.orangeLight, fontWeight: 600, marginBottom: 4 }}>info@glaban.com</div>
+            <div style={{ marginBottom: 12 }}>+964 750 7700409</div>
+            <div>Glaban Office, Makhmur Road,</div>
+            <div>Erbil, Kurdistan Region (KRG), Iraq</div>
           </div>
         </div>
       </div>
