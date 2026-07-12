@@ -12,99 +12,94 @@ export default function ServiceDetailTemplate({ service }: { service: Service })
       <Header />
       <DetailHero
         icon={d.icon}
-        iconBg={d.iconBg}
-        iconColor={d.iconColor}
+        iconBg="transparent"
+        iconColor={colors.orange}
         eyebrow={d.eyebrow}
-        eyebrowColor={d.iconColor}
+        eyebrowColor={colors.orangeLight}
         title={service.name}
         subtitle={d.heroSubtitle}
         ctaLabel={d.ctaLabel}
       />
 
       <section style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px' }}>
-        <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 26, color: colors.textDark, margin: '0 0 32px' }}>
-          {d.sectionHeading}
-        </div>
-
-        {d.layout === 'grid' && d.items && (
-          <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18 }}>
-            {d.items.map((item) => (
-              <div key={item} style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 12, padding: 22 }}>
-                <div style={{ fontSize: 14.5, fontWeight: 600, color: colors.textDark }}>{item}</div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {d.layout === 'steps' && d.steps && (
-          <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 16 }}>
-            {d.steps.map((step, i) => (
-              <div key={step} style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 12, padding: 20 }}>
-                <div
-                  style={{
-                    width: 28,
-                    height: 28,
-                    borderRadius: 7,
-                    background: colors.navy,
-                    color: colors.orangeLight,
-                    fontWeight: 700,
-                    fontSize: 13,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: 12,
-                  }}
-                >
-                  {i + 1}
-                </div>
-                <div style={{ fontSize: 14, fontWeight: 600, color: colors.textDark, lineHeight: 1.4 }}>{step}</div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {d.layout === 'checklist' && d.items && (
-          <>
-            <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 18, marginBottom: 24 }}>
-              {d.items.map((item) => (
-                <div key={item} style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 12, padding: 20, display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                  <span style={{ color: colors.orange, fontSize: 13, marginTop: 2 }}>✓</span>
-                  <span style={{ fontSize: 14.5, fontWeight: 600, color: colors.textDark }}>{item}</span>
-                </div>
-              ))}
+        <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr .8fr', gap: 64, marginBottom: 72 }}>
+          <div>
+            <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 28, color: colors.textDark, marginBottom: 20 }}>
+              {d.sectionHeading}
             </div>
-            {d.disclaimer && <p style={{ fontSize: 13, color: colors.textMuted, maxWidth: 700 }}>{d.disclaimer}</p>}
-          </>
-        )}
+            <p style={{ fontSize: 16, color: colors.textBody, lineHeight: 1.8, margin: '0 0 32px' }}>{d.sectionBody}</p>
 
-        {d.layout === 'training' && d.roles && d.items && (
-          <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56 }}>
-            <div>
-              <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 20, color: colors.textDark, marginBottom: 18 }}>Who we train</div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                {d.roles.map((r) => (
-                  <span key={r} style={{ background: colors.orangeTint, color: colors.orangeDark, fontSize: 13, fontWeight: 600, padding: '7px 14px', borderRadius: 16 }}>
-                    {r}
-                  </span>
-                ))}
+            <div style={{ background: colors.grayBg, borderRadius: 16, padding: 32, marginBottom: 40 }}>
+              <div style={{ fontSize: 13, fontWeight: 700, color: colors.orangeDark, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 20 }}>
+                Core Service Benefits
               </div>
-            </div>
-            <div>
-              <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 20, color: colors.textDark, marginBottom: 18 }}>What&apos;s included</div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                {d.items.map((i) => (
-                  <div key={i} style={{ display: 'flex', gap: 9, alignItems: 'flex-start' }}>
-                    <span style={{ color: colors.orange, fontSize: 13, marginTop: 2 }}>✓</span>
-                    <span style={{ fontSize: 14, color: colors.textBody2 }}>{i}</span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                {d.benefits.map((b) => (
+                  <div key={b} style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+                    <div style={{ width: 22, height: 22, borderRadius: '50%', background: colors.orange, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, flex: 'none' }}>
+                      <i className="fa-solid fa-check"></i>
+                    </div>
+                    <div style={{ fontSize: 15, fontWeight: 600, color: colors.textDark }}>{b}</div>
                   </div>
                 ))}
               </div>
             </div>
+
+            {d.roles && (
+              <div style={{ marginBottom: 32 }}>
+                <div style={{ fontSize: 12, fontWeight: 600, color: colors.textMuted, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
+                  Target User Roles
+                </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+                  {d.roles.map((r) => (
+                    <span key={r} style={{ background: colors.orangeTint, color: colors.orangeDark, fontSize: 13, fontWeight: 600, padding: '7px 14px', borderRadius: 12 }}>
+                      {r}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {d.disclaimer && <p style={{ fontSize: 13, color: colors.textMuted, maxWidth: 700, marginTop: 24 }}>{d.disclaimer}</p>}
           </div>
-        )}
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+             <div style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 16, padding: 32 }}>
+                <div style={{ fontSize: 13, fontWeight: 700, color: colors.textDark, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 20 }}>
+                  Technical Scope
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 14 }}>
+                  {(d.items || d.steps || []).map((f) => (
+                    <div key={f} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+                      <div style={{ color: colors.orange, fontSize: 11, marginTop: 4 }}>
+                        <i className="fa-solid fa-check"></i>
+                      </div>
+                      <span style={{ fontSize: 14.5, color: colors.textBody2, lineHeight: 1.4 }}>{f}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div style={{ background: colors.navy, borderRadius: 16, padding: 32, color: '#fff' }}>
+                <div style={{ fontSize: 13, fontWeight: 700, color: colors.orangeLight, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 20 }}>
+                  Engagement Process
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+                  {d.howItWorks.map((h, i) => (
+                    <div key={h} style={{ display: 'flex', gap: 16 }}>
+                      <div style={{ fontSize: 20, fontWeight: 800, color: 'rgba(255,255,255,.1)', lineHeight: 1 }}>
+                        0{i + 1}
+                      </div>
+                      <div style={{ fontSize: 14.5, color: 'rgba(255,255,255,.85)', lineHeight: 1.5 }}>{h}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+          </div>
+        </div>
       </section>
 
-      <CTABand heading={d.closingHeading} buttonLabel="Contact Us" />
+      <CTABand heading={d.closingHeading} buttonLabel={d.ctaLabel} />
       <Footer />
     </div>
   );

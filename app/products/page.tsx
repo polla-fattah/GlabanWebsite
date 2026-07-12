@@ -26,8 +26,9 @@ export default function ProductsPage() {
               className="glb-card-link"
               style={{ display: 'block', background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 14, padding: 28, textDecoration: 'none' }}
             >
-              <div style={{ fontSize: 24, color: colors.orange, marginBottom: 20 }}>
-                <i className={p.listingIcon}></i>
+              <div style={{ position: 'relative', width: '100%', height: 220, borderRadius: 12, overflow: 'hidden', marginBottom: 20 }}>
+                <img src={p.image} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(10,25,48,0.08))' }} />
               </div>
               <div style={{ fontSize: 11.5, fontWeight: 600, color: colors.orangeDark, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 8 }}>
                 {p.category}

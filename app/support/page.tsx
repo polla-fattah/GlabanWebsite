@@ -87,7 +87,9 @@ export default function SupportPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
             {covered.map((i) => (
               <div key={i} style={{ display: 'flex', gap: 9, alignItems: 'flex-start' }}>
-                <span style={{ color: colors.orange, fontSize: 13, marginTop: 2 }}>✓</span>
+                <div style={{ color: colors.orange, fontSize: 11, marginTop: 4 }}>
+                  <i className="fa-solid fa-check"></i>
+                </div>
                 <span style={{ fontSize: 14, color: colors.textBody2 }}>{i}</span>
               </div>
             ))}

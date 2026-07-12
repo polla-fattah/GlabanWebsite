@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { colors } from '@/lib/colors';
 import { products } from '@/lib/data/products';
 import { industries } from '@/lib/data/industries';
+import { services } from '@/lib/data/services';
 
 const problems = [
   { icon: 'fa-solid fa-clipboard-list', text: 'Manual sales tracking' },
@@ -40,12 +41,6 @@ const whyUs = [
 ];
 
 const homeProducts = products.filter((p) => p.homeBenefit);
-const homeServices = [
-  { icon: 'fa-solid fa-shield-halved', name: 'Cybersecurity', desc: 'Secure your servers, ERP platforms, and critical business data.', href: '/cybersecurity' },
-  { icon: 'fa-solid fa-video', name: 'CCTV & Physical Security', desc: 'Professional surveillance for stations, depots, and industrial sites.', href: '/cctv-physical-security' },
-  { icon: 'fa-solid fa-gear', name: 'ERP Implementation', desc: 'Expert configuration, data migration, and deployment support.', href: '/services/erp-implementation' },
-  { icon: 'fa-solid fa-chalkboard-user', name: 'Training & Support', desc: 'On-site and remote training to ensure your team is ready.', href: '/services/training-support' },
-];
 
 export default function HomePage() {
   return (
@@ -206,15 +201,16 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22 }}>
-          {homeProducts.map((p) => (
+          {homeProducts.slice(0, 6).map((p) => (
             <Link
               key={p.slug}
               href={`/products/${p.slug}`}
               className="glb-card-link"
               style={{ display: 'block', background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 14, padding: 26, textDecoration: 'none' }}
             >
-              <div style={{ fontSize: 24, color: colors.orange, marginBottom: 18 }}>
-                <i className={p.listingIcon}></i>
+               <div style={{ position: 'relative', width: '100%', height: 180, borderRadius: 10, overflow: 'hidden', marginBottom: 18 }}>
+                <img src={p.image} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(10,25,48,0.05))' }} />
               </div>
               <div style={{ fontWeight: 700, fontSize: 17, color: colors.textDark, marginBottom: 8 }}>{p.name}</div>
               <div style={{ fontSize: 14.5, color: colors.textBody, lineHeight: 1.55, marginBottom: 14 }}>{p.listingDesc}</div>
@@ -239,18 +235,19 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
-            {homeServices.map((s) => (
+            {services.slice(0, 4).map((s) => (
               <Link
-                key={s.href}
-                href={s.href}
+                key={s.slug}
+                href={s.slug === 'cybersecurity' || s.slug === 'cctv-physical-security' ? `/${s.slug}` : `/services/${s.slug}`}
                 className="glb-card-link"
                 style={{ display: 'block', background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 12, padding: 22, textDecoration: 'none' }}
               >
-                <div style={{ fontSize: 18, color: colors.orange, marginBottom: 12 }}>
-                  <i className={s.icon}></i>
+                <div style={{ position: 'relative', width: '100%', height: 160, borderRadius: 10, overflow: 'hidden', marginBottom: 16 }}>
+                  <img src={s.image} alt={s.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(10,25,48,0.05))' }} />
                 </div>
                 <div style={{ fontWeight: 700, fontSize: 15, color: colors.textDark, marginBottom: 6 }}>{s.name}</div>
-                <div style={{ fontSize: 13.5, color: colors.textBody, lineHeight: 1.5 }}>{s.desc}</div>
+                <div style={{ fontSize: 13.5, color: colors.textBody, lineHeight: 1.5 }}>{s.listingDesc}</div>
               </Link>
             ))}
           </div>
@@ -297,8 +294,8 @@ export default function HomePage() {
           <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18 }}>
             {whyUs.map((w) => (
               <div key={w} style={{ display: 'flex', gap: 12 }}>
-                <div style={{ width: 22, height: 22, borderRadius: 6, background: 'rgba(226,134,27,.18)', color: colors.orangeLight, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, flex: 'none', marginTop: 2 }}>
-                  ✓
+                <div style={{ width: 22, height: 22, borderRadius: 6, background: 'rgba(226,134,27,.18)', color: colors.orangeLight, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, flex: 'none', marginTop: 2 }}>
+                  <i className="fa-solid fa-check"></i>
                 </div>
                 <div style={{ fontSize: 14.5, color: 'rgba(255,255,255,.82)', fontWeight: 500, lineHeight: 1.5 }}>{w}</div>
               </div>
