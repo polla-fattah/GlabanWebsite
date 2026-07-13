@@ -12,7 +12,7 @@ const urgencyLevels = ['Low', 'Normal', 'High / Emergency'];
 
 const channels = [
   { label: 'Support Email', value: 'support@glaban.com' },
-  { label: 'Support Phone', value: '+964 750 7700409' },
+  { label: 'Support Phone', value: '+964 750 6611033' },
   { label: 'Working Hours', value: 'Sat–Thu, 8:00–18:00' },
   { label: 'Emergency Support', value: 'Available for critical outages' },
 ];

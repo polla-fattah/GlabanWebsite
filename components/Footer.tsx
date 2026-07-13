@@ -141,7 +141,7 @@ export default function Footer() {
           </div>
           <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: 'rgba(255,255,255,.55)', lineHeight: 1.8, marginTop: 12, overflowWrap: 'break-word' }}>
             <div style={{ color: colors.orangeLight, fontWeight: 600, marginBottom: 4 }}>info@glaban.com</div>
-            <div style={{ marginBottom: 12 }}>+964 750 7700409</div>
+            <div style={{ marginBottom: 12 }}>+964 750 6611033</div>
             <div>Glaban Office, Makhmur Road,</div>
             <div>Erbil, Kurdistan Region (KRG), Iraq</div>
           </div>
