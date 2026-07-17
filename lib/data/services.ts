@@ -26,8 +26,8 @@ export interface Service {
   };
 }
 
-const orangeBg = 'rgba(226,134,27,.18)';
-const orangeColor = '#F0A85B';
+const orangeBg = '#0f1011';
+const orangeColor = '#02b8cc';
 
 export const services: Service[] = [
   {

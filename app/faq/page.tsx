@@ -14,7 +14,7 @@ import { faqs } from '@/lib/data/faqs';
 
 export default function FaqPage() {
   return (
-    <div>
+    <div className="bg-[#08090a] min-h-screen">
       <Header />
       <PageHero
         eyebrow="FAQ"
@@ -24,11 +24,11 @@ export default function FaqPage() {
       <section className="max-w-[1280px] mx-auto py-16 px-8 pb-24">
         <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
           {faqs.map((f, i) => (
-            <AccordionItem key={f.q} value={`item-${i}`} className="border-b border-navy/10 py-2">
-              <AccordionTrigger className="text-left font-semibold text-base text-textDark hover:no-underline py-4">
+            <AccordionItem key={f.q} value={`item-${i}`} className="border-b border-[#23252a] py-2">
+              <AccordionTrigger className="text-left font-medium text-[16px] text-white hover:no-underline hover:text-[#02b8cc] transition-colors py-4">
                 {f.q}
               </AccordionTrigger>
-              <AccordionContent className="text-[14.5px] text-textBody leading-[1.65] pt-1 pb-4">
+              <AccordionContent className="text-[14.5px] text-[#8a8f98] leading-[1.65] pt-1 pb-4">
                 {f.a}
               </AccordionContent>
             </AccordionItem>

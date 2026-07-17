@@ -1,25 +1,44 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #0A1930;
-  --color-navyMid: #0F1B2E;
-  --color-navyLight: #16314F;
-  --color-navyDeep: #07101F;
-  --color-orange: #E2861B;
-  --color-orangeDark: #C96F0F;
-  --color-orangeLight: #F0A85B;
-  --color-orangeTint: #FDF1E2;
-  --color-cream: #F5F6F4;
-  --color-grayBg: #EFF1EE;
-  --color-textDark: #16212B;
-  --color-textBody: #59677A;
-  --color-textBody2: #3E4C59;
-  --color-textMuted: #8A97A3;
-  --color-blue: #2F6FE0;
-  --color-blueLight: #8AB2F5;
-  --color-green: #1F9D6E;
+  /* Linear Style Reference Tokens */
+  --color-void: #08090a;
+  --color-carbon: #0f1011;
+  --color-obsidian: #161718;
+  --color-graphite: #23252a;
+  --color-smoke: #383b3f;
+  --color-ash: #62666d;
+  --color-fog: #8a8f98;
+  --color-mist: #d0d6e0;
+  --color-bone: #e5e5e6;
+  --color-paper: #ffffff;
+  --color-acid-lime: #e4f222;
+  --color-pulse-green: #27a644;
+  --color-coral-red: #eb5757;
+  --color-signal-teal: #02b8cc;
+  --color-iris-violet: #6366f1;
+  --color-lavender: #8b5cf6;
+
+  /* Legacy Color Aliases mapped to Linear Precision Palette */
+  --color-navy: #08090a;
+  --color-navyMid: #0f1011;
+  --color-navyLight: #161718;
+  --color-navyDeep: #08090a;
+  --color-orange: #e4f222;
+  --color-orangeDark: #c8d41a;
+  --color-orangeLight: #e4f222;
+  --color-orangeTint: rgba(228, 242, 34, 0.1);
+  --color-cream: #08090a;
+  --color-grayBg: #0f1011;
+  --color-textDark: #ffffff;
+  --color-textBody: #d0d6e0;
+  --color-textBody2: #8a8f98;
+  --color-textMuted: #62666d;
+  --color-blue: #02b8cc;
+  --color-blueLight: #6366f1;
+  --color-green: #27a644;
   --color-greenLight: #7FD8B0;
-  --color-greenTint: #E9F5EF;
+  --color-greenTint: rgba(39, 166, 68, 0.1);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -46,26 +65,26 @@
 }
 
 :root {
-  --background: #F5F6F4;
-  --foreground: #16212B;
-  --card: #FFFFFF;
-  --card-foreground: #16212B;
-  --popover: #FFFFFF;
-  --popover-foreground: #16212B;
-  --primary: #E2861B;
-  --primary-foreground: #0A1930;
-  --secondary: #EFF1EE;
-  --secondary-foreground: #16212B;
-  --muted: #EFF1EE;
-  --muted-foreground: #8A97A3;
-  --accent: #FDF1E2;
-  --accent-foreground: #C96F0F;
-  --destructive: #C0392B;
-  --destructive-foreground: #FFFFFF;
-  --border: rgba(10, 25, 48, 0.15);
-  --input: rgba(10, 25, 48, 0.15);
-  --ring: #E2861B;
-  --radius: 0.5rem;
+  --background: #08090a;
+  --foreground: #ffffff;
+  --card: #0f1011;
+  --card-foreground: #ffffff;
+  --popover: #0f1011;
+  --popover-foreground: #ffffff;
+  --primary: #e4f222;
+  --primary-foreground: #08090a;
+  --secondary: #161718;
+  --secondary-foreground: #ffffff;
+  --muted: #161718;
+  --muted-foreground: #8a8f98;
+  --accent: #23252a;
+  --accent-foreground: #ffffff;
+  --destructive: #eb5757;
+  --destructive-foreground: #ffffff;
+  --border: #23252a;
+  --input: #23252a;
+  --ring: #e4f222;
+  --radius: 0.375rem;
 }
 
 @layer base {
@@ -73,15 +92,16 @@
     margin: 0;
     background: var(--background);
     color: var(--foreground);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.011em;
   }
 
   a:not([class*="text-"]) {
-    color: var(--color-orange);
+    color: var(--color-mist);
   }
 
   a:not([class*="text-"]):hover {
-    color: var(--color-orangeDark);
+    color: var(--color-paper);
   }
 }
 
@@ -90,26 +110,26 @@
 .glb-textarea {
   width: 100%;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-  font-size: 14.5px;
-  padding: 12px 14px;
-  border-radius: 8px;
-  border: 1px solid rgba(10, 25, 48, 0.15);
-  background: #fff;
-  color: #16212B;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #23252a;
+  background: #0f1011;
+  color: #ffffff;
 }
 
 .glb-input:focus,
 .glb-select:focus,
 .glb-textarea:focus {
   outline: none;
-  border-color: #E2861B;
+  border-color: #d0d6e0;
 }
 
 .glb-label {
   font-size: 13px;
-  font-weight: 600;
-  color: #3E4C59;
+  font-weight: 500;
+  color: #d0d6e0;
   margin-bottom: 6px;
   display: block;
 }

@@ -24,18 +24,18 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-100 bg-navy border-b border-white/10">
-      <div className="max-w-[1280px] mx-auto px-8 flex items-center justify-between h-[76px]">
+    <header className="sticky top-0 z-100 bg-[#08090a]/85 backdrop-blur-md border-b border-[#23252a]">
+      <div className="max-w-[1280px] mx-auto px-8 flex items-center justify-between h-[68px]">
         <Link href="/" className="flex items-center gap-2.5 no-underline">
-          <div className="w-[34px] h-[34px] rounded-[7px] bg-gradient-to-br from-orange to-orangeDark flex items-center justify-center font-['Plus_Jakarta_Sans'] font-bold text-navy text-[17px]">
+          <div className="w-[28px] h-[28px] rounded-[6px] bg-[#0f1011] border border-[#23252a] flex items-center justify-center font-bold text-white text-[14px] shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
             G
           </div>
-          <span className="font-['Plus_Jakarta_Sans'] font-bold text-[20px] text-white tracking-[0.2px]">
+          <span className="font-medium text-[16px] text-white tracking-[-0.022em]">
             GLABAN
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-2">
           {navItems.map((item) => {
             const active = isActive(pathname, item.href);
             return (
@@ -43,10 +43,10 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "font-['Inter'] text-[14.5px] no-underline pb-1 border-b-2 whitespace-nowrap transition-colors",
+                  "text-[13px] no-underline px-3 py-1.5 rounded-md transition-colors",
                   active
-                    ? "font-semibold text-white border-orange"
-                    : "font-medium text-white/65 border-transparent hover:text-white"
+                    ? "font-medium text-white bg-white/6"
+                    : "font-normal text-[#d0d6e0] hover:text-white hover:bg-white/3"
                 )}
               >
                 {item.label}
@@ -58,7 +58,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <Button
             asChild
-            className="hidden lg:inline-flex bg-orange hover:bg-orangeDark text-navy font-['Inter'] font-semibold text-[14.5px] px-[22px] py-[11px] h-auto rounded-[7px]"
+            className="hidden lg:inline-flex bg-white hover:bg-white/90 text-[#08090a] font-medium text-[13px] px-4 py-2 h-auto rounded-full shadow-none transition-all"
           >
             <Link href="/contact">Contact Us</Link>
           </Button>
@@ -68,19 +68,19 @@ export default function Header() {
             size="icon"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Menu"
-            className="flex lg:hidden bg-transparent hover:bg-white/10 text-white w-10 h-10 border-0 cursor-pointer"
+            className="flex lg:hidden bg-transparent hover:bg-white/8 text-white w-9 h-9 border border-[#23252a] rounded-md cursor-pointer"
           >
-            <div className="flex flex-col gap-[5px]">
-              <span className="w-[22px] h-[2px] bg-white block" />
-              <span className="w-[22px] h-[2px] bg-white block" />
-              <span className="w-[22px] h-[2px] bg-white block" />
+            <div className="flex flex-col gap-[4px] items-center justify-center">
+              <span className="w-[18px] h-[1.5px] bg-white block" />
+              <span className="w-[18px] h-[1.5px] bg-white block" />
+              <span className="w-[18px] h-[1.5px] bg-white block" />
             </div>
           </Button>
         </div>
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden animate-[glbMenuIn_.15s_ease] bg-navy border-t border-white/10 px-6 pt-2 pb-5 flex flex-col gap-0.5">
+        <div className="lg:hidden animate-[glbMenuIn_.15s_ease] bg-[#0f1011] border-t border-[#23252a] px-6 pt-3 pb-6 flex flex-col gap-1">
           {navItems.map((item) => {
             const active = isActive(pathname, item.href);
             return (
@@ -89,8 +89,8 @@ export default function Header() {
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
                 className={cn(
-                  "font-['Inter'] text-[15.5px] no-underline py-3 px-1 border-b border-white/5",
-                  active ? "font-semibold text-orange" : "font-medium text-white/80"
+                  "text-[14px] no-underline py-2.5 px-3 rounded-md border-b border-[#23252a]/50",
+                  active ? "font-medium text-white bg-white/6" : "font-normal text-[#d0d6e0]"
                 )}
               >
                 {item.label}
@@ -99,7 +99,7 @@ export default function Header() {
           })}
           <Button
             asChild
-            className="mt-3 bg-orange hover:bg-orangeDark text-navy font-['Inter'] font-semibold text-[15px] px-[22px] py-3 h-auto rounded-[7px] w-full"
+            className="mt-4 bg-white hover:bg-white/90 text-[#08090a] font-medium text-[14px] px-4 py-2.5 h-auto rounded-full w-full shadow-none"
           >
             <Link href="/contact" onClick={() => setMobileOpen(false)}>
               Contact Us

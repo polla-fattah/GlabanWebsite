@@ -11,7 +11,7 @@ export const metadata = { title: 'Customers & Case Studies | Glaban' };
 
 export default function CaseStudiesPage() {
   return (
-    <div>
+    <div className="bg-[#08090a] min-h-screen">
       <Header />
       <PageHero
         eyebrow="Customers & Case Studies"
@@ -21,50 +21,50 @@ export default function CaseStudiesPage() {
 
       <section className="max-w-[1280px] mx-auto py-16 px-8 pb-24 grid grid-cols-1 md:grid-cols-2 gap-6">
         {caseStudies.map((c) => (
-          <Card key={c.title} className="bg-white border border-navy/8 rounded-2xl p-8 flex flex-col shadow-none">
+          <Card key={c.title} className="bg-[#0f1011] border border-[#23252a] rounded-xl p-8 flex flex-col shadow-none hover:border-[#383b3f] transition-all">
             <div className="flex gap-2.5 mb-4">
-              <Badge className="bg-orangeTint hover:bg-orangeTint text-orangeDark text-xs font-semibold px-3 py-1.5 rounded-full border-0 shadow-none">
+              <Badge className="bg-white/5 hover:bg-white/10 text-[#8a8f98] border border-[#23252a] text-[12px] font-normal px-3 py-1 rounded-full shadow-none transition-colors">
                 {c.industry}
               </Badge>
             </div>
-            <div className="font-['Plus_Jakarta_Sans'] font-bold text-[19px] text-textDark mb-5">
+            <div className="font-medium text-[20px] text-white mb-5 tracking-[-0.01em]">
               {c.title}
             </div>
 
-            <div className="flex-1 flex flex-col gap-4">
-              <div className="flex gap-3">
-                <div className="w-5 h-5 rounded-full bg-destructive/10 text-destructive flex items-center justify-center text-[10px] shrink-0 mt-0.5">
+            <div className="flex-1 flex flex-col gap-5">
+              <div className="flex gap-3.5">
+                <div className="w-5 h-5 rounded-full bg-[#161718] border border-[#23252a] text-[#f43f5e] flex items-center justify-center text-[10px] shrink-0 mt-0.5">
                   <i className="fa-solid fa-triangle-exclamation"></i>
                 </div>
                 <div>
-                  <div className="text-[11px] font-bold text-textBody uppercase tracking-[0.05em] mb-1">
+                  <div className="text-[11px] font-medium text-[#8a8f98] uppercase tracking-[0.08em] mb-1">
                     The Challenge
                   </div>
-                  <p className="text-sm text-textBody2 leading-[1.6] m-0">{c.problem}</p>
+                  <p className="text-[14px] text-[#d0d6e0] leading-[1.6] m-0">{c.problem}</p>
                 </div>
               </div>
 
-              <div className="flex gap-3">
-                <div className="w-5 h-5 rounded-full bg-orange/10 text-orange flex items-center justify-center text-[10px] shrink-0 mt-0.5">
+              <div className="flex gap-3.5">
+                <div className="w-5 h-5 rounded-full bg-[#161718] border border-[#23252a] text-[#02b8cc] flex items-center justify-center text-[10px] shrink-0 mt-0.5">
                   <i className="fa-solid fa-lightbulb"></i>
                 </div>
                 <div>
-                  <div className="text-[11px] font-bold text-textBody uppercase tracking-[0.05em] mb-1">
+                  <div className="text-[11px] font-medium text-[#8a8f98] uppercase tracking-[0.08em] mb-1">
                     The Solution
                   </div>
-                  <p className="text-sm text-textBody2 leading-[1.6] m-0">{c.solution}</p>
+                  <p className="text-[14px] text-[#d0d6e0] leading-[1.6] m-0">{c.solution}</p>
                 </div>
               </div>
 
-              <div className="flex gap-3">
-                <div className="w-5 h-5 rounded-full bg-orange/10 text-orange flex items-center justify-center text-[10px] shrink-0 mt-0.5">
+              <div className="flex gap-3.5">
+                <div className="w-5 h-5 rounded-full bg-[#161718] border border-[#23252a] text-[#e4f222] flex items-center justify-center text-[10px] shrink-0 mt-0.5">
                   <i className="fa-solid fa-chart-line"></i>
                 </div>
                 <div>
-                  <div className="text-[11px] font-bold text-textBody uppercase tracking-[0.05em] mb-1">
+                  <div className="text-[11px] font-medium text-[#8a8f98] uppercase tracking-[0.08em] mb-1">
                     The Result
                   </div>
-                  <p className="text-sm text-orangeDark font-semibold leading-[1.6] m-0">{c.result}</p>
+                  <p className="text-[14px] text-white font-medium leading-[1.6] m-0">{c.result}</p>
                 </div>
               </div>
             </div>

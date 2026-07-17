@@ -16,19 +16,19 @@ export default function PageHero({
   maxWidth?: number;
 }) {
   return (
-    <section className={cn("bg-navy px-8", centered ? "py-[72px] pb-[64px]" : "py-[72px] pb-[56px]")}>
+    <section className={cn("bg-[#08090a] border-b border-[#23252a]", centered ? "py-[76px] pb-[68px]" : "py-[76px] pb-[60px]")}>
       <div
-        className={cn("max-w-[1280px] mx-auto", centered ? "text-center" : "text-left")}
+        className={cn("max-w-[1280px] mx-auto px-8", centered ? "text-center" : "text-left")}
       >
         <div
-          className="text-[13px] font-semibold tracking-[0.06em] uppercase mb-3.5"
-          style={{ color: eyebrowColor || 'var(--color-orangeLight)' }}
+          className="text-[12px] font-medium tracking-[0.08em] uppercase mb-3 text-[#8a8f98]"
+          style={eyebrowColor ? { color: eyebrowColor } : undefined}
         >
           {eyebrow}
         </div>
         <h1
           className={cn(
-            "font-['Plus_Jakarta_Sans'] font-bold text-[40px] text-white leading-[1.2]",
+            "font-medium text-[40px] md:text-[48px] text-white tracking-[-0.022em] leading-[1.08]",
             subtitle ? "mb-4" : "mb-0",
             centered && "mx-auto"
           )}
@@ -39,8 +39,8 @@ export default function PageHero({
         {subtitle && (
           <p
             className={cn(
-              "text-[17px] text-white/65 leading-[1.6] m-0",
-              centered ? "mx-auto" : "max-w-[640px]"
+              "text-[16px] text-[#8a8f98] leading-[1.65] m-0",
+              centered ? "mx-auto max-w-[680px]" : "max-w-[640px]"
             )}
           >
             {subtitle}

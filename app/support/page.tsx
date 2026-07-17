@@ -82,7 +82,7 @@ export default function SupportPage() {
   }
 
   return (
-    <div>
+    <div className="bg-[#08090a] min-h-screen">
       <Header />
       <PageHero
         eyebrow="Support"
@@ -92,68 +92,68 @@ export default function SupportPage() {
 
       <section className="max-w-[1280px] mx-auto py-16 px-8 pb-24 grid grid-cols-1 lg:grid-cols-[.9fr_1.1fr] gap-12">
         <div>
-          <div className="flex flex-col gap-3.5 mb-8">
+          <div className="flex flex-col gap-4 mb-8">
             {channels.map((c) => (
-              <Card key={c.label} className="bg-white border border-navy/8 rounded-xl shadow-none">
-                <CardHeader className="p-5 pb-1">
-                  <CardTitle className="font-bold text-[15px] text-textDark">{c.label}</CardTitle>
+              <Card key={c.label} className="bg-[#0f1011] border border-[#23252a] rounded-xl shadow-none hover:border-[#383b3f] transition-all">
+                <CardHeader className="p-5 pb-2">
+                  <CardTitle className="font-medium text-[15px] text-white tracking-[-0.01em]">{c.label}</CardTitle>
                 </CardHeader>
-                <CardContent className="p-5 pt-0 text-sm text-textBody">{c.value}</CardContent>
+                <CardContent className="p-5 pt-0 text-[14px] text-[#8a8f98] leading-[1.6]">{c.value}</CardContent>
               </Card>
             ))}
           </div>
-          <div className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-textDark mb-3.5">
+          <div className="font-medium text-lg text-white mb-4 tracking-[-0.01em]">
             What we cover
           </div>
-          <div className="flex flex-col gap-2.5">
+          <div className="flex flex-col gap-3">
             {covered.map((i) => (
               <div key={i} className="flex gap-2.5 items-start">
-                <div className="text-orange text-[11px] mt-1">
+                <div className="text-[#02b8cc] text-[12px] mt-1 shrink-0">
                   <i className="fa-solid fa-check"></i>
                 </div>
-                <span className="text-sm text-textBody2">{i}</span>
+                <span className="text-[14px] text-[#d0d6e0] leading-[1.5]">{i}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <Card className="bg-white border border-navy/8 rounded-2xl shadow-none">
-          <CardContent className="p-9">
+        <Card className="bg-[#0f1011] border border-[#23252a] rounded-xl shadow-none">
+          <CardContent className="p-8 sm:p-10">
             {!submitted ? (
               <form onSubmit={handleSubmit}>
                 <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
-                <div className="font-['Plus_Jakarta_Sans'] font-bold text-xl text-textDark mb-5.5">
+                <div className="font-medium text-xl text-white mb-6 tracking-[-0.01em]">
                   Submit a support request
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <Label className="text-[13px] font-semibold text-textBody2 mb-1.5 block">Company Name *</Label>
-                    <Input name="company" className="h-10 bg-white" />
+                    <Label className="text-[13px] font-medium text-[#d0d6e0] mb-1.5 block">Company Name *</Label>
+                    <Input name="company" className="h-10 bg-[#161718] border-[#23252a] text-white shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]" />
                   </div>
                   <div>
-                    <Label className="text-[13px] font-semibold text-textBody2 mb-1.5 block">Contact Person *</Label>
-                    <Input name="contact" className="h-10 bg-white" />
+                    <Label className="text-[13px] font-medium text-[#d0d6e0] mb-1.5 block">Contact Person *</Label>
+                    <Input name="contact" className="h-10 bg-[#161718] border-[#23252a] text-white shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]" />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <Label className="text-[13px] font-semibold text-textBody2 mb-1.5 block">Phone Number *</Label>
-                    <Input name="phone" className="h-10 bg-white" />
+                    <Label className="text-[13px] font-medium text-[#d0d6e0] mb-1.5 block">Phone Number *</Label>
+                    <Input name="phone" className="h-10 bg-[#161718] border-[#23252a] text-white shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]" />
                   </div>
                   <div>
-                    <Label className="text-[13px] font-semibold text-textBody2 mb-1.5 block">Email *</Label>
-                    <Input name="email" type="email" className="h-10 bg-white" />
+                    <Label className="text-[13px] font-medium text-[#d0d6e0] mb-1.5 block">Email *</Label>
+                    <Input name="email" type="email" className="h-10 bg-[#161718] border-[#23252a] text-white shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]" />
                   </div>
                 </div>
                 <div className="mb-4">
-                  <Label className="text-[13px] font-semibold text-textBody2 mb-1.5 block">Product or System</Label>
+                  <Label className="text-[13px] font-medium text-[#d0d6e0] mb-1.5 block">Product or System</Label>
                   <Select name="product" defaultValue={productOptions[0]}>
-                    <SelectTrigger className="w-full bg-white h-10">
+                    <SelectTrigger className="w-full bg-[#161718] border-[#23252a] text-white h-10 shadow-none focus:ring-0">
                       <SelectValue placeholder="Select product" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="bg-[#0f1011] border-[#23252a] text-white shadow-none">
                       {productOptions.map((o) => (
-                        <SelectItem key={o} value={o}>
+                        <SelectItem key={o} value={o} className="focus:bg-[#161718] focus:text-white">
                           {o}
                         </SelectItem>
                       ))}
@@ -162,14 +162,14 @@ export default function SupportPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <Label className="text-[13px] font-semibold text-textBody2 mb-1.5 block">Issue Type</Label>
+                    <Label className="text-[13px] font-medium text-[#d0d6e0] mb-1.5 block">Issue Type</Label>
                     <Select name="issueType" defaultValue={issueTypes[0]}>
-                      <SelectTrigger className="w-full bg-white h-10">
+                      <SelectTrigger className="w-full bg-[#161718] border-[#23252a] text-white h-10 shadow-none focus:ring-0">
                         <SelectValue placeholder="Select issue type" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="bg-[#0f1011] border-[#23252a] text-white shadow-none">
                         {issueTypes.map((o) => (
-                          <SelectItem key={o} value={o}>
+                          <SelectItem key={o} value={o} className="focus:bg-[#161718] focus:text-white">
                             {o}
                           </SelectItem>
                         ))}
@@ -177,14 +177,14 @@ export default function SupportPage() {
                     </Select>
                   </div>
                   <div>
-                    <Label className="text-[13px] font-semibold text-textBody2 mb-1.5 block">Urgency</Label>
+                    <Label className="text-[13px] font-medium text-[#d0d6e0] mb-1.5 block">Urgency</Label>
                     <Select name="urgency" defaultValue={urgencyLevels[1]}>
-                      <SelectTrigger className="w-full bg-white h-10">
+                      <SelectTrigger className="w-full bg-[#161718] border-[#23252a] text-white h-10 shadow-none focus:ring-0">
                         <SelectValue placeholder="Select urgency" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="bg-[#0f1011] border-[#23252a] text-white shadow-none">
                         {urgencyLevels.map((o) => (
-                          <SelectItem key={o} value={o}>
+                          <SelectItem key={o} value={o} className="focus:bg-[#161718] focus:text-white">
                             {o}
                           </SelectItem>
                         ))}
@@ -192,26 +192,26 @@ export default function SupportPage() {
                     </Select>
                   </div>
                 </div>
-                <div className="mb-5.5">
-                  <Label className="text-[13px] font-semibold text-textBody2 mb-1.5 block">Issue Description *</Label>
-                  <Textarea name="description" rows={4} className="bg-white" />
+                <div className="mb-6">
+                  <Label className="text-[13px] font-medium text-[#d0d6e0] mb-1.5 block">Issue Description *</Label>
+                  <Textarea name="description" rows={4} className="bg-[#161718] border-[#23252a] text-white shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]" />
                 </div>
-                {error && <div className="text-destructive text-[13.5px] mb-3.5">{error}</div>}
+                {error && <div className="text-[#f43f5e] text-[13.5px] mb-4">{error}</div>}
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="bg-orange hover:bg-orangeDark text-navy font-semibold text-[15px] px-[26px] py-3.5 h-auto rounded-lg"
+                  className="bg-[#e4f222] hover:bg-[#e4f222]/90 text-[#08090a] font-medium text-[14.5px] px-7 py-3.5 h-auto rounded-md shadow-none transition-all"
                 >
                   {submitting ? 'Sending…' : 'Submit Request'}
                 </Button>
               </form>
             ) : (
               <div className="text-center py-10">
-                <div className="w-[52px] h-[52px] rounded-full bg-orangeTint text-orange flex items-center justify-center text-2xl mx-auto mb-4.5">
+                <div className="w-12 h-12 rounded-full bg-[#161718] border border-[#23252a] text-[#02b8cc] flex items-center justify-center text-xl mx-auto mb-4 shadow-none">
                   <i className="fa-solid fa-check"></i>
                 </div>
-                <div className="font-['Plus_Jakarta_Sans'] font-bold text-[19px] text-textDark mb-2">Request received</div>
-                <p className="text-[14.5px] text-textBody m-0">Our support team will contact you shortly.</p>
+                <div className="font-medium text-[20px] text-white mb-2 tracking-[-0.01em]">Request received</div>
+                <p className="text-[14.5px] text-[#8a8f98] m-0 leading-[1.6]">Our support team will contact you shortly.</p>
               </div>
             )}
           </CardContent>

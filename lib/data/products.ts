@@ -24,8 +24,8 @@ export interface Product {
   };
 }
 
-const iconBg = 'rgba(226,134,27,.18)';
-const iconColor = '#F0A85B';
+const iconBg = '#0f1011';
+const iconColor = '#02b8cc';
 
 export const products: Product[] = [
   {
