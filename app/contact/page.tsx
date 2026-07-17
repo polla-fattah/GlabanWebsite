@@ -133,7 +133,7 @@ export default function ContactPage() {
       setSubmitted(true);
     } catch {
       setError(
-        "There was a problem sending your message. Please email us directly at info@glaban.com."
+        "There was a problem sending your message. Please email us directly at info@glaban.com.",
       );
     } finally {
       setSubmitting(false);
@@ -156,13 +156,11 @@ export default function ContactPage() {
               key={c.label}
               className="bg-[#0f1011] border border-[#23252a] rounded-xl shadow-none hover:border-[#383b3f] transition-all"
             >
-              <CardHeader className="p-5 pb-2">
-                <CardTitle className="font-medium text-[15px] text-white tracking-[-0.01em]">
-                  {c.label}
-                </CardTitle>
-              </CardHeader>
               <CardContent className="p-5 pt-0 text-[14px] text-[#8a8f98] leading-[1.6]">
-                {c.value}
+                <span className="font-medium text-[15px] text-white tracking-[-0.01em]">
+                  {c.label}
+                </span>{" "}
+                : {c.value}
               </CardContent>
             </Card>
           ))}
@@ -172,7 +170,10 @@ export default function ContactPage() {
           <CardContent className="p-8 sm:p-10">
             {!submitted ? (
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-4"
+                >
                   <input
                     type="text"
                     {...form.register("_gotcha")}
@@ -295,7 +296,10 @@ export default function ContactPage() {
                           <FormLabel className="text-[13px] font-medium text-[#d0d6e0]">
                             Industry Type
                           </FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
                             <FormControl>
                               <SelectTrigger className="w-full bg-[#161718] border-[#23252a] text-white h-10 shadow-none focus:ring-0">
                                 <SelectValue placeholder="Select industry" />
@@ -303,7 +307,11 @@ export default function ContactPage() {
                             </FormControl>
                             <SelectContent className="bg-[#0f1011] border-[#23252a] text-white shadow-none">
                               {industryOptions.map((o) => (
-                                <SelectItem key={o} value={o} className="focus:bg-[#161718] focus:text-white">
+                                <SelectItem
+                                  key={o}
+                                  value={o}
+                                  className="focus:bg-[#161718] focus:text-white"
+                                >
                                   {o}
                                 </SelectItem>
                               ))}
@@ -321,7 +329,10 @@ export default function ContactPage() {
                           <FormLabel className="text-[13px] font-medium text-[#d0d6e0]">
                             Product / Service of Interest
                           </FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
                             <FormControl>
                               <SelectTrigger className="w-full bg-[#161718] border-[#23252a] text-white h-10 shadow-none focus:ring-0">
                                 <SelectValue placeholder="Select interest" />
@@ -329,7 +340,11 @@ export default function ContactPage() {
                             </FormControl>
                             <SelectContent className="bg-[#0f1011] border-[#23252a] text-white shadow-none">
                               {interestOptions.map((o) => (
-                                <SelectItem key={o} value={o} className="focus:bg-[#161718] focus:text-white">
+                                <SelectItem
+                                  key={o}
+                                  value={o}
+                                  className="focus:bg-[#161718] focus:text-white"
+                                >
                                   {o}
                                 </SelectItem>
                               ))}
@@ -349,7 +364,10 @@ export default function ContactPage() {
                         <FormLabel className="text-[13px] font-medium text-[#d0d6e0]">
                           Preferred Contact Method
                         </FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
                           <FormControl>
                             <SelectTrigger className="w-full bg-[#161718] border-[#23252a] text-white h-10 shadow-none focus:ring-0">
                               <SelectValue placeholder="Select contact method" />
@@ -357,7 +375,11 @@ export default function ContactPage() {
                           </FormControl>
                           <SelectContent className="bg-[#0f1011] border-[#23252a] text-white shadow-none">
                             {contactMethods.map((o) => (
-                              <SelectItem key={o} value={o} className="focus:bg-[#161718] focus:text-white">
+                              <SelectItem
+                                key={o}
+                                value={o}
+                                className="focus:bg-[#161718] focus:text-white"
+                              >
                                 {o}
                               </SelectItem>
                             ))}

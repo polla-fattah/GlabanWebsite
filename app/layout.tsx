@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import SmoothScroll from '@/components/SmoothScroll';
 
 export const metadata: Metadata = {
   title: 'Glaban | Digital, Cybersecurity & Physical Security for Fuel & Energy Companies',
@@ -21,7 +22,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         />
       </head>
-      <body className="font-['Inter',sans-serif] min-h-screen bg-background text-foreground antialiased">{children}</body>
+      <body className="font-['Inter',sans-serif] min-h-screen bg-background text-foreground antialiased">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }

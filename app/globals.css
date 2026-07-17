@@ -88,6 +88,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     margin: 0;
     background: var(--background);
@@ -135,17 +139,38 @@
 }
 
 .glb-card-link {
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 0 1px inset transparent;
+}
+
+.glb-card-link:hover {
+  border-color: rgba(2, 184, 204, 0.5);
+  box-shadow: 0 0 0 1px inset rgba(2, 184, 204, 0.25);
 }
 
 @keyframes glbFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes glbMenuIn {
   from { opacity: 0; transform: translateY(-8px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.96); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(35, 37, 42, 1); }
+  50% { border-color: rgba(2, 184, 204, 0.45); }
 }
 
 @media (max-width: 1180px) {
