@@ -61,15 +61,47 @@ const interestOptions = [
 
 const contactMethods = ["Email", "Phone", "WhatsApp"];
 
-const info = [
-  { label: "Company", value: "Glaban" },
-  { label: "Phone", value: "+964 750 6611033" },
-  { label: "Email", value: "info@glaban.com" },
+type ContactInfoItem = {
+  label: string;
+  value: string;
+  subtext?: string;
+  href?: string;
+  icon: string;
+};
+
+const info: ContactInfoItem[] = [
   {
-    label: "Office",
-    value: "Glaban Office, Makhmur Road, Erbil, Kurdistan Region (KRG), Iraq",
+    label: "Company",
+    value: "Glaban Technologies",
+    subtext: "Enterprise Fuel & Energy Operations Platform",
+    icon: "fa-solid fa-building",
   },
-  { label: "Working Hours", value: "Sat–Thu, 8:00–18:00" },
+  {
+    label: "Phone",
+    value: "+964 750 6611033",
+    subtext: "Direct engineering & sales line",
+    href: "tel:+9647506611033",
+    icon: "fa-solid fa-phone",
+  },
+  {
+    label: "Email",
+    value: "info@glaban.com",
+    subtext: "Guaranteed 1-business-day response",
+    href: "mailto:info@glaban.com",
+    icon: "fa-solid fa-envelope",
+  },
+  {
+    label: "Office Location",
+    value: "Glaban Office, Makhmur Road",
+    subtext: "Erbil, Kurdistan Region (KRG), Iraq",
+    icon: "fa-solid fa-location-dot",
+  },
+  {
+    label: "Working Hours",
+    value: "Saturday – Thursday, 8:00 – 18:00",
+    subtext: "Closed on Fridays (Emergency SLAs active 24/7)",
+    icon: "fa-solid fa-clock",
+  },
 ];
 
 const contactSchema = z.object({
@@ -152,17 +184,43 @@ export default function ContactPage() {
       <section className="max-w-[1280px] mx-auto py-16 px-8 pb-24 grid grid-cols-1 lg:grid-cols-[.85fr_1.15fr] gap-12">
         <div className="flex flex-col gap-4">
           {info.map((c) => (
-            <Card
+            <div
               key={c.label}
-              className="bg-[#0f1011] border border-graphite rounded-lg shadow-none hover:border-[#383b3f] transition-all"
+              className="group relative overflow-hidden bg-[#0f1011] border border-graphite rounded-xl p-5 sm:p-6 hover:border-[#383b3f] hover:bg-[#121315] transition-all duration-300 flex items-start gap-4 sm:gap-5 shadow-sm"
             >
-              <CardContent className="p-5 pt-0 text-[14px] text-[#8a8f98] leading-[1.6]">
-                <span className="font-medium text-[15px] text-white tracking-[-0.01em]">
+              {/* Subtle hover gradient glow */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#02b8cc]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+              {/* Icon badge */}
+              <div className="w-12 h-12 rounded-xl bg-[#161718] border border-graphite flex items-center justify-center text-[#02b8cc] shrink-0 group-hover:border-[#02b8cc]/40 group-hover:scale-105 transition-all duration-300 shadow-sm">
+                <i className={`${c.icon} text-[18px]`} />
+              </div>
+
+              {/* Content */}
+              <div className="flex-1 min-w-0 pt-0.5">
+                <div className="text-[12px] font-semibold tracking-wider uppercase text-[#62666d] mb-1">
                   {c.label}
-                </span>{" "}
-                : {c.value}
-              </CardContent>
-            </Card>
+                </div>
+                {c.href ? (
+                  <a
+                    href={c.href}
+                    className="text-[16px] font-semibold text-white hover:text-[#02b8cc] transition-colors break-words inline-flex items-center gap-2 group/link"
+                  >
+                    <span>{c.value}</span>
+                    <i className="fa-solid fa-arrow-up-right-from-square text-[12px] text-[#62666d] group-hover/link:text-[#02b8cc] transition-colors" />
+                  </a>
+                ) : (
+                  <div className="text-[16px] font-semibold text-white leading-snug break-words">
+                    {c.value}
+                  </div>
+                )}
+                {c.subtext && (
+                  <div className="text-[13.5px] text-[#8a8f98] mt-1 leading-relaxed">
+                    {c.subtext}
+                  </div>
+                )}
+              </div>
+            </div>
           ))}
         </div>
 
