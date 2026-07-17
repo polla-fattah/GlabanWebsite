@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import { colors } from '@/lib/colors';
+import CTABand from '@/components/CTABand';
 import { services } from '@/lib/data/services';
 
 export const metadata = { title: 'Services | Glaban' };
@@ -13,46 +13,37 @@ export default function ServicesPage() {
       <Header />
       <PageHero
         eyebrow="Services"
-        eyebrowColor={colors.orangeLight}
-        title="End-to-end delivery, security, and long-term support"
-        subtitle="From custom development and implementation to cybersecurity, physical security, and ongoing maintenance — we stay with you after go-live."
+        title="Full lifecycle digital and physical protection"
+        subtitle="We do not just sell software. We implement, integrate, secure, host, and support your systems across every branch and facility you operate."
       />
 
-      <section style={{ maxWidth: 1280, margin: '0 auto', padding: '64px 32px 96px' }}>
-        <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22 }}>
-          {services.map((s) => (
-            <Link
-              key={s.slug}
-              href={s.slug === 'cybersecurity' || s.slug === 'cctv-physical-security' ? `/${s.slug}` : `/services/${s.slug}`}
-              className="glb-card-link"
-              style={{ display: 'block', background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 14, padding: 28, textDecoration: 'none' }}
-            >
-              <div style={{ position: 'relative', width: '100%', height: 220, borderRadius: 12, overflow: 'hidden', marginBottom: 20 }}>
-                <img src={s.image} alt={s.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(10,25,48,0.08))' }} />
-              </div>
-              <div style={{ fontWeight: 700, fontSize: 18, color: colors.textDark, marginBottom: 10 }}>{s.name}</div>
-              <div style={{ fontSize: 14.5, color: colors.textBody, lineHeight: 1.6, marginBottom: 16 }}>{s.listingDesc}</div>
-              <div style={{ fontSize: 13.5, fontWeight: 600, color: colors.orange }}>Learn more →</div>
-            </Link>
-          ))}
+      <section className="max-w-[1280px] mx-auto pt-16 px-8 pb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5.5">
+          {services.map((s) => {
+            const href =
+              s.slug === 'cybersecurity' || s.slug === 'cctv-physical-security'
+                ? `/${s.slug}`
+                : `/services/${s.slug}`;
+            return (
+              <Link
+                key={s.slug}
+                href={href}
+                className="glb-card-link block bg-white border border-navy/8 rounded-2xl p-7 no-underline"
+              >
+                <div className="relative w-full h-[200px] rounded-xl overflow-hidden mb-5">
+                  <img src={s.image} alt={s.name} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/8" />
+                </div>
+                <div className="font-bold text-lg text-textDark mb-2.5">{s.name}</div>
+                <div className="text-[14.5px] text-textBody leading-[1.6] mb-4">{s.listingDesc}</div>
+                <div className="text-[13.5px] font-semibold text-orange">Learn more →</div>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
-      <section style={{ background: colors.navyMid }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px', textAlign: 'center' }}>
-          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 28, color: '#fff', margin: '0 0 14px' }}>
-            Need a service package for your business?
-          </h2>
-          <p style={{ fontSize: 15.5, color: 'rgba(255,255,255,.6)', margin: '0 0 26px' }}>
-            Tell us about your operation and we&apos;ll recommend the right mix of services.
-          </p>
-          <Link href="/contact" style={{ display: 'inline-block', background: colors.orange, color: colors.navy, fontWeight: 600, fontSize: 15, padding: '14px 26px', borderRadius: 8, textDecoration: 'none' }}>
-            Request Consultation
-          </Link>
-        </div>
-      </section>
-
+      <CTABand heading="Need a tailored service package?" subtitle="We combine software, hosting, security, and physical surveillance into single integrated contracts." />
       <Footer />
     </div>
   );

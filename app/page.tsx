@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { colors } from '@/lib/colors';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { products } from '@/lib/data/products';
 import { industries } from '@/lib/data/industries';
 import { services } from '@/lib/data/services';
@@ -48,91 +50,92 @@ export default function HomePage() {
       <Header />
 
       {/* HERO */}
-      <section
-        style={{
-          position: 'relative',
-          background: 'radial-gradient(ellipse at 75% -10%, #16314F 0%, #0A1930 55%, #07101F 100%)',
-          overflow: 'hidden',
-        }}
-      >
+      <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_75%_-10%,#16314F_0%,#0A1930_55%,#07101F_100%)]">
         <div
+          className="absolute inset-0 opacity-60 pointer-events-none"
           style={{
-            position: 'absolute',
-            inset: 0,
             backgroundImage:
               'linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px)',
             backgroundSize: '44px 44px',
-            opacity: 0.6,
           }}
         />
-        <div className="glb-grid" style={{ maxWidth: 1280, margin: '0 auto', padding: '88px 32px 96px', position: 'relative', display: 'grid', gridTemplateColumns: '1.1fr .9fr', gap: 56, alignItems: 'center' }}>
+        <div className="max-w-[1280px] mx-auto py-22 px-8 relative grid grid-cols-1 lg:grid-cols-[1.1fr_.9fr] gap-14 items-center">
           <div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(226,134,27,.12)', border: '1px solid rgba(226,134,27,.35)', padding: '7px 14px', borderRadius: 20, marginBottom: 24 }}>
-              <span style={{ width: 6, height: 6, borderRadius: '50%', background: colors.orange }} />
-              <span style={{ fontSize: 13, color: colors.orangeLight, fontWeight: 600 }}>Built for the fuel &amp; energy sector</span>
-            </div>
-            <h1 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 52, lineHeight: 1.12, color: '#fff', margin: '0 0 22px', letterSpacing: '-.01em' }}>
+            <Badge className="inline-flex items-center gap-2 bg-orange/12 hover:bg-orange/12 border border-orange/35 px-3.5 py-1.5 rounded-full mb-6 text-[13px] text-orangeLight font-semibold shadow-none">
+              <span className="w-1.5 h-1.5 rounded-full bg-orange" />
+              <span>Built for the fuel &amp; energy sector</span>
+            </Badge>
+            <h1 className="font-['Plus_Jakarta_Sans'] font-bold text-4xl sm:text-[52px] leading-[1.12] text-white mb-5.5 tracking-[-0.01em]">
               Complete solutions for energy companies
             </h1>
-            <p style={{ fontSize: 18, lineHeight: 1.65, color: 'rgba(255,255,255,.68)', maxWidth: 560, margin: '0 0 34px' }}>
+            <p className="text-lg leading-[1.65] text-white/68 max-w-[560px] mb-8.5 m-0">
               ERP, POS, fuel quota, propane and bulk gas delivery, location-based task management, cybersecurity, CCTV, and surveillance — built for oil, gas, refinery, station, and energy businesses in KRG and beyond.
             </p>
-            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-              <Link href="/contact" style={{ background: colors.orange, color: colors.navy, fontWeight: 600, fontSize: 15.5, padding: '15px 28px', borderRadius: 8, textDecoration: 'none' }}>
-                Contact Us
-              </Link>
-              <Link href="/solutions" style={{ background: 'rgba(255,255,255,.08)', border: '1px solid rgba(255,255,255,.18)', color: '#fff', fontWeight: 600, fontSize: 15.5, padding: '15px 28px', borderRadius: 8, textDecoration: 'none' }}>
-                Explore Solutions
-              </Link>
+            <div className="flex gap-3.5 flex-wrap">
+              <Button
+                asChild
+                className="bg-orange hover:bg-orangeDark text-navy font-semibold text-[15.5px] px-7 py-3.5 h-auto rounded-lg no-underline"
+              >
+                <Link href="/contact">Contact Us</Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="bg-white/8 hover:bg-white/12 border-white/18 text-white font-semibold text-[15.5px] px-7 py-3.5 h-auto rounded-lg no-underline shadow-none"
+              >
+                <Link href="/solutions">Explore Solutions</Link>
+              </Button>
             </div>
           </div>
 
-          <div style={{ position: 'relative' }}>
-            <div style={{ background: '#0F2440', border: '1px solid rgba(255,255,255,.1)', borderRadius: 16, padding: 24, boxShadow: '0 30px 70px rgba(0,0,0,.45)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18 }}>
-                <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,.85)' }}>Network Dashboard — Live</span>
-                <span style={{ display: 'flex', gap: 5, alignItems: 'center', fontSize: 11.5, color: '#5FD68A' }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#5FD68A' }} />
+          <div className="relative">
+            <Card className="bg-[#0F2440] border border-white/10 rounded-2xl p-6 shadow-[0_30px_70px_rgba(0,0,0,.45)] text-white">
+              <div className="flex justify-between items-center mb-4.5">
+                <span className="font-['Plus_Jakarta_Sans'] text-[13px] font-semibold text-white/85">
+                  Network Dashboard — Live
+                </span>
+                <span className="flex gap-1.5 items-center text-[11.5px] text-[#5FD68A]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#5FD68A]" />
                   Online
                 </span>
               </div>
-              <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 14 }}>
-                <div style={{ background: 'rgba(255,255,255,.04)', borderRadius: 10, padding: 16 }}>
-                  <div style={{ fontSize: 12, color: 'rgba(255,255,255,.5)', marginBottom: 6 }}>Stations Online</div>
-                  <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 26, fontWeight: 700, color: '#fff' }}>42/44</div>
+              <div className="grid grid-cols-2 gap-3 mb-3.5">
+                <div className="bg-white/4 rounded-lg p-4">
+                  <div className="text-xs text-white/50 mb-1.5">Stations Online</div>
+                  <div className="font-['Plus_Jakarta_Sans'] text-[26px] font-bold text-white">42/44</div>
                 </div>
-                <div style={{ background: 'rgba(255,255,255,.04)', borderRadius: 10, padding: 16 }}>
-                  <div style={{ fontSize: 12, color: 'rgba(255,255,255,.5)', marginBottom: 6 }}>Deliveries Today</div>
-                  <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 26, fontWeight: 700, color: '#fff' }}>318</div>
+                <div className="bg-white/4 rounded-lg p-4">
+                  <div className="text-xs text-white/50 mb-1.5">Deliveries Today</div>
+                  <div className="font-['Plus_Jakarta_Sans'] text-[26px] font-bold text-white">318</div>
                 </div>
               </div>
-              <div style={{ background: 'rgba(255,255,255,.04)', borderRadius: 10, padding: 16, marginBottom: 14 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, color: 'rgba(255,255,255,.5)', marginBottom: 10 }}>
+              <div className="bg-white/4 rounded-lg p-4 mb-3.5">
+                <div className="flex justify-between text-xs text-white/50 mb-2.5">
                   <span>Fuel Quota Usage</span>
                   <span>76%</span>
                 </div>
-                <div style={{ height: 8, borderRadius: 5, background: 'rgba(255,255,255,.08)', overflow: 'hidden' }}>
-                  <div style={{ width: '76%', height: '100%', background: `linear-gradient(90deg, ${colors.orange}, ${colors.orangeLight})` }} />
+                <div className="h-2 rounded-full bg-white/8 overflow-hidden">
+                  <div className="w-[76%] h-full bg-gradient-to-r from-orange to-orangeLight" />
                 </div>
               </div>
-              <div style={{ display: 'flex', gap: 10 }}>
-                <div style={{ flex: 1, background: 'rgba(226,134,27,.14)', border: '1px solid rgba(226,134,27,.3)', borderRadius: 10, padding: 12, textAlign: 'center' }}>
-                  <div style={{ fontSize: 11, color: colors.orangeLight }}>Security</div>
-                  <div style={{ fontWeight: 600, color: '#fff', fontSize: 13, marginTop: 3 }}>No Threats</div>
+              <div className="flex gap-2.5">
+                <div className="flex-1 bg-orange/14 border border-orange/30 rounded-lg p-3 text-center">
+                  <div className="text-[11px] text-orangeLight">Security</div>
+                  <div className="font-semibold text-white text-[13px] mt-0.5">No Threats</div>
                 </div>
-                <div style={{ flex: 1, background: 'rgba(226,134,27,.14)', border: '1px solid rgba(226,134,27,.3)', borderRadius: 10, padding: 12, textAlign: 'center' }}>
-                  <div style={{ fontSize: 11, color: colors.orangeLight }}>CCTV</div>
-                  <div style={{ fontWeight: 600, color: '#fff', fontSize: 13, marginTop: 3 }}>32 Cameras Live</div>
+                <div className="flex-1 bg-orange/14 border border-orange/30 rounded-lg p-3 text-center">
+                  <div className="text-[11px] text-orangeLight">CCTV</div>
+                  <div className="font-semibold text-white text-[13px] mt-0.5">32 Cameras Live</div>
                 </div>
               </div>
-            </div>
-            <div style={{ position: 'absolute', bottom: -22, left: -22, background: '#fff', borderRadius: 12, padding: '14px 18px', boxShadow: '0 20px 40px rgba(0,0,0,.35)', display: 'flex', alignItems: 'center', gap: 10 }}>
-              <div style={{ width: 34, height: 34, borderRadius: 8, background: colors.orangeTint, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, color: colors.orangeDark }}>
+            </Card>
+            <div className="absolute -bottom-5.5 -left-5.5 bg-white rounded-xl py-3.5 px-4.5 shadow-[0_20px_40px_rgba(0,0,0,.35)] flex items-center gap-2.5">
+              <div className="w-8.5 h-8.5 rounded-lg bg-orangeTint flex items-center justify-center text-base text-orangeDark">
                 <i className="fa-solid fa-gas-pump"></i>
               </div>
               <div>
-                <div style={{ fontSize: 12, color: '#8A97A3' }}>System Uptime</div>
-                <div style={{ fontWeight: 700, color: colors.textDark, fontSize: 15 }}>99.9%</div>
+                <div className="text-xs text-[#8A97A3]">System Uptime</div>
+                <div className="font-bold text-textDark text-[15px]">99.9%</div>
               </div>
             </div>
           </div>
@@ -140,114 +143,122 @@ export default function HomePage() {
       </section>
 
       {/* PROBLEMS */}
-      <section style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 32px' }}>
-        <div style={{ maxWidth: 640, margin: '0 auto 56px', textAlign: 'center' }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeDark, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 12 }}>The problem</div>
-          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 34, color: colors.textDark, margin: '0 0 14px', lineHeight: 1.25 }}>
+      <section className="max-w-[1280px] mx-auto py-24 px-8">
+        <div className="max-w-[640px] mx-auto mb-14 text-center">
+          <div className="text-[13px] font-semibold text-orangeDark tracking-[0.06em] uppercase mb-3">
+            The problem
+          </div>
+          <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[34px] text-textDark mb-3.5 leading-[1.25] m-0">
             Fuel and energy operations run on too many disconnected systems
           </h2>
-          <p style={{ fontSize: 16, color: colors.textBody, lineHeight: 1.6, margin: 0 }}>Manual processes and weak security create risk at every branch, station, and depot.</p>
+          <p className="text-base text-textBody leading-[1.6] m-0">
+            Manual processes and weak security create risk at every branch, station, and depot.
+          </p>
         </div>
-        <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {problems.map((p) => (
-            <div key={p.text} style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 12, padding: 24 }}>
-              <div style={{ fontSize: 22, color: colors.orange, marginBottom: 16 }}>
+            <Card key={p.text} className="bg-white border border-navy/8 rounded-xl p-6 shadow-none">
+              <div className="text-[22px] text-orange mb-4">
                 <i className={p.icon}></i>
               </div>
-              <div style={{ fontWeight: 600, fontSize: 15, color: colors.textDark, lineHeight: 1.4 }}>{p.text}</div>
-            </div>
+              <div className="font-semibold text-[15px] text-textDark leading-[1.4]">{p.text}</div>
+            </Card>
           ))}
         </div>
       </section>
 
       {/* SOLUTIONS OVERVIEW */}
-      <section style={{ background: colors.navyMid }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 32px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 44, flexWrap: 'wrap', gap: 20 }}>
+      <section className="bg-navyMid">
+        <div className="max-w-[1280px] mx-auto py-24 px-8">
+          <div className="flex justify-between items-end mb-11 flex-wrap gap-5">
             <div>
-              <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeLight, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 12 }}>Our solutions</div>
-              <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 34, color: '#fff', margin: 0, maxWidth: 600, lineHeight: 1.25 }}>
+              <div className="text-[13px] font-semibold text-orangeLight tracking-[0.06em] uppercase mb-3">
+                Our solutions
+              </div>
+              <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[34px] text-white max-w-[600px] leading-[1.25] m-0">
                 One connected platform across every part of your operation
               </h2>
             </div>
-            <Link href="/solutions" style={{ color: colors.orangeLight, fontWeight: 600, fontSize: 15, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+            <Link href="/solutions" className="text-orangeLight font-semibold text-[15px] no-underline whitespace-nowrap hover:underline">
               Browse all solutions →
             </Link>
           </div>
-          <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 16 }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {solutionsOverview.map((s) => (
-              <div key={s.text} style={{ background: 'rgba(255,255,255,.04)', border: '1px solid rgba(255,255,255,.08)', borderRadius: 12, padding: 20 }}>
-                <div style={{ fontSize: 20, color: colors.orangeLight, marginBottom: 12 }}>
+              <Card key={s.text} className="bg-white/4 border border-white/8 rounded-xl p-5 shadow-none text-white">
+                <div className="text-xl text-orangeLight mb-3">
                   <i className={s.icon}></i>
                 </div>
-                <div style={{ fontWeight: 600, fontSize: 14.5, color: '#fff', lineHeight: 1.35 }}>{s.text}</div>
-              </div>
+                <div className="font-semibold text-[14.5px] text-white leading-[1.35]">{s.text}</div>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
       {/* PRODUCTS HIGHLIGHT */}
-      <section style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 32px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 44, flexWrap: 'wrap', gap: 20 }}>
+      <section className="max-w-[1280px] mx-auto py-24 px-8">
+        <div className="flex justify-between items-end mb-11 flex-wrap gap-5">
           <div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeDark, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 12 }}>Products</div>
-            <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 34, color: colors.textDark, margin: 0, lineHeight: 1.25 }}>
+            <div className="text-[13px] font-semibold text-orangeDark tracking-[0.06em] uppercase mb-3">
+              Products
+            </div>
+            <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[34px] text-textDark leading-[1.25] m-0">
               Purpose-built software for fuel operations
             </h2>
           </div>
-          <Link href="/products" style={{ color: colors.orangeDark, fontWeight: 600, fontSize: 15, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+          <Link href="/products" className="text-orangeDark font-semibold text-[15px] no-underline whitespace-nowrap hover:underline">
             View all products →
           </Link>
         </div>
-        <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22 }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5.5">
           {homeProducts.slice(0, 6).map((p) => (
             <Link
               key={p.slug}
               href={`/products/${p.slug}`}
-              className="glb-card-link"
-              style={{ display: 'block', background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 14, padding: 26, textDecoration: 'none' }}
+              className="glb-card-link block bg-white border border-navy/8 rounded-2xl p-6.5 no-underline"
             >
-               <div style={{ position: 'relative', width: '100%', height: 180, borderRadius: 10, overflow: 'hidden', marginBottom: 18 }}>
-                <img src={p.image} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(10,25,48,0.05))' }} />
+              <div className="relative w-full h-[180px] rounded-lg overflow-hidden mb-4.5">
+                <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/5" />
               </div>
-              <div style={{ fontWeight: 700, fontSize: 17, color: colors.textDark, marginBottom: 8 }}>{p.name}</div>
-              <div style={{ fontSize: 14.5, color: colors.textBody, lineHeight: 1.55, marginBottom: 14 }}>{p.listingDesc}</div>
-              <div style={{ fontSize: 13.5, fontWeight: 600, color: colors.orangeDark }}>{p.homeBenefit}</div>
+              <div className="font-bold text-[17px] text-textDark mb-2">{p.name}</div>
+              <div className="text-[14.5px] text-textBody leading-[1.55] mb-3.5">{p.listingDesc}</div>
+              <div className="text-[13.5px] font-semibold text-orangeDark">{p.homeBenefit}</div>
             </Link>
           ))}
         </div>
       </section>
 
       {/* SERVICES HIGHLIGHT */}
-      <section style={{ background: colors.grayBg }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 32px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 44, flexWrap: 'wrap', gap: 20 }}>
+      <section className="bg-grayBg">
+        <div className="max-w-[1280px] mx-auto py-24 px-8">
+          <div className="flex justify-between items-end mb-11 flex-wrap gap-5">
             <div>
-              <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeDark, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 12 }}>Services</div>
-              <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 34, color: colors.textDark, margin: 0, lineHeight: 1.25 }}>
+              <div className="text-[13px] font-semibold text-orangeDark tracking-[0.06em] uppercase mb-3">
+                Services
+              </div>
+              <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[34px] text-textDark leading-[1.25] m-0">
                 Full lifecycle delivery, security, and support
               </h2>
             </div>
-            <Link href="/services" style={{ color: colors.orangeDark, fontWeight: 600, fontSize: 15, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+            <Link href="/services" className="text-orangeDark font-semibold text-[15px] no-underline whitespace-nowrap hover:underline">
               View all services →
             </Link>
           </div>
-          <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {services.slice(0, 4).map((s) => (
               <Link
                 key={s.slug}
                 href={s.slug === 'cybersecurity' || s.slug === 'cctv-physical-security' ? `/${s.slug}` : `/services/${s.slug}`}
-                className="glb-card-link"
-                style={{ display: 'block', background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 12, padding: 22, textDecoration: 'none' }}
+                className="glb-card-link block bg-white border border-navy/8 rounded-xl p-5.5 no-underline"
               >
-                <div style={{ position: 'relative', width: '100%', height: 160, borderRadius: 10, overflow: 'hidden', marginBottom: 16 }}>
-                  <img src={s.image} alt={s.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(10,25,48,0.05))' }} />
+                <div className="relative w-full h-[160px] rounded-lg overflow-hidden mb-4">
+                  <img src={s.image} alt={s.name} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/5" />
                 </div>
-                <div style={{ fontWeight: 700, fontSize: 15, color: colors.textDark, marginBottom: 6 }}>{s.name}</div>
-                <div style={{ fontSize: 13.5, color: colors.textBody, lineHeight: 1.5 }}>{s.listingDesc}</div>
+                <div className="font-bold text-[15px] text-textDark mb-1.5">{s.name}</div>
+                <div className="text-[13.5px] text-textBody leading-[1.5]">{s.listingDesc}</div>
               </Link>
             ))}
           </div>
@@ -255,49 +266,53 @@ export default function HomePage() {
       </section>
 
       {/* INDUSTRIES */}
-      <section style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 32px' }}>
-        <div style={{ maxWidth: 640, margin: '0 auto 48px', textAlign: 'center' }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeDark, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 12 }}>Industries served</div>
-          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 34, color: colors.textDark, margin: '0 0 14px', lineHeight: 1.25 }}>
+      <section className="max-w-[1280px] mx-auto py-24 px-8">
+        <div className="max-w-[640px] mx-auto mb-12 text-center">
+          <div className="text-[13px] font-semibold text-orangeDark tracking-[0.06em] uppercase mb-3">
+            Industries served
+          </div>
+          <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[34px] text-textDark leading-[1.25] mb-3.5 m-0">
             Trusted across the fuel and energy value chain
           </h2>
         </div>
-        <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {industries.map((i) => (
-            <div key={i.name} style={{ display: 'flex', alignItems: 'center', gap: 14, background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 12, padding: '18px 20px' }}>
-              <div style={{ fontSize: 20, color: colors.orange, flex: 'none' }}>
+            <Card key={i.name} className="flex items-center gap-3.5 bg-white border border-navy/8 rounded-xl py-4.5 px-5 shadow-none">
+              <div className="text-xl text-orange shrink-0">
                 <i className={i.icon}></i>
               </div>
-              <div style={{ fontWeight: 600, fontSize: 14.5, color: colors.textDark }}>{i.name}</div>
-            </div>
+              <div className="font-semibold text-[14.5px] text-textDark">{i.name}</div>
+            </Card>
           ))}
         </div>
-        <div style={{ textAlign: 'center', marginTop: 28 }}>
-          <Link href="/industries" style={{ color: colors.orange, fontWeight: 600, fontSize: 15, textDecoration: 'none' }}>
+        <div className="text-center mt-7">
+          <Link href="/industries" className="text-orange font-semibold text-[15px] no-underline hover:underline">
             See industry-specific solutions →
           </Link>
         </div>
       </section>
 
       {/* WHY CHOOSE US */}
-      <section style={{ background: colors.navy }}>
-        <div className="glb-grid" style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 32px', display: 'grid', gridTemplateColumns: '.9fr 1.1fr', gap: 60, alignItems: 'center' }}>
+      <section className="bg-navy">
+        <div className="max-w-[1280px] mx-auto py-24 px-8 grid grid-cols-1 lg:grid-cols-[.9fr_1.1fr] gap-15 items-center">
           <div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeLight, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 12 }}>Why Glaban</div>
-            <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 34, color: '#fff', margin: '0 0 18px', lineHeight: 1.25 }}>
+            <div className="text-[13px] font-semibold text-orangeLight tracking-[0.06em] uppercase mb-3">
+              Why Glaban
+            </div>
+            <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[34px] text-white leading-[1.25] mb-4.5 m-0">
               A technology partner that understands the fuel business
             </h2>
-            <p style={{ fontSize: 16, color: 'rgba(255,255,255,.65)', lineHeight: 1.65, margin: 0 }}>
+            <p className="text-base text-white/65 leading-[1.65] m-0">
               We combine deep fuel-sector experience with software, security, and physical protection expertise — and stay with you long after go-live.
             </p>
           </div>
-          <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18 }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4.5">
             {whyUs.map((w) => (
-              <div key={w} style={{ display: 'flex', gap: 12 }}>
-                <div style={{ width: 22, height: 22, borderRadius: 6, background: 'rgba(226,134,27,.18)', color: colors.orangeLight, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, flex: 'none', marginTop: 2 }}>
+              <div key={w} className="flex gap-3 items-start">
+                <div className="w-5.5 h-5.5 rounded-md bg-orange/18 text-orangeLight flex items-center justify-center text-[10px] shrink-0 mt-0.5">
                   <i className="fa-solid fa-check"></i>
                 </div>
-                <div style={{ fontSize: 14.5, color: 'rgba(255,255,255,.82)', fontWeight: 500, lineHeight: 1.5 }}>{w}</div>
+                <div className="text-[14.5px] text-white/82 font-medium leading-[1.5]">{w}</div>
               </div>
             ))}
           </div>
@@ -305,19 +320,22 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section style={{ maxWidth: 1280, margin: '0 auto', padding: '80px 32px' }}>
-        <div style={{ background: `linear-gradient(120deg, ${colors.navyLight}, ${colors.navy})`, borderRadius: 20, padding: '64px 56px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle at 85% 20%, rgba(226,134,27,.18), transparent 55%)' }} />
-          <div style={{ position: 'relative' }}>
-            <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 32, color: '#fff', margin: '0 0 14px' }}>
+      <section className="max-w-[1280px] mx-auto py-20 px-8">
+        <div className="bg-gradient-to-r from-navyLight to-navy rounded-2xl py-16 px-14 text-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_20%,rgba(226,134,27,.18),transparent_55%)] pointer-events-none" />
+          <div className="relative">
+            <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[32px] text-white mb-3.5 m-0">
               Ready to modernise your operations?
             </h2>
-            <p style={{ fontSize: 16, color: 'rgba(255,255,255,.65)', margin: '0 0 28px', maxWidth: 520, marginLeft: 'auto', marginRight: 'auto' }}>
+            <p className="text-base text-white/65 max-w-[520px] mx-auto mb-7 m-0">
               Talk to our team about ERP, security, and surveillance solutions built for your business.
             </p>
-            <Link href="/contact" style={{ display: 'inline-block', background: colors.orange, color: colors.navy, fontWeight: 600, fontSize: 16, padding: '16px 32px', borderRadius: 8, textDecoration: 'none' }}>
-              Contact Us
-            </Link>
+            <Button
+              asChild
+              className="bg-orange hover:bg-orangeDark text-navy font-semibold text-base px-8 py-4 h-auto rounded-lg no-underline"
+            >
+              <Link href="/contact">Contact Us</Link>
+            </Button>
           </div>
         </div>
       </section>

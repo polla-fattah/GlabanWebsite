@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import { colors } from '@/lib/colors';
+import { Card } from '@/components/ui/card';
 import { industries } from '@/lib/data/industries';
 
 export const metadata = { title: 'Industries | Glaban' };
@@ -13,61 +13,61 @@ export default function IndustriesPage() {
       <Header />
       <PageHero
         eyebrow="Industries"
-        eyebrowColor={colors.orangeLight}
+        eyebrowColor="var(--color-orangeLight)"
         title="Built for every part of the fuel and energy value chain"
         subtitle="Each industry has different operational risks. We tailor products and services to match."
       />
 
-      <section style={{ maxWidth: 1280, margin: '0 auto', padding: '64px 32px 96px', display: 'flex', flexDirection: 'column', gap: 24 }}>
+      <section className="max-w-[1280px] mx-auto py-16 px-8 pb-24 flex flex-col gap-6">
         {industries.map((ind) => (
-          <div key={ind.name} className="glb-grid" style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 16, padding: 40, display: 'grid', gridTemplateColumns: '.4fr .6fr', gap: 48 }}>
+          <Card key={ind.name} className="bg-white border border-navy/8 rounded-2xl p-10 grid grid-cols-1 lg:grid-cols-[.4fr_.6fr] gap-12 shadow-none">
             <div>
-              <div style={{ width: 64, height: 64, borderRadius: 16, background: colors.orangeTint, color: colors.orange, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, marginBottom: 24 }}>
+              <div className="w-16 h-16 rounded-2xl bg-orangeTint text-orange flex items-center justify-center text-[28px] mb-6">
                 <i className={ind.icon}></i>
               </div>
-              <div style={{ fontWeight: 800, fontSize: 28, color: colors.textDark, marginBottom: 16, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{ind.name}</div>
-              <p style={{ fontSize: 16, color: colors.textBody, lineHeight: 1.7, margin: 0 }}>{ind.desc}</p>
+              <div className="font-extrabold text-[28px] text-textDark mb-4 font-['Plus_Jakarta_Sans']">{ind.name}</div>
+              <p className="text-base text-textBody leading-[1.7] m-0">{ind.desc}</p>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32 }}>
+            <div className="flex flex-col justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <div style={{ fontSize: 12, fontWeight: 700, color: colors.textMuted, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 14 }}>
+                  <div className="text-xs font-bold text-textMuted tracking-[0.05em] uppercase mb-3.5">
                     Common Problems
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  <div className="flex flex-col gap-2.5">
                     {ind.problems.map((p) => (
-                      <div key={p} style={{ fontSize: 14, color: colors.textBody2, lineHeight: 1.4, display: 'flex', gap: 8 }}>
-                        <div style={{ color: '#E74C3C', marginTop: 2 }}>
+                      <div key={p} className="text-sm text-textBody2 leading-[1.4] flex gap-2 items-start">
+                        <div className="text-[#E74C3C] mt-0.5">
                           <i className="fa-solid fa-circle-exclamation"></i>
                         </div>
-                        {p}
+                        <span>{p}</span>
                       </div>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <div style={{ fontSize: 12, fontWeight: 700, color: colors.orange, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 14 }}>
+                  <div className="text-xs font-bold text-orange tracking-[0.05em] uppercase mb-3.5">
                     Recommended Solutions
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  <div className="flex flex-col gap-2.5">
                     {ind.recs.map((r) => (
-                      <div key={r} style={{ fontSize: 14, color: colors.textBody2, lineHeight: 1.4, display: 'flex', gap: 8 }}>
-                         <div style={{ color: colors.orange, marginTop: 2 }}>
+                      <div key={r} className="text-sm text-textBody2 leading-[1.4] flex gap-2 items-start">
+                        <div className="text-orange mt-0.5">
                           <i className="fa-solid fa-check"></i>
                         </div>
-                        {r}
+                        <span>{r}</span>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
 
-              <Link href="/contact" style={{ display: 'inline-block', marginTop: 32, fontSize: 14, fontWeight: 700, color: colors.orange, textDecoration: 'none' }}>
+              <Link href="/contact" className="inline-block mt-8 text-sm font-bold text-orange no-underline hover:underline">
                 Consult with our {ind.name} experts →
               </Link>
             </div>
-          </div>
+          </Card>
         ))}
       </section>
 

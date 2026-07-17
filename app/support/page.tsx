@@ -3,10 +3,29 @@
 import { useState, FormEvent } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { colors } from '@/lib/colors';
+import PageHero from '@/components/PageHero';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { SUPPORT_FORM_ENDPOINT } from '@/lib/formEndpoints';
 
-const productOptions = ['Fuel ERP', 'Gas Station POS', 'Fuel Card / Fleet Card', 'Fuel Limit / Quota', 'Propane Cylinder System', 'Other'];
+const productOptions = [
+  'Fuel ERP',
+  'Gas Station POS',
+  'Fuel Card / Fleet Card',
+  'Fuel Limit / Quota',
+  'Propane Cylinder System',
+  'Other',
+];
 const issueTypes = ['Technical Issue', 'Bug Report', 'Training Request', 'Other'];
 const urgencyLevels = ['Low', 'Normal', 'High / Emergency'];
 
@@ -18,8 +37,14 @@ const channels = [
 ];
 
 const covered = [
-  'Support channels and working hours', 'Maintenance options', 'Update policy', 'Bug reporting',
-  'Training support', 'Emergency support', 'Hosting support', 'Backup and restore support',
+  'Support channels and working hours',
+  'Maintenance options',
+  'Update policy',
+  'Bug reporting',
+  'Training support',
+  'Emergency support',
+  'Hosting support',
+  'Backup and restore support',
 ];
 
 export default function SupportPage() {
@@ -59,119 +84,138 @@ export default function SupportPage() {
   return (
     <div>
       <Header />
-      <section style={{ background: colors.navy, padding: '72px 32px 56px' }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeLight, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 14 }}>
-            Support
-          </div>
-          <h1 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 40, color: '#fff', margin: '0 0 16px', maxWidth: 720, lineHeight: 1.2 }}>
-            We&apos;re here after go-live
-          </h1>
-          <p style={{ fontSize: 17, color: 'rgba(255,255,255,.65)', maxWidth: 640, lineHeight: 1.6, margin: 0 }}>
-            Reach our support team directly, or submit a request below.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Support"
+        title="We're here after go-live"
+        subtitle="Reach our support team directly, or submit a request below."
+      />
 
-      <section className="glb-grid" style={{ maxWidth: 1280, margin: '0 auto', padding: '64px 32px 96px', display: 'grid', gridTemplateColumns: '.9fr 1.1fr', gap: 48 }}>
+      <section className="max-w-[1280px] mx-auto py-16 px-8 pb-24 grid grid-cols-1 lg:grid-cols-[.9fr_1.1fr] gap-12">
         <div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 32 }}>
+          <div className="flex flex-col gap-3.5 mb-8">
             {channels.map((c) => (
-              <div key={c.label} style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 12, padding: 20 }}>
-                <div style={{ fontWeight: 700, fontSize: 15, color: colors.textDark, marginBottom: 4 }}>{c.label}</div>
-                <div style={{ fontSize: 14, color: colors.textBody }}>{c.value}</div>
-              </div>
+              <Card key={c.label} className="bg-white border border-navy/8 rounded-xl shadow-none">
+                <CardHeader className="p-5 pb-1">
+                  <CardTitle className="font-bold text-[15px] text-textDark">{c.label}</CardTitle>
+                </CardHeader>
+                <CardContent className="p-5 pt-0 text-sm text-textBody">{c.value}</CardContent>
+              </Card>
             ))}
           </div>
-          <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 18, color: colors.textDark, marginBottom: 14 }}>What we cover</div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
+          <div className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-textDark mb-3.5">
+            What we cover
+          </div>
+          <div className="flex flex-col gap-2.5">
             {covered.map((i) => (
-              <div key={i} style={{ display: 'flex', gap: 9, alignItems: 'flex-start' }}>
-                <div style={{ color: colors.orange, fontSize: 11, marginTop: 4 }}>
+              <div key={i} className="flex gap-2.5 items-start">
+                <div className="text-orange text-[11px] mt-1">
                   <i className="fa-solid fa-check"></i>
                 </div>
-                <span style={{ fontSize: 14, color: colors.textBody2 }}>{i}</span>
+                <span className="text-sm text-textBody2">{i}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <div style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 16, padding: 36 }}>
-          {!submitted ? (
-            <form onSubmit={handleSubmit}>
-              <input type="text" name="_gotcha" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
-              <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 20, color: colors.textDark, marginBottom: 22 }}>
-                Submit a support request
-              </div>
-              <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
-                <div>
-                  <label className="glb-label">Company Name *</label>
-                  <input className="glb-input" name="company" />
+        <Card className="bg-white border border-navy/8 rounded-2xl shadow-none">
+          <CardContent className="p-9">
+            {!submitted ? (
+              <form onSubmit={handleSubmit}>
+                <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
+                <div className="font-['Plus_Jakarta_Sans'] font-bold text-xl text-textDark mb-5.5">
+                  Submit a support request
                 </div>
-                <div>
-                  <label className="glb-label">Contact Person *</label>
-                  <input className="glb-input" name="contact" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <Label className="text-[13px] font-semibold text-textBody2 mb-1.5 block">Company Name *</Label>
+                    <Input name="company" className="h-10 bg-white" />
+                  </div>
+                  <div>
+                    <Label className="text-[13px] font-semibold text-textBody2 mb-1.5 block">Contact Person *</Label>
+                    <Input name="contact" className="h-10 bg-white" />
+                  </div>
                 </div>
-              </div>
-              <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
-                <div>
-                  <label className="glb-label">Phone Number *</label>
-                  <input className="glb-input" name="phone" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <Label className="text-[13px] font-semibold text-textBody2 mb-1.5 block">Phone Number *</Label>
+                    <Input name="phone" className="h-10 bg-white" />
+                  </div>
+                  <div>
+                    <Label className="text-[13px] font-semibold text-textBody2 mb-1.5 block">Email *</Label>
+                    <Input name="email" type="email" className="h-10 bg-white" />
+                  </div>
                 </div>
-                <div>
-                  <label className="glb-label">Email *</label>
-                  <input className="glb-input" name="email" type="email" />
+                <div className="mb-4">
+                  <Label className="text-[13px] font-semibold text-textBody2 mb-1.5 block">Product or System</Label>
+                  <Select name="product" defaultValue={productOptions[0]}>
+                    <SelectTrigger className="w-full bg-white h-10">
+                      <SelectValue placeholder="Select product" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {productOptions.map((o) => (
+                        <SelectItem key={o} value={o}>
+                          {o}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
-              </div>
-              <div style={{ marginBottom: 16 }}>
-                <label className="glb-label">Product or System</label>
-                <select className="glb-select" name="product" defaultValue={productOptions[0]}>
-                  {productOptions.map((o) => (
-                    <option key={o} value={o}>{o}</option>
-                  ))}
-                </select>
-              </div>
-              <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
-                <div>
-                  <label className="glb-label">Issue Type</label>
-                  <select className="glb-select" name="issueType" defaultValue={issueTypes[0]}>
-                    {issueTypes.map((o) => (
-                      <option key={o} value={o}>{o}</option>
-                    ))}
-                  </select>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <Label className="text-[13px] font-semibold text-textBody2 mb-1.5 block">Issue Type</Label>
+                    <Select name="issueType" defaultValue={issueTypes[0]}>
+                      <SelectTrigger className="w-full bg-white h-10">
+                        <SelectValue placeholder="Select issue type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {issueTypes.map((o) => (
+                          <SelectItem key={o} value={o}>
+                            {o}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label className="text-[13px] font-semibold text-textBody2 mb-1.5 block">Urgency</Label>
+                    <Select name="urgency" defaultValue={urgencyLevels[1]}>
+                      <SelectTrigger className="w-full bg-white h-10">
+                        <SelectValue placeholder="Select urgency" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {urgencyLevels.map((o) => (
+                          <SelectItem key={o} value={o}>
+                            {o}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
-                <div>
-                  <label className="glb-label">Urgency</label>
-                  <select className="glb-select" name="urgency" defaultValue={urgencyLevels[1]}>
-                    {urgencyLevels.map((o) => (
-                      <option key={o} value={o}>{o}</option>
-                    ))}
-                  </select>
+                <div className="mb-5.5">
+                  <Label className="text-[13px] font-semibold text-textBody2 mb-1.5 block">Issue Description *</Label>
+                  <Textarea name="description" rows={4} className="bg-white" />
                 </div>
+                {error && <div className="text-destructive text-[13.5px] mb-3.5">{error}</div>}
+                <Button
+                  type="submit"
+                  disabled={submitting}
+                  className="bg-orange hover:bg-orangeDark text-navy font-semibold text-[15px] px-[26px] py-3.5 h-auto rounded-lg"
+                >
+                  {submitting ? 'Sending…' : 'Submit Request'}
+                </Button>
+              </form>
+            ) : (
+              <div className="text-center py-10">
+                <div className="w-[52px] h-[52px] rounded-full bg-orangeTint text-orange flex items-center justify-center text-2xl mx-auto mb-4.5">
+                  <i className="fa-solid fa-check"></i>
+                </div>
+                <div className="font-['Plus_Jakarta_Sans'] font-bold text-[19px] text-textDark mb-2">Request received</div>
+                <p className="text-[14.5px] text-textBody m-0">Our support team will contact you shortly.</p>
               </div>
-              <div style={{ marginBottom: 22 }}>
-                <label className="glb-label">Issue Description *</label>
-                <textarea className="glb-textarea" name="description" rows={4} />
-              </div>
-              {error && <div style={{ color: '#C0392B', fontSize: 13.5, marginBottom: 14 }}>{error}</div>}
-              <button
-                type="submit"
-                disabled={submitting}
-                style={{ background: colors.orange, color: colors.navy, fontWeight: 600, fontSize: 15, padding: '14px 26px', borderRadius: 8, border: 'none', cursor: submitting ? 'default' : 'pointer', opacity: submitting ? 0.7 : 1 }}
-              >
-                {submitting ? 'Sending…' : 'Submit Request'}
-              </button>
-            </form>
-          ) : (
-            <div style={{ textAlign: 'center', padding: '40px 0' }}>
-              <div style={{ width: 52, height: 52, borderRadius: '50%', background: colors.orangeTint, color: colors.orange, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, margin: '0 auto 18px' }}>
-                <i className="fa-solid fa-check"></i>
-              </div>
-              <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 19, color: colors.textDark, marginBottom: 8 }}>Request received</div>
-              <p style={{ fontSize: 14.5, color: colors.textBody, margin: 0 }}>Our support team will contact you shortly.</p>
-            </div>
-          )}
-        </div>
+            )}
+          </CardContent>
+        </Card>
       </section>
 
       <Footer />

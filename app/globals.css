@@ -1,14 +1,88 @@
-body {
-  margin: 0;
-  background: #F5F6F4;
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0A1930;
+  --color-navyMid: #0F1B2E;
+  --color-navyLight: #16314F;
+  --color-navyDeep: #07101F;
+  --color-orange: #E2861B;
+  --color-orangeDark: #C96F0F;
+  --color-orangeLight: #F0A85B;
+  --color-orangeTint: #FDF1E2;
+  --color-cream: #F5F6F4;
+  --color-grayBg: #EFF1EE;
+  --color-textDark: #16212B;
+  --color-textBody: #59677A;
+  --color-textBody2: #3E4C59;
+  --color-textMuted: #8A97A3;
+  --color-blue: #2F6FE0;
+  --color-blueLight: #8AB2F5;
+  --color-green: #1F9D6E;
+  --color-greenLight: #7FD8B0;
+  --color-greenTint: #E9F5EF;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
 }
 
-a {
-  color: #E2861B;
+:root {
+  --background: #F5F6F4;
+  --foreground: #16212B;
+  --card: #FFFFFF;
+  --card-foreground: #16212B;
+  --popover: #FFFFFF;
+  --popover-foreground: #16212B;
+  --primary: #E2861B;
+  --primary-foreground: #0A1930;
+  --secondary: #EFF1EE;
+  --secondary-foreground: #16212B;
+  --muted: #EFF1EE;
+  --muted-foreground: #8A97A3;
+  --accent: #FDF1E2;
+  --accent-foreground: #C96F0F;
+  --destructive: #C0392B;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(10, 25, 48, 0.15);
+  --input: rgba(10, 25, 48, 0.15);
+  --ring: #E2861B;
+  --radius: 0.5rem;
 }
 
-a:hover {
-  color: #C96F0F;
+@layer base {
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', sans-serif;
+  }
+
+  a:not([class*="text-"]) {
+    color: var(--color-orange);
+  }
+
+  a:not([class*="text-"]):hover {
+    color: var(--color-orangeDark);
+  }
 }
 
 .glb-input,

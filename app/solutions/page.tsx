@@ -2,7 +2,8 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import { colors } from '@/lib/colors';
+import { Card } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { solutionItems } from '@/lib/data/solutions';
 
 export const metadata = { title: 'Solutions | Glaban' };
@@ -17,24 +18,27 @@ export default function SolutionsPage() {
         subtitle="Browse by the challenge you're facing rather than product names."
       />
 
-      <section style={{ maxWidth: 1000, margin: '0 auto', padding: '64px 32px 96px', display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <section className="max-w-[1280px] mx-auto py-16 px-8 pb-24 flex flex-col gap-4">
         {solutionItems.map((it) => (
-          <div key={it.problem} style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 14, padding: '28px 30px' }}>
-            <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: 18, color: colors.textDark, marginBottom: 8 }}>
+          <Card key={it.problem} className="bg-white border border-navy/8 rounded-[14px] py-7 px-7.5 shadow-none">
+            <div className="font-['Plus_Jakarta_Sans'] font-semibold text-lg text-textDark mb-2">
               &quot;{it.problem}&quot;
             </div>
-            <div style={{ fontSize: 15, color: colors.textBody, lineHeight: 1.6, marginBottom: 16 }}>{it.solution}</div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 16 }}>
+            <div className="text-[15px] text-textBody leading-[1.6] mb-4">{it.solution}</div>
+            <div className="flex flex-wrap gap-2 mb-4">
               {it.benefits.map((b) => (
-                <span key={b} style={{ background: colors.orangeTint, color: colors.orangeDark, fontSize: 12.5, fontWeight: 600, padding: '6px 12px', borderRadius: 16 }}>
+                <Badge
+                  key={b}
+                  className="bg-orangeTint hover:bg-orangeTint text-orangeDark text-[12.5px] font-semibold px-3 py-1.5 rounded-full border-0 shadow-none"
+                >
                   {b}
-                </span>
+                </Badge>
               ))}
             </div>
-            <Link href={it.href} style={{ fontSize: 13.5, fontWeight: 600, color: colors.orange, textDecoration: 'none' }}>
+            <Link href={it.href} className="text-[13.5px] font-semibold text-orange no-underline hover:underline">
               See related product →
             </Link>
-          </div>
+          </Card>
         ))}
       </section>
 

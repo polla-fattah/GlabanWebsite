@@ -2,7 +2,8 @@ import Header from './Header';
 import Footer from './Footer';
 import DetailHero from './DetailHero';
 import CTABand from './CTABand';
-import { colors } from '@/lib/colors';
+import { Card } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import type { Service } from '@/lib/data/services';
 
 export default function ServiceDetailTemplate({ service }: { service: Service }) {
@@ -13,88 +14,93 @@ export default function ServiceDetailTemplate({ service }: { service: Service })
       <DetailHero
         icon={d.icon}
         iconBg="transparent"
-        iconColor={colors.orange}
+        iconColor="var(--color-orange)"
         eyebrow={d.eyebrow}
-        eyebrowColor={colors.orangeLight}
+        eyebrowColor="var(--color-orangeLight)"
         title={service.name}
         subtitle={d.heroSubtitle}
         ctaLabel={d.ctaLabel}
       />
 
-      <section style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px' }}>
-        <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr .8fr', gap: 64, marginBottom: 72 }}>
+      <section className="max-w-[1280px] mx-auto py-18 px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_.8fr] gap-16 mb-18">
           <div>
-            <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 28, color: colors.textDark, marginBottom: 20 }}>
+            <div className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-textDark mb-5">
               {d.sectionHeading}
             </div>
-            <p style={{ fontSize: 16, color: colors.textBody, lineHeight: 1.8, margin: '0 0 32px' }}>{d.sectionBody}</p>
+            <p className="text-base text-textBody leading-[1.8] mb-8 m-0">{d.sectionBody}</p>
 
-            <div style={{ background: colors.grayBg, borderRadius: 16, padding: 32, marginBottom: 40 }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: colors.orangeDark, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 20 }}>
+            <Card className="bg-grayBg border-0 rounded-2xl p-8 mb-10 shadow-none">
+              <div className="text-[13px] font-bold text-orangeDark tracking-[0.05em] uppercase mb-5">
                 Core Service Benefits
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <div className="flex flex-col gap-4">
                 {d.benefits.map((b) => (
-                  <div key={b} style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-                    <div style={{ width: 22, height: 22, borderRadius: '50%', background: colors.orange, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, flex: 'none' }}>
+                  <div key={b} className="flex gap-3 items-center">
+                    <div className="w-[22px] h-[22px] rounded-full bg-orange text-white flex items-center justify-center text-[11px] shrink-0">
                       <i className="fa-solid fa-check"></i>
                     </div>
-                    <div style={{ fontSize: 15, fontWeight: 600, color: colors.textDark }}>{b}</div>
+                    <div className="text-[15px] font-semibold text-textDark">{b}</div>
                   </div>
                 ))}
               </div>
-            </div>
+            </Card>
 
             {d.roles && (
-              <div style={{ marginBottom: 32 }}>
-                <div style={{ fontSize: 12, fontWeight: 600, color: colors.textMuted, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
+              <div className="mb-8">
+                <div className="text-xs font-semibold text-textMuted tracking-[0.05em] uppercase mb-4">
                   Target User Roles
                 </div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+                <div className="flex flex-wrap gap-2.5">
                   {d.roles.map((r) => (
-                    <span key={r} style={{ background: colors.orangeTint, color: colors.orangeDark, fontSize: 13, fontWeight: 600, padding: '7px 14px', borderRadius: 12 }}>
+                    <Badge
+                      key={r}
+                      className="bg-orangeTint hover:bg-orangeTint text-orangeDark text-[13px] font-semibold px-3.5 py-[7px] rounded-xl border-0 shadow-none"
+                    >
                       {r}
-                    </span>
+                    </Badge>
                   ))}
                 </div>
               </div>
             )}
 
-            {d.disclaimer && <p style={{ fontSize: 13, color: colors.textMuted, maxWidth: 700, marginTop: 24 }}>{d.disclaimer}</p>}
+            {d.disclaimer && (
+              <p className="text-[13px] text-textMuted max-w-[700px] mt-6">{d.disclaimer}</p>
+            )}
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-             <div style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 16, padding: 32 }}>
-                <div style={{ fontSize: 13, fontWeight: 700, color: colors.textDark, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 20 }}>
-                  Technical Scope
-                </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 14 }}>
-                  {(d.items || d.steps || []).map((f) => (
-                    <div key={f} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-                      <div style={{ color: colors.orange, fontSize: 11, marginTop: 4 }}>
-                        <i className="fa-solid fa-check"></i>
-                      </div>
-                      <span style={{ fontSize: 14.5, color: colors.textBody2, lineHeight: 1.4 }}>{f}</span>
-                    </div>
-                  ))}
-                </div>
+          <div className="flex flex-col gap-6">
+            <Card className="bg-white border border-navy/10 rounded-2xl p-8 shadow-none">
+              <div className="text-[13px] font-bold text-textDark tracking-[0.05em] uppercase mb-5">
+                Technical Scope
               </div>
+              <div className="grid grid-cols-1 gap-3.5">
+                {(d.items || d.steps || []).map((f) => (
+                  <div key={f} className="flex gap-3 items-start">
+                    <div className="text-orange text-[11px] mt-1">
+                      <i className="fa-solid fa-check"></i>
+                    </div>
+                    <span className="text-[14.5px] text-textBody2 leading-[1.4]">{f}</span>
+                  </div>
+                ))}
+              </div>
+            </Card>
 
-              <div style={{ background: colors.navy, borderRadius: 16, padding: 32, color: '#fff' }}>
-                <div style={{ fontSize: 13, fontWeight: 700, color: colors.orangeLight, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 20 }}>
-                  Engagement Process
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-                  {d.howItWorks.map((h, i) => (
-                    <div key={h} style={{ display: 'flex', gap: 16 }}>
-                      <div style={{ fontSize: 20, fontWeight: 800, color: 'rgba(255,255,255,.1)', lineHeight: 1 }}>
-                        0{i + 1}
-                      </div>
-                      <div style={{ fontSize: 14.5, color: 'rgba(255,255,255,.85)', lineHeight: 1.5 }}>{h}</div>
-                    </div>
-                  ))}
-                </div>
+            <Card className="bg-navy border-0 rounded-2xl p-8 text-white shadow-none">
+              <div className="text-[13px] font-bold text-orangeLight tracking-[0.05em] uppercase mb-5">
+                Engagement Process
               </div>
+              <div className="flex flex-col gap-5">
+                {d.howItWorks.map((h, i) => (
+                  <div key={h} className="flex gap-4">
+                    <div className="text-xl font-extrabold text-white/10 leading-none">
+                      0{i + 1}
+                    </div>
+                    <div className="text-[14.5px] text-white/85 leading-[1.5]">{h}</div>
+                  </div>
+                ))}
+              </div>
+            </Card>
           </div>
         </div>
       </section>

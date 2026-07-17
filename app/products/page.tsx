@@ -2,7 +2,8 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import { colors } from '@/lib/colors';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import { products } from '@/lib/data/products';
 
 export const metadata = { title: 'Products | Glaban' };
@@ -17,48 +18,51 @@ export default function ProductsPage() {
         subtitle="From ERP and point-of-sale to fuel quotas, propane delivery, and executive dashboards — each product is designed around real fuel-sector workflows."
       />
 
-      <section style={{ maxWidth: 1280, margin: '0 auto', padding: '64px 32px 96px' }}>
-        <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22 }}>
+      <section className="max-w-[1280px] mx-auto pt-16 px-8 pb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5.5">
           {products.map((p) => (
             <Link
               key={p.slug}
               href={`/products/${p.slug}`}
-              className="glb-card-link"
-              style={{ display: 'block', background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 14, padding: 28, textDecoration: 'none' }}
+              className="glb-card-link block bg-white border border-navy/8 rounded-2xl p-7 no-underline"
             >
-              <div style={{ position: 'relative', width: '100%', height: 220, borderRadius: 12, overflow: 'hidden', marginBottom: 20 }}>
-                <img src={p.image} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(10,25,48,0.08))' }} />
+              <div className="relative w-full h-[220px] rounded-xl overflow-hidden mb-5">
+                <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/8" />
               </div>
-              <div style={{ fontSize: 11.5, fontWeight: 600, color: colors.orangeDark, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 8 }}>
+              <div className="text-[11.5px] font-semibold text-orangeDark tracking-[0.05em] uppercase mb-2">
                 {p.category}
               </div>
-              <div style={{ fontWeight: 700, fontSize: 18, color: colors.textDark, marginBottom: 10 }}>{p.name}</div>
-              <div style={{ fontSize: 14.5, color: colors.textBody, lineHeight: 1.6, marginBottom: 16 }}>{p.listingDesc}</div>
-              <div style={{ fontSize: 13.5, fontWeight: 600, color: colors.orange }}>Learn more →</div>
+              <div className="font-bold text-lg text-textDark mb-2.5">{p.name}</div>
+              <div className="text-[14.5px] text-textBody leading-[1.6] mb-4">{p.listingDesc}</div>
+              <div className="text-[13.5px] font-semibold text-orange">Learn more →</div>
             </Link>
           ))}
         </div>
       </section>
 
-      <section style={{ background: colors.navyMid }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px', textAlign: 'center' }}>
-          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 28, color: '#fff', margin: '0 0 14px' }}>
+      <section className="bg-navyMid">
+        <div className="max-w-[1280px] mx-auto py-18 px-8 text-center">
+          <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-[28px] text-white mb-3.5 m-0">
             Not sure which product fits your business?
           </h2>
-          <p style={{ fontSize: 15.5, color: 'rgba(255,255,255,.6)', margin: '0 0 26px' }}>
+          <p className="text-[15.5px] text-white/60 mb-6.5 m-0">
             Browse solutions by business problem, or talk to our team directly.
           </p>
-          <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link
-              href="/solutions"
-              style={{ background: 'rgba(255,255,255,.08)', border: '1px solid rgba(255,255,255,.18)', color: '#fff', fontWeight: 600, fontSize: 15, padding: '14px 26px', borderRadius: 8, textDecoration: 'none' }}
+          <div className="flex gap-3.5 justify-center flex-wrap">
+            <Button
+              asChild
+              variant="outline"
+              className="bg-white/8 hover:bg-white/12 border-white/18 text-white font-semibold text-[15px] px-[26px] py-3.5 h-auto rounded-lg no-underline shadow-none"
             >
-              Browse by Problem
-            </Link>
-            <Link href="/contact" style={{ background: colors.orange, color: colors.navy, fontWeight: 600, fontSize: 15, padding: '14px 26px', borderRadius: 8, textDecoration: 'none' }}>
-              Contact Us
-            </Link>
+              <Link href="/solutions">Browse by Problem</Link>
+            </Button>
+            <Button
+              asChild
+              className="bg-orange hover:bg-orangeDark text-navy font-semibold text-[15px] px-[26px] py-3.5 h-auto rounded-lg no-underline"
+            >
+              <Link href="/contact">Contact Us</Link>
+            </Button>
           </div>
         </div>
       </section>

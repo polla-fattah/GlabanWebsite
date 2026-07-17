@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { colors } from '@/lib/colors';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -23,66 +24,30 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header
-      style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 100,
-        background: colors.navy,
-        borderBottom: '1px solid rgba(255,255,255,.08)',
-      }}
-    >
-      <div
-        style={{
-          maxWidth: 1280,
-          margin: '0 auto',
-          padding: '0 32px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          height: 76,
-        }}
-      >
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-          <div
-            style={{
-              width: 34,
-              height: 34,
-              borderRadius: 7,
-              background: `linear-gradient(135deg, ${colors.orange}, ${colors.orangeDark})`,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontWeight: 700,
-              color: colors.navy,
-              fontSize: 17,
-            }}
-          >
+    <header className="sticky top-0 z-100 bg-navy border-b border-white/10">
+      <div className="max-w-[1280px] mx-auto px-8 flex items-center justify-between h-[76px]">
+        <Link href="/" className="flex items-center gap-2.5 no-underline">
+          <div className="w-[34px] h-[34px] rounded-[7px] bg-gradient-to-br from-orange to-orangeDark flex items-center justify-center font-['Plus_Jakarta_Sans'] font-bold text-navy text-[17px]">
             G
           </div>
-          <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 20, color: '#fff', letterSpacing: '.2px' }}>
+          <span className="font-['Plus_Jakarta_Sans'] font-bold text-[20px] text-white tracking-[0.2px]">
             GLABAN
           </span>
         </Link>
 
-        <nav className="glb-desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
+        <nav className="hidden lg:flex items-center gap-7">
           {navItems.map((item) => {
             const active = isActive(pathname, item.href);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: 14.5,
-                  fontWeight: active ? 600 : 500,
-                  color: active ? '#fff' : 'rgba(255,255,255,.65)',
-                  textDecoration: 'none',
-                  paddingBottom: 4,
-                  borderBottom: `2px solid ${active ? colors.orange : 'transparent'}`,
-                  whiteSpace: 'nowrap',
-                }}
+                className={cn(
+                  "font-['Inter'] text-[14.5px] no-underline pb-1 border-b-2 whitespace-nowrap transition-colors",
+                  active
+                    ? "font-semibold text-white border-orange"
+                    : "font-medium text-white/65 border-transparent hover:text-white"
+                )}
               >
                 {item.label}
               </Link>
@@ -90,60 +55,32 @@ export default function Header() {
           })}
         </nav>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <Link
-            href="/contact"
-            className="glb-desktop-nav"
-            style={{
-              background: colors.orange,
-              color: colors.navy,
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 600,
-              fontSize: 14.5,
-              padding: '11px 22px',
-              borderRadius: 7,
-              textDecoration: 'none',
-              whiteSpace: 'nowrap',
-            }}
+        <div className="flex items-center gap-4">
+          <Button
+            asChild
+            className="hidden lg:inline-flex bg-orange hover:bg-orangeDark text-navy font-['Inter'] font-semibold text-[14.5px] px-[22px] py-[11px] h-auto rounded-[7px]"
           >
-            Contact Us
-          </Link>
-          <button
+            <Link href="/contact">Contact Us</Link>
+          </Button>
+
+          <Button
+            variant="ghost"
+            size="icon"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Menu"
-            className="glb-mobile-btn"
-            style={{
-              display: 'none',
-              background: 'none',
-              border: 'none',
-              width: 40,
-              height: 40,
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-            }}
+            className="flex lg:hidden bg-transparent hover:bg-white/10 text-white w-10 h-10 border-0 cursor-pointer"
           >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-              <span style={{ width: 22, height: 2, background: '#fff', display: 'block' }} />
-              <span style={{ width: 22, height: 2, background: '#fff', display: 'block' }} />
-              <span style={{ width: 22, height: 2, background: '#fff', display: 'block' }} />
+            <div className="flex flex-col gap-[5px]">
+              <span className="w-[22px] h-[2px] bg-white block" />
+              <span className="w-[22px] h-[2px] bg-white block" />
+              <span className="w-[22px] h-[2px] bg-white block" />
             </div>
-          </button>
+          </Button>
         </div>
       </div>
 
       {mobileOpen && (
-        <div
-          style={{
-            animation: 'glbMenuIn .15s ease',
-            background: colors.navy,
-            borderTop: '1px solid rgba(255,255,255,.08)',
-            padding: '8px 24px 20px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 2,
-          }}
-        >
+        <div className="lg:hidden animate-[glbMenuIn_.15s_ease] bg-navy border-t border-white/10 px-6 pt-2 pb-5 flex flex-col gap-0.5">
           {navItems.map((item) => {
             const active = isActive(pathname, item.href);
             return (
@@ -151,38 +88,23 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: 15.5,
-                  fontWeight: active ? 600 : 500,
-                  color: active ? colors.orange : 'rgba(255,255,255,.8)',
-                  textDecoration: 'none',
-                  padding: '12px 4px',
-                  borderBottom: '1px solid rgba(255,255,255,.06)',
-                }}
+                className={cn(
+                  "font-['Inter'] text-[15.5px] no-underline py-3 px-1 border-b border-white/5",
+                  active ? "font-semibold text-orange" : "font-medium text-white/80"
+                )}
               >
                 {item.label}
               </Link>
             );
           })}
-          <Link
-            href="/contact"
-            onClick={() => setMobileOpen(false)}
-            style={{
-              marginTop: 12,
-              background: colors.orange,
-              color: colors.navy,
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 600,
-              fontSize: 15,
-              padding: '12px 22px',
-              borderRadius: 7,
-              textDecoration: 'none',
-              textAlign: 'center',
-            }}
+          <Button
+            asChild
+            className="mt-3 bg-orange hover:bg-orangeDark text-navy font-['Inter'] font-semibold text-[15px] px-[22px] py-3 h-auto rounded-[7px] w-full"
           >
-            Contact Us
-          </Link>
+            <Link href="/contact" onClick={() => setMobileOpen(false)}>
+              Contact Us
+            </Link>
+          </Button>
         </div>
       )}
     </header>

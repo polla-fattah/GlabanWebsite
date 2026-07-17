@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { colors } from '@/lib/colors';
 
 const social = [
   { label: 'in', href: '#' },
@@ -37,7 +36,7 @@ function FooterLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: 'rgba(255,255,255,.55)', textDecoration: 'none' }}
+      className="font-['Inter'] text-sm text-white/55 hover:text-white transition-colors no-underline"
     >
       {label}
     </Link>
@@ -46,61 +45,24 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 
 export default function Footer() {
   return (
-    <footer style={{ background: colors.navyDeep, borderTop: '1px solid rgba(255,255,255,.08)', width: '100%', overflow: 'hidden' }}>
-      <div
-        className="glb-grid"
-        style={{
-          maxWidth: 1280,
-          margin: '0 auto',
-          padding: '56px 32px 32px',
-          display: 'grid',
-          gridTemplateColumns: '1.4fr 1fr 1fr 1.2fr',
-          gap: 40,
-        }}
-      >
-        <div style={{ minWidth: 0 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-            <div
-              style={{
-                width: 30,
-                height: 30,
-                borderRadius: 6,
-                background: `linear-gradient(135deg, ${colors.orange}, ${colors.orangeDark})`,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontWeight: 700,
-                color: colors.navy,
-                fontSize: 15,
-              }}
-            >
+    <footer className="bg-navyDeep border-t border-white/10 w-full overflow-hidden">
+      <div className="max-w-[1280px] mx-auto px-8 pt-14 pb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-10">
+        <div className="min-w-0">
+          <div className="flex items-center gap-2.5 mb-4">
+            <div className="w-[30px] h-[30px] rounded-md bg-gradient-to-br from-orange to-orangeDark flex items-center justify-center font-['Plus_Jakarta_Sans'] font-bold text-navy text-[15px]">
               G
             </div>
-            <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 18, color: '#fff' }}>GLABAN</span>
+            <span className="font-['Plus_Jakarta_Sans'] font-bold text-lg text-white">GLABAN</span>
           </div>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,.55)', maxWidth: '100%', margin: '0 0 20px', overflowWrap: 'break-word' }}>
+          <p className="font-['Inter'] text-sm leading-[1.7] text-white/55 max-w-full mb-5 break-words">
             Complete digital, cybersecurity, and physical security solutions for fuel, oil, gas, refinery, and energy companies across KRG and the wider region.
           </p>
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+          <div className="flex gap-2.5 flex-wrap">
             {social.map((s) => (
               <a
                 key={s.label}
                 href={s.href}
-                style={{
-                  width: 36,
-                  height: 36,
-                  borderRadius: 8,
-                  background: 'rgba(255,255,255,.06)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  textDecoration: 'none',
-                  color: 'rgba(255,255,255,.6)',
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: 12,
-                  fontWeight: 600,
-                }}
+                className="w-9 h-9 rounded-lg bg-white/6 flex items-center justify-center no-underline text-white/60 hover:text-white font-['Inter'] text-xs font-semibold transition-colors"
               >
                 {s.label}
               </a>
@@ -108,60 +70,48 @@ export default function Footer() {
           </div>
         </div>
 
-        <div style={{ minWidth: 0 }}>
-          <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: 13, color: '#fff', letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
+        <div className="min-w-0">
+          <div className="font-['Plus_Jakarta_Sans'] font-semibold text-[13px] text-white tracking-[0.05em] uppercase mb-4">
             Products
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 11 }}>
+          <div className="flex flex-col gap-[11px]">
             {productLinks.map((l) => (
               <FooterLink key={l.href} {...l} />
             ))}
           </div>
         </div>
 
-        <div style={{ minWidth: 0 }}>
-          <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: 13, color: '#fff', letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
+        <div className="min-w-0">
+          <div className="font-['Plus_Jakarta_Sans'] font-semibold text-[13px] text-white tracking-[0.05em] uppercase mb-4">
             Services
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 11 }}>
+          <div className="flex flex-col gap-[11px]">
             {serviceLinks.map((l) => (
               <FooterLink key={l.href} {...l} />
             ))}
           </div>
         </div>
 
-        <div style={{ minWidth: 0 }}>
-          <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: 13, color: '#fff', letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
+        <div className="min-w-0">
+          <div className="font-['Plus_Jakarta_Sans'] font-semibold text-[13px] text-white tracking-[0.05em] uppercase mb-4">
             Company
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 11, marginBottom: 20 }}>
+          <div className="flex flex-col gap-[11px] mb-5">
             {companyLinks.map((l) => (
               <FooterLink key={l.href} {...l} />
             ))}
           </div>
-          <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: 'rgba(255,255,255,.55)', lineHeight: 1.8, marginTop: 12, overflowWrap: 'break-word' }}>
-            <div style={{ color: colors.orangeLight, fontWeight: 600, marginBottom: 4 }}>info@glaban.com</div>
-            <div style={{ marginBottom: 12 }}>+964 750 6611033</div>
+          <div className="font-['Inter'] text-sm text-white/55 leading-[1.8] mt-3 break-words">
+            <div className="text-orangeLight font-semibold mb-1">info@glaban.com</div>
+            <div className="mb-3">+964 750 6611033</div>
             <div>Glaban Office, Makhmur Road,</div>
             <div>Erbil, Kurdistan Region (KRG), Iraq</div>
           </div>
         </div>
       </div>
-      <div
-        style={{
-          borderTop: '1px solid rgba(255,255,255,.08)',
-          padding: '20px 32px',
-          maxWidth: 1280,
-          margin: '0 auto',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: 10,
-        }}
-      >
-        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(255,255,255,.4)' }}>© 2026 Glaban. All rights reserved.</span>
-        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(255,255,255,.4)' }}>Software · Cybersecurity · Physical Security for the Energy Sector</span>
+      <div className="border-t border-white/10 py-5 px-8 max-w-[1280px] mx-auto flex justify-between items-center flex-wrap gap-2.5">
+        <span className="font-['Inter'] text-[13px] text-white/40">© 2026 Glaban. All rights reserved.</span>
+        <span className="font-['Inter'] text-[13px] text-white/40">Software · Cybersecurity · Physical Security for the Energy Sector</span>
       </div>
     </footer>
   );

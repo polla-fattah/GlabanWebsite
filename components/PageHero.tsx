@@ -1,8 +1,8 @@
-import { colors } from '@/lib/colors';
+import { cn } from '@/lib/utils';
 
 export default function PageHero({
   eyebrow,
-  eyebrowColor = colors.orangeLight,
+  eyebrowColor,
   title,
   subtitle,
   centered = false,
@@ -16,46 +16,32 @@ export default function PageHero({
   maxWidth?: number;
 }) {
   return (
-    <section style={{ background: colors.navy, padding: centered ? '72px 32px 64px' : '72px 32px 56px' }}>
-      <div style={{ maxWidth: centered ? 900 : 1280, margin: '0 auto', textAlign: centered ? 'center' : 'left' }}>
+    <section className={cn("bg-navy px-8", centered ? "py-[72px] pb-[64px]" : "py-[72px] pb-[56px]")}>
+      <div
+        className={cn("max-w-[1280px] mx-auto", centered ? "text-center" : "text-left")}
+      >
         <div
-          style={{
-            fontSize: 13,
-            fontWeight: 600,
-            color: eyebrowColor,
-            letterSpacing: '.06em',
-            textTransform: 'uppercase',
-            marginBottom: 14,
-          }}
+          className="text-[13px] font-semibold tracking-[0.06em] uppercase mb-3.5"
+          style={{ color: eyebrowColor || 'var(--color-orangeLight)' }}
         >
           {eyebrow}
         </div>
         <h1
-          style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontWeight: 700,
-            fontSize: 40,
-            color: '#fff',
-            margin: subtitle ? '0 0 16px' : 0,
-            maxWidth: centered ? undefined : maxWidth,
-            marginLeft: centered ? 'auto' : undefined,
-            marginRight: centered ? 'auto' : undefined,
-            lineHeight: 1.2,
-          }}
+          className={cn(
+            "font-['Plus_Jakarta_Sans'] font-bold text-[40px] text-white leading-[1.2]",
+            subtitle ? "mb-4" : "mb-0",
+            centered && "mx-auto"
+          )}
+          style={{ maxWidth: centered ? undefined : maxWidth }}
         >
           {title}
         </h1>
         {subtitle && (
           <p
-            style={{
-              fontSize: 17,
-              color: 'rgba(255,255,255,.65)',
-              maxWidth: centered ? undefined : 640,
-              marginLeft: centered ? 'auto' : undefined,
-              marginRight: centered ? 'auto' : undefined,
-              lineHeight: 1.6,
-              margin: 0,
-            }}
+            className={cn(
+              "text-[17px] text-white/65 leading-[1.6] m-0",
+              centered ? "mx-auto" : "max-w-[640px]"
+            )}
           >
             {subtitle}
           </p>
