@@ -192,7 +192,7 @@ export default function ContactPage() {
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#02b8cc]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               {/* Icon badge */}
-              <div className="w-12 h-12 rounded-xl bg-[#161718] border border-graphite flex items-center justify-center text-[#02b8cc] shrink-0 group-hover:border-[#02b8cc]/40 group-hover:scale-105 transition-all duration-300 shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-[#161718] border border-graphite flex items-center justify-center text-[#02b8cc] shrink-0 group-hover:border-[#02b8cc]/40  transition-all duration-300 shadow-sm">
                 <i className={`${c.icon} text-[18px]`} />
               </div>
 
