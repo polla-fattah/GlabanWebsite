@@ -1,35 +1,47 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 const social = [
-  { label: 'in', href: '#' },
-  { label: 'FB', href: '#' },
-  { label: 'X', href: '#' },
+  { label: "in", href: "#" },
+  { label: "FB", href: "#" },
+  { label: "X", href: "#" },
 ];
 
 const productLinks = [
-  { label: 'Fuel ERP Platform', href: '/products/fuel-erp' },
-  { label: 'Gas Station POS', href: '/products/gas-station-pos' },
-  { label: 'Fuel Card & Fleet System', href: '/products/fuel-card-fleet-card-system' },
-  { label: 'Propane Cylinder Mgmt', href: '/products/propane-cylinder-management' },
-  { label: 'Location-Based Task Mgmt', href: '/products/location-based-task-management' },
-  { label: 'View all products', href: '/products' },
+  { label: "Fuel ERP Platform", href: "/products/fuel-erp" },
+  { label: "Gas Station POS", href: "/products/gas-station-pos" },
+  {
+    label: "Fuel Card & Fleet System",
+    href: "/products/fuel-card-fleet-card-system",
+  },
+  {
+    label: "Propane Cylinder Mgmt",
+    href: "/products/propane-cylinder-management",
+  },
+  {
+    label: "Location-Based Task Mgmt",
+    href: "/products/location-based-task-management",
+  },
+  { label: "View all products", href: "/products" },
 ];
 
 const serviceLinks = [
-  { label: 'Cybersecurity', href: '/cybersecurity' },
-  { label: 'CCTV & Physical Security', href: '/cctv-physical-security' },
-  { label: 'ERP Implementation', href: '/services/erp-implementation' },
-  { label: 'Hosting & Backup', href: '/services/hosting-backup-disaster-recovery' },
-  { label: 'Training & Support', href: '/services/training-support' },
-  { label: 'View all services', href: '/services' },
+  { label: "Cybersecurity", href: "/cybersecurity" },
+  { label: "CCTV & Physical Security", href: "/cctv-physical-security" },
+  { label: "ERP Implementation", href: "/services/erp-implementation" },
+  {
+    label: "Hosting & Backup",
+    href: "/services/hosting-backup-disaster-recovery",
+  },
+  { label: "Training & Support", href: "/services/training-support" },
+  { label: "View all services", href: "/services" },
 ];
 
 const companyLinks = [
-  { label: 'About Us', href: '/about' },
-  { label: 'Case Studies', href: '/case-studies' },
-  { label: 'Support', href: '/support' },
-  { label: 'FAQ', href: '/faq' },
-  { label: 'Contact', href: '/contact' },
+  { label: "About Us", href: "/about" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Support", href: "/support" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function FooterLink({ href, label }: { href: string; label: string }) {
@@ -45,24 +57,28 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#08090a] border-t border-[#23252a] w-full overflow-hidden">
+    <footer className="bg-[#08090a] border-t border-graphite w-full overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-8 pt-16 pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-10">
         <div className="min-w-0">
           <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-[28px] h-[28px] rounded-[6px] bg-[#0f1011] border border-[#23252a] flex items-center justify-center font-bold text-white text-[14px]">
+            <div className="w-[28px] h-[28px] rounded-[6px] bg-[#0f1011] border border-graphite flex items-center justify-center font-bold text-white text-[14px]">
               G
             </div>
-            <span className="font-medium text-[16px] text-white tracking-[-0.022em]">GLABAN</span>
+            <span className="font-medium text-[16px] text-white tracking-[-0.022em]">
+              GLABAN
+            </span>
           </div>
           <p className="text-[13.5px] leading-[1.65] text-[#8a8f98] max-w-full mb-5 break-words">
-            Complete digital, cybersecurity, and physical security solutions for fuel, oil, gas, refinery, and energy companies across KRG and the wider region.
+            Complete digital, cybersecurity, and physical security solutions for
+            fuel, oil, gas, refinery, and energy companies across KRG and the
+            wider region.
           </p>
           <div className="flex gap-2.5 flex-wrap">
             {social.map((s) => (
               <a
                 key={s.label}
                 href={s.href}
-                className="w-8 h-8 rounded-md bg-[#0f1011] border border-[#23252a] flex items-center justify-center no-underline text-[#8a8f98] hover:text-white text-xs font-medium transition-colors shadow-none"
+                className="w-8 h-8 rounded-md bg-[#0f1011] border border-graphite flex items-center justify-center no-underline text-[#8a8f98] hover:text-white text-xs font-medium transition-colors shadow-none"
               >
                 {s.label}
               </a>
@@ -105,13 +121,19 @@ export default function Footer() {
             <div className="text-white font-medium mb-1">info@glaban.com</div>
             <div className="mb-2 text-[#d0d6e0]">+964 750 6611033</div>
             <div className="text-[#62666d]">Glaban Office, Makhmur Road,</div>
-            <div className="text-[#62666d]">Erbil, Kurdistan Region (KRG), Iraq</div>
+            <div className="text-[#62666d]">
+              Erbil, Kurdistan Region (KRG), Iraq
+            </div>
           </div>
         </div>
       </div>
-      <div className="border-t border-[#23252a] py-6 px-8 max-w-[1280px] mx-auto flex justify-between items-center flex-wrap gap-3">
-        <span className="text-[13px] text-[#62666d]">© 2026 Glaban. All rights reserved.</span>
-        <span className="text-[13px] text-[#62666d]">Software · Cybersecurity · Physical Security for the Energy Sector</span>
+      <div className="border-t border-graphite py-6 px-8 max-w-[1280px] mx-auto flex justify-between items-center flex-wrap gap-3">
+        <span className="text-[13px] text-[#62666d]">
+          © 2026 Glaban. All rights reserved.
+        </span>
+        <span className="text-[13px] text-[#62666d]">
+          Software · Cybersecurity · Physical Security for the Energy Sector
+        </span>
       </div>
     </footer>
   );

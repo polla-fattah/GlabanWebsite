@@ -6,7 +6,32 @@ import { Button } from "@/components/ui/button";
 import { products } from "@/lib/data/products";
 import FadeIn from "@/components/FadeIn";
 
-export const metadata = { title: "Products | Glaban" };
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Products & Software Modules",
+  description:
+    "Explore Glaban's purpose-built hardware and software suite for fuel operations: Gas Station POS, Forecourt Automation Controller, Fuel ERP, Fleet Card Management, and Bulk Gas Distribution systems.",
+  keywords: [
+    "Fuel ERP software modules",
+    "Gas Station POS systems",
+    "Forecourt controller hardware",
+    "Fleet card management software",
+    "Fuel quota management system",
+    "Propane distribution software",
+    "Petroleum software products",
+  ],
+  alternates: {
+    canonical: "https://glaban.com/products",
+  },
+  openGraph: {
+    title:
+      "Products & Software Modules | Glaban Enterprise Fuel & Energy Platform",
+    description:
+      "Explore Glaban's purpose-built hardware and software suite for fuel operations across refineries, depots, and station networks.",
+    url: "https://glaban.com/products",
+  },
+};
 
 export default function ProductsPage() {
   return (
@@ -24,17 +49,18 @@ export default function ProductsPage() {
             <FadeIn key={p.slug} delay={i * 0.08} className="h-full">
               <Link
                 href={`/products/${p.slug}`}
-                className="group glb-card-link block bg-[#0f1011] border border-[#23252a] rounded-xl p-6.5 no-underline transition-all shadow-none flex flex-col justify-between overflow-hidden h-full"
+                className="group glb-card-link block bg-[#0f1011] border border-graphite rounded-lg p-6.5 no-underline transition-all shadow-none flex flex-col justify-between overflow-hidden h-full"
               >
                 <div>
-                  <div className="relative w-full h-[220px] rounded-lg overflow-hidden mb-5 border border-[#23252a] bg-[#161718]">
+                  <div className="relative w-full h-[220px] rounded-lg overflow-hidden mb-5 border border-graphite bg-[#161718]">
                     <img
                       src={p.image}
                       alt={p.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#08090a]/90 via-[#08090a]/25 to-transparent" />
-                    <div className="absolute top-3 left-3 bg-[#08090a]/85 backdrop-blur-md border border-[#23252a] text-[#d0d6e0] font-mono text-[10.5px] uppercase tracking-wider px-2.5 py-1 rounded">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#08090a] via-[#08090a]/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-[#08090a]/90 via-[#08090a]/50 to-[#e4f222]/40 transition-all duration-500 group-hover:to-[#e4f222]/60" />
+                    <div className="absolute top-3 left-3 bg-[#08090a]/85 backdrop-blur-md border border-graphite text-[#d0d6e0] font-mono text-[10.5px] uppercase tracking-wider px-2.5 py-1 rounded">
                       {p.category}
                     </div>
                   </div>
@@ -45,7 +71,7 @@ export default function ProductsPage() {
                     {p.listingDesc}
                   </div>
                 </div>
-                <div className="pt-4 border-t border-[#23252a]/60 flex items-center justify-between text-[13px] font-medium text-[#02b8cc] group-hover:text-white transition-colors">
+                <div className="pt-4 border-t border-graphite/60 flex items-center justify-between text-[13px] font-medium text-[#02b8cc] group-hover:text-white transition-colors">
                   <span>View Architecture & Specs</span>
                   <span className="flex items-center gap-1.5 group-hover:translate-x-1 transition-transform duration-200">
                     Explore{" "}
@@ -58,7 +84,7 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      <section className="bg-[#0f1011] border-t border-[#23252a] py-20 text-center">
+      <section className="bg-[#0f1011] border-t border-graphite py-20 text-center">
         <div className="max-w-[1280px] mx-auto px-8">
           <h2 className="font-medium text-[28px] md:text-[32px] text-white mb-3.5 tracking-[-0.022em]">
             Not sure which product fits your business?
@@ -70,7 +96,7 @@ export default function ProductsPage() {
             <Button
               asChild
               variant="outline"
-              className="bg-[#161718] hover:bg-graphite border border-[#23252a] text-[#d0d6e0] hover:text-white font-medium text-[14.5px] px-7 py-3.5 h-auto rounded-md no-underline shadow-none transition-all"
+              className="bg-[#161718] hover:bg-graphite border border-graphite text-[#d0d6e0] hover:text-white font-medium text-[14.5px] px-7 py-3.5 h-auto rounded-md no-underline shadow-none transition-all"
             >
               <Link href="/solutions">Browse by Problem</Link>
             </Button>

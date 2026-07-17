@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function DetailHero({
   icon,
@@ -21,19 +21,23 @@ export default function DetailHero({
   ctaLabel: string;
 }) {
   return (
-    <section className="bg-[#08090a] border-b border-[#23252a] py-[76px] pb-[68px]">
+    <section className="bg-[#08090a] border-b border-graphite py-[76px] pb-[68px]">
       <div className="max-w-[1280px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 items-center">
         <div>
           <div className="flex items-center gap-3.5 mb-5">
             <div
-              className="w-10 h-10 rounded-lg flex items-center justify-center text-xl bg-[#0f1011] border border-[#23252a] shadow-none"
-              style={{ color: iconColor === '#F0A85B' ? '#02b8cc' : iconColor }}
+              className="w-10 h-10 rounded-lg flex items-center justify-center text-xl bg-[#0f1011] border border-graphite shadow-none"
+              style={{ color: iconColor === "#F0A85B" ? "#02b8cc" : iconColor }}
             >
               <i className={icon} />
             </div>
             <div
               className="text-[12px] font-medium tracking-[0.08em] uppercase text-[#8a8f98]"
-              style={eyebrowColor && eyebrowColor !== '#F0A85B' ? { color: eyebrowColor } : undefined}
+              style={
+                eyebrowColor && eyebrowColor !== "#F0A85B"
+                  ? { color: eyebrowColor }
+                  : undefined
+              }
             >
               {eyebrow}
             </div>

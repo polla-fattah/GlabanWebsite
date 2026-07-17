@@ -154,7 +154,7 @@ export default function ContactPage() {
           {info.map((c) => (
             <Card
               key={c.label}
-              className="bg-[#0f1011] border border-[#23252a] rounded-xl shadow-none hover:border-[#383b3f] transition-all"
+              className="bg-[#0f1011] border border-graphite rounded-lg shadow-none hover:border-[#383b3f] transition-all"
             >
               <CardContent className="p-5 pt-0 text-[14px] text-[#8a8f98] leading-[1.6]">
                 <span className="font-medium text-[15px] text-white tracking-[-0.01em]">
@@ -166,7 +166,7 @@ export default function ContactPage() {
           ))}
         </div>
 
-        <Card className="bg-[#0f1011] border border-[#23252a] rounded-xl shadow-none">
+        <Card className="bg-[#0f1011] border border-graphite rounded-lg shadow-none">
           <CardContent className="p-8 sm:p-10">
             {!submitted ? (
               <Form {...form}>
@@ -197,7 +197,7 @@ export default function ContactPage() {
                             <Input
                               {...field}
                               placeholder="John Doe"
-                              className="h-10 bg-[#161718] border-[#23252a] text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                              className="h-10 bg-[#161718] border-graphite text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
                             />
                           </FormControl>
                           <FormMessage />
@@ -216,7 +216,7 @@ export default function ContactPage() {
                             <Input
                               {...field}
                               placeholder="Company Ltd"
-                              className="h-10 bg-[#161718] border-[#23252a] text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                              className="h-10 bg-[#161718] border-graphite text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
                             />
                           </FormControl>
                           <FormMessage />
@@ -238,7 +238,7 @@ export default function ContactPage() {
                             <Input
                               {...field}
                               placeholder="Operations Manager"
-                              className="h-10 bg-[#161718] border-[#23252a] text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                              className="h-10 bg-[#161718] border-graphite text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
                             />
                           </FormControl>
                           <FormMessage />
@@ -257,7 +257,7 @@ export default function ContactPage() {
                             <Input
                               {...field}
                               placeholder="+964..."
-                              className="h-10 bg-[#161718] border-[#23252a] text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                              className="h-10 bg-[#161718] border-graphite text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
                             />
                           </FormControl>
                           <FormMessage />
@@ -279,7 +279,7 @@ export default function ContactPage() {
                             {...field}
                             type="email"
                             placeholder="john@company.com"
-                            className="h-10 bg-[#161718] border-[#23252a] text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                            className="h-10 bg-[#161718] border-graphite text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
                           />
                         </FormControl>
                         <FormMessage />
@@ -301,11 +301,11 @@ export default function ContactPage() {
                             defaultValue={field.value}
                           >
                             <FormControl>
-                              <SelectTrigger className="w-full bg-[#161718] border-[#23252a] text-white h-10 shadow-none focus:ring-0">
+                              <SelectTrigger className="w-full bg-[#161718] border-graphite text-white h-10 shadow-none focus:ring-0">
                                 <SelectValue placeholder="Select industry" />
                               </SelectTrigger>
                             </FormControl>
-                            <SelectContent className="bg-[#0f1011] border-[#23252a] text-white shadow-none">
+                            <SelectContent className="bg-[#0f1011] border-graphite text-white shadow-none">
                               {industryOptions.map((o) => (
                                 <SelectItem
                                   key={o}
@@ -334,11 +334,11 @@ export default function ContactPage() {
                             defaultValue={field.value}
                           >
                             <FormControl>
-                              <SelectTrigger className="w-full bg-[#161718] border-[#23252a] text-white h-10 shadow-none focus:ring-0">
+                              <SelectTrigger className="w-full bg-[#161718] border-graphite text-white h-10 shadow-none focus:ring-0">
                                 <SelectValue placeholder="Select interest" />
                               </SelectTrigger>
                             </FormControl>
-                            <SelectContent className="bg-[#0f1011] border-[#23252a] text-white shadow-none">
+                            <SelectContent className="bg-[#0f1011] border-graphite text-white shadow-none">
                               {interestOptions.map((o) => (
                                 <SelectItem
                                   key={o}
@@ -369,11 +369,11 @@ export default function ContactPage() {
                           defaultValue={field.value}
                         >
                           <FormControl>
-                            <SelectTrigger className="w-full bg-[#161718] border-[#23252a] text-white h-10 shadow-none focus:ring-0">
+                            <SelectTrigger className="w-full bg-[#161718] border-graphite text-white h-10 shadow-none focus:ring-0">
                               <SelectValue placeholder="Select contact method" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-[#0f1011] border-[#23252a] text-white shadow-none">
+                          <SelectContent className="bg-[#0f1011] border-graphite text-white shadow-none">
                             {contactMethods.map((o) => (
                               <SelectItem
                                 key={o}
@@ -403,7 +403,7 @@ export default function ContactPage() {
                             {...field}
                             rows={4}
                             placeholder="Tell us about your requirements..."
-                            className="bg-[#161718] border-[#23252a] text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                            className="bg-[#161718] border-graphite text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
                           />
                         </FormControl>
                         <FormMessage />
@@ -429,7 +429,7 @@ export default function ContactPage() {
               </Form>
             ) : (
               <div className="text-center py-12">
-                <div className="w-12 h-12 rounded-full bg-[#161718] border border-[#23252a] text-[#02b8cc] flex items-center justify-center text-xl mx-auto mb-4 shadow-none">
+                <div className="w-12 h-12 rounded-full bg-[#161718] border border-graphite text-[#02b8cc] flex items-center justify-center text-xl mx-auto mb-4 shadow-none">
                   <i className="fa-solid fa-check"></i>
                 </div>
                 <div className="font-medium text-[20px] text-white mb-2 tracking-[-0.01em]">

@@ -173,6 +173,21 @@
   50% { border-color: rgba(2, 184, 204, 0.45); }
 }
 
+@keyframes ambientDrift1 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-47%, -54%) scale(1.12); }
+}
+
+@keyframes ambientDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.75; }
+  50% { transform: translate(-30px, 25px) scale(1.18); opacity: 0.95; }
+}
+
+@keyframes ambientDrift3 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.65; }
+  50% { transform: translate(30px, -25px) scale(1.2); opacity: 0.85; }
+}
+
 @media (max-width: 1180px) {
   .glb-desktop-nav { display: none !important; }
   .glb-mobile-btn { display: flex !important; }

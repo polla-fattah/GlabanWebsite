@@ -1,99 +1,103 @@
-import Link from 'next/link';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import PageHero from '@/components/PageHero';
-import CTABand from '@/components/CTABand';
-import { Card } from '@/components/ui/card';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
+import CTABand from "@/components/CTABand";
+import AboutValuesGrid from "@/components/about/AboutValuesGrid";
 
-export const metadata = { title: 'About Us | Glaban' };
+import type { Metadata } from "next";
 
-const values = [
-  'Reliability',
-  'Security',
-  'Practical solutions',
-  'Long-term support',
-  'Business understanding',
-  'Transparency',
-  'Local expertise',
-  'Continuous improvement',
-];
+export const metadata: Metadata = {
+  title: "About Us & Engineering Heritage",
+  description:
+    "Learn about Glaban's mission, engineering rigor, and deep regional roots in the Kurdistan Region of Iraq (KRG). We unite industrial software, cybersecurity, and physical surveillance into single-partner reliability.",
+  keywords: [
+    "About Glaban",
+    "Glaban engineering heritage",
+    "Kurdistan energy technology partner",
+    "KRG oil and gas IT company",
+    "Petroleum software company Iraq",
+    "Industrial software engineering KRG",
+  ],
+  alternates: {
+    canonical: "https://glaban.com/about",
+  },
+  openGraph: {
+    title: "About Us & Engineering Heritage | Glaban Enterprise Fuel Platform",
+    description:
+      "Deeply rooted in the energy sector with uncompromising engineering standards, Glaban delivers mission-critical software and security across KRG and beyond.",
+    url: "https://glaban.com/about",
+  },
+};
 
 export default function AboutPage() {
   return (
-    <div className="bg-[#08090a] min-h-screen">
+    <div className="bg-[#08090a] min-h-screen text-white">
       <Header />
       <PageHero
-        eyebrow="About Glaban"
-        title="A technology partner built around the fuel and energy sector"
-        subtitle="Glaban provides software, cybersecurity, and physical security solutions for oil, gas, refinery, station, propane, and industrial businesses across KRG and the wider region."
+        eyebrow="ENGINEERING HERITAGE"
+        eyebrowColor="#8a8f98"
+        title="A technology partner built specifically around fuel and energy operations"
+        subtitle="Glaban provides integrated software, cybersecurity, and physical surveillance systems for oil, gas, refinery, station, propane, and industrial businesses across KRG and the wider region."
         centered
-        maxWidth={900}
+        maxWidth={920}
       />
 
-      <section className="max-w-[1280px] mx-auto py-20 px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-          <Card className="bg-[#0f1011] border border-[#23252a] rounded-xl p-9 shadow-none hover:border-[#383b3f] transition-all">
-            <div className="text-[12px] font-medium text-[#8a8f98] tracking-[0.08em] uppercase mb-3">
-              Mission
-            </div>
-            <p className="font-medium text-[18px] text-white leading-[1.55] m-0">
-              To help fuel, oil, gas, and energy companies modernise their operations through reliable software, practical automation, secure systems, physical security, and long-term technical support.
-            </p>
-          </Card>
-          <Card className="bg-[#0f1011] border border-[#23252a] rounded-xl p-9 shadow-none hover:border-[#383b3f] transition-all">
-            <div className="text-[12px] font-medium text-[#8a8f98] tracking-[0.08em] uppercase mb-3">
-              Vision
-            </div>
-            <p className="font-medium text-[18px] text-white leading-[1.55] m-0">
-              To become a trusted technology partner for fuel and energy businesses in KRG and the wider region.
-            </p>
-          </Card>
-        </div>
-
-        <div className="mb-6">
-          <div className="font-medium text-[24px] text-white mb-8 text-center tracking-[-0.02em]">
-            Our values
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            {values.map((v) => (
-              <Card key={v} className="bg-[#0f1011] border border-[#23252a] rounded-xl p-5.5 text-center shadow-none hover:border-[#383b3f] transition-all">
-                <div className="font-medium text-[14.5px] text-white">{v}</div>
-              </Card>
-            ))}
-          </div>
-        </div>
+      <section className="max-w-[1280px] mx-auto py-16 px-8 pb-24">
+        <AboutValuesGrid />
       </section>
 
-      <section className="bg-[#0f1011] border-y border-[#23252a]">
+      <section className="bg-[#0f1011] border-y border-graphite">
         <div className="max-w-[1280px] mx-auto py-20 px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <div className="font-medium text-[20px] text-white mb-2.5 tracking-[-0.01em]">
-              Industry focus
+            <div className="flex items-center gap-2 font-mono text-[11px] text-[#8a8f98] uppercase tracking-wider mb-2">
+              <i className="fa-solid fa-industry" />
+              <span>SECTOR SPECIALIZATION</span>
             </div>
-            <p className="text-[15px] text-[#8a8f98] leading-[1.65] m-0">
-              We build exclusively for fuel, oil, gas, refinery, and energy operations — not generic business software adapted after the fact.
+            <div className="font-medium text-[20px] text-white mb-2.5 tracking-[-0.01em]">
+              Dedicated Industry Focus
+            </div>
+            <p className="text-[15px] text-[#8a8f98] leading-[1.65] m-0 font-normal">
+              We build exclusively for fuel, oil, gas, refinery, and energy
+              operations — not generic business software adapted or patched
+              after the fact.
             </p>
           </div>
           <div>
-            <div className="font-medium text-[20px] text-white mb-2.5 tracking-[-0.01em]">
-              Technical expertise
+            <div className="flex items-center gap-2 font-mono text-[11px] text-[#8a8f98] uppercase tracking-wider mb-2">
+              <i className="fa-solid fa-microchip" />
+              <span>UNIFIED ARCHITECTURE</span>
             </div>
-            <p className="text-[15px] text-[#8a8f98] leading-[1.65] m-0">
-              Software development, ERP, cybersecurity, and physical security under one roof, so systems work together by design.
+            <div className="font-medium text-[20px] text-white mb-2.5 tracking-[-0.01em]">
+              Full Technical Integration
+            </div>
+            <p className="text-[15px] text-[#8a8f98] leading-[1.65] m-0 font-normal">
+              Software development, ERP, cybersecurity, and physical
+              surveillance under one roof, guaranteeing that forecourt sensors
+              and cloud databases work together natively by design.
             </p>
           </div>
           <div>
-            <div className="font-medium text-[20px] text-white mb-2.5 tracking-[-0.01em]">
-              Local understanding
+            <div className="flex items-center gap-2 font-mono text-[11px] text-[#8a8f98] uppercase tracking-wider mb-2">
+              <i className="fa-solid fa-location-dot" />
+              <span>REGIONAL PRESENCE</span>
             </div>
-            <p className="text-[15px] text-[#8a8f98] leading-[1.65] m-0">
-              We understand the operational, regulatory, and connectivity realities of running a fuel business in KRG and the region.
+            <div className="font-medium text-[20px] text-white mb-2.5 tracking-[-0.01em]">
+              Direct Local Understanding
+            </div>
+            <p className="text-[15px] text-[#8a8f98] leading-[1.65] m-0 font-normal">
+              Headquartered right here in KRG, we understand the operational,
+              regulatory, and internet connectivity realities of running a 24/7
+              fuel distribution business in the region.
             </p>
           </div>
         </div>
       </section>
 
-      <CTABand heading="Let's talk about your operation" buttonLabel="Contact Us" />
+      <CTABand
+        heading="Let's inspect and modernise your operations"
+        subtitle="Schedule an on-site scoping audit with our senior engineering team across Erbil, Sulaymaniyah, or Dohuk."
+        buttonLabel="Contact Engineering & Support"
+      />
       <Footer />
     </div>
   );
