@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 
 export default function ProductsPage() {
   return (
-    <div className="bg-[#08090a] min-h-screen">
+    <div className="bg-void min-h-screen">
       <Header />
       <PageHero
         title="Products & Platforms"
@@ -49,31 +49,31 @@ export default function ProductsPage() {
             <FadeIn key={p.slug} delay={i * 0.08} className="h-full">
               <Link
                 href={`/products/${p.slug}`}
-                className="group glb-card-link block bg-[#0f1011] border border-graphite rounded-lg p-6.5 no-underline transition-all shadow-none flex flex-col justify-between overflow-hidden h-full"
+                className="group glb-card-link block bg-carbon border border-graphite rounded-lg p-6.5 no-underline transition-all shadow-none flex flex-col justify-between overflow-hidden h-full"
               >
                 <div>
-                  <div className="relative w-full h-[220px] rounded-lg overflow-hidden mb-5 border border-graphite bg-[#161718]">
+                  <div className="relative w-full h-[220px] rounded-lg overflow-hidden mb-5 border border-graphite bg-obsidian">
                     <img
                       src={p.image}
                       alt={p.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#08090a] via-[#08090a]/30 to-transparent" />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-[#08090a]/90 via-[#08090a]/50 to-[#e4f222]/40 transition-all duration-500 group-hover:to-[#e4f222]/60" />
-                    <div className="absolute top-3 left-3 bg-[#08090a]/85 backdrop-blur-md border border-graphite text-[#d0d6e0] font-mono text-[10.5px] uppercase tracking-wider px-2.5 py-1 rounded">
+                    <div className="absolute inset-0 bg-gradient-to-t from-void via-void/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-void/90 via-void/50 to-orange/5" />
+                    <div className="absolute top-3 left-3 bg-void/85 backdrop-blur-md border border-graphite text-mist font-mono text-[10.5px] uppercase tracking-wider px-2.5 py-1 rounded">
                       {p.category}
                     </div>
                   </div>
-                  <div className="font-medium text-[18px] text-white mb-2.5 tracking-[-0.015em] group-hover:text-[#02b8cc] transition-colors flex items-center justify-between">
+                  <div className="font-medium text-[18px] text-white mb-2.5 tracking-[-0.015em] transition-colors flex items-center justify-between">
                     <span>{p.name}</span>
                   </div>
-                  <div className="text-[14px] text-[#8a8f98] leading-[1.6] mb-6 font-normal">
+                  <div className="text-[14px] text-fog leading-[1.6] mb-6 font-normal">
                     {p.listingDesc}
                   </div>
                 </div>
-                <div className="pt-4 border-t border-graphite/60 flex items-center justify-between text-[13px] font-medium text-[#02b8cc] group-hover:text-white transition-colors">
+                <div className="pt-4 border-t border-graphite/60 flex items-center justify-between text-[13px] font-medium text-fog group-hover:text-mist transition-colors">
                   <span>View Architecture & Specs</span>
-                  <span className="flex items-center gap-1.5 group-hover:translate-x-1 transition-transform duration-200">
+                  <span className="flex items-center gap-1.5 text-orange group-hover:text-orangeLight transition-colors duration-200">
                     Explore{" "}
                     <i className="fa-solid fa-arrow-right text-[11px]" />
                   </span>
@@ -84,25 +84,25 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      <section className="bg-[#0f1011] border-t border-graphite py-20 text-center">
+      <section className="bg-carbon border-t border-graphite py-20 text-center">
         <div className="max-w-[1280px] mx-auto px-8">
           <h2 className="font-medium text-[28px] md:text-[32px] text-white mb-3.5 tracking-[-0.022em]">
             Not sure which product fits your business?
           </h2>
-          <p className="text-[16px] text-[#8a8f98] mb-8 max-w-[540px] mx-auto leading-[1.6]">
+          <p className="text-[16px] text-fog mb-8 max-w-[540px] mx-auto leading-[1.6]">
             Browse solutions by business problem, or talk to our team directly.
           </p>
           <div className="flex gap-3.5 justify-center flex-wrap">
             <Button
               asChild
               variant="outline"
-              className="bg-[#161718] hover:bg-graphite border border-graphite text-[#d0d6e0] hover:text-white font-medium text-[14.5px] px-7 py-3.5 h-auto rounded-md no-underline shadow-none transition-all"
+              className="bg-obsidian hover:bg-graphite border border-graphite text-mist hover:text-white font-medium text-[14.5px] px-7 py-3.5 h-auto rounded-md no-underline shadow-none transition-all"
             >
               <Link href="/solutions">Browse by Problem</Link>
             </Button>
             <Button
               asChild
-              className="bg-[#e4f222] hover:bg-[#e4f222]/90 text-[#08090a] font-medium text-[14.5px] px-7 py-3.5 h-auto rounded-md no-underline shadow-none transition-all"
+              className="bg-orange hover:bg-orangeDark text-white font-medium text-[14.5px] px-7 py-3.5 h-auto rounded-md no-underline shadow-none transition-all"
             >
               <Link href="/contact">Contact Us</Link>
             </Button>

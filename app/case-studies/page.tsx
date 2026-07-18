@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 
 export default function CaseStudiesPage() {
   return (
-    <div className="bg-[#08090a] min-h-screen">
+    <div className="bg-void min-h-screen">
       <Header />
       <PageHero
         eyebrow="Customers & Case Studies"
@@ -47,10 +47,10 @@ export default function CaseStudiesPage() {
         {caseStudies.map((c) => (
           <Card
             key={c.title}
-            className="bg-[#0f1011] border border-graphite rounded-lg p-8 flex flex-col shadow-none hover:border-[#383b3f] transition-all"
+            className="bg-carbon border border-graphite rounded-lg p-8 flex flex-col shadow-none hover:border-smoke transition-all"
           >
             <div className="flex gap-2.5 mb-4">
-              <Badge className="bg-white/5 hover:bg-white/10 text-[#8a8f98] border border-graphite text-[12px] font-normal px-3 py-1 rounded-full shadow-none transition-colors">
+              <Badge className="bg-white/5 hover:bg-white/10 text-fog border border-graphite text-[12px] font-normal px-3 py-1 rounded-full shadow-none transition-colors">
                 {c.industry}
               </Badge>
             </div>
@@ -60,39 +60,39 @@ export default function CaseStudiesPage() {
 
             <div className="flex-1 flex flex-col gap-5">
               <div className="flex gap-3.5">
-                <div className="w-5 h-5 rounded-full bg-[#161718] border border-graphite text-[#f43f5e] flex items-center justify-center text-[10px] shrink-0 mt-0.5">
+                <div className="w-5 h-5 rounded-full bg-obsidian border border-graphite text-rose-500 flex items-center justify-center text-[10px] shrink-0 mt-0.5">
                   <i className="fa-solid fa-triangle-exclamation"></i>
                 </div>
                 <div>
-                  <div className="text-[11px] font-medium text-[#8a8f98] uppercase tracking-[0.08em] mb-1">
+                  <div className="text-[11px] font-medium text-fog uppercase tracking-[0.08em] mb-1">
                     The Challenge
                   </div>
-                  <p className="text-[14px] text-[#d0d6e0] leading-[1.6] m-0">
+                  <p className="text-[14px] text-mist leading-[1.6] m-0">
                     {c.problem}
                   </p>
                 </div>
               </div>
 
               <div className="flex gap-3.5">
-                <div className="w-5 h-5 rounded-full bg-[#161718] border border-graphite text-[#02b8cc] flex items-center justify-center text-[10px] shrink-0 mt-0.5">
+                <div className="w-5 h-5 rounded-full bg-obsidian border border-graphite text-white flex items-center justify-center text-[10px] shrink-0 mt-0.5">
                   <i className="fa-solid fa-lightbulb"></i>
                 </div>
                 <div>
-                  <div className="text-[11px] font-medium text-[#8a8f98] uppercase tracking-[0.08em] mb-1">
+                  <div className="text-[11px] font-medium text-fog uppercase tracking-[0.08em] mb-1">
                     The Solution
                   </div>
-                  <p className="text-[14px] text-[#d0d6e0] leading-[1.6] m-0">
+                  <p className="text-[14px] text-mist leading-[1.6] m-0">
                     {c.solution}
                   </p>
                 </div>
               </div>
 
               <div className="flex gap-3.5">
-                <div className="w-5 h-5 rounded-full bg-[#161718] border border-graphite text-[#e4f222] flex items-center justify-center text-[10px] shrink-0 mt-0.5">
+                <div className="w-5 h-5 rounded-full bg-obsidian border border-graphite text-orange flex items-center justify-center text-[10px] shrink-0 mt-0.5">
                   <i className="fa-solid fa-chart-line"></i>
                 </div>
                 <div>
-                  <div className="text-[11px] font-medium text-[#8a8f98] uppercase tracking-[0.08em] mb-1">
+                  <div className="text-[11px] font-medium text-fog uppercase tracking-[0.08em] mb-1">
                     The Result
                   </div>
                   <p className="text-[14px] text-white font-medium leading-[1.6] m-0">

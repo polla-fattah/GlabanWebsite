@@ -4,15 +4,17 @@
   /* Linear Style Reference Tokens */
   --color-void: #08090a;
   --color-carbon: #0f1011;
+  --color-cinder: #121315;
   --color-obsidian: #161718;
   --color-graphite: #23252a;
   --color-smoke: #383b3f;
+  --color-steel: #525866;
   --color-ash: #62666d;
   --color-fog: #8a8f98;
   --color-mist: #d0d6e0;
   --color-bone: #e5e5e6;
   --color-paper: #ffffff;
-  --color-acid-lime: #e4f222;
+  --color-acid-lime: #f26522;
   --color-pulse-green: #27a644;
   --color-coral-red: #eb5757;
   --color-signal-teal: #02b8cc;
@@ -24,10 +26,10 @@
   --color-navyMid: #0f1011;
   --color-navyLight: #161718;
   --color-navyDeep: #08090a;
-  --color-orange: #e4f222;
-  --color-orangeDark: #c8d41a;
-  --color-orangeLight: #e4f222;
-  --color-orangeTint: rgba(228, 242, 34, 0.1);
+  --color-orange: #f26522;
+  --color-orangeDark: #d95418;
+  --color-orangeLight: #ff7a3d;
+  --color-orangeTint: rgba(242, 101, 34, 0.12);
   --color-cream: #08090a;
   --color-grayBg: #0f1011;
   --color-textDark: #ffffff;
@@ -71,8 +73,8 @@
   --card-foreground: #ffffff;
   --popover: #0f1011;
   --popover-foreground: #ffffff;
-  --primary: #e4f222;
-  --primary-foreground: #08090a;
+  --primary: #f26522;
+  --primary-foreground: #ffffff;
   --secondary: #161718;
   --secondary-foreground: #ffffff;
   --muted: #161718;
@@ -83,7 +85,7 @@
   --destructive-foreground: #ffffff;
   --border: #23252a;
   --input: #23252a;
-  --ring: #e4f222;
+  --ring: #f26522;
   --radius: 0.375rem;
 }
 
@@ -118,22 +120,22 @@
   font-size: 14px;
   padding: 10px 14px;
   border-radius: 6px;
-  border: 1px solid #23252a;
-  background: #0f1011;
-  color: #ffffff;
+  border: 1px solid var(--color-graphite);
+  background: var(--color-carbon);
+  color: var(--color-paper);
 }
 
 .glb-input:focus,
 .glb-select:focus,
 .glb-textarea:focus {
   outline: none;
-  border-color: #d0d6e0;
+  border-color: var(--color-mist);
 }
 
 .glb-label {
   font-size: 13px;
   font-weight: 500;
-  color: #d0d6e0;
+  color: var(--color-mist);
   margin-bottom: 6px;
   display: block;
 }
@@ -144,8 +146,8 @@
 }
 
 .glb-card-link:hover {
-  border-color: rgba(2, 184, 204, 0.5);
-  box-shadow: 0 0 0 1px inset rgba(2, 184, 204, 0.25);
+  border-color: color-mix(in srgb, var(--color-orange) 50%, transparent);
+  box-shadow: 0 0 0 1px inset color-mix(in srgb, var(--color-orange) 25%, transparent);
 }
 
 @keyframes glbFloat {
@@ -169,8 +171,8 @@
 }
 
 @keyframes borderGlow {
-  0%, 100% { border-color: rgba(35, 37, 42, 1); }
-  50% { border-color: rgba(2, 184, 204, 0.45); }
+  0%, 100% { border-color: var(--color-graphite); }
+  50% { border-color: color-mix(in srgb, var(--color-orange) 45%, transparent); }
 }
 
 @keyframes ambientDrift1 {

@@ -31,11 +31,11 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="bg-[#08090a] min-h-screen text-white">
+    <div className="bg-void min-h-screen text-white">
       <Header />
       <PageHero
         eyebrow="ENGINEERING HERITAGE"
-        eyebrowColor="#8a8f98"
+        eyebrowColor="var(--color-fog)"
         title="A technology partner built specifically around fuel and energy operations"
         subtitle="Glaban provides integrated software, cybersecurity, and physical surveillance systems for oil, gas, refinery, station, propane, and industrial businesses across KRG and the wider region."
         centered
@@ -46,45 +46,45 @@ export default function AboutPage() {
         <AboutValuesGrid />
       </section>
 
-      <section className="bg-[#0f1011] border-y border-graphite">
+      <section className="bg-carbon border-y border-graphite">
         <div className="max-w-[1280px] mx-auto py-20 px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] text-[#8a8f98] uppercase tracking-wider mb-2">
+            <div className="flex items-center gap-2 font-mono text-[11px] text-fog uppercase tracking-wider mb-2">
               <i className="fa-solid fa-industry" />
               <span>SECTOR SPECIALIZATION</span>
             </div>
             <div className="font-medium text-[20px] text-white mb-2.5 tracking-[-0.01em]">
               Dedicated Industry Focus
             </div>
-            <p className="text-[15px] text-[#8a8f98] leading-[1.65] m-0 font-normal">
+            <p className="text-[15px] text-fog leading-[1.65] m-0 font-normal">
               We build exclusively for fuel, oil, gas, refinery, and energy
               operations — not generic business software adapted or patched
               after the fact.
             </p>
           </div>
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] text-[#8a8f98] uppercase tracking-wider mb-2">
+            <div className="flex items-center gap-2 font-mono text-[11px] text-fog uppercase tracking-wider mb-2">
               <i className="fa-solid fa-microchip" />
               <span>UNIFIED ARCHITECTURE</span>
             </div>
             <div className="font-medium text-[20px] text-white mb-2.5 tracking-[-0.01em]">
               Full Technical Integration
             </div>
-            <p className="text-[15px] text-[#8a8f98] leading-[1.65] m-0 font-normal">
+            <p className="text-[15px] text-fog leading-[1.65] m-0 font-normal">
               Software development, ERP, cybersecurity, and physical
               surveillance under one roof, guaranteeing that forecourt sensors
               and cloud databases work together natively by design.
             </p>
           </div>
           <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] text-[#8a8f98] uppercase tracking-wider mb-2">
+            <div className="flex items-center gap-2 font-mono text-[11px] text-fog uppercase tracking-wider mb-2">
               <i className="fa-solid fa-location-dot" />
               <span>REGIONAL PRESENCE</span>
             </div>
             <div className="font-medium text-[20px] text-white mb-2.5 tracking-[-0.01em]">
               Direct Local Understanding
             </div>
-            <p className="text-[15px] text-[#8a8f98] leading-[1.65] m-0 font-normal">
+            <p className="text-[15px] text-fog leading-[1.65] m-0 font-normal">
               Headquartered right here in KRG, we understand the operational,
               regulatory, and internet connectivity realities of running a 24/7
               fuel distribution business in the region.

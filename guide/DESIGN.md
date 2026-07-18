@@ -20,7 +20,7 @@ Linear's design system is a midnight command center built on near-black surfaces
 | Mist        | `#d0d6e0` | `--color-mist`        | Secondary headings, button text on dark surfaces                                                                                          |
 | Bone        | `#e5e5e6` | `--color-bone`        | Near-white surface fills, high-contrast button text                                                                                       |
 | Paper       | `#ffffff` | `--color-paper`       | Primary headings, hero type, max-contrast emphasis text                                                                                   |
-| Acid Lime   | `#e4f222` | `--color-acid-lime`   | Primary action buttons, active nav indicators — electric accent that breaks the monochrome system                                         |
+| Glaban Orange | `#f26522` | `--color-orange`      | Primary action buttons, active nav indicators — bold brand accent that anchors the monochrome system                                       |
 | Pulse Green | `#27a644` | `--color-pulse-green` | Green outline accent for tags, dividers, and focused UI edges. Use as a supporting accent, not as a status color                          |
 | Coral Red   | `#eb5757` | `--color-coral-red`   | Red wash for highlight backgrounds, decorative bands, and soft emphasis behind content. Use as a supporting accent, not as a status color |
 | Signal Teal | `#02b8cc` | `--color-signal-teal` | Decorative accent, informational icon fills                                                                                               |

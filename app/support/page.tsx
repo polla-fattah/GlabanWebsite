@@ -95,7 +95,7 @@ export default function SupportPage() {
   }
 
   return (
-    <div className="bg-[#08090a] min-h-screen">
+    <div className="bg-void min-h-screen">
       <Header />
       <PageHero
         eyebrow="Support"
@@ -109,14 +109,14 @@ export default function SupportPage() {
             {channels.map((c) => (
               <Card
                 key={c.label}
-                className="bg-[#0f1011] border border-graphite rounded-lg shadow-none hover:border-[#383b3f] transition-all"
+                className="bg-carbon border border-graphite rounded-lg shadow-none hover:border-smoke transition-all"
               >
                 <CardHeader className="p-5 pb-2">
                   <CardTitle className="font-medium text-[15px] text-white tracking-[-0.01em]">
                     {c.label}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="p-5 pt-0 text-[14px] text-[#8a8f98] leading-[1.6]">
+                <CardContent className="p-5 pt-0 text-[14px] text-fog leading-[1.6]">
                   {c.value}
                 </CardContent>
               </Card>
@@ -128,10 +128,10 @@ export default function SupportPage() {
           <div className="flex flex-col gap-3">
             {covered.map((i) => (
               <div key={i} className="flex gap-2.5 items-start">
-                <div className="text-[#02b8cc] text-[12px] mt-1 shrink-0">
+                <div className="text-orange text-[12px] mt-1 shrink-0">
                   <i className="fa-solid fa-check"></i>
                 </div>
-                <span className="text-[14px] text-[#d0d6e0] leading-[1.5]">
+                <span className="text-[14px] text-mist leading-[1.5]">
                   {i}
                 </span>
               </div>
@@ -139,7 +139,7 @@ export default function SupportPage() {
           </div>
         </div>
 
-        <Card className="bg-[#0f1011] border border-graphite rounded-lg shadow-none">
+        <Card className="bg-carbon border border-graphite rounded-lg shadow-none">
           <CardContent className="p-8 sm:p-10">
             {!submitted ? (
               <form onSubmit={handleSubmit}>
@@ -155,59 +155,59 @@ export default function SupportPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <Label className="text-[13px] font-medium text-[#d0d6e0] mb-1.5 block">
+                    <Label className="text-[13px] font-medium text-mist mb-1.5 block">
                       Company Name *
                     </Label>
                     <Input
                       name="company"
-                      className="h-10 bg-[#161718] border-graphite text-white shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                      className="h-10 bg-obsidian border-graphite text-white shadow-none focus-visible:ring-0 focus-visible:border-smoke"
                     />
                   </div>
                   <div>
-                    <Label className="text-[13px] font-medium text-[#d0d6e0] mb-1.5 block">
+                    <Label className="text-[13px] font-medium text-mist mb-1.5 block">
                       Contact Person *
                     </Label>
                     <Input
                       name="contact"
-                      className="h-10 bg-[#161718] border-graphite text-white shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                      className="h-10 bg-obsidian border-graphite text-white shadow-none focus-visible:ring-0 focus-visible:border-smoke"
                     />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <Label className="text-[13px] font-medium text-[#d0d6e0] mb-1.5 block">
+                    <Label className="text-[13px] font-medium text-mist mb-1.5 block">
                       Phone Number *
                     </Label>
                     <Input
                       name="phone"
-                      className="h-10 bg-[#161718] border-graphite text-white shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                      className="h-10 bg-obsidian border-graphite text-white shadow-none focus-visible:ring-0 focus-visible:border-smoke"
                     />
                   </div>
                   <div>
-                    <Label className="text-[13px] font-medium text-[#d0d6e0] mb-1.5 block">
+                    <Label className="text-[13px] font-medium text-mist mb-1.5 block">
                       Email *
                     </Label>
                     <Input
                       name="email"
                       type="email"
-                      className="h-10 bg-[#161718] border-graphite text-white shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                      className="h-10 bg-obsidian border-graphite text-white shadow-none focus-visible:ring-0 focus-visible:border-smoke"
                     />
                   </div>
                 </div>
                 <div className="mb-4">
-                  <Label className="text-[13px] font-medium text-[#d0d6e0] mb-1.5 block">
+                  <Label className="text-[13px] font-medium text-mist mb-1.5 block">
                     Product or System
                   </Label>
                   <Select name="product" defaultValue={productOptions[0]}>
-                    <SelectTrigger className="w-full bg-[#161718] border-graphite text-white h-10 shadow-none focus:ring-0">
+                    <SelectTrigger className="w-full bg-obsidian border-graphite text-white h-10 shadow-none focus:ring-0">
                       <SelectValue placeholder="Select product" />
                     </SelectTrigger>
-                    <SelectContent className="bg-[#0f1011] border-graphite text-white shadow-none">
+                    <SelectContent className="bg-carbon border-graphite text-white shadow-none">
                       {productOptions.map((o) => (
                         <SelectItem
                           key={o}
                           value={o}
-                          className="focus:bg-[#161718] focus:text-white"
+                          className="focus:bg-obsidian focus:text-white"
                         >
                           {o}
                         </SelectItem>
@@ -217,19 +217,19 @@ export default function SupportPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <Label className="text-[13px] font-medium text-[#d0d6e0] mb-1.5 block">
+                    <Label className="text-[13px] font-medium text-mist mb-1.5 block">
                       Issue Type
                     </Label>
                     <Select name="issueType" defaultValue={issueTypes[0]}>
-                      <SelectTrigger className="w-full bg-[#161718] border-graphite text-white h-10 shadow-none focus:ring-0">
+                      <SelectTrigger className="w-full bg-obsidian border-graphite text-white h-10 shadow-none focus:ring-0">
                         <SelectValue placeholder="Select issue type" />
                       </SelectTrigger>
-                      <SelectContent className="bg-[#0f1011] border-graphite text-white shadow-none">
+                      <SelectContent className="bg-carbon border-graphite text-white shadow-none">
                         {issueTypes.map((o) => (
                           <SelectItem
                             key={o}
                             value={o}
-                            className="focus:bg-[#161718] focus:text-white"
+                            className="focus:bg-obsidian focus:text-white"
                           >
                             {o}
                           </SelectItem>
@@ -238,19 +238,19 @@ export default function SupportPage() {
                     </Select>
                   </div>
                   <div>
-                    <Label className="text-[13px] font-medium text-[#d0d6e0] mb-1.5 block">
+                    <Label className="text-[13px] font-medium text-mist mb-1.5 block">
                       Urgency
                     </Label>
                     <Select name="urgency" defaultValue={urgencyLevels[1]}>
-                      <SelectTrigger className="w-full bg-[#161718] border-graphite text-white h-10 shadow-none focus:ring-0">
+                      <SelectTrigger className="w-full bg-obsidian border-graphite text-white h-10 shadow-none focus:ring-0">
                         <SelectValue placeholder="Select urgency" />
                       </SelectTrigger>
-                      <SelectContent className="bg-[#0f1011] border-graphite text-white shadow-none">
+                      <SelectContent className="bg-carbon border-graphite text-white shadow-none">
                         {urgencyLevels.map((o) => (
                           <SelectItem
                             key={o}
                             value={o}
-                            className="focus:bg-[#161718] focus:text-white"
+                            className="focus:bg-obsidian focus:text-white"
                           >
                             {o}
                           </SelectItem>
@@ -260,37 +260,37 @@ export default function SupportPage() {
                   </div>
                 </div>
                 <div className="mb-6">
-                  <Label className="text-[13px] font-medium text-[#d0d6e0] mb-1.5 block">
+                  <Label className="text-[13px] font-medium text-mist mb-1.5 block">
                     Issue Description *
                   </Label>
                   <Textarea
                     name="description"
                     rows={4}
-                    className="bg-[#161718] border-graphite text-white shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                    className="bg-obsidian border-graphite text-white shadow-none focus-visible:ring-0 focus-visible:border-smoke"
                   />
                 </div>
                 {error && (
-                  <div className="text-[#f43f5e] text-[13.5px] mb-4">
+                  <div className="text-rose-500 text-[13.5px] mb-4">
                     {error}
                   </div>
                 )}
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="bg-[#e4f222] hover:bg-[#e4f222]/90 text-[#08090a] font-medium text-[14.5px] px-7 py-3.5 h-auto rounded-md shadow-none transition-all"
+                  className="bg-orange hover:bg-orangeDark text-white font-medium text-[14.5px] px-7 py-3.5 h-auto rounded-md shadow-none transition-all"
                 >
                   {submitting ? "Sending…" : "Submit Request"}
                 </Button>
               </form>
             ) : (
               <div className="text-center py-10">
-                <div className="w-12 h-12 rounded-full bg-[#161718] border border-graphite text-[#02b8cc] flex items-center justify-center text-xl mx-auto mb-4 shadow-none">
+                <div className="w-12 h-12 rounded-full bg-obsidian border border-graphite text-orange flex items-center justify-center text-xl mx-auto mb-4 shadow-none">
                   <i className="fa-solid fa-check"></i>
                 </div>
                 <div className="font-medium text-[20px] text-white mb-2 tracking-[-0.01em]">
                   Request received
                 </div>
-                <p className="text-[14.5px] text-[#8a8f98] m-0 leading-[1.6]">
+                <p className="text-[14.5px] text-fog m-0 leading-[1.6]">
                   Our support team will contact you shortly.
                 </p>
               </div>

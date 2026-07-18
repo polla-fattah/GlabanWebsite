@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="bg-[#08090a] min-h-screen">
+    <div className="bg-void min-h-screen">
       <Header />
       <PageHero
         title="Services & Lifecycle Support"
@@ -54,32 +54,32 @@ export default function ServicesPage() {
               <FadeIn key={s.slug} delay={i * 0.08} className="h-full">
                 <Link
                   href={href}
-                  className="group glb-card-link block bg-[#0f1011] border border-graphite rounded-lg p-6.5 no-underline transition-all shadow-none flex flex-col justify-between overflow-hidden h-full"
+                  className="group glb-card-link block bg-carbon border border-graphite rounded-lg p-6.5 no-underline transition-all shadow-none flex flex-col justify-between overflow-hidden h-full"
                 >
                   <div>
-                    <div className="relative w-full h-[200px] rounded-lg overflow-hidden mb-5 border border-graphite bg-[#161718]">
+                    <div className="relative w-full h-[200px] rounded-lg overflow-hidden mb-5 border border-graphite bg-obsidian">
                       <img
                         src={s.image}
                         alt={s.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#08090a] via-[#08090a]/30 to-transparent" />
-                      <div className="absolute inset-0 bg-gradient-to-tr from-[#08090a]/90 via-[#08090a]/50 to-[#02b8cc]/40 transition-all duration-500 group-hover:to-[#02b8cc]/60" />
-                      <div className="absolute top-3 left-3 bg-[#08090a]/85 backdrop-blur-md border border-graphite text-[#02b8cc] font-mono text-[10.5px] uppercase tracking-wider px-2.5 py-1 rounded">
+                      <div className="absolute inset-0 bg-gradient-to-t from-void via-void/30 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-void/90 via-void/50 to-orange/5" />
+                      <div className="absolute top-3 left-3 bg-void/85 backdrop-blur-md border border-graphite text-orange font-mono text-[10.5px] uppercase tracking-wider px-2.5 py-1 rounded">
                         SERVICE MODULE
                       </div>
                     </div>
-                    <div className="font-medium text-[18px] text-white mb-2.5 tracking-[-0.015em] group-hover:text-[#02b8cc] transition-colors flex items-center justify-between">
+                    <div className="font-medium text-[18px] text-white mb-2.5 tracking-[-0.015em] transition-colors flex items-center justify-between">
                       <span>{s.name}</span>
                     </div>
-                    <div className="text-[14px] text-[#8a8f98] leading-[1.6] mb-6 font-normal">
+                    <div className="text-[14px] text-fog leading-[1.6] mb-6 font-normal">
                       {s.listingDesc}
                     </div>
                   </div>
-                  <div className="pt-4 border-t border-graphite/60 flex items-center justify-between text-[13px] font-medium text-[#02b8cc] group-hover:text-white transition-colors">
+                  <div className="pt-4 border-t border-graphite/60 flex items-center justify-between text-[13px] font-medium text-fog group-hover:text-mist transition-colors">
                     <span>Lifecycle & Integration</span>
-                    <span className="flex items-center gap-1.5 group-hover:translate-x-1 transition-transform duration-200">
-                      Specs{" "}
+                    <span className="flex items-center gap-1.5 text-orange group-hover:text-orangeLight transition-colors duration-200">
+                      Explore{" "}
                       <i className="fa-solid fa-arrow-right text-[11px]" />
                     </span>
                   </div>

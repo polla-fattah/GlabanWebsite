@@ -18,7 +18,7 @@ export default function PageHero({
   return (
     <section
       className={cn(
-        "bg-[#08090a] border-b border-graphite",
+        "bg-void border-b border-graphite",
         centered ? "py-[76px] pb-[68px]" : "py-[76px] pb-[60px]",
       )}
     >
@@ -29,7 +29,7 @@ export default function PageHero({
         )}
       >
         <div
-          className="text-[12px] font-medium tracking-[0.08em] uppercase mb-3 text-[#8a8f98]"
+          className="text-[12px] font-medium tracking-[0.08em] uppercase mb-3 text-fog"
           style={eyebrowColor ? { color: eyebrowColor } : undefined}
         >
           {eyebrow}
@@ -47,7 +47,7 @@ export default function PageHero({
         {subtitle && (
           <p
             className={cn(
-              "text-[16px] text-[#8a8f98] leading-[1.65] m-0",
+              "text-[16px] text-fog leading-[1.65] m-0",
               centered ? "mx-auto max-w-[680px]" : "max-w-[640px]",
             )}
           >

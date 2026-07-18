@@ -48,7 +48,7 @@ function FooterLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      className="text-[13.5px] text-[#62666d] hover:text-[#d0d6e0] transition-colors no-underline"
+      className="text-[13.5px] text-ash hover:text-mist transition-colors no-underline"
     >
       {label}
     </Link>
@@ -57,18 +57,16 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#08090a] border-t border-graphite w-full overflow-hidden">
+    <footer className="bg-void border-t border-graphite w-full overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-8 pt-16 pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-10">
         <div className="min-w-0">
           <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-[28px] h-[28px] rounded-[6px] bg-[#0f1011] border border-graphite flex items-center justify-center font-bold text-white text-[14px]">
-              G
-            </div>
+
             <span className="font-medium text-[16px] text-white tracking-[-0.022em]">
-              GLABAN
+              GLAB<span className="text-orange">AN</span>
             </span>
           </div>
-          <p className="text-[13.5px] leading-[1.65] text-[#8a8f98] max-w-full mb-5 break-words">
+          <p className="text-[13.5px] leading-[1.65] text-fog max-w-full mb-5 break-words">
             Complete digital, cybersecurity, and physical security solutions for
             fuel, oil, gas, refinery, and energy companies across KRG and the
             wider region.
@@ -78,7 +76,7 @@ export default function Footer() {
               <a
                 key={s.label}
                 href={s.href}
-                className="w-8 h-8 rounded-md bg-[#0f1011] border border-graphite flex items-center justify-center no-underline text-[#8a8f98] hover:text-white text-xs font-medium transition-colors shadow-none"
+                className="w-8 h-8 rounded-md bg-carbon border border-graphite flex items-center justify-center no-underline text-fog hover:text-orange hover:border-orange/40 text-xs font-medium transition-colors shadow-none"
               >
                 {s.label}
               </a>
@@ -87,7 +85,7 @@ export default function Footer() {
         </div>
 
         <div className="min-w-0">
-          <div className="font-medium text-[12px] text-[#8a8f98] tracking-[0.08em] uppercase mb-4">
+          <div className="font-medium text-[12px] text-fog tracking-[0.08em] uppercase mb-4">
             Products
           </div>
           <div className="flex flex-col gap-2.5">
@@ -98,7 +96,7 @@ export default function Footer() {
         </div>
 
         <div className="min-w-0">
-          <div className="font-medium text-[12px] text-[#8a8f98] tracking-[0.08em] uppercase mb-4">
+          <div className="font-medium text-[12px] text-fog tracking-[0.08em] uppercase mb-4">
             Services
           </div>
           <div className="flex flex-col gap-2.5">
@@ -109,7 +107,7 @@ export default function Footer() {
         </div>
 
         <div className="min-w-0">
-          <div className="font-medium text-[12px] text-[#8a8f98] tracking-[0.08em] uppercase mb-4">
+          <div className="font-medium text-[12px] text-fog tracking-[0.08em] uppercase mb-4">
             Company
           </div>
           <div className="flex flex-col gap-2.5 mb-5">
@@ -117,21 +115,21 @@ export default function Footer() {
               <FooterLink key={l.href} {...l} />
             ))}
           </div>
-          <div className="text-[13.5px] text-[#8a8f98] leading-[1.75] mt-3 break-words">
+          <div className="text-[13.5px] text-fog leading-[1.75] mt-3 break-words">
             <div className="text-white font-medium mb-1">info@glaban.com</div>
-            <div className="mb-2 text-[#d0d6e0]">+964 750 6611033</div>
-            <div className="text-[#62666d]">Glaban Office, Makhmur Road,</div>
-            <div className="text-[#62666d]">
+            <div className="mb-2 text-mist">+964 750 6611033</div>
+            <div className="text-ash">Glaban Office, Makhmur Road,</div>
+            <div className="text-ash">
               Erbil, Kurdistan Region (KRG), Iraq
             </div>
           </div>
         </div>
       </div>
       <div className="border-t border-graphite py-6 px-8 max-w-[1280px] mx-auto flex justify-between items-center flex-wrap gap-3">
-        <span className="text-[13px] text-[#62666d]">
+        <span className="text-[13px] text-ash">
           © 2026 Glaban. All rights reserved.
         </span>
-        <span className="text-[13px] text-[#62666d]">
+        <span className="text-[13px] text-ash">
           Software · Cybersecurity · Physical Security for the Energy Sector
         </span>
       </div>

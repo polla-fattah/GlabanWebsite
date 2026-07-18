@@ -173,7 +173,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="bg-[#08090a] min-h-screen">
+    <div className="bg-void min-h-screen">
       <Header />
       <PageHero
         eyebrow="Contact"
@@ -186,28 +186,28 @@ export default function ContactPage() {
           {info.map((c) => (
             <div
               key={c.label}
-              className="group relative overflow-hidden bg-[#0f1011] border border-graphite rounded-lg p-5 sm:p-6 hover:border-[#383b3f] hover:bg-[#121315] transition-all duration-300 flex items-start gap-4 sm:gap-5 shadow-sm"
+              className="group relative overflow-hidden bg-carbon border border-graphite rounded-lg p-5 sm:p-6 hover:border-smoke hover:bg-cinder transition-all duration-300 flex items-start gap-4 sm:gap-5 shadow-sm"
             >
               {/* Subtle hover gradient glow */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#02b8cc]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-orange/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               {/* Icon badge */}
-              <div className="w-12 h-12 rounded-xl bg-[#161718] border border-graphite flex items-center justify-center text-[#02b8cc] shrink-0 group-hover:border-[#02b8cc]/40  transition-all duration-300 shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-obsidian border border-graphite flex items-center justify-center text-orange shrink-0 group-hover:border-smoke transition-all duration-300 shadow-sm">
                 <i className={`${c.icon} text-[18px]`} />
               </div>
 
               {/* Content */}
               <div className="flex-1 min-w-0 pt-0.5">
-                <div className="text-[12px] font-semibold tracking-wider uppercase text-[#62666d] mb-1">
+                <div className="text-[12px] font-semibold tracking-wider uppercase text-ash mb-1">
                   {c.label}
                 </div>
                 {c.href ? (
                   <a
                     href={c.href}
-                    className="text-[16px] font-semibold text-white hover:text-[#02b8cc] transition-colors break-words inline-flex items-center gap-2 group/link"
+                    className="text-[16px] font-semibold text-white hover:text-orange transition-colors break-words inline-flex items-center gap-2 group/link"
                   >
                     <span>{c.value}</span>
-                    <i className="fa-solid fa-arrow-up-right-from-square text-[12px] text-[#62666d] group-hover/link:text-[#02b8cc] transition-colors" />
+                    <i className="fa-solid fa-arrow-up-right-from-square text-[12px] text-ash group-hover/link:text-orange transition-colors" />
                   </a>
                 ) : (
                   <div className="text-[16px] font-semibold text-white leading-snug break-words">
@@ -215,7 +215,7 @@ export default function ContactPage() {
                   </div>
                 )}
                 {c.subtext && (
-                  <div className="text-[13.5px] text-[#8a8f98] mt-1 leading-relaxed">
+                  <div className="text-[13.5px] text-fog mt-1 leading-relaxed">
                     {c.subtext}
                   </div>
                 )}
@@ -224,7 +224,7 @@ export default function ContactPage() {
           ))}
         </div>
 
-        <Card className="bg-[#0f1011] border border-graphite rounded-lg shadow-none">
+        <Card className="bg-carbon border border-graphite rounded-lg shadow-none">
           <CardContent className="p-8 sm:p-10">
             {!submitted ? (
               <Form {...form}>
@@ -248,14 +248,14 @@ export default function ContactPage() {
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-[13px] font-medium text-[#d0d6e0]">
+                          <FormLabel className="text-[13px] font-medium text-mist">
                             Full Name *
                           </FormLabel>
                           <FormControl>
                             <Input
                               {...field}
                               placeholder="John Doe"
-                              className="h-10 bg-[#161718] border-graphite text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                              className="h-10 bg-obsidian border-graphite text-white placeholder:text-steel shadow-none focus-visible:ring-0 focus-visible:border-smoke"
                             />
                           </FormControl>
                           <FormMessage />
@@ -267,14 +267,14 @@ export default function ContactPage() {
                       name="company"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-[13px] font-medium text-[#d0d6e0]">
+                          <FormLabel className="text-[13px] font-medium text-mist">
                             Company Name *
                           </FormLabel>
                           <FormControl>
                             <Input
                               {...field}
                               placeholder="Company Ltd"
-                              className="h-10 bg-[#161718] border-graphite text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                              className="h-10 bg-obsidian border-graphite text-white placeholder:text-steel shadow-none focus-visible:ring-0 focus-visible:border-smoke"
                             />
                           </FormControl>
                           <FormMessage />
@@ -289,14 +289,14 @@ export default function ContactPage() {
                       name="title"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-[13px] font-medium text-[#d0d6e0]">
+                          <FormLabel className="text-[13px] font-medium text-mist">
                             Job Title
                           </FormLabel>
                           <FormControl>
                             <Input
                               {...field}
                               placeholder="Operations Manager"
-                              className="h-10 bg-[#161718] border-graphite text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                              className="h-10 bg-obsidian border-graphite text-white placeholder:text-steel shadow-none focus-visible:ring-0 focus-visible:border-smoke"
                             />
                           </FormControl>
                           <FormMessage />
@@ -308,14 +308,14 @@ export default function ContactPage() {
                       name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-[13px] font-medium text-[#d0d6e0]">
+                          <FormLabel className="text-[13px] font-medium text-mist">
                             Phone Number *
                           </FormLabel>
                           <FormControl>
                             <Input
                               {...field}
                               placeholder="+964..."
-                              className="h-10 bg-[#161718] border-graphite text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                              className="h-10 bg-obsidian border-graphite text-white placeholder:text-steel shadow-none focus-visible:ring-0 focus-visible:border-smoke"
                             />
                           </FormControl>
                           <FormMessage />
@@ -329,7 +329,7 @@ export default function ContactPage() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[13px] font-medium text-[#d0d6e0]">
+                        <FormLabel className="text-[13px] font-medium text-mist">
                           Email Address *
                         </FormLabel>
                         <FormControl>
@@ -337,7 +337,7 @@ export default function ContactPage() {
                             {...field}
                             type="email"
                             placeholder="john@company.com"
-                            className="h-10 bg-[#161718] border-graphite text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                            className="h-10 bg-obsidian border-graphite text-white placeholder:text-steel shadow-none focus-visible:ring-0 focus-visible:border-smoke"
                           />
                         </FormControl>
                         <FormMessage />
@@ -351,7 +351,7 @@ export default function ContactPage() {
                       name="industry"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-[13px] font-medium text-[#d0d6e0]">
+                          <FormLabel className="text-[13px] font-medium text-mist">
                             Industry Type
                           </FormLabel>
                           <Select
@@ -359,16 +359,16 @@ export default function ContactPage() {
                             defaultValue={field.value}
                           >
                             <FormControl>
-                              <SelectTrigger className="w-full bg-[#161718] border-graphite text-white h-10 shadow-none focus:ring-0">
+                              <SelectTrigger className="w-full bg-obsidian border-graphite text-white h-10 shadow-none focus:ring-0">
                                 <SelectValue placeholder="Select industry" />
                               </SelectTrigger>
                             </FormControl>
-                            <SelectContent className="bg-[#0f1011] border-graphite text-white shadow-none">
+                            <SelectContent className="bg-carbon border-graphite text-white shadow-none">
                               {industryOptions.map((o) => (
                                 <SelectItem
                                   key={o}
                                   value={o}
-                                  className="focus:bg-[#161718] focus:text-white"
+                                  className="focus:bg-obsidian focus:text-white"
                                 >
                                   {o}
                                 </SelectItem>
@@ -384,7 +384,7 @@ export default function ContactPage() {
                       name="interest"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-[13px] font-medium text-[#d0d6e0]">
+                          <FormLabel className="text-[13px] font-medium text-mist">
                             Product / Service of Interest
                           </FormLabel>
                           <Select
@@ -392,16 +392,16 @@ export default function ContactPage() {
                             defaultValue={field.value}
                           >
                             <FormControl>
-                              <SelectTrigger className="w-full bg-[#161718] border-graphite text-white h-10 shadow-none focus:ring-0">
+                              <SelectTrigger className="w-full bg-obsidian border-graphite text-white h-10 shadow-none focus:ring-0">
                                 <SelectValue placeholder="Select interest" />
                               </SelectTrigger>
                             </FormControl>
-                            <SelectContent className="bg-[#0f1011] border-graphite text-white shadow-none">
+                            <SelectContent className="bg-carbon border-graphite text-white shadow-none">
                               {interestOptions.map((o) => (
                                 <SelectItem
                                   key={o}
                                   value={o}
-                                  className="focus:bg-[#161718] focus:text-white"
+                                  className="focus:bg-obsidian focus:text-white"
                                 >
                                   {o}
                                 </SelectItem>
@@ -419,7 +419,7 @@ export default function ContactPage() {
                     name="contactMethod"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[13px] font-medium text-[#d0d6e0]">
+                        <FormLabel className="text-[13px] font-medium text-mist">
                           Preferred Contact Method
                         </FormLabel>
                         <Select
@@ -427,16 +427,16 @@ export default function ContactPage() {
                           defaultValue={field.value}
                         >
                           <FormControl>
-                            <SelectTrigger className="w-full bg-[#161718] border-graphite text-white h-10 shadow-none focus:ring-0">
+                            <SelectTrigger className="w-full bg-obsidian border-graphite text-white h-10 shadow-none focus:ring-0">
                               <SelectValue placeholder="Select contact method" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent className="bg-[#0f1011] border-graphite text-white shadow-none">
+                          <SelectContent className="bg-carbon border-graphite text-white shadow-none">
                             {contactMethods.map((o) => (
                               <SelectItem
                                 key={o}
                                 value={o}
-                                className="focus:bg-[#161718] focus:text-white"
+                                className="focus:bg-obsidian focus:text-white"
                               >
                                 {o}
                               </SelectItem>
@@ -453,7 +453,7 @@ export default function ContactPage() {
                     name="message"
                     render={({ field }) => (
                       <FormItem className="pt-2">
-                        <FormLabel className="text-[13px] font-medium text-[#d0d6e0]">
+                        <FormLabel className="text-[13px] font-medium text-mist">
                           Message *
                         </FormLabel>
                         <FormControl>
@@ -461,7 +461,7 @@ export default function ContactPage() {
                             {...field}
                             rows={4}
                             placeholder="Tell us about your requirements..."
-                            className="bg-[#161718] border-graphite text-white placeholder:text-[#525866] shadow-none focus-visible:ring-0 focus-visible:border-[#383b3f]"
+                            className="bg-obsidian border-graphite text-white placeholder:text-steel shadow-none focus-visible:ring-0 focus-visible:border-smoke"
                           />
                         </FormControl>
                         <FormMessage />
@@ -470,7 +470,7 @@ export default function ContactPage() {
                   />
 
                   {error && (
-                    <div className="text-[#f43f5e] text-[13.5px] py-2">
+                    <div className="text-rose-500 text-[13.5px] py-2">
                       {error}
                     </div>
                   )}
@@ -478,7 +478,7 @@ export default function ContactPage() {
                     <Button
                       type="submit"
                       disabled={submitting}
-                      className="bg-[#e4f222] hover:bg-[#e4f222]/90 text-[#08090a] font-medium text-[14.5px] px-7 py-3.5 h-auto rounded-md shadow-none transition-all"
+                      className="bg-orange hover:bg-orangeDark text-white font-medium text-[14.5px] px-7 py-3.5 h-auto rounded-md shadow-none transition-all"
                     >
                       {submitting ? "Sending…" : "Send Message"}
                     </Button>
@@ -487,13 +487,13 @@ export default function ContactPage() {
               </Form>
             ) : (
               <div className="text-center py-12">
-                <div className="w-12 h-12 rounded-full bg-[#161718] border border-graphite text-[#02b8cc] flex items-center justify-center text-xl mx-auto mb-4 shadow-none">
+                <div className="w-12 h-12 rounded-full bg-obsidian border border-graphite text-orange flex items-center justify-center text-xl mx-auto mb-4 shadow-none">
                   <i className="fa-solid fa-check"></i>
                 </div>
                 <div className="font-medium text-[20px] text-white mb-2 tracking-[-0.01em]">
                   Message sent
                 </div>
-                <p className="text-[14.5px] text-[#8a8f98] m-0 leading-[1.6]">
+                <p className="text-[14.5px] text-fog m-0 leading-[1.6]">
                   Thanks for reaching out — our team will contact you within one
                   business day.
                 </p>

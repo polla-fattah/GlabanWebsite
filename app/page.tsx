@@ -52,11 +52,11 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="bg-[#08090a] min-h-screen">
+    <div className="bg-void min-h-screen">
       <Header />
 
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#08090a] border-b border-graphite min-h-[calc(100vh-68px)] flex flex-col justify-center py-20 px-8">
+      <section className="relative overflow-hidden bg-void border-b border-graphite min-h-[calc(100vh-68px)] flex flex-col justify-center py-20 px-8">
         {/* Subtle Grid & Animated Background Light Fields */}
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
@@ -73,18 +73,18 @@ export default function HomePage() {
           }}
         >
           <div
-            className="absolute -top-10 -left-16 w-[450px] md:w-[600px] h-[280px] bg-[#02b8cc]/12 blur-[140px] rounded-full"
+            className="absolute -top-10 -left-16 w-[450px] md:w-[600px] h-[280px] bg-white/6 blur-[140px] rounded-full"
             style={{
               animation: "ambientDrift2 9s ease-in-out infinite alternate",
             }}
           />
           <div
-            className="absolute -bottom-10 -right-16 w-[450px] md:w-[600px] h-[280px] bg-[#e4f222]/10 blur-[140px] rounded-full"
+            className="absolute -bottom-10 -right-16 w-[450px] md:w-[600px] h-[280px] bg-orange/10 blur-[140px] rounded-full"
             style={{
               animation: "ambientDrift3 11s ease-in-out infinite alternate",
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#02b8cc]/10 via-[#e4f222]/8 to-[#02b8cc]/10 blur-[130px] rounded-full" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-orange/10 to-white/5 blur-[130px] rounded-full" />
         </div>
 
         <div className="max-w-[1280px] w-full mx-auto relative z-10 text-center flex flex-col items-center justify-center">
@@ -94,7 +94,7 @@ export default function HomePage() {
           </h1>
 
           {/* Centered Subtitle (Shorter & Smaller) */}
-          <p className="text-[15.5px] md:text-[16.5px] leading-[1.6] text-[#8a8f98] max-w-[620px] mx-auto mt-5 mb-9 m-0 font-normal">
+          <p className="text-[15.5px] md:text-[16.5px] leading-[1.6] text-fog max-w-[620px] mx-auto mt-5 mb-9 m-0 font-normal">
             Integrated software, hardware, and security built for oil companies,
             refineries, forecourts, and fuel distribution networks across KRG
             and Iraq.
@@ -104,7 +104,7 @@ export default function HomePage() {
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <Button
               asChild
-              className="bg-[#e4f222] hover:bg-[#e4f222]/90 text-[#08090a] font-medium text-[15px] px-8 py-4 h-auto rounded-lg no-underline shadow-none transition-all"
+              className="bg-orange hover:bg-orangeDark text-white font-medium text-[15px] px-8 py-4 h-auto rounded-lg no-underline shadow-none transition-all"
             >
               <Link href="/contact">Contact Us</Link>
             </Button>
@@ -120,16 +120,16 @@ export default function HomePage() {
       </section>
 
       {/* PROBLEMS */}
-      <section className="bg-[#08090a] py-24 border-b border-graphite">
+      <section className="bg-void py-24 border-b border-graphite">
         <div className="max-w-[1280px] mx-auto px-8">
           <div className="max-w-[640px] mx-auto mb-14 text-center">
-            <div className="text-[12px] font-medium text-[#8a8f98] tracking-[0.08em] uppercase mb-3">
+            <div className="text-[12px] font-medium text-fog tracking-[0.08em] uppercase mb-3">
               The problem
             </div>
             <h2 className="font-medium text-[32px] md:text-[36px] text-white mb-3.5 tracking-[-0.022em] leading-[1.15] m-0">
               Fuel and energy operations run on too many disconnected systems
             </h2>
-            <p className="text-[16px] text-[#8a8f98] leading-[1.6] m-0">
+            <p className="text-[16px] text-fog leading-[1.6] m-0">
               Manual processes and weak security create risk at every branch,
               station, and depot.
             </p>
@@ -139,11 +139,11 @@ export default function HomePage() {
       </section>
 
       {/* SOLUTIONS OVERVIEW */}
-      <section className="bg-[#0f1011] border-b border-graphite">
+      <section className="bg-carbon border-b border-graphite">
         <div className="max-w-[1280px] mx-auto py-24 px-8">
           <div className="flex justify-between items-end mb-11 flex-wrap gap-5">
             <div>
-              <div className="text-[12px] font-medium text-[#8a8f98] tracking-[0.08em] uppercase mb-3">
+              <div className="text-[12px] font-medium text-fog tracking-[0.08em] uppercase mb-3">
                 Our solutions
               </div>
               <h2 className="font-medium text-[32px] md:text-[36px] text-white max-w-[600px] tracking-[-0.022em] leading-[1.15] m-0">
@@ -152,7 +152,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/solutions"
-              className="text-[#02b8cc] hover:text-white font-medium text-[14px] no-underline whitespace-nowrap transition-colors"
+              className="text-orange hover:text-white font-medium text-[14px] no-underline whitespace-nowrap transition-colors"
             >
               Browse all solutions →
             </Link>
@@ -162,11 +162,11 @@ export default function HomePage() {
       </section>
 
       {/* PRODUCTS HIGHLIGHT */}
-      <section className="bg-[#08090a] py-24 border-b border-graphite">
+      <section className="bg-void py-24 border-b border-graphite">
         <div className="max-w-[1280px] mx-auto px-8">
           <div className="flex justify-between items-end mb-11 flex-wrap gap-5">
             <div>
-              <div className="text-[12px] font-medium text-[#8a8f98] tracking-[0.08em] uppercase mb-3">
+              <div className="text-[12px] font-medium text-fog tracking-[0.08em] uppercase mb-3">
                 Products
               </div>
               <h2 className="font-medium text-[32px] md:text-[36px] text-white tracking-[-0.022em] leading-[1.15] m-0">
@@ -175,7 +175,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/products"
-              className="text-[#02b8cc] hover:text-white font-medium text-[14px] no-underline whitespace-nowrap transition-colors"
+              className="text-orange hover:text-white font-medium text-[14px] no-underline whitespace-nowrap transition-colors"
             >
               View all products →
             </Link>
@@ -185,31 +185,31 @@ export default function HomePage() {
               <FadeIn key={p.slug} delay={i * 0.08} className="h-full">
                 <Link
                   href={`/products/${p.slug}`}
-                  className="group glb-card-link block bg-[#0f1011] border border-graphite rounded-lg p-6.5 no-underline transition-all shadow-none flex flex-col justify-between overflow-hidden h-full"
+                  className="group glb-card-link block bg-carbon border border-graphite rounded-lg p-6.5 no-underline transition-all shadow-none flex flex-col justify-between overflow-hidden h-full"
                 >
                   <div>
-                    <div className="relative w-full h-[190px] rounded-lg overflow-hidden mb-5 border border-graphite bg-[#161718]">
+                    <div className="relative w-full h-[190px] rounded-lg overflow-hidden mb-5 border border-graphite bg-obsidian">
                       <img
                         src={p.image}
                         alt={p.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#08090a] via-[#08090a]/30 to-transparent" />
-                      <div className="absolute inset-0 bg-gradient-to-tr from-[#08090a]/90 via-[#08090a]/50 to-[#e4f222]/40 transition-all duration-500 group-hover:to-[#e4f222]/60" />
-                      <div className="absolute top-3 left-3 bg-[#08090a]/85 backdrop-blur-md border border-graphite text-[#d0d6e0] font-mono text-[10.5px] uppercase tracking-wider px-2.5 py-1 rounded">
+                      <div className="absolute inset-0 bg-gradient-to-t from-void via-void/30 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-void/90 via-void/50 to-orange/5" />
+                      <div className="absolute top-3 left-3 bg-void/85 backdrop-blur-md border border-graphite text-mist font-mono text-[10.5px] uppercase tracking-wider px-2.5 py-1 rounded">
                         {p.category}
                       </div>
                     </div>
-                    <div className="font-medium text-[18px] text-white mb-2 tracking-[-0.015em] group-hover:text-[#02b8cc] transition-colors flex items-center justify-between">
+                    <div className="font-medium text-[18px] text-white mb-2 tracking-[-0.015em] transition-colors flex items-center justify-between">
                       <span>{p.name}</span>
                     </div>
-                    <div className="text-[14px] text-[#8a8f98] leading-[1.6] mb-5 line-clamp-3">
+                    <div className="text-[14px] text-fog leading-[1.6] mb-5 line-clamp-3">
                       {p.listingDesc}
                     </div>
                   </div>
-                  <div className="pt-4 border-t border-graphite/60 flex items-center justify-between text-[13px] font-medium text-[#02b8cc] group-hover:text-white transition-colors">
+                  <div className="pt-4 border-t border-graphite/60 flex items-center justify-between text-[13px] font-medium text-fog group-hover:text-mist transition-colors">
                     <span>{p.homeBenefit}</span>
-                    <span className="flex items-center gap-1.5 group-hover:translate-x-1 transition-transform duration-200">
+                    <span className="flex items-center gap-1.5 text-orange group-hover:text-orangeLight transition-colors duration-200">
                       Explore{" "}
                       <i className="fa-solid fa-arrow-right text-[11px]" />
                     </span>
@@ -222,11 +222,11 @@ export default function HomePage() {
       </section>
 
       {/* SERVICES HIGHLIGHT */}
-      <section className="bg-[#0f1011] py-24 border-b border-graphite">
+      <section className="bg-carbon py-24 border-b border-graphite">
         <div className="max-w-[1280px] mx-auto px-8">
           <div className="flex justify-between items-end mb-11 flex-wrap gap-5">
             <div>
-              <div className="text-[12px] font-medium text-[#8a8f98] tracking-[0.08em] uppercase mb-3">
+              <div className="text-[12px] font-medium text-fog tracking-[0.08em] uppercase mb-3">
                 Services
               </div>
               <h2 className="font-medium text-[32px] md:text-[36px] text-white tracking-[-0.022em] leading-[1.15] m-0">
@@ -235,7 +235,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/services"
-              className="text-[#02b8cc] hover:text-white font-medium text-[14px] no-underline whitespace-nowrap transition-colors"
+              className="text-orange hover:text-white font-medium text-[14px] no-underline whitespace-nowrap transition-colors"
             >
               View all services →
             </Link>
@@ -250,31 +250,31 @@ export default function HomePage() {
                       ? `/${s.slug}`
                       : `/services/${s.slug}`
                   }
-                  className="group glb-card-link block bg-[#161718] border border-graphite rounded-lg p-6 no-underline transition-all shadow-none flex flex-col justify-between overflow-hidden h-full"
+                  className="group glb-card-link block bg-obsidian border border-graphite rounded-lg p-6 no-underline transition-all shadow-none flex flex-col justify-between overflow-hidden h-full"
                 >
                   <div>
-                    <div className="relative w-full h-[160px] rounded-lg overflow-hidden mb-4 border border-graphite bg-[#0f1011]">
+                    <div className="relative w-full h-[160px] rounded-lg overflow-hidden mb-4 border border-graphite bg-carbon">
                       <img
                         src={s.image}
                         alt={s.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#08090a] via-[#08090a]/30 to-transparent" />
-                      <div className="absolute inset-0 bg-gradient-to-tr from-[#08090a]/90 via-[#08090a]/50 to-[#02b8cc]/40 transition-all duration-500 group-hover:to-[#02b8cc]/60" />
-                      <div className="absolute top-2.5 left-2.5 bg-[#08090a]/85 backdrop-blur-md border border-graphite text-[#02b8cc] font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded">
+                      <div className="absolute inset-0 bg-gradient-to-t from-void via-void/30 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-void/90 via-void/50 to-orange/5" />
+                      <div className="absolute top-2.5 left-2.5 bg-void/85 backdrop-blur-md border border-graphite text-orange font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded">
                         SERVICE MODULE
                       </div>
                     </div>
-                    <div className="font-medium text-[16px] text-white mb-2 group-hover:text-[#02b8cc] transition-colors">
+                    <div className="font-medium text-[16px] text-white mb-2 transition-colors">
                       {s.name}
                     </div>
-                    <div className="text-[13.5px] text-[#8a8f98] leading-[1.55] mb-5 line-clamp-3">
+                    <div className="text-[13.5px] text-fog leading-[1.55] mb-5 line-clamp-3">
                       {s.listingDesc}
                     </div>
                   </div>
-                  <div className="pt-3.5 border-t border-graphite/60 flex items-center justify-between text-[12.5px] font-medium text-[#02b8cc] group-hover:text-white transition-colors">
+                  <div className="pt-3.5 border-t border-graphite/60 flex items-center justify-between text-[12.5px] font-medium text-fog group-hover:text-mist transition-colors">
                     <span>Lifecycle Support</span>
-                    <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform duration-200">
+                    <span className="flex items-center gap-1 text-orange group-hover:text-orangeLight transition-colors duration-200">
                       Specs{" "}
                       <i className="fa-solid fa-arrow-right text-[10px]" />
                     </span>
@@ -287,10 +287,10 @@ export default function HomePage() {
       </section>
 
       {/* INDUSTRIES */}
-      <section className="bg-[#08090a] py-24 border-b border-graphite">
+      <section className="bg-void py-24 border-b border-graphite">
         <div className="max-w-[1280px] mx-auto px-8">
           <div className="max-w-[640px] mx-auto mb-12 text-center">
-            <div className="text-[12px] font-medium text-[#8a8f98] tracking-[0.08em] uppercase mb-3">
+            <div className="text-[12px] font-medium text-fog tracking-[0.08em] uppercase mb-3">
               Industries served
             </div>
             <h2 className="font-medium text-[32px] md:text-[36px] text-white tracking-[-0.022em] leading-[1.15] mb-3.5 m-0">
@@ -303,16 +303,16 @@ export default function HomePage() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="bg-[#0f1011] py-24 border-b border-graphite">
+      <section className="bg-carbon py-24 border-b border-graphite">
         <div className="max-w-[1280px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-[.9fr_1.1fr] gap-14 items-center">
           <div>
-            <div className="text-[12px] font-medium text-[#8a8f98] tracking-[0.08em] uppercase mb-3">
+            <div className="text-[12px] font-medium text-fog tracking-[0.08em] uppercase mb-3">
               Why Glaban
             </div>
             <h2 className="font-medium text-[32px] md:text-[36px] text-white tracking-[-0.022em] leading-[1.15] mb-4.5 m-0">
               A technology partner that understands the fuel business
             </h2>
-            <p className="text-[16px] text-[#8a8f98] leading-[1.65] m-0">
+            <p className="text-[16px] text-fog leading-[1.65] m-0">
               We combine deep fuel-sector experience with software, security,
               and physical protection expertise — and stay with you long after
               go-live.
@@ -321,10 +321,10 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {whyUs.map((w) => (
               <div key={w} className="flex gap-3 items-start">
-                <div className="w-5 h-5 rounded-md bg-[#161718] border border-graphite text-[#02b8cc] flex items-center justify-center text-[10px] shrink-0 mt-0.5 shadow-none">
+                <div className="w-5 h-5 rounded-md bg-obsidian border border-graphite text-orange flex items-center justify-center text-[10px] shrink-0 mt-0.5 shadow-none">
                   <i className="fa-solid fa-check"></i>
                 </div>
-                <div className="text-[14px] text-[#d0d6e0] font-normal leading-[1.5]">
+                <div className="text-[14px] text-mist font-normal leading-[1.5]">
                   {w}
                 </div>
               </div>
@@ -334,20 +334,20 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#08090a] py-24">
+      <section className="bg-void py-24">
         <div className="max-w-[1280px] mx-auto px-8">
-          <div className="bg-[#0f1011] border border-graphite rounded-2xl py-16 px-12 text-center relative overflow-hidden shadow-none">
+          <div className="bg-carbon border border-graphite rounded-2xl py-16 px-12 text-center relative overflow-hidden shadow-none">
             <div className="relative">
               <h2 className="font-medium text-[32px] md:text-[36px] text-white tracking-[-0.022em] mb-3.5 m-0">
                 Ready to modernise your operations?
               </h2>
-              <p className="text-[16px] text-[#8a8f98] max-w-[540px] mx-auto mb-8 leading-[1.6] m-0">
+              <p className="text-[16px] text-fog max-w-[540px] mx-auto mb-8 leading-[1.6] m-0">
                 Talk to our team about ERP, security, and surveillance solutions
                 built for your business.
               </p>
               <Button
                 asChild
-                className="bg-[#e4f222] hover:bg-[#e4f222]/90 text-[#08090a] font-medium text-[15px] px-8 py-4 h-auto rounded-md no-underline shadow-none transition-all"
+                className="bg-orange hover:bg-orangeDark text-white font-medium text-[15px] px-8 py-4 h-auto rounded-md no-underline shadow-none transition-all"
               >
                 <Link href="/contact">Contact Us</Link>
               </Button>

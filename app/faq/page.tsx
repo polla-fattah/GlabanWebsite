@@ -14,7 +14,7 @@ import { faqs } from "@/lib/data/faqs";
 
 export default function FaqPage() {
   return (
-    <div className="bg-[#08090a] min-h-screen">
+    <div className="bg-void min-h-screen">
       <Header />
       <PageHero eyebrow="FAQ" title="Frequently asked questions" />
 
@@ -31,10 +31,10 @@ export default function FaqPage() {
               value={`item-${i}`}
               className="border-b border-graphite py-2"
             >
-              <AccordionTrigger className="text-left font-medium text-[16px] text-white hover:no-underline hover:text-[#02b8cc] transition-colors py-4">
+              <AccordionTrigger className="text-left font-medium text-[16px] text-white hover:no-underline hover:text-orange transition-colors py-4">
                 {f.q}
               </AccordionTrigger>
-              <AccordionContent className="text-[14.5px] text-[#8a8f98] leading-[1.65] pt-1 pb-4">
+              <AccordionContent className="text-[14.5px] text-fog leading-[1.65] pt-1 pb-4">
                 {f.a}
               </AccordionContent>
             </AccordionItem>

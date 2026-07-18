@@ -45,14 +45,11 @@ export default function Header() {
     cleanPath === "/cctv-physical-security";
 
   return (
-    <header className="sticky top-0 z-100 bg-[#08090a]/85 backdrop-blur-md border-b border-graphite">
+    <header className="sticky top-0 z-100 bg-void/85 backdrop-blur-md border-b border-graphite">
       <div className="max-w-[1280px] mx-auto px-8 flex items-center justify-between h-[68px]">
         <Link href="/" className="flex items-center gap-2.5 no-underline">
-          <div className="w-[28px] h-[28px] rounded-[6px] bg-[#0f1011] border border-graphite flex items-center justify-center font-bold text-white text-[14px] shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
-            G
-          </div>
           <span className="font-medium text-[16px] text-white tracking-[-0.022em]">
-            GLABAN
+            GLAB<span className="text-orange">AN</span>
           </span>
         </Link>
 
@@ -67,7 +64,7 @@ export default function Header() {
                       "text-[13px] no-underline px-3.5 py-2 rounded-lg transition-colors inline-flex items-center",
                       isActive(cleanPath, "/")
                         ? "font-medium text-white bg-white/10 border border-graphite shadow-none"
-                        : "font-normal text-[#d0d6e0] hover:text-white hover:bg-white/5 border border-transparent",
+                        : "font-normal text-mist hover:text-white hover:bg-white/5 border border-transparent",
                     )}
                   >
                     Home
@@ -78,7 +75,7 @@ export default function Header() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger
                   className={cn(
-                    "bg-transparent text-[13px] px-3.5 py-2 h-auto rounded-lg transition-colors shadow-none font-normal text-[#d0d6e0] hover:text-white hover:bg-white/5 data-[state=open]:bg-white/10 data-[state=open]:text-white border border-transparent data-[state=open]:border-graphite",
+                    "bg-transparent text-[13px] px-3.5 py-2 h-auto rounded-lg transition-colors shadow-none font-normal text-mist hover:text-white hover:bg-white/5 data-[state=open]:bg-white/10 data-[state=open]:text-white border border-transparent data-[state=open]:border-graphite",
                     isProductsActive &&
                       "font-medium text-white bg-white/10 border-graphite shadow-none data-[active=true]:bg-white/10 data-[active=true]:text-white",
                   )}
@@ -86,7 +83,7 @@ export default function Header() {
                   Products
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid w-[640px] grid-cols-2 gap-2 p-3.5 bg-[#0f1011]">
+                  <div className="grid w-[640px] grid-cols-2 gap-2 p-3.5 bg-carbon">
                     {products.map((product) => {
                       const itemHref = `/products/${product.slug}`;
                       const isItemActive = cleanPath === itemHref;
@@ -111,15 +108,15 @@ export default function Header() {
                                   product.listingIcon,
                                   "text-[12px] w-4 text-center",
                                   isItemActive
-                                    ? "text-[#e4f222]"
-                                    : "text-[#02b8cc]",
+                                    ? "text-orange"
+                                    : "text-fog group-hover:text-white",
                                 )}
                               />
                               <span
                                 className={cn(
                                   "truncate",
                                   isItemActive &&
-                                    "text-[#e4f222] font-semibold data-[active=true]:text-[#e4f222]",
+                                    "text-orange font-semibold data-[active=true]:text-orange",
                                 )}
                               >
                                 {product.name}
@@ -128,9 +125,7 @@ export default function Header() {
                             <p
                               className={cn(
                                 "line-clamp-1 text-[11.5px] leading-snug font-normal pt-1.5 pl-6",
-                                isItemActive
-                                  ? "text-[#d0d6e0]"
-                                  : "text-[#8a8f98]",
+                                isItemActive ? "text-mist" : "text-fog",
                               )}
                             >
                               {product.listingDesc}
@@ -149,12 +144,12 @@ export default function Header() {
                           className={cn(
                             "flex items-center justify-between rounded-md px-3 py-2 text-[12.5px] font-medium transition-colors no-underline group border",
                             cleanPath === "/products"
-                              ? "bg-white/10 border-graphite text-[#e4f222] shadow-none data-[active=true]:bg-white/10 data-[active=true]:border-graphite data-[active=true]:text-[#e4f222]"
-                              : "text-[#e4f222] hover:bg-white/5 border-transparent",
+                              ? "bg-white/10 border-graphite text-orange shadow-none data-[active=true]:bg-white/10 data-[active=true]:border-graphite data-[active=true]:text-orange"
+                              : "text-orange hover:bg-white/5 border-transparent",
                           )}
                         >
                           <span>View All Products & Software Modules</span>
-                          <i className="fa-solid fa-arrow-right text-[11px] group-hover:translate-x-1 transition-transform" />
+                          <i className="fa-solid fa-arrow-right text-[11px]" />
                         </Link>
                       </NavigationMenuLink>
                     </div>
@@ -165,7 +160,7 @@ export default function Header() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger
                   className={cn(
-                    "bg-transparent text-[13px] px-3.5 py-2 h-auto rounded-lg transition-colors shadow-none font-normal text-[#d0d6e0] hover:text-white hover:bg-white/5 data-[state=open]:bg-white/10 data-[state=open]:text-white border border-transparent data-[state=open]:border-graphite",
+                    "bg-transparent text-[13px] px-3.5 py-2 h-auto rounded-lg transition-colors shadow-none font-normal text-mist hover:text-white hover:bg-white/5 data-[state=open]:bg-white/10 data-[state=open]:text-white border border-transparent data-[state=open]:border-graphite",
                     isServicesActive &&
                       "font-medium text-white bg-white/10 border-graphite shadow-none data-[active=true]:bg-white/10 data-[active=true]:text-white",
                   )}
@@ -173,7 +168,7 @@ export default function Header() {
                   Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid w-[640px] grid-cols-2 gap-2 p-3.5 bg-[#0f1011]">
+                  <div className="grid w-[640px] grid-cols-2 gap-2 p-3.5 bg-carbon">
                     {services.map((service) => {
                       const itemHref =
                         service.slug === "cybersecurity" ||
@@ -202,15 +197,15 @@ export default function Header() {
                                   service.listingIcon,
                                   "text-[12px] w-4 text-center",
                                   isItemActive
-                                    ? "text-[#e4f222]"
-                                    : "text-[#02b8cc]",
+                                    ? "text-orange"
+                                    : "text-fog group-hover:text-white",
                                 )}
                               />
                               <span
                                 className={cn(
                                   "truncate",
                                   isItemActive &&
-                                    "text-[#e4f222] font-semibold data-[active=true]:text-[#e4f222]",
+                                    "text-orange font-semibold data-[active=true]:text-orange",
                                 )}
                               >
                                 {service.name}
@@ -219,9 +214,7 @@ export default function Header() {
                             <p
                               className={cn(
                                 "line-clamp-1 text-[11.5px] leading-snug font-normal pt-1.5 pl-6",
-                                isItemActive
-                                  ? "text-[#d0d6e0]"
-                                  : "text-[#8a8f98]",
+                                isItemActive ? "text-mist" : "text-fog",
                               )}
                             >
                               {service.listingDesc}
@@ -240,14 +233,14 @@ export default function Header() {
                           className={cn(
                             "flex items-center justify-between rounded-md px-3 py-2 text-[12.5px] font-medium transition-colors no-underline group border",
                             cleanPath === "/services"
-                              ? "bg-white/10 border-graphite text-[#e4f222] shadow-none data-[active=true]:bg-white/10 data-[active=true]:border-graphite data-[active=true]:text-[#e4f222]"
-                              : "text-[#e4f222] hover:bg-white/5 border-transparent",
+                              ? "bg-white/10 border-graphite text-orange shadow-none data-[active=true]:bg-white/10 data-[active=true]:border-graphite data-[active=true]:text-orange"
+                              : "text-orange hover:bg-white/5 border-transparent",
                           )}
                         >
                           <span>
                             View All Engineering Services & Deployment Models
                           </span>
-                          <i className="fa-solid fa-arrow-right text-[11px] group-hover:translate-x-1 transition-transform" />
+                          <i className="fa-solid fa-arrow-right text-[11px]" />
                         </Link>
                       </NavigationMenuLink>
                     </div>
@@ -263,7 +256,7 @@ export default function Header() {
                       "text-[13px] no-underline px-3.5 py-2 rounded-lg transition-colors inline-flex items-center",
                       isActive(cleanPath, "/industries")
                         ? "font-medium text-white bg-white/10 border border-graphite shadow-none"
-                        : "font-normal text-[#d0d6e0] hover:text-white hover:bg-white/5 border border-transparent",
+                        : "font-normal text-mist hover:text-white hover:bg-white/5 border border-transparent",
                     )}
                   >
                     Industries
@@ -279,7 +272,7 @@ export default function Header() {
                       "text-[13px] no-underline px-3.5 py-2 rounded-lg transition-colors inline-flex items-center",
                       isActive(cleanPath, "/about")
                         ? "font-medium text-white bg-white/10 border border-graphite shadow-none"
-                        : "font-normal text-[#d0d6e0] hover:text-white hover:bg-white/5 border border-transparent",
+                        : "font-normal text-mist hover:text-white hover:bg-white/5 border border-transparent",
                     )}
                   >
                     About
@@ -293,7 +286,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <Button
             asChild
-            className="hidden lg:inline-flex bg-white hover:bg-white/90 text-[#08090a] font-medium text-[13px] px-4 py-2 h-auto rounded-full shadow-none transition-all"
+            className="hidden lg:inline-flex bg-white hover:bg-white/80 text-black font-medium text-[13px] px-4 py-2 h-auto rounded-full shadow-none transition-all"
           >
             <Link href="/contact">Contact Us</Link>
           </Button>
@@ -326,11 +319,11 @@ export default function Header() {
                         "text-[15.5px] no-underline py-3.5 px-4 rounded-lg border transition-colors flex items-center justify-between",
                         active
                           ? "font-medium text-white bg-white/10 border-graphite shadow-none"
-                          : "font-normal text-[#d0d6e0] hover:text-white hover:bg-white/5 border-transparent hover:border-graphite",
+                          : "font-normal text-mist hover:text-white hover:bg-white/5 border-transparent hover:border-graphite",
                       )}
                     >
                       <span>{item.label}</span>
-                      <i className="fa-solid fa-chevron-right text-[11px] text-[#525866]" />
+                      <i className="fa-solid fa-chevron-right text-[11px] text-steel" />
                     </Link>
                   );
                 })}
@@ -339,7 +332,7 @@ export default function Header() {
               <div className="pt-4 border-t border-graphite">
                 <Button
                   asChild
-                  className="bg-[#e4f222] hover:bg-[#d0dd1f] text-[#08090a] font-medium text-[15px] px-6 py-4 h-auto rounded-lg w-full shadow-none flex items-center justify-center gap-2"
+                  className="bg-orange hover:bg-orangeDark text-white font-medium text-[15px] px-6 py-4 h-auto rounded-lg w-full shadow-none flex items-center justify-center gap-2"
                 >
                   <Link href="/contact" onClick={() => setMobileOpen(false)}>
                     <span>Contact Us</span>

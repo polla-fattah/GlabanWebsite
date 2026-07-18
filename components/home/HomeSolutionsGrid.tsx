@@ -69,14 +69,14 @@ export default function HomeSolutionsGrid() {
             item.spanClass,
           )}
         >
-          <Card className="glb-card-link bg-[#161718] border border-graphite group-hover:border-[#383b3f] rounded-lg p-6.5 shadow-none transition-all flex flex-col justify-between gap-6 h-full overflow-hidden">
+          <Card className="glb-card-link bg-obsidian border border-graphite group-hover:border-smoke rounded-lg p-6.5 shadow-none transition-all flex flex-col justify-between gap-6 h-full overflow-hidden">
             <div className="flex flex-col gap-4">
               {/* Top Header: System Code + Connected Verification Pill */}
               <div className="flex items-center justify-between border-b border-graphite pb-3.5">
-                <span className="font-mono text-[11px] text-[#8a8f98] uppercase tracking-wider">
+                <span className="font-mono text-[11px] text-fog uppercase tracking-wider">
                   {item.code}
                 </span>
-                <div className="flex items-center gap-1.5 font-mono text-[10px] text-[#e4f222] bg-[#0f1011] border border-graphite px-2 py-0.5 rounded-lg">
+                <div className="flex items-center gap-1.5 font-mono text-[10px] text-orange bg-carbon border border-graphite px-2 py-0.5 rounded-lg">
                   <i className="fa-solid fa-circle-check text-[10px]" />
                   <span>CONNECTED</span>
                 </div>
@@ -84,14 +84,14 @@ export default function HomeSolutionsGrid() {
 
               {/* Icon & Title */}
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-[#0f1011] border border-graphite group-hover:border-[#383b3f] text-[#e4f222] group-hover:text-[#02b8cc] transition-colors flex items-center justify-center text-[20px] shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-carbon border border-graphite group-hover:border-smoke text-fog group-hover:text-white transition-colors flex items-center justify-center text-[20px] shrink-0">
                   <i className={item.icon} />
                 </div>
                 <div>
-                  <h3 className="font-medium text-[18px] text-white m-0 mb-1.5 leading-snug tracking-[-0.01em] group-hover:text-[#e4f222] transition-colors">
+                  <h3 className="font-medium text-[18px] text-white m-0 mb-1.5 leading-snug tracking-[-0.01em]">
                     {item.title}
                   </h3>
-                  <p className="text-[13.5px] text-[#8a8f98] leading-[1.6] m-0 font-normal line-clamp-2">
+                  <p className="text-[13.5px] text-fog leading-[1.6] m-0 font-normal line-clamp-2">
                     {item.desc}
                   </p>
                 </div>
@@ -100,11 +100,11 @@ export default function HomeSolutionsGrid() {
 
             {/* Bottom Action Strip */}
             <div className="pt-4 border-t border-graphite flex items-center justify-between">
-              <span className="font-mono text-[11px] text-[#02b8cc] group-hover:text-[#e4f222] transition-colors flex items-center gap-2">
+              <span className="font-mono text-[11px] text-fog group-hover:text-mist transition-colors flex items-center gap-2">
                 <span>Explore System Blueprint</span>
-                <i className="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform" />
+                <i className="fa-solid fa-arrow-right text-[10px] text-orange group-hover:text-orangeLight transition-colors" />
               </span>
-              <span className="font-mono text-[10px] text-[#62666d] bg-[#0f1011] border border-graphite px-2 py-0.5 rounded-lg">
+              <span className="font-mono text-[10px] text-ash bg-carbon border border-graphite px-2 py-0.5 rounded-lg">
                 MODULAR
               </span>
             </div>

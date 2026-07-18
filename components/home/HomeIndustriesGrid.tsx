@@ -25,30 +25,30 @@ export default function HomeIndustriesGrid() {
                 isFeaturedSpan ? "lg:col-span-2" : "col-span-1",
               )}
             >
-              <Card className="glb-card-link bg-[#0f1011] border border-graphite group-hover:border-[#383b3f] rounded-lg p-6 shadow-none transition-all flex flex-col justify-between h-full">
+              <Card className="glb-card-link bg-carbon border border-graphite group-hover:border-smoke rounded-lg p-6 shadow-none transition-all flex flex-col justify-between h-full">
                 <div className="flex flex-col gap-4">
                   {/* Card Header: Icon + Sector Code + Arrow */}
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-[#161718] border border-graphite flex items-center justify-center text-base text-[#02b8cc] group-hover:text-[#e4f222] transition-colors shrink-0">
+                      <div className="w-10 h-10 rounded-lg bg-obsidian border border-graphite group-hover:border-smoke flex items-center justify-center text-base text-fog group-hover:text-white transition-colors shrink-0">
                         <i className={item.icon} />
                       </div>
-                      <span className="font-mono text-[10.5px] text-[#8a8f98] bg-[#161718] border border-graphite px-2 py-0.5 rounded-lg uppercase tracking-wider">
+                      <span className="font-mono text-[10.5px] text-fog bg-obsidian border border-graphite px-2 py-0.5 rounded-lg uppercase tracking-wider">
                         SECTOR_{String(idx + 1).padStart(2, "0")}
                       </span>
                     </div>
 
-                    <div className="w-7 h-7 rounded-lg bg-[#161718] border border-graphite group-hover:border-[#383b3f] flex items-center justify-center text-[11px] text-[#8a8f98] group-hover:text-[#e4f222] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
+                    <div className="w-7 h-7 rounded-lg bg-obsidian border border-graphite group-hover:border-smoke flex items-center justify-center text-[11px] text-fog group-hover:text-mist transition-colors">
                       <i className="fa-solid fa-arrow-up-right-from-square" />
                     </div>
                   </div>
 
                   {/* Title & Description */}
                   <div>
-                    <h3 className="font-medium text-[16.5px] text-white m-0 mb-1.5 tracking-[-0.01em] group-hover:text-[#02b8cc] transition-colors">
+                    <h3 className="font-medium text-[16.5px] text-white m-0 mb-1.5 tracking-[-0.01em] group-hover:text-mist transition-colors">
                       {item.name}
                     </h3>
-                    <p className="text-[13.5px] text-[#8a8f98] leading-[1.55] m-0 font-normal line-clamp-2">
+                    <p className="text-[13.5px] text-fog leading-[1.55] m-0 font-normal line-clamp-2">
                       {item.desc}
                     </p>
                   </div>
@@ -60,9 +60,9 @@ export default function HomeIndustriesGrid() {
       </div>
 
       {/* Bottom Action Footer Strip */}
-      <div className="bg-[#161718] border border-graphite rounded-lg p-5 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono">
+      <div className="bg-obsidian border border-graphite rounded-lg p-5 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-lg bg-[#0f1011] border border-graphite flex items-center justify-center text-sm text-[#02b8cc] shrink-0">
+          <div className="w-9 h-9 rounded-lg bg-carbon border border-graphite flex items-center justify-center text-sm text-orange shrink-0">
             <i className="fa-solid fa-compass-drafting" />
           </div>
           <div>
@@ -70,7 +70,7 @@ export default function HomeIndustriesGrid() {
               Need a tailored system architecture for your specific fuel
               infrastructure?
             </div>
-            <div className="text-[11px] text-[#8a8f98]">
+            <div className="text-[11px] text-fog">
               We scope, build, wire, and deploy custom hardware-integrated
               platforms across KRG.
             </div>
@@ -79,7 +79,7 @@ export default function HomeIndustriesGrid() {
 
         <Link
           href="/industries"
-          className="bg-[#e4f222] hover:bg-[#e4f222]/90 text-[#08090a] font-mono font-medium text-[12px] uppercase tracking-wider px-5 py-2.5 rounded-lg no-underline transition-all shrink-0 flex items-center gap-2"
+          className="bg-orange hover:bg-orangeDark text-white font-mono font-medium text-[12px] uppercase tracking-wider px-5 py-2.5 rounded-lg no-underline transition-all shrink-0 flex items-center gap-2"
         >
           <span>See All Sector Solutions</span>
           <i className="fa-solid fa-arrow-right" />

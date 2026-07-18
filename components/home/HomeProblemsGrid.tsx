@@ -67,21 +67,21 @@ export default function HomeProblemsGrid() {
       {problemsData.map((item, idx) => (
         <Card
           key={item.text}
-          className="group bg-[#0f1011] border border-graphite hover:border-[#383b3f] rounded-lg p-6 shadow-none transition-all flex flex-col justify-between gap-6 h-full overflow-hidden"
+          className="group bg-carbon border border-graphite hover:border-smoke rounded-lg p-6 shadow-none transition-all flex flex-col justify-between gap-6 h-full overflow-hidden"
         >
           {/* Main Body: Icon + Problem Statement */}
           <div className="flex flex-col gap-3.5">
-            <div className="w-11 h-11 rounded-lg bg-[#161718] border border-graphite group-hover:border-[#383b3f] text-[#eb5757] group-hover:text-[#e4f222] transition-colors flex items-center justify-center text-[18px] shrink-0">
+            <div className="w-11 h-11 rounded-lg bg-obsidian border border-graphite group-hover:border-smoke text-coral-red transition-colors flex items-center justify-center text-[18px] shrink-0">
               <i className={item.icon} />
             </div>
-            <h3 className="font-medium text-[16px] text-white m-0 leading-[1.4] tracking-[-0.01em] group-hover:text-[#e4f222] transition-colors">
+            <h3 className="font-medium text-[16px] text-white m-0 leading-[1.4] tracking-[-0.01em]">
               {item.text}
             </h3>
           </div>
 
           {/* Bottom Domain Diagnostic Pill */}
           <div className="pt-3.5 border-t border-graphite">
-            <div className="font-mono text-[10.5px] text-[#8a8f98] bg-[#161718] border border-graphite px-2.5 py-1 rounded-lg uppercase tracking-wider block text-center truncate">
+            <div className="font-mono text-[10.5px] text-fog bg-obsidian border border-graphite px-2.5 py-1 rounded-lg uppercase tracking-wider block text-center truncate">
               {item.domain}
             </div>
           </div>
