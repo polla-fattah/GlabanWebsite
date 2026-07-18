@@ -9,9 +9,9 @@ import { Badge } from "@/components/ui/badge";
 import { products } from "@/lib/data/products";
 import { industries } from "@/lib/data/industries";
 import { services } from "@/lib/data/services";
+import { cn } from "@/lib/utils";
 import HomeIndustriesGrid from "@/components/home/HomeIndustriesGrid";
-import HomeProblemsGrid from "@/components/home/HomeProblemsGrid";
-import HomeSolutionsGrid from "@/components/home/HomeSolutionsGrid";
+import HomeProblemSolutionMapper from "@/components/home/HomeProblemSolutionMapper";
 
 const whyUs = [
   "Deeply specialised in the fuel and energy sector",
@@ -119,104 +119,73 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PROBLEMS */}
-      <section className="bg-void py-24 border-b border-graphite">
-        <div className="max-w-[1280px] mx-auto px-8">
-          <div className="max-w-[640px] mx-auto mb-14 text-center">
-            <div className="text-[12px] font-medium text-fog tracking-[0.08em] uppercase mb-3">
-              The problem
-            </div>
-            <h2 className="font-medium text-[32px] md:text-[36px] text-white mb-3.5 tracking-[-0.022em] leading-[1.15] m-0">
-              Fuel and energy operations run on too many disconnected systems
-            </h2>
-            <p className="text-[16px] text-fog leading-[1.6] m-0">
-              Manual processes and weak security create risk at every branch,
-              station, and depot.
-            </p>
-          </div>
-          <HomeProblemsGrid />
-        </div>
-      </section>
-
-      {/* SOLUTIONS OVERVIEW */}
-      <section className="bg-carbon border-b border-graphite">
-        <div className="max-w-[1280px] mx-auto py-24 px-8">
-          <div className="flex justify-between items-end mb-11 flex-wrap gap-5">
-            <div>
-              <div className="text-[12px] font-medium text-fog tracking-[0.08em] uppercase mb-3">
-                Our solutions
-              </div>
-              <h2 className="font-medium text-[32px] md:text-[36px] text-white max-w-[600px] tracking-[-0.022em] leading-[1.15] m-0">
-                One connected platform across every part of your operation
-              </h2>
-            </div>
-            <Link
-              href="/solutions"
-              className="text-orange hover:text-white font-medium text-[14px] no-underline whitespace-nowrap transition-colors"
-            >
-              Browse all solutions →
-            </Link>
-          </div>
-          <HomeSolutionsGrid />
-        </div>
-      </section>
+      {/* CAUSE & EFFECT (PROBLEMS -> SOLUTIONS) */}
+      <HomeProblemSolutionMapper />
 
       {/* PRODUCTS HIGHLIGHT */}
       <section className="bg-void py-24 border-b border-graphite">
         <div className="max-w-[1280px] mx-auto px-8">
-          <div className="flex justify-between items-end mb-11 flex-wrap gap-5">
-            <div>
-              <div className="text-[12px] font-medium text-fog tracking-[0.08em] uppercase mb-3">
+          <div className="flex justify-between items-end mb-16 flex-wrap gap-5 relative z-10">
+            <div className="max-w-[800px]">
+              <div className="text-[12px] font-mono text-orange tracking-widest uppercase mb-4 flex items-center gap-3">
+                <span className="w-8 h-[1px] bg-orange"></span>
                 Products
               </div>
-              <h2 className="font-medium text-[32px] md:text-[36px] text-white tracking-[-0.022em] leading-[1.15] m-0">
+              <h2 className="font-medium text-[36px] md:text-[48px] text-white tracking-[-0.02em] leading-[1.1] m-0">
                 Purpose-built software for fuel operations
               </h2>
             </div>
             <Link
               href="/products"
-              className="text-orange hover:text-white font-medium text-[14px] no-underline whitespace-nowrap transition-colors"
+              className="text-orange hover:text-white font-medium text-[14px] no-underline whitespace-nowrap transition-colors mb-2"
             >
               View all products →
             </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {homeProducts.slice(0, 6).map((p, i) => (
-              <FadeIn key={p.slug} delay={i * 0.08} className="h-full">
-                <Link
-                  href={`/products/${p.slug}`}
-                  className="group glb-card-link block bg-carbon border border-graphite rounded-lg p-6.5 no-underline transition-all shadow-none flex flex-col justify-between overflow-hidden h-full"
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            {homeProducts.slice(0, 5).map((p, i) => {
+              const isFeatured = i === 0;
+              return (
+                <FadeIn 
+                  key={p.slug} 
+                  delay={i * 0.08} 
+                  className={cn("h-full", isFeatured ? "lg:col-span-2" : "col-span-1")}
                 >
-                  <div>
-                    <div className="relative w-full h-[190px] rounded-lg overflow-hidden mb-5 border border-graphite bg-obsidian">
-                      <img
-                        src={p.image}
-                        alt={p.name}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-void via-void/30 to-transparent" />
-                      <div className="absolute inset-0 bg-gradient-to-tr from-void/90 via-void/50 to-orange/5" />
-                      <div className="absolute top-3 left-3 bg-void/85 backdrop-blur-md border border-graphite text-mist font-mono text-[10.5px] uppercase tracking-wider px-2.5 py-1 rounded">
-                        {p.category}
+                  <Link
+                    href={`/products/${p.slug}`}
+                    className="group glb-card-link block bg-carbon border border-graphite rounded-lg p-6 lg:p-8 no-underline transition-all shadow-none flex flex-col justify-between overflow-hidden h-full relative"
+                  >
+                    <div className="flex flex-col h-full relative z-10">
+                      <div className={cn("relative w-full rounded-lg overflow-hidden mb-6 border border-graphite bg-obsidian", isFeatured ? "h-[240px] lg:h-[300px]" : "h-[180px]")}>
+                        <img
+                          src={p.image}
+                          alt={p.name}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-void via-void/30 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-void/90 via-void/50 to-orange/5" />
+                        <div className="absolute top-4 left-4 bg-void/85 backdrop-blur-md border border-graphite text-mist font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 rounded">
+                          {p.category}
+                        </div>
+                      </div>
+                      <div className={cn("font-medium text-white mb-3 tracking-[-0.015em] transition-colors", isFeatured ? "text-[24px] lg:text-[28px]" : "text-[18px]")}>
+                        {p.name}
+                      </div>
+                      <div className={cn("text-fog leading-relaxed mb-6", isFeatured ? "text-[16px] lg:text-[18px] max-w-[80%]" : "text-[14px] line-clamp-3")}>
+                        {p.listingDesc}
                       </div>
                     </div>
-                    <div className="font-medium text-[18px] text-white mb-2 tracking-[-0.015em] transition-colors flex items-center justify-between">
-                      <span>{p.name}</span>
+                    
+                    <div className="pt-5 border-t border-graphite/60 flex items-center justify-between text-[13px] font-medium text-fog group-hover:text-mist transition-colors relative z-10 mt-auto">
+                      <span>{p.homeBenefit}</span>
+                      <span className="flex items-center gap-1.5 text-orange group-hover:text-orangeLight transition-colors duration-200">
+                        Explore <i className="fa-solid fa-arrow-right text-[11px]" />
+                      </span>
                     </div>
-                    <div className="text-[14px] text-fog leading-[1.6] mb-5 line-clamp-3">
-                      {p.listingDesc}
-                    </div>
-                  </div>
-                  <div className="pt-4 border-t border-graphite/60 flex items-center justify-between text-[13px] font-medium text-fog group-hover:text-mist transition-colors">
-                    <span>{p.homeBenefit}</span>
-                    <span className="flex items-center gap-1.5 text-orange group-hover:text-orangeLight transition-colors duration-200">
-                      Explore{" "}
-                      <i className="fa-solid fa-arrow-right text-[11px]" />
-                    </span>
-                  </div>
-                </Link>
-              </FadeIn>
-            ))}
+                  </Link>
+                </FadeIn>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -224,60 +193,53 @@ export default function HomePage() {
       {/* SERVICES HIGHLIGHT */}
       <section className="bg-carbon py-24 border-b border-graphite">
         <div className="max-w-[1280px] mx-auto px-8">
-          <div className="flex justify-between items-end mb-11 flex-wrap gap-5">
-            <div>
-              <div className="text-[12px] font-medium text-fog tracking-[0.08em] uppercase mb-3">
+          <div className="flex justify-between items-end mb-16 flex-wrap gap-5 relative z-10">
+            <div className="max-w-[800px]">
+              <div className="text-[12px] font-mono text-orange tracking-widest uppercase mb-4 flex items-center gap-3">
+                <span className="w-8 h-[1px] bg-orange"></span>
                 Services
               </div>
-              <h2 className="font-medium text-[32px] md:text-[36px] text-white tracking-[-0.022em] leading-[1.15] m-0">
+              <h2 className="font-medium text-[36px] md:text-[48px] text-white tracking-[-0.02em] leading-[1.1] m-0">
                 Full lifecycle delivery, security, and support
               </h2>
             </div>
             <Link
               href="/services"
-              className="text-orange hover:text-white font-medium text-[14px] no-underline whitespace-nowrap transition-colors"
+              className="text-orange hover:text-white font-medium text-[14px] no-underline whitespace-nowrap transition-colors mb-2"
             >
               View all services →
             </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="flex flex-col gap-4">
             {services.slice(0, 4).map((s, i) => (
-              <FadeIn key={s.slug} delay={i * 0.08} className="h-full">
+              <FadeIn key={s.slug} delay={i * 0.08}>
                 <Link
                   href={
-                    s.slug === "cybersecurity" ||
-                    s.slug === "cctv-physical-security"
+                    s.slug === "cybersecurity" || s.slug === "cctv-physical-security"
                       ? `/${s.slug}`
                       : `/services/${s.slug}`
                   }
-                  className="group glb-card-link block bg-obsidian border border-graphite rounded-lg p-6 no-underline transition-all shadow-none flex flex-col justify-between overflow-hidden h-full"
+                  className="group block bg-obsidian border border-graphite rounded-lg p-6 lg:p-8 no-underline transition-all hover:bg-cinder hover:border-smoke"
                 >
-                  <div>
-                    <div className="relative w-full h-[160px] rounded-lg overflow-hidden mb-4 border border-graphite bg-carbon">
-                      <img
-                        src={s.image}
-                        alt={s.name}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-void via-void/30 to-transparent" />
-                      <div className="absolute inset-0 bg-gradient-to-tr from-void/90 via-void/50 to-orange/5" />
-                      <div className="absolute top-2.5 left-2.5 bg-void/85 backdrop-blur-md border border-graphite text-orange font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded">
-                        SERVICE MODULE
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-8 lg:gap-12 flex-1">
+                      <div className="font-mono text-[18px] text-fog/50 group-hover:text-orange transition-colors">
+                        0{i + 1}
+                      </div>
+                      <div>
+                        <div className="font-medium text-[20px] md:text-[22px] text-white mb-2 group-hover:text-orange transition-colors">
+                          {s.name}
+                        </div>
+                        <div className="text-[15px] text-fog leading-relaxed max-w-[600px] font-light">
+                          {s.listingDesc}
+                        </div>
                       </div>
                     </div>
-                    <div className="font-medium text-[16px] text-white mb-2 transition-colors">
-                      {s.name}
+                    <div className="shrink-0">
+                      <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-graphite bg-carbon text-orange group-hover:bg-orange group-hover:text-white transition-all">
+                        <i className="fa-solid fa-arrow-right text-[12px]" />
+                      </span>
                     </div>
-                    <div className="text-[13.5px] text-fog leading-[1.55] mb-5 line-clamp-3">
-                      {s.listingDesc}
-                    </div>
-                  </div>
-                  <div className="pt-3.5 border-t border-graphite/60 flex items-center justify-between text-[12.5px] font-medium text-fog group-hover:text-mist transition-colors">
-                    <span>Lifecycle Support</span>
-                    <span className="flex items-center gap-1 text-orange group-hover:text-orangeLight transition-colors duration-200">
-                      Specs{" "}
-                      <i className="fa-solid fa-arrow-right text-[10px]" />
-                    </span>
                   </div>
                 </Link>
               </FadeIn>
@@ -289,11 +251,12 @@ export default function HomePage() {
       {/* INDUSTRIES */}
       <section className="bg-void py-24 border-b border-graphite">
         <div className="max-w-[1280px] mx-auto px-8">
-          <div className="max-w-[640px] mx-auto mb-12 text-center">
-            <div className="text-[12px] font-medium text-fog tracking-[0.08em] uppercase mb-3">
-              Industries served
+          <div className="max-w-[800px] mb-16 relative z-10">
+            <div className="text-[12px] font-mono text-orange tracking-widest uppercase mb-4 flex items-center gap-3">
+              <span className="w-8 h-[1px] bg-orange"></span>
+              Industries Served
             </div>
-            <h2 className="font-medium text-[32px] md:text-[36px] text-white tracking-[-0.022em] leading-[1.15] mb-3.5 m-0">
+            <h2 className="font-medium text-[36px] md:text-[48px] text-white tracking-[-0.02em] leading-[1.1] m-0">
               Trusted across the fuel and energy value chain
             </h2>
           </div>
@@ -303,28 +266,37 @@ export default function HomePage() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="bg-carbon py-24 border-b border-graphite">
-        <div className="max-w-[1280px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-[.9fr_1.1fr] gap-14 items-center">
-          <div>
-            <div className="text-[12px] font-medium text-fog tracking-[0.08em] uppercase mb-3">
+      <section className="bg-carbon py-24 border-b border-graphite relative overflow-hidden">
+        {/* Subtle blueprint accent */}
+        <div className="absolute -left-32 -top-32 w-[600px] h-[600px] opacity-5 pointer-events-none">
+          <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="0.5">
+            <circle cx="50" cy="50" r="40" />
+            <circle cx="50" cy="50" r="30" />
+            <line x1="0" y1="50" x2="100" y2="50" />
+            <line x1="50" y1="0" x2="50" y2="100" />
+          </svg>
+        </div>
+
+        <div className="max-w-[1280px] mx-auto px-8 flex flex-col lg:flex-row gap-16 lg:gap-24 items-start relative z-10">
+          <div className="lg:w-5/12 sticky top-32">
+            <div className="text-[12px] font-mono text-orange tracking-widest uppercase mb-4 flex items-center gap-3">
+              <span className="w-8 h-[1px] bg-orange"></span>
               Why Glaban
             </div>
-            <h2 className="font-medium text-[32px] md:text-[36px] text-white tracking-[-0.022em] leading-[1.15] mb-4.5 m-0">
+            <h2 className="font-medium text-[36px] md:text-[44px] text-white tracking-[-0.02em] leading-[1.1] mb-6 m-0">
               A technology partner that understands the fuel business
             </h2>
-            <p className="text-[16px] text-fog leading-[1.65] m-0">
+            <p className="text-[18px] text-fog leading-relaxed font-light m-0">
               We combine deep fuel-sector experience with software, security,
               and physical protection expertise — and stay with you long after
               go-live.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {whyUs.map((w) => (
-              <div key={w} className="flex gap-3 items-start">
-                <div className="w-5 h-5 rounded-md bg-obsidian border border-graphite text-orange flex items-center justify-center text-[10px] shrink-0 mt-0.5 shadow-none">
-                  <i className="fa-solid fa-check"></i>
-                </div>
-                <div className="text-[14px] text-mist font-normal leading-[1.5]">
+          <div className="lg:w-7/12 flex flex-col gap-5">
+            {whyUs.map((w, i) => (
+              <div key={w} className="flex gap-5 items-start bg-obsidian border border-graphite rounded-lg p-6 transition-colors hover:border-smoke">
+                <div className="font-mono text-[14px] text-fog/50 mt-1">0{i + 1}</div>
+                <div className="text-[16px] md:text-[18px] text-white font-light leading-relaxed">
                   {w}
                 </div>
               </div>
@@ -336,7 +308,7 @@ export default function HomePage() {
       {/* CTA */}
       <section className="bg-void py-24">
         <div className="max-w-[1280px] mx-auto px-8">
-          <div className="bg-carbon border border-graphite rounded-2xl py-16 px-12 text-center relative overflow-hidden shadow-none">
+          <div className="bg-carbon border border-graphite rounded-lg py-16 px-12 text-center relative overflow-hidden shadow-none">
             <div className="relative">
               <h2 className="font-medium text-[32px] md:text-[36px] text-white tracking-[-0.022em] mb-3.5 m-0">
                 Ready to modernise your operations?

@@ -10,107 +10,139 @@ interface SolutionItem {
   title: string;
   desc: string;
   href: string;
-  code: string;
   spanClass: string;
+  Visual: React.FC<{ className?: string }>;
 }
+
+const VisualERP: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 100 100" className={className} fill="none" stroke="currentColor" strokeWidth="1.5">
+    <polygon points="50,10 90,30 50,50 10,30" className="text-white/20" fill="currentColor" />
+    <polygon points="50,30 90,50 50,70 10,50" className="text-white/10" fill="currentColor" />
+    <polygon points="50,50 90,70 50,90 10,70" className="text-white/5" fill="currentColor" />
+  </svg>
+);
+
+const VisualPOS: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 100 100" className={className} fill="none" stroke="currentColor" strokeWidth="1.5">
+    <rect x="20" y="20" width="60" height="60" rx="4" />
+    <line x1="20" y1="40" x2="80" y2="40" />
+    <circle cx="35" cy="60" r="3" fill="currentColor" />
+    <circle cx="50" cy="60" r="3" fill="currentColor" />
+    <circle cx="65" cy="60" r="3" fill="currentColor" />
+  </svg>
+);
+
+const VisualQuotas: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 100 100" className={className} fill="none" stroke="currentColor" strokeWidth="1.5">
+    <circle cx="50" cy="50" r="40" strokeDasharray="180 200" strokeDashoffset="40" className="text-orange" />
+    <circle cx="50" cy="50" r="30" strokeDasharray="100 200" strokeDashoffset="20" className="text-fog" />
+    <circle cx="50" cy="50" r="20" strokeDasharray="50 200" className="text-mist" />
+  </svg>
+);
+
+const VisualPropane: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 100 100" className={className} fill="none" stroke="currentColor" strokeWidth="1.5">
+    <rect x="30" y="20" width="40" height="70" rx="20" />
+    <rect x="40" y="10" width="20" height="10" />
+    <path d="M35 40 L65 40" />
+  </svg>
+);
+
+const VisualDispatch: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 100 100" className={className} fill="none" stroke="currentColor" strokeWidth="1.5">
+    <path d="M20 80 Q 50 20 80 80" strokeDasharray="4 4" />
+    <circle cx="20" cy="80" r="4" fill="currentColor" />
+    <circle cx="50" cy="50" r="4" fill="currentColor" className="text-orange" />
+    <circle cx="80" cy="80" r="4" fill="currentColor" />
+  </svg>
+);
 
 const solutionsData: SolutionItem[] = [
   {
     icon: "fa-solid fa-calculator",
     title: "Fuel ERP Platform",
-    desc: "Centralised financial accounting, multi-branch inventory reconciliation, and automated invoicing built specifically for KRG fuel leaders.",
+    desc: "Centralised financial accounting, multi-branch inventory reconciliation, and automated invoicing.",
     href: "/products/fuel-erp",
-    code: "SYS_01 / CORE_ERP",
     spanClass: "lg:col-span-3 md:col-span-2 col-span-1",
+    Visual: VisualERP,
   },
   {
     icon: "fa-solid fa-desktop",
     title: "Gas Station POS & ATG",
-    desc: "High-volume forecourt touch screen checkout, instant shift cash settlement, and direct MODBUS dispenser & tank gauge wiring.",
+    desc: "High-volume forecourt touch screen checkout and direct MODBUS dispenser wiring.",
     href: "/products/gas-station-pos",
-    code: "SYS_02 / FORECOURT_POS",
     spanClass: "lg:col-span-3 md:col-span-2 col-span-1",
+    Visual: VisualPOS,
   },
   {
     icon: "fa-solid fa-gauge-high",
     title: "Fuel Quotas & Fleet Limits",
-    desc: "Automated RFID employee and vehicle fuel allocations, automated limit verification, and zero internal fuel shrinkage.",
+    desc: "Automated RFID employee allocations and zero internal fuel shrinkage.",
     href: "/products/fuel-card-fleet-card-system",
-    code: "SYS_03 / QUOTA_ENFORCE",
     spanClass: "lg:col-span-2 md:col-span-1 col-span-1",
+    Visual: VisualQuotas,
   },
   {
     icon: "fa-solid fa-fire-flame-simple",
     title: "Propane & Bulk Gas System",
-    desc: "Industrial tonnage contract management, cylinder deposit tracking, and residential propane delivery scheduling.",
+    desc: "Industrial tonnage contract management and cylinder tracking.",
     href: "/products/bulk-gas-delivery-system",
-    code: "SYS_04 / BULK_PROPANE",
     spanClass: "lg:col-span-2 md:col-span-1 col-span-1",
+    Visual: VisualPropane,
   },
   {
     icon: "fa-solid fa-truck-fast",
     title: "Fleet Dispatch & Tracking",
-    desc: "Live GPS tanker tracking, automated depot-to-site route planning, and digital proof-of-delivery driver workflows.",
+    desc: "Live GPS tracking and automated depot-to-site route planning.",
     href: "/products/delivery-dispatch-route-optimisation",
-    code: "SYS_05 / FLEET_DISPATCH",
     spanClass: "lg:col-span-2 md:col-span-2 col-span-1",
+    Visual: VisualDispatch,
   },
 ];
 
 export default function HomeSolutionsGrid() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
-      {solutionsData.map((item) => (
-        <Link
-          key={item.title}
-          href={item.href}
-          className={cn(
-            "group no-underline block h-full outline-none",
-            item.spanClass,
-          )}
-        >
-          <Card className="glb-card-link bg-obsidian border border-graphite group-hover:border-smoke rounded-lg p-6.5 shadow-none transition-all flex flex-col justify-between gap-6 h-full overflow-hidden">
-            <div className="flex flex-col gap-4">
-              {/* Top Header: System Code + Connected Verification Pill */}
-              <div className="flex items-center justify-between border-b border-graphite pb-3.5">
-                <span className="font-mono text-[11px] text-fog uppercase tracking-wider">
-                  {item.code}
-                </span>
-                <div className="flex items-center gap-1.5 font-mono text-[10px] text-orange bg-carbon border border-graphite px-2 py-0.5 rounded-lg">
-                  <i className="fa-solid fa-circle-check text-[10px]" />
-                  <span>CONNECTED</span>
-                </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5">
+      {solutionsData.map((item) => {
+        const Visual = item.Visual;
+        return (
+          <Link
+            key={item.title}
+            href={item.href}
+            className={cn(
+              "group no-underline block h-full outline-none",
+              item.spanClass,
+            )}
+          >
+            <Card className="relative bg-obsidian border border-graphite rounded-xl p-8 shadow-none transition-all flex flex-col justify-between gap-8 h-[320px] overflow-hidden hover:bg-white/[0.02]">
+              
+              {/* Abstract Visual in the Background */}
+              <div className="absolute -bottom-10 -right-10 w-64 h-64 text-graphite opacity-30 group-hover:opacity-50 group-hover:text-fog transition-all duration-700 pointer-events-none">
+                <Visual className="w-full h-full" />
               </div>
 
-              {/* Icon & Title */}
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-carbon border border-graphite group-hover:border-smoke text-fog group-hover:text-white transition-colors flex items-center justify-center text-[20px] shrink-0">
+              <div className="relative z-10">
+                <h3 className="font-medium text-[22px] text-white m-0 mb-3 leading-snug tracking-[-0.01em]">
+                  {item.title}
+                </h3>
+                <p className="text-[14.5px] text-fog leading-[1.6] m-0 font-normal max-w-[80%]">
+                  {item.desc}
+                </p>
+              </div>
+
+              <div className="relative z-10 pt-4 border-t border-graphite flex items-center justify-between mt-auto">
+                <span className="font-medium text-[13px] text-white flex items-center gap-2">
+                  Explore Solution
+                  <i className="fa-solid fa-arrow-right text-[11px] text-fog group-hover:text-white transition-colors" />
+                </span>
+                <div className="w-8 h-8 rounded-full bg-carbon border border-graphite flex items-center justify-center text-fog group-hover:text-white group-hover:border-smoke transition-colors">
                   <i className={item.icon} />
                 </div>
-                <div>
-                  <h3 className="font-medium text-[18px] text-white m-0 mb-1.5 leading-snug tracking-[-0.01em]">
-                    {item.title}
-                  </h3>
-                  <p className="text-[13.5px] text-fog leading-[1.6] m-0 font-normal line-clamp-2">
-                    {item.desc}
-                  </p>
-                </div>
               </div>
-            </div>
-
-            {/* Bottom Action Strip */}
-            <div className="pt-4 border-t border-graphite flex items-center justify-between">
-              <span className="font-mono text-[11px] text-fog group-hover:text-mist transition-colors flex items-center gap-2">
-                <span>Explore System Blueprint</span>
-                <i className="fa-solid fa-arrow-right text-[10px] text-orange group-hover:text-orangeLight transition-colors" />
-              </span>
-              <span className="font-mono text-[10px] text-ash bg-carbon border border-graphite px-2 py-0.5 rounded-lg">
-                MODULAR
-              </span>
-            </div>
-          </Card>
-        </Link>
-      ))}
+            </Card>
+          </Link>
+        );
+      })}
     </div>
   );
 }

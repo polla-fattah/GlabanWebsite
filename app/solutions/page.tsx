@@ -41,35 +41,36 @@ export default function SolutionsPage() {
         subtitle="Browse by the challenge you're facing rather than product names."
       />
 
-      <section className="max-w-[1280px] mx-auto py-16 px-8 pb-24 flex flex-col gap-4">
+      <section className="max-w-[1280px] mx-auto py-16 px-8 pb-24 flex flex-col">
         {solutionItems.map((it) => (
-          <Card
+          <div
             key={it.problem}
-            className="bg-carbon border border-graphite rounded-lg py-6 px-7 shadow-none hover:border-smoke transition-all"
+            className="border-t border-graphite py-10 flex flex-col md:flex-row gap-8 md:gap-16 items-start"
           >
-            <div className="font-medium text-lg text-white mb-2 tracking-[-0.01em]">
-              &quot;{it.problem}&quot;
+            <div className="md:w-1/2">
+              <div className="text-[11px] font-mono text-fog tracking-[0.15em] uppercase mb-4">
+                The Problem
+              </div>
+              <div className="font-medium text-[24px] md:text-[28px] text-white leading-[1.3] tracking-[-0.01em]">
+                {it.problem}
+              </div>
             </div>
-            <div className="text-[15px] text-mist leading-[1.65] mb-4">
-              {it.solution}
+            
+            <div className="md:w-1/2 flex flex-col h-full">
+              <div className="text-[11px] font-mono text-orange tracking-[0.15em] uppercase mb-4">
+                The Solution
+              </div>
+              <div className="text-[16px] md:text-[18px] text-mist leading-[1.6] font-light mb-8">
+                {it.solution}
+              </div>
+              <Link
+                href={it.href}
+                className="inline-flex items-center gap-2 font-medium text-[14px] text-white hover:text-orange transition-colors mt-auto"
+              >
+                Explore Solution <i className="fa-solid fa-arrow-right text-[12px]"></i>
+              </Link>
             </div>
-            <div className="flex flex-wrap gap-2 mb-4">
-              {it.benefits.map((b) => (
-                <Badge
-                  key={b}
-                  className="bg-white/5 hover:bg-white/10 text-fog border border-graphite text-[12px] font-normal px-3 py-1 rounded-full shadow-none transition-colors"
-                >
-                  {b}
-                </Badge>
-              ))}
-            </div>
-            <Link
-              href={it.href}
-              className="text-[13.5px] font-medium text-orange no-underline hover:underline"
-            >
-              See related product →
-            </Link>
-          </Card>
+          </div>
         ))}
       </section>
 

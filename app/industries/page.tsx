@@ -109,7 +109,7 @@ export default function IndustriesPage() {
 
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 mt-8 text-[14px] font-medium text-orange no-underline group-hover:text-orangeLight transition-colors"
+                  className="inline-flex items-center gap-2 mt-8 text-[14px] font-medium text-white no-underline hover:text-mist transition-colors"
                 >
                   <span>Consult with our {ind.name} experts</span>
                   <i className="fa-solid fa-arrow-right text-[11px]" />

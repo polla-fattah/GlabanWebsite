@@ -61,10 +61,7 @@ export default function Footer() {
       <div className="max-w-[1280px] mx-auto px-8 pt-16 pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-10">
         <div className="min-w-0">
           <div className="flex items-center gap-2.5 mb-4">
-
-            <span className="font-medium text-[16px] text-white tracking-[-0.022em]">
-              GLAB<span className="text-orange">AN</span>
-            </span>
+            <img src="/logo-light.png" alt="Glaban" className="h-10 w-auto object-contain" />
           </div>
           <p className="text-[13.5px] leading-[1.65] text-fog max-w-full mb-5 break-words">
             Complete digital, cybersecurity, and physical security solutions for

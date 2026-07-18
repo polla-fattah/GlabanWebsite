@@ -48,9 +48,7 @@ export default function Header() {
     <header className="sticky top-0 z-100 bg-void/85 backdrop-blur-md border-b border-graphite">
       <div className="max-w-[1280px] mx-auto px-8 flex items-center justify-between h-[68px]">
         <Link href="/" className="flex items-center gap-2.5 no-underline">
-          <span className="font-medium text-[16px] text-white tracking-[-0.022em]">
-            GLAB<span className="text-orange">AN</span>
-          </span>
+          <img src="/logo-light.png" alt="Glaban" className="h-10 w-auto object-contain" />
         </Link>
 
         <div className="hidden lg:flex items-center">
