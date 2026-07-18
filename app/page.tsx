@@ -90,6 +90,12 @@ export default function HomePage() {
         </div>
 
         <div className="max-w-[1280px] w-full mx-auto relative z-10 text-center flex flex-col items-center justify-center">
+          {/* Logo Icon placed above the hero title */}
+          <div className="mb-0 opacity-95">
+            <img src="/logo-light.png" alt="Glaban" className="h-48 w-auto object-contain dark:hidden" />
+            <img src="/logo.png" alt="Glaban" className="h-48 w-auto object-contain hidden dark:block" />
+          </div>
+
           {/* Centered Headline */}
           <h1 className="font-medium text-4xl sm:text-[56px] md:text-[66px] leading-[1.08] text-white tracking-[-0.03em] max-w-[960px] mx-auto m-0">
             Complete solutions for energy companies

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight, Menu } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -64,11 +64,7 @@ export default function Header() {
       scrolled ? "border-graphite" : "border-transparent"
     )}>
       <div className="max-w-[1280px] mx-auto px-8 flex items-center justify-between h-[68px]">
-        <Link href="/" className="flex items-center gap-2.5 no-underline">
-          <img src="/logo-light.png" alt="Glaban" className="h-10 w-auto object-contain dark:hidden" />
-          <img src="/logo.png" alt="Glaban" className="h-10 w-auto object-contain hidden dark:block" />
-        </Link>
-
+        {/* Logo moved to Hero section */}
         <div className="hidden lg:flex items-center">
           <NavigationMenu>
             <NavigationMenuList className="gap-1">
@@ -314,13 +310,9 @@ export default function Header() {
                 variant="ghost"
                 size="icon"
                 aria-label="Menu"
-                className="flex lg:hidden bg-transparent hover:bg-white/8 text-white w-9 h-9 border border-graphite rounded-md cursor-pointer"
+                className="flex lg:hidden bg-transparent hover:bg-white/8 text-white w-9 h-9 border border-graphite rounded-full cursor-pointer text-[18px]"
               >
-                <div className="flex flex-col gap-[4px] items-center justify-center">
-                  <span className="w-[18px] h-[1.5px] bg-white block" />
-                  <span className="w-[18px] h-[1.5px] bg-white block" />
-                  <span className="w-[18px] h-[1.5px] bg-white block" />
-                </div>
+                <Menu />
               </Button>
             </DrawerTrigger>
             <DrawerContent className="px-6 pb-8 pt-2">

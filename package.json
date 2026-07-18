@@ -36,7 +36,9 @@
     "@types/react-dom": "^18.3.0",
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.35",
-    "jimp": "^0.22.10",
+    "imagetracerjs": "^1.2.6",
+    "jimp": "^0.16.13",
+    "potrace": "^2.1.8",
     "typescript": "^5.5.3"
   }
 }
