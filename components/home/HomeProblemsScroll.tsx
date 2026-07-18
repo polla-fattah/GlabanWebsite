@@ -1,11 +1,13 @@
+import type { LucideIcon } from 'lucide-react';
 "use client";
 
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Card } from "@/components/ui/card";
+import { ArrowRight, Boxes, Building, ClipboardList, Fuel, Unlock, VideoOff } from "lucide-react";
 
 interface ProblemItem {
-  icon: string;
+  icon: LucideIcon;
   text: string;
   domain: string;
   solution: string;
@@ -13,37 +15,37 @@ interface ProblemItem {
 
 const problemsData: ProblemItem[] = [
   {
-    icon: "fa-solid fa-clipboard-list",
+    icon: ClipboardList,
     text: "Manual sales tracking and disjointed spreadsheets",
     domain: "FORECOURT BOTTLENECK",
     solution: "Gas Station POS",
   },
   {
-    icon: "fa-solid fa-boxes-stacked",
+    icon: Boxes,
     text: "Weak stock control leading to inventory shrinkage",
     domain: "INVENTORY SHRINKAGE",
     solution: "Fuel ERP Platform",
   },
   {
-    icon: "fa-solid fa-gas-pump",
+    icon: Fuel,
     text: "Uncontrolled employee fuel usage and quotas",
     domain: "INTERNAL FUEL WASTE",
     solution: "Fleet Card System",
   },
   {
-    icon: "fa-solid fa-building-circle-exclamation",
+    icon: Building,
     text: "Poor visibility across multiple branches and depots",
     domain: "MULTI-SITE DISCONNECT",
     solution: "Location-Based Task Mgmt",
   },
   {
-    icon: "fa-solid fa-unlock-keyhole",
+    icon: Unlock,
     text: "Weak cybersecurity exposing critical infrastructure",
     domain: "OT & IT EXPOSURE",
     solution: "Cybersecurity",
   },
   {
-    icon: "fa-solid fa-video-slash",
+    icon: VideoOff,
     text: "Poor physical security and surveillance",
     domain: "SITE VULNERABILITY",
     solution: "CCTV & Physical Security",
@@ -100,7 +102,7 @@ export default function HomeProblemsScroll() {
 
               <div>
                 <div className="w-12 h-12 rounded-xl bg-obsidian border border-graphite text-coral-red flex items-center justify-center text-[20px] mb-8">
-                  <i className={item.icon} />
+                  <item.icon />
                 </div>
                 
                 <div className="font-mono text-[11px] text-coral-red/80 tracking-wider mb-3">
@@ -115,7 +117,7 @@ export default function HomeProblemsScroll() {
               <div className="pt-6 border-t border-graphite mt-auto">
                 <div className="text-[12px] text-fog mb-2">Solved by:</div>
                 <div className="font-medium text-[14px] text-orange flex items-center gap-2">
-                  <i className="fa-solid fa-arrow-right-long text-[12px]"></i>
+                  <ArrowRight className="text-[12px]" />
                   {item.solution}
                 </div>
               </div>

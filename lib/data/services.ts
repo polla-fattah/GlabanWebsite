@@ -1,13 +1,15 @@
+import { Presentation, Cloud, Code, Monitor, Settings, Badge, Factory, ShieldCheck, Truck, Video, Wrench } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 export type ServiceLayout = 'grid' | 'steps' | 'checklist' | 'training';
 
 export interface Service {
   slug: string;
   name: string;
-  listingIcon: string;
+  listingIcon: LucideIcon;
   listingDesc: string;
   image: string;
   detail: {
-    icon: string;
+    icon: LucideIcon;
     iconBg: string;
     iconColor: string;
     eyebrow: string;
@@ -33,11 +35,11 @@ export const services: Service[] = [
   {
     slug: 'custom-software-development',
     name: 'Custom Software Development',
-    listingIcon: 'fa-solid fa-code',
+    listingIcon: Code,
     image: '/images/services/Custom Software Development.jpeg',
     listingDesc: 'Tailored web, mobile, and desktop applications built to solve your specific operational challenges.',
     detail: {
-      icon: 'fa-solid fa-code',
+      icon: Code,
       iconBg: orangeBg,
       iconColor: orangeColor,
       eyebrow: 'Service · Development',
@@ -65,11 +67,11 @@ export const services: Service[] = [
   {
     slug: 'erp-implementation',
     name: 'ERP Implementation',
-    listingIcon: 'fa-solid fa-gear',
+    listingIcon: Settings,
     image: '/images/products/Fuel ERP Platform.jpg',
     listingDesc: 'Professional rollout of the Fuel ERP Platform, from business analysis to final staff training.',
     detail: {
-      icon: 'fa-solid fa-gear',
+      icon: Settings,
       iconBg: orangeBg,
       iconColor: orangeColor,
       eyebrow: 'Service · Implementation',
@@ -97,11 +99,11 @@ export const services: Service[] = [
   {
     slug: 'pos-forecourt-deployment',
     name: 'POS & Forecourt Deployment',
-    listingIcon: 'fa-solid fa-desktop',
+    listingIcon: Monitor,
     image: '/images/products/gas station pos.jpeg',
     listingDesc: 'Complete station setup, including POS installation, cashier training, and manager reporting.',
     detail: {
-      icon: 'fa-solid fa-desktop',
+      icon: Monitor,
       iconBg: orangeBg,
       iconColor: orangeColor,
       eyebrow: 'Service · Deployment',
@@ -129,11 +131,11 @@ export const services: Service[] = [
   {
     slug: 'delivery-system-implementation',
     name: 'Delivery System Implementation',
-    listingIcon: 'fa-solid fa-truck',
+    listingIcon: Truck,
     image: '/images/services/Delivery Dispatch & Route Optimisation System.webp',
     listingDesc: 'Modernise your logistics with integrated dispatch and tonnage-based delivery workflows.',
     detail: {
-      icon: 'fa-solid fa-truck',
+      icon: Truck,
       iconBg: orangeBg,
       iconColor: orangeColor,
       eyebrow: 'Service · Implementation',
@@ -161,11 +163,11 @@ export const services: Service[] = [
   {
     slug: 'cybersecurity',
     name: 'Cybersecurity Services',
-    listingIcon: 'fa-solid fa-shield-halved',
+    listingIcon: ShieldCheck,
     image: '/images/services/Cybersecurity Services.jpeg',
     listingDesc: 'Secure your web applications, servers, ERP platforms, and business networks.',
     detail: {
-      icon: 'fa-solid fa-shield-halved',
+      icon: ShieldCheck,
       iconBg: orangeBg,
       iconColor: orangeColor,
       eyebrow: 'Service · Cybersecurity',
@@ -193,11 +195,11 @@ export const services: Service[] = [
   {
     slug: 'industrial-ot-cybersecurity',
     name: 'Industrial & OT Cybersecurity Assessment',
-    listingIcon: 'fa-solid fa-industry',
+    listingIcon: Factory,
     image: '/images/services/Protecting Critical Operational Technology (OT).png',
     listingDesc: 'Protect your critical infrastructure, including pumps, tanks, and industrial control networks.',
     detail: {
-      icon: 'fa-solid fa-industry',
+      icon: Factory,
       iconBg: orangeBg,
       iconColor: orangeColor,
       eyebrow: 'Service · Industrial Security',
@@ -226,11 +228,11 @@ export const services: Service[] = [
   {
     slug: 'cctv-physical-security',
     name: 'CCTV, Surveillance & Physical Security',
-    listingIcon: 'fa-solid fa-video',
+    listingIcon: Video,
     image: '/images/services/Enterprise-Grade Surveillance and Site Protection.jpeg',
     listingDesc: 'Professional camera installation, monitoring, and control-room setup for every site.',
     detail: {
-      icon: 'fa-solid fa-video',
+      icon: Video,
       iconBg: orangeBg,
       iconColor: orangeColor,
       eyebrow: 'Service · Physical Security',
@@ -258,11 +260,11 @@ export const services: Service[] = [
   {
     slug: 'access-control-attendance',
     name: 'Access Control & Attendance Systems',
-    listingIcon: 'fa-solid fa-id-badge',
+    listingIcon: Badge,
     image: '/images/services/Access Control & Attendance Systems.jpeg',
     listingDesc: 'Secure your premises with biometric access control, staff ID cards, and automated attendance.',
     detail: {
-      icon: 'fa-solid fa-id-badge',
+      icon: Badge,
       iconBg: orangeBg,
       iconColor: orangeColor,
       eyebrow: 'Service · Physical Security',
@@ -290,11 +292,11 @@ export const services: Service[] = [
   {
     slug: 'fleet-vehicle-tracking',
     name: 'Fleet & Vehicle Tracking',
-    listingIcon: 'fa-solid fa-truck-fast',
+    listingIcon: Truck,
     image: '/images/products/fleet amgnemnt .jpeg',
     listingDesc: 'Real-time GPS tracking and performance monitoring for your delivery and service vehicles.',
     detail: {
-      icon: 'fa-solid fa-truck-fast',
+      icon: Truck,
       iconBg: orangeBg,
       iconColor: orangeColor,
       eyebrow: 'Service · Fleet',
@@ -322,11 +324,11 @@ export const services: Service[] = [
   {
     slug: 'hosting-backup-disaster-recovery',
     name: 'Hosting, Backup & Disaster Recovery',
-    listingIcon: 'fa-solid fa-cloud',
+    listingIcon: Cloud,
     image: '/images/services/Hosting, Backup & Disaster Recovery.jpg',
     listingDesc: 'Secure cloud hosting with automated daily backups and comprehensive disaster recovery plans.',
     detail: {
-      icon: 'fa-solid fa-cloud',
+      icon: Cloud,
       iconBg: orangeBg,
       iconColor: orangeColor,
       eyebrow: 'Service · Infrastructure',
@@ -354,11 +356,11 @@ export const services: Service[] = [
   {
     slug: 'training-support',
     name: 'Training & Support',
-    listingIcon: 'fa-solid fa-chalkboard-user',
+    listingIcon: Presentation,
     image: '/images/services/training and support .jpeg',
     listingDesc: 'Hands-on training for owners, managers, and field staff to ensure smooth system adoption.',
     detail: {
-      icon: 'fa-solid fa-chalkboard-user',
+      icon: Presentation,
       iconBg: orangeBg,
       iconColor: orangeColor,
       eyebrow: 'Service · Enablement',
@@ -387,11 +389,11 @@ export const services: Service[] = [
   {
     slug: 'maintenance-long-term-support',
     name: 'Maintenance & Long-Term Support',
-    listingIcon: 'fa-solid fa-wrench',
+    listingIcon: Wrench,
     image: '/images/services/Refineries.jpeg',
     listingDesc: 'Keep your systems secure and up-to-date with our dedicated maintenance and support packages.',
     detail: {
-      icon: 'fa-solid fa-wrench',
+      icon: Wrench,
       iconBg: orangeBg,
       iconColor: orangeColor,
       eyebrow: 'Service · Long-Term Support',

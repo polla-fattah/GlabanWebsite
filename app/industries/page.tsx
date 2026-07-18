@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 import { industries } from "@/lib/data/industries";
 
 import type { Metadata } from "next";
+import { AlertCircle, Check, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Industries Served | Petroleum, Fleet, Refinery & Energy Operations",
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
 
 import FadeIn from "@/components/FadeIn";
 
+
 export default function IndustriesPage() {
   return (
     <div className="bg-void min-h-screen">
@@ -53,7 +55,7 @@ export default function IndustriesPage() {
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <div className="w-14 h-14 rounded-lg bg-obsidian border border-graphite text-orange flex items-center justify-center text-[24px] shadow-none transition-colors duration-300">
-                    <i className={ind.icon}></i>
+                    <ind.icon />
                   </div>
                   <span className="font-mono text-[11px] text-smoke bg-obsidian border border-graphite px-2 py-1 rounded">
                     IND-0{idx + 1}
@@ -80,7 +82,7 @@ export default function IndustriesPage() {
                           className="text-[14px] text-mist leading-[1.45] flex gap-2.5 items-start"
                         >
                           <div className="text-coral-red mt-0.5 shrink-0">
-                            <i className="fa-solid fa-circle-exclamation"></i>
+                            <AlertCircle />
                           </div>
                           <span>{p}</span>
                         </div>
@@ -98,7 +100,7 @@ export default function IndustriesPage() {
                           className="text-[14px] text-white leading-[1.45] flex gap-2.5 items-start"
                         >
                           <div className="text-orange mt-0.5 shrink-0">
-                            <i className="fa-solid fa-check"></i>
+                            <Check />
                           </div>
                           <span>{r}</span>
                         </div>
@@ -112,7 +114,7 @@ export default function IndustriesPage() {
                   className="inline-flex items-center gap-2 mt-8 text-[14px] font-medium text-white no-underline hover:text-mist transition-colors"
                 >
                   <span>Consult with our {ind.name} experts</span>
-                  <i className="fa-solid fa-arrow-right text-[11px]" />
+                  <ArrowRight className="text-[11px]" />
                 </Link>
               </div>
             </Card>

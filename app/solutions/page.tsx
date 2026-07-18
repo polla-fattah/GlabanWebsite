@@ -7,6 +7,8 @@ import { Badge } from "@/components/ui/badge";
 import { solutionItems } from "@/lib/data/solutions";
 
 import type { Metadata } from "next";
+import { ArrowRight } from "lucide-react";
+
 
 export const metadata: Metadata = {
   title: "Enterprise Solutions by Operation Size & Architecture",
@@ -67,7 +69,7 @@ export default function SolutionsPage() {
                 href={it.href}
                 className="inline-flex items-center gap-2 font-medium text-[14px] text-white hover:text-orange transition-colors mt-auto"
               >
-                Explore Solution <i className="fa-solid fa-arrow-right text-[12px]"></i>
+                Explore Solution <ArrowRight className="text-[12px]" />
               </Link>
             </div>
           </div>

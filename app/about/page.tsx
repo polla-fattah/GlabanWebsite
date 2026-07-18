@@ -5,6 +5,8 @@ import CTABand from "@/components/CTABand";
 import AboutValuesGrid from "@/components/about/AboutValuesGrid";
 
 import type { Metadata } from "next";
+import { Factory, Cpu, MapPin } from "lucide-react";
+
 
 export const metadata: Metadata = {
   title: "About Us & Engineering Heritage",
@@ -50,7 +52,7 @@ export default function AboutPage() {
         <div className="max-w-[1280px] mx-auto py-20 px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-2 font-mono text-[11px] text-fog uppercase tracking-wider mb-2">
-              <i className="fa-solid fa-industry" />
+              <Factory />
               <span>SECTOR SPECIALIZATION</span>
             </div>
             <div className="font-medium text-[20px] text-white mb-2.5 tracking-[-0.01em]">
@@ -64,7 +66,7 @@ export default function AboutPage() {
           </div>
           <div>
             <div className="flex items-center gap-2 font-mono text-[11px] text-fog uppercase tracking-wider mb-2">
-              <i className="fa-solid fa-microchip" />
+              <Cpu />
               <span>UNIFIED ARCHITECTURE</span>
             </div>
             <div className="font-medium text-[20px] text-white mb-2.5 tracking-[-0.01em]">
@@ -78,7 +80,7 @@ export default function AboutPage() {
           </div>
           <div>
             <div className="flex items-center gap-2 font-mono text-[11px] text-fog uppercase tracking-wider mb-2">
-              <i className="fa-solid fa-location-dot" />
+              <MapPin />
               <span>REGIONAL PRESENCE</span>
             </div>
             <div className="font-medium text-[20px] text-white mb-2.5 tracking-[-0.01em]">

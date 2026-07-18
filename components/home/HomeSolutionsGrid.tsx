@@ -1,12 +1,14 @@
+import type { LucideIcon } from 'lucide-react';
 "use client";
 
 import React from "react";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { ArrowRight, Calculator, Monitor, Flame, Gauge, Truck } from "lucide-react";
 
 interface SolutionItem {
-  icon: string;
+  icon: LucideIcon;
   title: string;
   desc: string;
   href: string;
@@ -59,7 +61,7 @@ const VisualDispatch: React.FC<{ className?: string }> = ({ className }) => (
 
 const solutionsData: SolutionItem[] = [
   {
-    icon: "fa-solid fa-calculator",
+    icon: Calculator,
     title: "Fuel ERP Platform",
     desc: "Centralised financial accounting, multi-branch inventory reconciliation, and automated invoicing.",
     href: "/products/fuel-erp",
@@ -67,7 +69,7 @@ const solutionsData: SolutionItem[] = [
     Visual: VisualERP,
   },
   {
-    icon: "fa-solid fa-desktop",
+    icon: Monitor,
     title: "Gas Station POS & ATG",
     desc: "High-volume forecourt touch screen checkout and direct MODBUS dispenser wiring.",
     href: "/products/gas-station-pos",
@@ -75,7 +77,7 @@ const solutionsData: SolutionItem[] = [
     Visual: VisualPOS,
   },
   {
-    icon: "fa-solid fa-gauge-high",
+    icon: Gauge,
     title: "Fuel Quotas & Fleet Limits",
     desc: "Automated RFID employee allocations and zero internal fuel shrinkage.",
     href: "/products/fuel-card-fleet-card-system",
@@ -83,7 +85,7 @@ const solutionsData: SolutionItem[] = [
     Visual: VisualQuotas,
   },
   {
-    icon: "fa-solid fa-fire-flame-simple",
+    icon: Flame,
     title: "Propane & Bulk Gas System",
     desc: "Industrial tonnage contract management and cylinder tracking.",
     href: "/products/bulk-gas-delivery-system",
@@ -91,7 +93,7 @@ const solutionsData: SolutionItem[] = [
     Visual: VisualPropane,
   },
   {
-    icon: "fa-solid fa-truck-fast",
+    icon: Truck,
     title: "Fleet Dispatch & Tracking",
     desc: "Live GPS tracking and automated depot-to-site route planning.",
     href: "/products/delivery-dispatch-route-optimisation",
@@ -133,10 +135,10 @@ export default function HomeSolutionsGrid() {
               <div className="relative z-10 pt-4 border-t border-graphite flex items-center justify-between mt-auto">
                 <span className="font-medium text-[13px] text-white flex items-center gap-2">
                   Explore Solution
-                  <i className="fa-solid fa-arrow-right text-[11px] text-fog group-hover:text-white transition-colors" />
+                  <ArrowRight className="text-[11px] text-fog group-hover:text-white transition-colors" />
                 </span>
                 <div className="w-8 h-8 rounded-full bg-carbon border border-graphite flex items-center justify-center text-fog group-hover:text-white group-hover:border-smoke transition-colors">
-                  <i className={item.icon} />
+                  <item.icon />
                 </div>
               </div>
             </Card>

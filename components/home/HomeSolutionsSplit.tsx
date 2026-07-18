@@ -1,11 +1,13 @@
+import type { LucideIcon } from 'lucide-react';
 "use client";
 
 import React from "react";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
+import { Calculator, Monitor, Gauge, Truck } from "lucide-react";
 
 interface SolutionItem {
-  icon: string;
+  icon: LucideIcon;
   title: string;
   desc: string;
   href: string;
@@ -14,28 +16,28 @@ interface SolutionItem {
 
 const solutionsData: SolutionItem[] = [
   {
-    icon: "fa-solid fa-calculator",
+    icon: Calculator,
     title: "Fuel ERP Platform",
     desc: "Centralised financial accounting, multi-branch inventory reconciliation, and automated invoicing. Replaces fragmented spreadsheets with a single source of truth.",
     href: "/products/fuel-erp",
     code: "SYS_01 // CORE_ERP",
   },
   {
-    icon: "fa-solid fa-desktop",
+    icon: Monitor,
     title: "Gas Station POS & ATG",
     desc: "High-volume forecourt touch screen checkout and direct MODBUS dispenser wiring. Instantly transmits forecourt data to headquarters without human intervention.",
     href: "/products/gas-station-pos",
     code: "SYS_02 // FORECOURT_POS",
   },
   {
-    icon: "fa-solid fa-gauge-high",
+    icon: Gauge,
     title: "Fuel Quotas & Fleet Limits",
     desc: "Automated RFID employee allocations and digital fleet cards. Instantly enforces usage policies and eliminates unauthorized internal fuel shrinkage.",
     href: "/products/fuel-card-fleet-card-system",
     code: "SYS_03 // QUOTA_ENFORCE",
   },
   {
-    icon: "fa-solid fa-truck-fast",
+    icon: Truck,
     title: "Fleet Dispatch & Tracking",
     desc: "Live GPS tracking and automated depot-to-site route planning. Monitors tanker drops to ensure product arrives safely at its destination.",
     href: "/products/delivery-dispatch-route-optimisation",
@@ -90,7 +92,7 @@ export default function HomeSolutionsSplit() {
 
                 <div className="flex flex-col md:flex-row gap-6 items-start relative z-10">
                   <div className="w-14 h-14 shrink-0 bg-void border border-graphite rounded-lg flex items-center justify-center text-[20px] text-fog group-hover:text-white transition-colors">
-                    <i className={item.icon}></i>
+                    <item.icon />
                   </div>
                   
                   <div>

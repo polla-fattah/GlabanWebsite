@@ -1,16 +1,18 @@
+import type { LucideIcon } from 'lucide-react';
 "use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { CheckCircle2, Server, MapPin, Fuel, IdCard, Video } from "lucide-react";
 
 type TabKey = "forecourt" | "quota" | "surveillance";
 
 interface TabOption {
   id: TabKey;
   label: string;
-  icon: string;
+  icon: LucideIcon;
   code: string;
 }
 
@@ -18,19 +20,19 @@ const tabs: TabOption[] = [
   {
     id: "forecourt",
     label: "Forecourt POS & ATG",
-    icon: "fa-solid fa-gas-pump",
+    icon: Fuel,
     code: "MODBUS_01",
   },
   {
     id: "quota",
     label: "Fuel Quota & Fleet",
-    icon: "fa-solid fa-id-card",
+    icon: IdCard,
     code: "RFID_SYNC",
   },
   {
     id: "surveillance",
     label: "CCTV Security Grid",
-    icon: "fa-solid fa-video",
+    icon: Video,
     code: "EDGE_AI_32",
   },
 ];
@@ -53,7 +55,7 @@ export default function HeroNetworkDashboard() {
             </span>
           </div>
           <div className="flex items-center gap-2 font-mono text-[11px] text-orange bg-obsidian border border-graphite px-2.5 py-1 rounded-lg">
-            <i className="fa-solid fa-circle-check text-[10px]" />
+            <CheckCircle2 className="text-[10px]" />
             <span>ALL NODES ONLINE</span>
           </div>
         </div>
@@ -295,7 +297,7 @@ export default function HeroNetworkDashboard() {
         <div className="bg-obsidian border border-graphite rounded-lg p-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 font-mono">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-carbon border border-graphite flex items-center justify-center text-sm text-orange shrink-0">
-              <i className="fa-solid fa-server" />
+              <Server />
             </div>
             <div>
               <div className="text-[10px] text-fog uppercase tracking-wider">
@@ -311,7 +313,7 @@ export default function HeroNetworkDashboard() {
           </div>
 
           <div className="text-[11px] text-fog flex items-center gap-2 self-end sm:self-center">
-            <i className="fa-solid fa-location-dot text-orange" />
+            <MapPin className="text-orange" />
             <span>Active Centers: Erbil, Sulaymaniyah, Dohuk</span>
           </div>
         </div>

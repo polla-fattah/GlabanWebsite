@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import type { LucideIcon } from "lucide-react";
 
 export default function DetailHero({
-  icon,
+  icon: Icon,
   iconBg,
   iconColor,
   eyebrow,
@@ -11,7 +12,7 @@ export default function DetailHero({
   subtitle,
   ctaLabel,
 }: {
-  icon: string;
+  icon: LucideIcon;
   iconBg: string;
   iconColor: string;
   eyebrow: string;
@@ -29,7 +30,7 @@ export default function DetailHero({
               className="w-10 h-10 rounded-lg flex items-center justify-center text-xl bg-carbon border border-graphite shadow-none"
               style={{ color: (iconColor === "legacy-orange" || iconColor === "legacy-teal") ? "var(--color-orange)" : (iconColor || "var(--color-orange)") }}
             >
-              <i className={icon} />
+              <Icon />
             </div>
             <div
               className="text-[12px] font-medium tracking-[0.08em] uppercase text-fog"

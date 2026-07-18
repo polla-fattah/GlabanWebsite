@@ -7,6 +7,8 @@ import { products } from "@/lib/data/products";
 import FadeIn from "@/components/FadeIn";
 
 import type { Metadata } from "next";
+import { ArrowRight } from "lucide-react";
+
 
 export const metadata: Metadata = {
   title: "Products & Software Modules",
@@ -75,7 +77,7 @@ export default function ProductsPage() {
                   <span>View Architecture & Specs</span>
                   <span className="flex items-center gap-1.5 text-orange group-hover:text-orangeLight transition-colors duration-200">
                     Explore{" "}
-                    <i className="fa-solid fa-arrow-right text-[11px]" />
+                    <ArrowRight className="text-[11px]" />
                   </span>
                 </div>
               </Link>

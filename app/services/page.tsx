@@ -7,6 +7,8 @@ import { services } from "@/lib/data/services";
 import FadeIn from "@/components/FadeIn";
 
 import type { Metadata } from "next";
+import { ArrowRight } from "lucide-react";
+
 
 export const metadata: Metadata = {
   title: "Engineering Services & Deployment Models",
@@ -80,7 +82,7 @@ export default function ServicesPage() {
                     <span>Lifecycle & Integration</span>
                     <span className="flex items-center gap-1.5 text-orange group-hover:text-orangeLight transition-colors duration-200">
                       Explore{" "}
-                      <i className="fa-solid fa-arrow-right text-[11px]" />
+                      <ArrowRight className="text-[11px]" />
                     </span>
                   </div>
                 </Link>

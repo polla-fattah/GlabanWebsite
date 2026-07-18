@@ -27,6 +27,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { CONTACT_FORM_ENDPOINT } from "@/lib/formEndpoints";
+import { Building2, Check, Clock, Mail, MapPin, Phone, ExternalLink } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 const industryOptions = [
   "Oil company",
@@ -66,7 +68,7 @@ type ContactInfoItem = {
   value: string;
   subtext?: string;
   href?: string;
-  icon: string;
+  icon: LucideIcon;
 };
 
 const info: ContactInfoItem[] = [
@@ -74,33 +76,33 @@ const info: ContactInfoItem[] = [
     label: "Company",
     value: "Glaban Technologies",
     subtext: "Enterprise Fuel & Energy Operations Platform",
-    icon: "fa-solid fa-building",
+    icon: Building2,
   },
   {
     label: "Phone",
     value: "+964 750 6611033",
     subtext: "Direct engineering & sales line",
     href: "tel:+9647506611033",
-    icon: "fa-solid fa-phone",
+    icon: Phone,
   },
   {
     label: "Email",
     value: "info@glaban.com",
     subtext: "Guaranteed 1-business-day response",
     href: "mailto:info@glaban.com",
-    icon: "fa-solid fa-envelope",
+    icon: Mail,
   },
   {
     label: "Office Location",
     value: "Glaban Office, Makhmur Road",
     subtext: "Erbil, Kurdistan Region (KRG), Iraq",
-    icon: "fa-solid fa-location-dot",
+    icon: MapPin,
   },
   {
     label: "Working Hours",
     value: "Saturday – Thursday, 8:00 – 18:00",
     subtext: "Closed on Fridays (Emergency SLAs active 24/7)",
-    icon: "fa-solid fa-clock",
+    icon: Clock,
   },
 ];
 
@@ -193,7 +195,7 @@ export default function ContactPage() {
 
               {/* Icon badge */}
               <div className="w-12 h-12 rounded-xl bg-obsidian border border-graphite flex items-center justify-center text-orange shrink-0 group-hover:border-smoke transition-all duration-300 shadow-sm">
-                <i className={`${c.icon} text-[18px]`} />
+                <c.icon className="text-[18px]" />
               </div>
 
               {/* Content */}
@@ -207,7 +209,7 @@ export default function ContactPage() {
                     className="text-[16px] font-semibold text-white hover:text-orange transition-colors break-words inline-flex items-center gap-2 group/link"
                   >
                     <span>{c.value}</span>
-                    <i className="fa-solid fa-arrow-up-right-from-square text-[12px] text-ash group-hover/link:text-orange transition-colors" />
+                    <ExternalLink className="text-[12px] text-ash group-hover/link:text-orange transition-colors" />
                   </a>
                 ) : (
                   <div className="text-[16px] font-semibold text-white leading-snug break-words">
@@ -488,7 +490,7 @@ export default function ContactPage() {
             ) : (
               <div className="text-center py-12">
                 <div className="w-12 h-12 rounded-full bg-obsidian border border-graphite text-orange flex items-center justify-center text-xl mx-auto mb-4 shadow-none">
-                  <i className="fa-solid fa-check"></i>
+                  <Check />
                 </div>
                 <div className="font-medium text-[20px] text-white mb-2 tracking-[-0.01em]">
                   Message sent

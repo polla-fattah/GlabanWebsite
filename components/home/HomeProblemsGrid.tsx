@@ -1,10 +1,12 @@
+import type { LucideIcon } from 'lucide-react';
 "use client";
 
 import React from "react";
 import { Card } from "@/components/ui/card";
+import { Boxes, Building, PieChart, ClipboardList, Receipt, Fuel, Unlock, VideoOff } from "lucide-react";
 
 interface ProblemItem {
-  icon: string;
+  icon: LucideIcon;
   text: string;
   domain: string;
   code: string;
@@ -12,49 +14,49 @@ interface ProblemItem {
 
 const problemsData: ProblemItem[] = [
   {
-    icon: "fa-solid fa-clipboard-list",
+    icon: ClipboardList,
     text: "Manual sales tracking",
     domain: "FORECOURT BOTTLENECK",
     code: "ERR_SALES",
   },
   {
-    icon: "fa-solid fa-boxes-stacked",
+    icon: Boxes,
     text: "Weak stock control",
     domain: "INVENTORY SHRINKAGE",
     code: "ERR_STOCK",
   },
   {
-    icon: "fa-solid fa-gas-pump",
+    icon: Fuel,
     text: "Uncontrolled employee fuel usage",
     domain: "INTERNAL FUEL WASTE",
     code: "ERR_QUOTA",
   },
   {
-    icon: "fa-solid fa-file-invoice",
+    icon: Receipt,
     text: "Paper-based delivery records",
     domain: "LOGISTICS BLINDSPOT",
     code: "ERR_DISPATCH",
   },
   {
-    icon: "fa-solid fa-building-circle-exclamation",
+    icon: Building,
     text: "Poor branch visibility",
     domain: "MULTI-SITE DISCONNECT",
     code: "ERR_GRID",
   },
   {
-    icon: "fa-solid fa-chart-pie",
+    icon: PieChart,
     text: "No central ERP reporting",
     domain: "FINANCIAL BLINDSPOT",
     code: "ERR_REPORT",
   },
   {
-    icon: "fa-solid fa-unlock-keyhole",
+    icon: Unlock,
     text: "Weak cybersecurity",
     domain: "OT & IT EXPOSURE",
     code: "ERR_CYBER",
   },
   {
-    icon: "fa-solid fa-video-slash",
+    icon: VideoOff,
     text: "Poor physical security",
     domain: "SITE VULNERABILITY",
     code: "ERR_CCTV",
@@ -72,7 +74,7 @@ export default function HomeProblemsGrid() {
           {/* Main Body: Icon + Problem Statement */}
           <div className="flex flex-col gap-3.5">
             <div className="w-11 h-11 rounded-lg bg-obsidian border border-graphite group-hover:border-smoke text-coral-red transition-colors flex items-center justify-center text-[18px] shrink-0">
-              <i className={item.icon} />
+              <item.icon />
             </div>
             <h3 className="font-medium text-[16px] text-white m-0 leading-[1.4] tracking-[-0.01em]">
               {item.text}

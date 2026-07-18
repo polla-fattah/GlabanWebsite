@@ -12,6 +12,8 @@ import { services } from "@/lib/data/services";
 import { cn } from "@/lib/utils";
 import HomeIndustriesGrid from "@/components/home/HomeIndustriesGrid";
 import HomeProblemSolutionMapper from "@/components/home/HomeProblemSolutionMapper";
+import { ArrowRight } from "lucide-react";
+
 
 const whyUs = [
   "Deeply specialised in the fuel and energy sector",
@@ -179,7 +181,7 @@ export default function HomePage() {
                     <div className="pt-5 border-t border-graphite/60 flex items-center justify-between text-[13px] font-medium text-fog group-hover:text-mist transition-colors relative z-10 mt-auto">
                       <span>{p.homeBenefit}</span>
                       <span className="flex items-center gap-1.5 text-orange group-hover:text-orangeLight transition-colors duration-200">
-                        Explore <i className="fa-solid fa-arrow-right text-[11px]" />
+                        Explore <ArrowRight className="text-[11px]" />
                       </span>
                     </div>
                   </Link>
@@ -237,7 +239,7 @@ export default function HomePage() {
                     </div>
                     <div className="shrink-0">
                       <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-graphite bg-carbon text-orange group-hover:bg-orange group-hover:text-white transition-all">
-                        <i className="fa-solid fa-arrow-right text-[12px]" />
+                        <ArrowRight className="text-[12px]" />
                       </span>
                     </div>
                   </div>

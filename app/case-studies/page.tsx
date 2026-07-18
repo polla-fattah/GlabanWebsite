@@ -8,6 +8,8 @@ import { Badge } from "@/components/ui/badge";
 import { caseStudies } from "@/lib/data/caseStudies";
 
 import type { Metadata } from "next";
+import { TriangleAlert, Lightbulb, TrendingUp } from "lucide-react";
+
 
 export const metadata: Metadata = {
   title: "Case Studies & Customer Success Stories",
@@ -61,7 +63,7 @@ export default function CaseStudiesPage() {
             <div className="flex-1 flex flex-col gap-5">
               <div className="flex gap-3.5">
                 <div className="w-5 h-5 rounded-full bg-obsidian border border-graphite text-rose-500 flex items-center justify-center text-[10px] shrink-0 mt-0.5">
-                  <i className="fa-solid fa-triangle-exclamation"></i>
+                  <TriangleAlert />
                 </div>
                 <div>
                   <div className="text-[11px] font-medium text-fog uppercase tracking-[0.08em] mb-1">
@@ -75,7 +77,7 @@ export default function CaseStudiesPage() {
 
               <div className="flex gap-3.5">
                 <div className="w-5 h-5 rounded-full bg-obsidian border border-graphite text-white flex items-center justify-center text-[10px] shrink-0 mt-0.5">
-                  <i className="fa-solid fa-lightbulb"></i>
+                  <Lightbulb />
                 </div>
                 <div>
                   <div className="text-[11px] font-medium text-fog uppercase tracking-[0.08em] mb-1">
@@ -89,7 +91,7 @@ export default function CaseStudiesPage() {
 
               <div className="flex gap-3.5">
                 <div className="w-5 h-5 rounded-full bg-obsidian border border-graphite text-orange flex items-center justify-center text-[10px] shrink-0 mt-0.5">
-                  <i className="fa-solid fa-chart-line"></i>
+                  <TrendingUp />
                 </div>
                 <div>
                   <div className="text-[11px] font-medium text-fog uppercase tracking-[0.08em] mb-1">

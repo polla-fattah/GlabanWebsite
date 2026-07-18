@@ -6,6 +6,8 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { Product } from "@/lib/data/products";
 import FadeIn from "@/components/FadeIn";
+import { Check } from "lucide-react";
+
 
 export default function ProductDetailTemplate({
   product,
@@ -54,7 +56,7 @@ export default function ProductDetailTemplate({
                       className="group/item flex gap-3.5 items-center hover:translate-x-1 transition-transform duration-200"
                     >
                       <div className="w-5 h-5 rounded-full bg-obsidian border border-graphite text-orange flex items-center justify-center text-[10px] shrink-0 shadow-none group-hover/item:border-orange group-hover/item:bg-orange/10 transition-colors">
-                        <i className="fa-solid fa-check"></i>
+                        <Check />
                       </div>
                       <div className="text-[14.5px] font-normal text-white group-hover/item:text-orange transition-colors">
                         {b}
@@ -102,7 +104,7 @@ export default function ProductDetailTemplate({
                       className="group/item flex gap-3 items-start hover:translate-x-1 transition-transform duration-200"
                     >
                       <div className="text-orange text-[11px] mt-1 shrink-0 transition-colors">
-                        <i className="fa-solid fa-check"></i>
+                        <Check />
                       </div>
                       <span className="text-[14px] text-mist leading-[1.5] group-hover/item:text-white transition-colors">
                         {f}

@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -16,6 +17,7 @@ import {
 import { products } from "@/lib/data/products";
 import { services } from "@/lib/data/services";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -44,11 +46,27 @@ export default function Header() {
     cleanPath === "/cybersecurity" ||
     cleanPath === "/cctv-physical-security";
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Check initial state
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-100 bg-void/85 backdrop-blur-md border-b border-graphite">
+    <header className={cn(
+      "sticky top-0 z-100 bg-void/85 backdrop-blur-md border-b transition-colors duration-300",
+      scrolled ? "border-graphite" : "border-transparent"
+    )}>
       <div className="max-w-[1280px] mx-auto px-8 flex items-center justify-between h-[68px]">
         <Link href="/" className="flex items-center gap-2.5 no-underline">
-          <img src="/logo-light.png" alt="Glaban" className="h-10 w-auto object-contain" />
+          <img src="/logo-light.png" alt="Glaban" className="h-10 w-auto object-contain dark:hidden" />
+          <img src="/logo.png" alt="Glaban" className="h-10 w-auto object-contain hidden dark:block" />
         </Link>
 
         <div className="hidden lg:flex items-center">
@@ -146,8 +164,8 @@ export default function Header() {
                               : "text-orange hover:bg-white/5 border-transparent",
                           )}
                         >
-                          <span>View All Products & Software Modules</span>
-                          <i className="fa-solid fa-arrow-right text-[11px]" />
+                          <span>Explore Full Product Ecosystem</span>
+                          <ArrowRight className="text-[11px]" />
                         </Link>
                       </NavigationMenuLink>
                     </div>
@@ -238,7 +256,7 @@ export default function Header() {
                           <span>
                             View All Engineering Services & Deployment Models
                           </span>
-                          <i className="fa-solid fa-arrow-right text-[11px]" />
+                          <ArrowRight className="text-[11px]" />
                         </Link>
                       </NavigationMenuLink>
                     </div>
@@ -282,6 +300,7 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-4">
+          <ThemeToggle />
           <Button
             asChild
             className="hidden lg:inline-flex bg-white hover:bg-white/80 text-black font-medium text-[13px] px-4 py-2 h-auto rounded-full shadow-none transition-all"
@@ -321,7 +340,7 @@ export default function Header() {
                       )}
                     >
                       <span>{item.label}</span>
-                      <i className="fa-solid fa-chevron-right text-[11px] text-steel" />
+                      <ChevronRight className="text-[11px] text-steel" />
                     </Link>
                   );
                 })}
@@ -334,7 +353,7 @@ export default function Header() {
                 >
                   <Link href="/contact" onClick={() => setMobileOpen(false)}>
                     <span>Contact Us</span>
-                    <i className="fa-solid fa-arrow-right text-[12px]" />
+                    <ArrowRight className="text-[12px]" />
                   </Link>
                 </Button>
               </div>

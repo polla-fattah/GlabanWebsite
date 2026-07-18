@@ -1,13 +1,15 @@
+import { Calculator, TrendingUp, CreditCard, Monitor, Flame, Gauge, MapPin, Smartphone, Route, Wrench, Truck } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 export interface Product {
   slug: string;
   name: string;
   category: string;
-  listingIcon: string;
+  listingIcon: LucideIcon;
   image: string;
   listingDesc: string;
   homeBenefit?: string;
   detail: {
-    icon: string;
+    icon: LucideIcon;
     iconBg: string;
     iconColor: string;
     eyebrow: string;
@@ -32,12 +34,12 @@ export const products: Product[] = [
     slug: 'fuel-erp',
     name: 'Fuel ERP Platform',
     category: 'ERP',
-    listingIcon: 'fa-solid fa-calculator',
+    listingIcon: Calculator,
     image: '/images/products/Fuel ERP Platform.jpg',
     listingDesc: 'Manage your entire fuel operation from one platform—customers, stock, sales, and detailed financial reporting.',
     homeBenefit: 'Unified control across all branches',
     detail: {
-      icon: 'fa-solid fa-calculator',
+      icon: Calculator,
       iconBg,
       iconColor,
       eyebrow: 'Product · ERP',
@@ -80,12 +82,12 @@ export const products: Product[] = [
     slug: 'gas-station-pos',
     name: 'Gas Station POS System',
     category: 'Point of Sale',
-    listingIcon: 'fa-solid fa-desktop',
+    listingIcon: Monitor,
     image: '/images/products/gas station pos.jpeg',
     listingDesc: 'Fast, reliable sales interface designed specifically for forecourt cashiers and station managers.',
     homeBenefit: 'Faster, more accurate transactions',
     detail: {
-      icon: 'fa-solid fa-desktop',
+      icon: Monitor,
       iconBg,
       iconColor,
       eyebrow: 'Product · Point of Sale',
@@ -128,12 +130,12 @@ export const products: Product[] = [
     slug: 'fuel-card-fleet-card-system',
     name: 'Fuel Card & Fleet Card Management System',
     category: 'Fuel Cards',
-    listingIcon: 'fa-solid fa-credit-card',
+    listingIcon: CreditCard,
     image: '/images/products/fleet amgnemnt .jpeg',
     listingDesc: 'Issue and manage fuel cards for customers, drivers, and fleets with automated spending limits.',
     homeBenefit: 'Eliminate unauthorised fuel spend',
     detail: {
-      icon: 'fa-solid fa-credit-card',
+      icon: CreditCard,
       iconBg,
       iconColor,
       eyebrow: 'Product · Fuel Cards',
@@ -175,11 +177,11 @@ export const products: Product[] = [
     slug: 'fuel-limit-quota-system',
     name: 'Employee Fuel Limit & Quota System',
     category: 'Fuel Quota',
-    listingIcon: 'fa-solid fa-gauge-high',
+    listingIcon: Gauge,
     image: '/images/products/Eliminate Internal Fuel Waste.jpeg',
     listingDesc: 'Set precise fuel allowances by employee, vehicle, or department with automated approval workflows.',
     detail: {
-      icon: 'fa-solid fa-gauge-high',
+      icon: Gauge,
       iconBg,
       iconColor,
       eyebrow: 'Product · Fuel Quota',
@@ -221,12 +223,12 @@ export const products: Product[] = [
     slug: 'propane-cylinder-management',
     name: 'Propane Cylinder Management',
     category: 'Propane',
-    listingIcon: 'fa-solid fa-fire-flame-simple',
+    listingIcon: Flame,
     image: '/images/products/Propane Cylinder Management.webp',
     listingDesc: 'Track your cylinder inventory, deposits, and returns in real-time to prevent stock loss.',
     homeBenefit: 'End-to-end cylinder tracking',
     detail: {
-      icon: 'fa-solid fa-fire-flame-simple',
+      icon: Flame,
       iconBg,
       iconColor,
       eyebrow: 'Product · Propane',
@@ -268,11 +270,11 @@ export const products: Product[] = [
     slug: 'bulk-gas-delivery',
     name: 'Bulk Gas Delivery System',
     category: 'Bulk Delivery',
-    listingIcon: 'fa-solid fa-truck',
+    listingIcon: Truck,
     image: '/images/products/Bulk Gas Delivery System.png',
     listingDesc: 'Specialised management for tonnage-based gas delivery, including contract tracking and invoicing.',
     detail: {
-      icon: 'fa-solid fa-truck',
+      icon: Truck,
       iconBg,
       iconColor,
       eyebrow: 'Product · Bulk Delivery',
@@ -314,11 +316,11 @@ export const products: Product[] = [
     slug: 'delivery-dispatch-route-optimisation',
     name: 'Delivery Dispatch & Route Optimisation System',
     category: 'Dispatch',
-    listingIcon: 'fa-solid fa-route',
+    listingIcon: Route,
     image: '/images/products/Delivery Dispatch & Route Optimisation System.webp',
     listingDesc: 'Optimise delivery routes and track your fleet live to improve efficiency and customer service.',
     detail: {
-      icon: 'fa-solid fa-route',
+      icon: Route,
       iconBg,
       iconColor,
       eyebrow: 'Product · Dispatch',
@@ -360,12 +362,12 @@ export const products: Product[] = [
     slug: 'location-based-task-management',
     name: 'Location-Based Task Management',
     category: 'Field Operations',
-    listingIcon: 'fa-solid fa-location-dot',
+    listingIcon: MapPin,
     image: '/images/products/Enterprise-Grade Surveillance and Site Protection.jpeg',
     listingDesc: 'Verify field work and site visits using GPS check-ins and real-time photo evidence.',
     homeBenefit: 'Accountability for field teams',
     detail: {
-      icon: 'fa-solid fa-location-dot',
+      icon: MapPin,
       iconBg,
       iconColor,
       eyebrow: 'Product · Field Operations',
@@ -408,11 +410,11 @@ export const products: Product[] = [
     slug: 'asset-maintenance-management',
     name: 'Asset & Maintenance Management System',
     category: 'Maintenance',
-    listingIcon: 'fa-solid fa-screwdriver-wrench',
+    listingIcon: Wrench,
     image: '/images/products/Refineries.jpeg',
     listingDesc: 'Stay ahead of equipment failures with preventive maintenance schedules and work order tracking.',
     detail: {
-      icon: 'fa-solid fa-screwdriver-wrench',
+      icon: Wrench,
       iconBg,
       iconColor,
       eyebrow: 'Product · Maintenance',
@@ -454,11 +456,11 @@ export const products: Product[] = [
     slug: 'customer-portal-mobile-app',
     name: 'Customer Portal & Mobile App',
     category: 'Customer Experience',
-    listingIcon: 'fa-solid fa-mobile-screen-button',
+    listingIcon: Smartphone,
     image: '/images/products/Customer Portal & Mobile App.jpeg',
     listingDesc: 'Provide your customers with a self-service app to place orders, view invoices, and track accounts.',
     detail: {
-      icon: 'fa-solid fa-mobile-screen-button',
+      icon: Smartphone,
       iconBg,
       iconColor,
       eyebrow: 'Product · Customer Experience',
@@ -500,12 +502,12 @@ export const products: Product[] = [
     slug: 'business-intelligence-dashboard',
     name: 'Business Intelligence Dashboard',
     category: 'Analytics',
-    listingIcon: 'fa-solid fa-chart-line',
+    listingIcon: TrendingUp,
     image: '/images/products/Business Intelligence Dashboard.webp',
     listingDesc: 'Get a clear, real-time overview of sales, security, and operations through intuitive executive dashboards.',
     homeBenefit: 'Data-driven business decisions',
     detail: {
-      icon: 'fa-solid fa-chart-line',
+      icon: TrendingUp,
       iconBg,
       iconColor,
       eyebrow: 'Product · Analytics',

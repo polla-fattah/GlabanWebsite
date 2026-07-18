@@ -5,13 +5,14 @@ import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Calculator, Monitor, Flame, Gauge, Truck } from "lucide-react";
 
 // --- DATA DEFINITIONS ---
 
 const solutions = [
   {
     id: "erp",
-    icon: "fa-solid fa-calculator",
+    icon: Calculator,
     title: "Fuel ERP Platform",
     desc: "Centralised financial accounting, multi-branch inventory reconciliation, and automated invoicing.",
     href: "/products/fuel-erp",
@@ -26,7 +27,7 @@ const solutions = [
   },
   {
     id: "pos",
-    icon: "fa-solid fa-desktop",
+    icon: Monitor,
     title: "Gas Station POS & ATG",
     desc: "High-volume forecourt touch screen checkout and direct MODBUS dispenser wiring.",
     href: "/products/gas-station-pos",
@@ -43,7 +44,7 @@ const solutions = [
   },
   {
     id: "quotas",
-    icon: "fa-solid fa-gauge-high",
+    icon: Gauge,
     title: "Fuel Quotas & Fleet Limits",
     desc: "Automated RFID employee allocations and zero internal fuel shrinkage.",
     href: "/products/fuel-card-fleet-card-system",
@@ -58,7 +59,7 @@ const solutions = [
   },
   {
     id: "propane",
-    icon: "fa-solid fa-fire-flame-simple",
+    icon: Flame,
     title: "Propane & Bulk Gas System",
     desc: "Industrial tonnage contract management and cylinder tracking.",
     href: "/products/bulk-gas-delivery-system",
@@ -73,7 +74,7 @@ const solutions = [
   },
   {
     id: "dispatch",
-    icon: "fa-solid fa-truck-fast",
+    icon: Truck,
     title: "Fleet Dispatch & Tracking",
     desc: "Live GPS tracking and automated depot-to-site route planning.",
     href: "/products/delivery-dispatch-route-optimisation",
@@ -221,7 +222,7 @@ export default function HomeProblemSolutionMapper() {
                   {/* MOBILE ONLY INLINE SOLUTION CARD */}
                   <div className="block lg:hidden mt-8">
                     <div className="font-mono text-[11px] text-fog tracking-widest uppercase mb-4 flex items-center gap-2">
-                      <i className="fa-solid fa-arrow-right-long text-orange"></i>
+                      <ArrowRight className="text-orange" />
                       The Solution
                     </div>
                     
@@ -229,18 +230,18 @@ export default function HomeProblemSolutionMapper() {
                       const sol = solutions.find(s => s.id === prob.solutionId) || solutions[0];
                       const Visual = sol.Visual;
                       return (
-                        <Card className="bg-carbon border border-graphite rounded-lg p-6 sm:p-8 flex flex-col relative overflow-hidden shadow-2xl">
+                        <Card className="bg-carbon border border-graphite rounded-lg p-6 sm:p-8 flex flex-col relative overflow-hidden shadow-none">
                           <div className="absolute -bottom-10 -right-10 w-48 h-48 text-graphite opacity-30 pointer-events-none">
                             <Visual className="w-full h-full text-fog" />
                           </div>
                           
                           <div className="relative z-10 flex flex-col h-full">
                             <div className="flex items-center justify-between mb-6">
-                              <span className="font-mono text-[10px] sm:text-[11px] text-orange tracking-wider bg-orange/10 px-2 py-1 rounded">
-                                {sol.code}
+                              <span className="font-mono text-[10px] sm:text-[11px] text-fog tracking-wider border border-graphite bg-obsidian px-2 py-1 rounded">
+                                SOLVES {prob.number}
                               </span>
                               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-obsidian border border-graphite flex items-center justify-center text-[16px] sm:text-[20px] text-white">
-                                <i className={sol.icon}></i>
+                                <sol.icon />
                               </div>
                             </div>
                             <h3 className="font-medium text-[24px] sm:text-[28px] text-white leading-tight tracking-[-0.01em] mb-3 mt-auto">
@@ -253,7 +254,7 @@ export default function HomeProblemSolutionMapper() {
                               href={sol.href}
                               className="inline-flex items-center gap-2 font-medium text-[13px] sm:text-[14px] text-white hover:text-orange transition-colors"
                             >
-                              Explore Module <i className="fa-solid fa-arrow-right text-[12px]"></i>
+                              Explore Module <ArrowRight className="text-[12px]" />
                             </Link>
                           </div>
                         </Card>
@@ -269,7 +270,7 @@ export default function HomeProblemSolutionMapper() {
           <div className="lg:w-1/2 hidden lg:block sticky top-40 w-full">
             
             <div className="font-mono text-[12px] text-fog tracking-widest uppercase mb-6 flex items-center gap-3">
-                <i className="fa-solid fa-arrow-right-long text-orange"></i>
+                <ArrowRight className="text-orange" />
                 The Glaban Solution
               </div>
 
@@ -309,7 +310,7 @@ export default function HomeProblemSolutionMapper() {
                         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                         className="absolute inset-0 w-full origin-top"
                       >
-                        <Card className="bg-carbon border border-graphite rounded-lg p-10 h-[400px] flex flex-col relative overflow-hidden shadow-2xl">
+                        <Card className="bg-carbon border border-graphite rounded-lg p-10 h-[400px] flex flex-col relative overflow-hidden shadow-none">
                           {/* Dynamic Abstract SVG Background */}
                           <div className="absolute -bottom-10 -right-10 w-72 h-72 text-graphite opacity-30 pointer-events-none">
                             <Visual className="w-full h-full text-fog" />
@@ -317,11 +318,13 @@ export default function HomeProblemSolutionMapper() {
 
                           <div className="relative z-10 flex flex-col h-full">
                             <div className="flex items-center justify-between mb-8">
-                              <span className="font-mono text-[11px] text-orange tracking-wider bg-orange/10 px-2.5 py-1 rounded">
-                                {sol.code}
-                              </span>
+                              <div className="flex items-center gap-3">
+                                <span className="font-mono text-[11px] text-fog tracking-wider border border-graphite bg-obsidian px-2.5 py-1 rounded">
+                                  SOLVES {prob.number}: {prob.title.toUpperCase()}
+                                </span>
+                              </div>
                               <div className="w-12 h-12 rounded-lg bg-obsidian border border-graphite flex items-center justify-center text-[20px] text-white">
-                                <i className={sol.icon}></i>
+                                <sol.icon />
                               </div>
                             </div>
 
@@ -337,7 +340,7 @@ export default function HomeProblemSolutionMapper() {
                               href={sol.href}
                               className="inline-flex items-center gap-2 font-medium text-[14px] text-white hover:text-orange transition-colors"
                             >
-                              Explore Module <i className="fa-solid fa-arrow-right text-[12px]"></i>
+                              Explore Module <ArrowRight className="text-[12px]" />
                             </Link>
                           </div>
                         </Card>

@@ -17,6 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { SUPPORT_FORM_ENDPOINT } from "@/lib/formEndpoints";
+import { Check } from 'lucide-react';
 
 const productOptions = [
   "Fuel ERP",
@@ -129,7 +130,7 @@ export default function SupportPage() {
             {covered.map((i) => (
               <div key={i} className="flex gap-2.5 items-start">
                 <div className="text-orange text-[12px] mt-1 shrink-0">
-                  <i className="fa-solid fa-check"></i>
+                  <Check />
                 </div>
                 <span className="text-[14px] text-mist leading-[1.5]">
                   {i}
@@ -285,7 +286,7 @@ export default function SupportPage() {
             ) : (
               <div className="text-center py-10">
                 <div className="w-12 h-12 rounded-full bg-obsidian border border-graphite text-orange flex items-center justify-center text-xl mx-auto mb-4 shadow-none">
-                  <i className="fa-solid fa-check"></i>
+                  <Check />
                 </div>
                 <div className="font-medium text-[20px] text-white mb-2 tracking-[-0.01em]">
                   Request received
