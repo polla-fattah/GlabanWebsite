@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import type { LucideIcon } from "lucide-react";
+import Image from "next/image";
 
 export default function DetailHero({
   icon: Icon,
@@ -11,6 +12,7 @@ export default function DetailHero({
   title,
   subtitle,
   ctaLabel,
+  bgImage,
 }: {
   icon: LucideIcon;
   iconBg: string;
@@ -20,10 +22,26 @@ export default function DetailHero({
   title: string;
   subtitle: string;
   ctaLabel: string;
+  bgImage?: string;
 }) {
   return (
-    <section className="bg-void border-b border-graphite py-[76px] pb-[68px]">
-      <div className="max-w-[1280px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 items-center">
+    <section className="relative bg-void border-b border-graphite py-[96px] pb-[88px] overflow-hidden">
+      {bgImage && (
+        <div className="absolute inset-0 z-0 pointer-events-none select-none">
+          <Image
+            src={bgImage}
+            alt="Background"
+            fill
+            className="object-cover opacity-[0.25]"
+            priority
+          />
+          {/* Fades from the sides and bottom */}
+          <div className="absolute inset-0 bg-gradient-to-r from-void via-transparent to-void"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-void via-transparent to-void"></div>
+        </div>
+      )}
+
+      <div className="relative z-10 max-w-[1280px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 items-center">
         <div>
           <div className="flex items-center gap-3.5 mb-5">
             <div

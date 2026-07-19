@@ -94,7 +94,7 @@ const solutions = [
           r="40"
           strokeDasharray="180 200"
           strokeDashoffset="40"
-          className="text-orange"
+          className="opacity-100"
         />
         <circle
           cx="50"
@@ -102,14 +102,14 @@ const solutions = [
           r="30"
           strokeDasharray="100 200"
           strokeDashoffset="20"
-          className="text-fog"
+          className="opacity-60"
         />
         <circle
           cx="50"
           cy="50"
           r="20"
           strokeDasharray="50 200"
-          className="text-mist"
+          className="opacity-30"
         />
       </svg>
     ),
@@ -157,7 +157,7 @@ const solutions = [
           cy="50"
           r="4"
           fill="currentColor"
-          className="text-orange"
+          className="opacity-100"
         />
         <circle cx="80" cy="80" r="4" fill="currentColor" />
       </svg>
@@ -310,29 +310,29 @@ export default function HomeProblemSolutionMapper() {
                         solutions[0];
                       const Visual = sol.Visual;
                       return (
-                        <Card className="bg-carbon border border-graphite rounded-lg p-6 sm:p-8 flex flex-col relative overflow-hidden shadow-none">
-                          <div className="absolute -bottom-10 -right-10 w-48 h-48 text-graphite opacity-30 pointer-events-none">
-                            <Visual className="w-full h-full text-fog" />
+                        <Card className="bg-orange border-none rounded-lg p-6 sm:p-8 flex flex-col relative overflow-hidden shadow-lg shadow-orange/20">
+                          <div className="absolute -bottom-10 -right-10 w-48 h-48 text-white opacity-20 pointer-events-none">
+                            <Visual className="w-full h-full" />
                           </div>
 
                           <div className="relative z-10 flex flex-col h-full">
                             <div className="flex items-center justify-between mb-6">
-                              <span className="font-mono text-[10px] sm:text-[11px] text-fog tracking-wider border border-graphite bg-obsidian px-2 py-1 rounded">
+                              <span className="font-mono text-[10px] sm:text-[11px] text-white/90 tracking-wider border border-white/20 bg-black/10 px-2 py-1 rounded">
                                 SOLVES {prob.number}
                               </span>
-                              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-obsidian border border-graphite flex items-center justify-center text-[16px] sm:text-[20px] text-white">
+                              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-black/10 border border-white/20 flex items-center justify-center text-[16px] sm:text-[20px] text-white">
                                 <sol.icon />
                               </div>
                             </div>
                             <h3 className="font-medium text-[24px] sm:text-[28px] text-white leading-tight tracking-[-0.01em] mb-3 mt-auto">
                               {sol.title}
                             </h3>
-                            <p className="text-[14px] sm:text-[15px] text-fog leading-relaxed font-light mb-6">
+                            <p className="text-[14px] sm:text-[15px] text-white/90 leading-relaxed font-light mb-6">
                               {sol.desc}
                             </p>
                             <Link
                               href={sol.href}
-                              className="inline-flex items-center gap-2 font-medium text-[13px] sm:text-[14px] text-white hover:text-orange transition-colors"
+                              className="inline-flex items-center gap-2 font-medium text-[13px] sm:text-[14px] text-white hover:text-white/80 transition-colors"
                             >
                               Explore Module{" "}
                               <ArrowRight className="text-[12px]" />
@@ -395,20 +395,20 @@ export default function HomeProblemSolutionMapper() {
                       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                       className="absolute inset-0 w-full origin-top"
                     >
-                      <Card className="bg-carbon border border-graphite rounded-lg p-10 h-[400px] flex flex-col relative overflow-hidden shadow-none">
+                      <Card className="bg-orange border-none rounded-lg p-10 h-[400px] flex flex-col relative overflow-hidden shadow-lg shadow-orange/20">
                         {/* Dynamic Abstract SVG Background */}
-                        <div className="absolute -bottom-10 -right-10 w-72 h-72 text-graphite opacity-30 pointer-events-none">
-                          <Visual className="w-full h-full text-fog" />
+                        <div className="absolute -bottom-10 -right-10 w-72 h-72 text-white opacity-20 pointer-events-none">
+                          <Visual className="w-full h-full" />
                         </div>
 
                         <div className="relative z-10 flex flex-col h-full">
                           <div className="flex items-center justify-between mb-8">
                             <div className="flex items-center gap-3">
-                              <span className="font-mono text-[11px] text-fog tracking-wider border border-graphite bg-obsidian px-2.5 py-1 rounded">
+                              <span className="font-mono text-[11px] text-white/90 tracking-wider border border-white/20 bg-black/10 px-2.5 py-1 rounded">
                                 SOLVES {prob.number}: {prob.title.toUpperCase()}
                               </span>
                             </div>
-                            <div className="w-12 h-12 rounded-lg bg-obsidian border border-graphite flex items-center justify-center text-[20px] text-white">
+                            <div className="w-12 h-12 rounded-lg bg-black/10 border border-white/20 flex items-center justify-center text-[20px] text-white">
                               <sol.icon />
                             </div>
                           </div>
@@ -417,13 +417,13 @@ export default function HomeProblemSolutionMapper() {
                             {sol.title}
                           </h3>
 
-                          <p className="text-[16px] text-fog leading-relaxed font-light mb-8 max-w-[85%]">
+                          <p className="text-[16px] text-white/90 leading-relaxed font-light mb-8 max-w-[85%]">
                             {sol.desc}
                           </p>
 
                           <Link
                             href={sol.href}
-                            className="inline-flex items-center gap-2 font-medium text-[14px] text-white hover:text-orange transition-colors"
+                            className="inline-flex items-center gap-2 font-medium text-[14px] text-white hover:text-white/80 transition-colors"
                           >
                             Explore Module{" "}
                             <ArrowRight className="text-[12px]" />

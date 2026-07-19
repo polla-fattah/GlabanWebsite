@@ -8,7 +8,6 @@ import type { Product } from "@/lib/data/products";
 import FadeIn from "@/components/FadeIn";
 import { Check } from "lucide-react";
 
-
 export default function ProductDetailTemplate({
   product,
 }: {
@@ -27,9 +26,11 @@ export default function ProductDetailTemplate({
         title={product.name}
         subtitle={d.heroSubtitle}
         ctaLabel={d.ctaLabel}
+        bgImage={product.image}
       />
 
-      <section className="max-w-[1280px] mx-auto py-20 px-8">
+      <section className="max-w-[1280px] mx-auto py-12 md:py-20 px-8">
+
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_.8fr] gap-12 lg:gap-16 mb-20">
           <FadeIn>
             <div>
