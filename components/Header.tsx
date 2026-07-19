@@ -59,10 +59,12 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={cn(
-      "sticky top-0 z-100 bg-void/85 backdrop-blur-md border-b transition-colors duration-300",
-      scrolled ? "border-graphite" : "border-transparent"
-    )}>
+    <header
+      className={cn(
+        "sticky top-0 z-100 bg-void/85 backdrop-blur-md border-b transition-colors duration-300",
+        scrolled ? "border-graphite" : "border-transparent",
+      )}
+    >
       <div className="max-w-[1280px] mx-auto px-8 flex items-center justify-between h-[68px]">
         {/* Logo moved to Hero section */}
         <div className="hidden lg:flex items-center">
@@ -296,7 +298,7 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-4">
-          <ThemeToggle />
+          {false && <ThemeToggle />}
           <Button
             asChild
             className="hidden lg:inline-flex bg-white hover:bg-white/80 text-black font-medium text-[13px] px-4 py-2 h-auto rounded-full shadow-none transition-all"

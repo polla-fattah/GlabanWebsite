@@ -28,7 +28,12 @@ export default function DetailHero({
           <div className="flex items-center gap-3.5 mb-5">
             <div
               className="w-10 h-10 rounded-lg flex items-center justify-center text-xl bg-carbon border border-graphite shadow-none"
-              style={{ color: (iconColor === "legacy-orange" || iconColor === "legacy-teal") ? "var(--color-orange)" : (iconColor || "var(--color-orange)") }}
+              style={{
+                color:
+                  iconColor === "legacy-orange" || iconColor === "legacy-orange"
+                    ? "var(--color-orange)"
+                    : iconColor || "var(--color-orange)",
+              }}
             >
               <Icon />
             </div>

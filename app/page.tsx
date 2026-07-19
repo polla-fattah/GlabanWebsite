@@ -14,7 +14,6 @@ import HomeIndustriesGrid from "@/components/home/HomeIndustriesGrid";
 import HomeProblemSolutionMapper from "@/components/home/HomeProblemSolutionMapper";
 import { ArrowRight } from "lucide-react";
 
-
 const whyUs = [
   "Deeply specialised in the fuel and energy sector",
   "Software, cybersecurity, and physical protection in one partner",
@@ -45,7 +44,8 @@ export const metadata: Metadata = {
     canonical: "https://glaban.com",
   },
   openGraph: {
-    title: "Glaban | Enterprise Fuel & Energy Operations Platform, POS & ERP Systems",
+    title:
+      "Glaban | Enterprise Fuel & Energy Operations Platform, POS & ERP Systems",
     description:
       "Purpose-built hardware and software engineered for high-availability fuel operations across refineries, depots, and station networks.",
     url: "https://glaban.com",
@@ -92,8 +92,16 @@ export default function HomePage() {
         <div className="max-w-[1280px] w-full mx-auto relative z-10 text-center flex flex-col items-center justify-center">
           {/* Logo Icon placed above the hero title */}
           <div className="mb-0 opacity-95">
-            <img src="/logo-light.png" alt="Glaban" className="h-48 w-auto object-contain dark:hidden" />
-            <img src="/logo.png" alt="Glaban" className="h-48 w-auto object-contain hidden dark:block" />
+            <img
+              src="/logo-light.png"
+              alt="Glaban"
+              className="h-48 w-auto object-contain dark:hidden"
+            />
+            <img
+              src="/logo.png"
+              alt="Glaban"
+              className="h-48 w-auto object-contain hidden dark:block"
+            />
           </div>
 
           {/* Centered Headline */}
@@ -154,17 +162,25 @@ export default function HomePage() {
             {homeProducts.slice(0, 5).map((p, i) => {
               const isFeatured = i === 0;
               return (
-                <FadeIn 
-                  key={p.slug} 
-                  delay={i * 0.08} 
-                  className={cn("h-full", isFeatured ? "lg:col-span-2" : "col-span-1")}
+                <FadeIn
+                  key={p.slug}
+                  delay={i * 0.08}
+                  className={cn(
+                    "h-full",
+                    isFeatured ? "lg:col-span-2" : "col-span-1",
+                  )}
                 >
                   <Link
                     href={`/products/${p.slug}`}
                     className="group glb-card-link block bg-carbon border border-graphite rounded-lg p-6 lg:p-8 no-underline transition-all shadow-none flex flex-col justify-between overflow-hidden h-full relative"
                   >
                     <div className="flex flex-col h-full relative z-10">
-                      <div className={cn("relative w-full rounded-lg overflow-hidden mb-6 border border-graphite bg-obsidian", isFeatured ? "h-[240px] lg:h-[300px]" : "h-[180px]")}>
+                      <div
+                        className={cn(
+                          "relative w-full rounded-lg overflow-hidden mb-6 border border-graphite bg-obsidian",
+                          isFeatured ? "h-[240px] lg:h-[300px]" : "h-[180px]",
+                        )}
+                      >
                         <img
                           src={p.image}
                           alt={p.name}
@@ -176,14 +192,28 @@ export default function HomePage() {
                           {p.category}
                         </div>
                       </div>
-                      <div className={cn("font-medium text-white mb-3 tracking-[-0.015em] transition-colors", isFeatured ? "text-[24px] lg:text-[28px]" : "text-[18px]")}>
+                      <div
+                        className={cn(
+                          "font-medium text-white mb-3 tracking-[-0.015em] transition-colors",
+                          isFeatured
+                            ? "text-[24px] lg:text-[28px]"
+                            : "text-[18px]",
+                        )}
+                      >
                         {p.name}
                       </div>
-                      <div className={cn("text-fog leading-relaxed mb-6", isFeatured ? "text-[16px] lg:text-[18px] max-w-[80%]" : "text-[14px] line-clamp-3")}>
+                      <div
+                        className={cn(
+                          "text-fog leading-relaxed mb-6",
+                          isFeatured
+                            ? "text-[16px] lg:text-[18px] max-w-[80%]"
+                            : "text-[14px] line-clamp-3",
+                        )}
+                      >
                         {p.listingDesc}
                       </div>
                     </div>
-                    
+
                     <div className="pt-5 border-t border-graphite/60 flex items-center justify-between text-[13px] font-medium text-fog group-hover:text-mist transition-colors relative z-10 mt-auto">
                       <span>{p.homeBenefit}</span>
                       <span className="flex items-center gap-1.5 text-orange group-hover:text-orangeLight transition-colors duration-200">
@@ -223,7 +253,8 @@ export default function HomePage() {
               <FadeIn key={s.slug} delay={i * 0.08}>
                 <Link
                   href={
-                    s.slug === "cybersecurity" || s.slug === "cctv-physical-security"
+                    s.slug === "cybersecurity" ||
+                    s.slug === "cctv-physical-security"
                       ? `/${s.slug}`
                       : `/services/${s.slug}`
                   }
@@ -277,7 +308,14 @@ export default function HomePage() {
       <section className="bg-carbon py-24 border-b border-graphite relative overflow-hidden">
         {/* Subtle blueprint accent */}
         <div className="absolute -left-32 -top-32 w-[600px] h-[600px] opacity-5 pointer-events-none">
-          <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="0.5">
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 100 100"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="0.5"
+          >
             <circle cx="50" cy="50" r="40" />
             <circle cx="50" cy="50" r="30" />
             <line x1="0" y1="50" x2="100" y2="50" />
@@ -302,8 +340,13 @@ export default function HomePage() {
           </div>
           <div className="lg:w-7/12 flex flex-col gap-5">
             {whyUs.map((w, i) => (
-              <div key={w} className="flex gap-5 items-start bg-obsidian border border-graphite rounded-lg p-6 transition-colors hover:border-smoke">
-                <div className="font-mono text-[14px] text-fog/50 mt-1">0{i + 1}</div>
+              <div
+                key={w}
+                className="flex gap-5 items-start bg-obsidian border border-graphite rounded-lg p-6 transition-colors hover:border-smoke"
+              >
+                <div className="font-mono text-[14px] text-fog/50 mt-1">
+                  0{i + 1}
+                </div>
                 <div className="text-[16px] md:text-[18px] text-white font-light leading-relaxed">
                   {w}
                 </div>

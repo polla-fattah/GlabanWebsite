@@ -9,7 +9,6 @@ import FadeIn from "@/components/FadeIn";
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 
-
 export const metadata: Metadata = {
   title: "Products & Software Modules",
   description:
@@ -54,14 +53,14 @@ export default function ProductsPage() {
                 className="group glb-card-link block bg-carbon border border-graphite rounded-lg p-6.5 no-underline transition-all shadow-none flex flex-col justify-between overflow-hidden h-full"
               >
                 <div>
-                  <div className="relative w-full h-[220px] rounded-lg overflow-hidden mb-5 border border-graphite bg-obsidian">
+                  <div className="relative w-full h-[300px] rounded-lg overflow-hidden mb-5 border border-graphite bg-obsidian">
                     <img
                       src={p.image}
                       alt={p.name}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-void via-void/30 to-transparent" />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-void/90 via-void/50 to-orange/5" />
+                    <div className="absolute inset-0 bg-linear-to-t from-void via-void/30 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-tr from-void/90 via-void/40 to-orange/5" />
                     <div className="absolute top-3 left-3 bg-void/85 backdrop-blur-md border border-graphite text-mist font-mono text-[10.5px] uppercase tracking-wider px-2.5 py-1 rounded">
                       {p.category}
                     </div>
@@ -76,8 +75,7 @@ export default function ProductsPage() {
                 <div className="pt-4 border-t border-graphite/60 flex items-center justify-between text-[13px] font-medium text-fog group-hover:text-mist transition-colors">
                   <span>View Architecture & Specs</span>
                   <span className="flex items-center gap-1.5 text-orange group-hover:text-orangeLight transition-colors duration-200">
-                    Explore{" "}
-                    <ArrowRight className="text-[11px]" />
+                    Explore <ArrowRight className="text-[11px]" />
                   </span>
                 </div>
               </Link>
