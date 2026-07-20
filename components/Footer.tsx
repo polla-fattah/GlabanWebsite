@@ -1,43 +1,54 @@
-import Link from 'next/link';
-import { colors } from '@/lib/colors';
+import Link from "next/link";
 
 const social = [
-  { label: 'in', href: '#' },
-  { label: 'FB', href: '#' },
-  { label: 'X', href: '#' },
+  { label: "in", href: "#" },
+  { label: "FB", href: "#" },
+  { label: "X", href: "#" },
 ];
 
 const productLinks = [
-  { label: 'Fuel ERP Platform', href: '/products/fuel-erp' },
-  { label: 'Gas Station POS', href: '/products/gas-station-pos' },
-  { label: 'Fuel Card & Fleet System', href: '/products/fuel-card-fleet-card-system' },
-  { label: 'Propane Cylinder Mgmt', href: '/products/propane-cylinder-management' },
-  { label: 'Location-Based Task Mgmt', href: '/products/location-based-task-management' },
-  { label: 'View all products', href: '/products' },
+  { label: "Fuel ERP Platform", href: "/products/fuel-erp" },
+  { label: "Gas Station POS", href: "/products/gas-station-pos" },
+  {
+    label: "Fuel Card & Fleet System",
+    href: "/products/fuel-card-fleet-card-system",
+  },
+  {
+    label: "Propane Cylinder Mgmt",
+    href: "/products/propane-cylinder-management",
+  },
+  {
+    label: "Location-Based Task Mgmt",
+    href: "/products/location-based-task-management",
+  },
+  { label: "View all products", href: "/products" },
 ];
 
 const serviceLinks = [
-  { label: 'Cybersecurity', href: '/cybersecurity' },
-  { label: 'CCTV & Physical Security', href: '/cctv-physical-security' },
-  { label: 'ERP Implementation', href: '/services/erp-implementation' },
-  { label: 'Hosting & Backup', href: '/services/hosting-backup-disaster-recovery' },
-  { label: 'Training & Support', href: '/services/training-support' },
-  { label: 'View all services', href: '/services' },
+  { label: "Cybersecurity", href: "/cybersecurity" },
+  { label: "CCTV & Physical Security", href: "/cctv-physical-security" },
+  { label: "ERP Implementation", href: "/services/erp-implementation" },
+  {
+    label: "Hosting & Backup",
+    href: "/services/hosting-backup-disaster-recovery",
+  },
+  { label: "Training & Support", href: "/services/training-support" },
+  { label: "View all services", href: "/services" },
 ];
 
 const companyLinks = [
-  { label: 'About Us', href: '/about' },
-  { label: 'Case Studies', href: '/case-studies' },
-  { label: 'Support', href: '/support' },
-  { label: 'FAQ', href: '/faq' },
-  { label: 'Contact', href: '/contact' },
+  { label: "About Us", href: "/about" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Support", href: "/support" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function FooterLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: 'rgba(255,255,255,.55)', textDecoration: 'none' }}
+      className="text-[13.5px] text-ash hover:text-mist transition-colors no-underline"
     >
       {label}
     </Link>
@@ -46,61 +57,24 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 
 export default function Footer() {
   return (
-    <footer style={{ background: colors.navyDeep, borderTop: '1px solid rgba(255,255,255,.08)', width: '100%', overflow: 'hidden' }}>
-      <div
-        className="glb-grid"
-        style={{
-          maxWidth: 1280,
-          margin: '0 auto',
-          padding: '56px 32px 32px',
-          display: 'grid',
-          gridTemplateColumns: '1.4fr 1fr 1fr 1.2fr',
-          gap: 40,
-        }}
-      >
-        <div style={{ minWidth: 0 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-            <div
-              style={{
-                width: 30,
-                height: 30,
-                borderRadius: 6,
-                background: `linear-gradient(135deg, ${colors.orange}, ${colors.orangeDark})`,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontWeight: 700,
-                color: colors.navy,
-                fontSize: 15,
-              }}
-            >
-              G
-            </div>
-            <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 18, color: '#fff' }}>GLABAN</span>
-          </div>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, lineHeight: 1.7, color: 'rgba(255,255,255,.55)', maxWidth: '100%', margin: '0 0 20px', overflowWrap: 'break-word' }}>
-            Complete digital, cybersecurity, and physical security solutions for fuel, oil, gas, refinery, and energy companies across KRG and the wider region.
+    <footer className="bg-void border-t border-graphite w-full overflow-hidden">
+      <div className="max-w-[1280px] mx-auto px-8 pt-16 pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-10">
+        <div className="min-w-0">
+          <Link href="/" className="mb-3 block">
+            <img src="/logo-light.png" alt="Glaban" className="h-20 w-auto object-contain dark:hidden" />
+            <img src="/logo.png" alt="Glaban" className="h-20 w-auto object-contain hidden dark:block" />
+          </Link>
+          <p className="text-[13.5px] leading-[1.65] text-fog max-w-full mb-5 break-words">
+            Complete digital, cybersecurity, and physical security solutions for
+            fuel, oil, gas, refinery, and energy companies across KRG and the
+            wider region.
           </p>
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+          <div className="flex gap-2.5 flex-wrap">
             {social.map((s) => (
               <a
                 key={s.label}
                 href={s.href}
-                style={{
-                  width: 36,
-                  height: 36,
-                  borderRadius: 8,
-                  background: 'rgba(255,255,255,.06)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  textDecoration: 'none',
-                  color: 'rgba(255,255,255,.6)',
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: 12,
-                  fontWeight: 600,
-                }}
+                className="w-8 h-8 rounded-md bg-carbon border border-graphite flex items-center justify-center no-underline text-fog hover:text-orange hover:border-orange/40 text-xs font-medium transition-colors shadow-none"
               >
                 {s.label}
               </a>
@@ -108,60 +82,54 @@ export default function Footer() {
           </div>
         </div>
 
-        <div style={{ minWidth: 0 }}>
-          <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: 13, color: '#fff', letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
+        <div className="min-w-0">
+          <div className="font-medium text-[12px] text-fog tracking-[0.08em] uppercase mb-4">
             Products
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 11 }}>
+          <div className="flex flex-col gap-2.5">
             {productLinks.map((l) => (
               <FooterLink key={l.href} {...l} />
             ))}
           </div>
         </div>
 
-        <div style={{ minWidth: 0 }}>
-          <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: 13, color: '#fff', letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
+        <div className="min-w-0">
+          <div className="font-medium text-[12px] text-fog tracking-[0.08em] uppercase mb-4">
             Services
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 11 }}>
+          <div className="flex flex-col gap-2.5">
             {serviceLinks.map((l) => (
               <FooterLink key={l.href} {...l} />
             ))}
           </div>
         </div>
 
-        <div style={{ minWidth: 0 }}>
-          <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: 13, color: '#fff', letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 16 }}>
+        <div className="min-w-0">
+          <div className="font-medium text-[12px] text-fog tracking-[0.08em] uppercase mb-4">
             Company
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 11, marginBottom: 20 }}>
+          <div className="flex flex-col gap-2.5 mb-5">
             {companyLinks.map((l) => (
               <FooterLink key={l.href} {...l} />
             ))}
           </div>
-          <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: 'rgba(255,255,255,.55)', lineHeight: 1.8, marginTop: 12, overflowWrap: 'break-word' }}>
-            <div style={{ color: colors.orangeLight, fontWeight: 600, marginBottom: 4 }}>info@glaban.com</div>
-            <div style={{ marginBottom: 12 }}>+964 750 6611033</div>
-            <div>Glaban Office, Makhmur Road,</div>
-            <div>Erbil, Kurdistan Region (KRG), Iraq</div>
+          <div className="text-[13.5px] text-fog leading-[1.75] mt-3 break-words">
+            <div className="text-white font-medium mb-1">info@glaban.com</div>
+            <div className="mb-2 text-mist">+964 750 6611033</div>
+            <div className="text-ash">Glaban Office, Makhmur Road,</div>
+            <div className="text-ash">
+              Erbil, Kurdistan Region (KRG), Iraq
+            </div>
           </div>
         </div>
       </div>
-      <div
-        style={{
-          borderTop: '1px solid rgba(255,255,255,.08)',
-          padding: '20px 32px',
-          maxWidth: 1280,
-          margin: '0 auto',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: 10,
-        }}
-      >
-        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(255,255,255,.4)' }}>© 2026 Glaban. All rights reserved.</span>
-        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: 'rgba(255,255,255,.4)' }}>Software · Cybersecurity · Physical Security for the Energy Sector</span>
+      <div className="border-t border-graphite py-6 px-8 max-w-[1280px] mx-auto flex justify-between items-center flex-wrap gap-3">
+        <span className="text-[13px] text-ash">
+          © 2026 Glaban. All rights reserved.
+        </span>
+        <span className="text-[13px] text-ash">
+          Software · Cybersecurity · Physical Security for the Energy Sector
+        </span>
       </div>
     </footer>
   );

@@ -1,75 +1,48 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { colors } from '@/lib/colors';
-import { faqs } from '@/lib/data/faqs';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
+import CTABand from "@/components/CTABand";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { faqs } from "@/lib/data/faqs";
 
 export default function FaqPage() {
-  const [openIndex, setOpenIndex] = useState(0);
-
   return (
-    <div>
+    <div className="bg-void min-h-screen">
       <Header />
-      <section style={{ background: colors.navy, padding: '72px 32px 56px' }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeLight, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 14 }}>
-            FAQ
-          </div>
-          <h1 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 40, color: '#fff', margin: '0 0 12px' }}>
-            Frequently asked questions
-          </h1>
-        </div>
+      <PageHero eyebrow="FAQ" title="Frequently asked questions" />
+
+      <section className="max-w-[1280px] mx-auto py-16 px-8 pb-24">
+        <Accordion
+          type="single"
+          collapsible
+          defaultValue="item-0"
+          className="w-full"
+        >
+          {faqs.map((f, i) => (
+            <AccordionItem
+              key={f.q}
+              value={`item-${i}`}
+              className="border-b border-graphite py-2"
+            >
+              <AccordionTrigger className="text-left font-medium text-[16px] text-white hover:no-underline hover:text-orange transition-colors py-4">
+                {f.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-[14.5px] text-fog leading-[1.65] pt-1 pb-4">
+                {f.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </section>
 
-      <section style={{ maxWidth: 840, margin: '0 auto', padding: '64px 32px 96px' }}>
-        {faqs.map((f, i) => {
-          const isOpen = openIndex === i;
-          return (
-            <div key={f.q} style={{ borderBottom: '1px solid rgba(10,25,48,.1)', padding: '20px 0' }}>
-              <div
-                onClick={() => setOpenIndex(isOpen ? -1 : i)}
-                style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', gap: 16 }}
-              >
-                <div style={{ fontWeight: 600, fontSize: 16, color: colors.textDark }}>{f.q}</div>
-                <div
-                  style={{
-                    width: 26,
-                    height: 26,
-                    borderRadius: '50%',
-                    background: colors.orangeTint,
-                    color: colors.orangeDark,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: 16,
-                    flex: 'none',
-                    transform: `rotate(${isOpen ? 45 : 0}deg)`,
-                    transition: 'transform .15s',
-                  }}
-                >
-                  +
-                </div>
-              </div>
-              {isOpen && <p style={{ fontSize: 14.5, color: colors.textBody, lineHeight: 1.65, margin: '14px 0 0' }}>{f.a}</p>}
-            </div>
-          );
-        })}
-      </section>
-
-      <section style={{ background: colors.grayBg }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '64px 32px', textAlign: 'center' }}>
-          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 26, color: colors.textDark, margin: '0 0 14px' }}>
-            Still have questions?
-          </h2>
-          <Link href="/contact" style={{ display: 'inline-block', background: colors.orange, color: colors.navy, fontWeight: 600, fontSize: 15, padding: '14px 26px', borderRadius: 8, textDecoration: 'none' }}>
-            Contact Us
-          </Link>
-        </div>
-      </section>
-
+      <CTABand heading="Still have questions?" buttonLabel="Contact Us" />
       <Footer />
     </div>
   );

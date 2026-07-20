@@ -1,96 +1,105 @@
-import Link from 'next/link';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { colors } from '@/lib/colors';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
+import CTABand from "@/components/CTABand";
+import AboutValuesGrid from "@/components/about/AboutValuesGrid";
 
-export const metadata = { title: 'About Us | Glaban' };
+import type { Metadata } from "next";
+import { Factory, Cpu, MapPin } from "lucide-react";
 
-const values = ['Reliability', 'Security', 'Practical solutions', 'Long-term support', 'Business understanding', 'Transparency', 'Local expertise', 'Continuous improvement'];
+
+export const metadata: Metadata = {
+  title: "About Us & Engineering Heritage",
+  description:
+    "Learn about Glaban's mission, engineering rigor, and deep regional roots in the Kurdistan Region of Iraq (KRG). We unite industrial software, cybersecurity, and physical surveillance into single-partner reliability.",
+  keywords: [
+    "About Glaban",
+    "Glaban engineering heritage",
+    "Kurdistan energy technology partner",
+    "KRG oil and gas IT company",
+    "Petroleum software company Iraq",
+    "Industrial software engineering KRG",
+  ],
+  alternates: {
+    canonical: "https://glaban.com/about",
+  },
+  openGraph: {
+    title: "About Us & Engineering Heritage | Glaban Enterprise Fuel Platform",
+    description:
+      "Deeply rooted in the energy sector with uncompromising engineering standards, Glaban delivers mission-critical software and security across KRG and beyond.",
+    url: "https://glaban.com/about",
+  },
+};
 
 export default function AboutPage() {
   return (
-    <div>
+    <div className="bg-void min-h-screen text-white">
       <Header />
-      <section style={{ background: colors.navy, padding: '72px 32px 64px' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeLight, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 14 }}>
-            About Glaban
-          </div>
-          <h1 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 38, color: '#fff', margin: '0 0 18px', lineHeight: 1.25 }}>
-            A technology partner built around the fuel and energy sector
-          </h1>
-          <p style={{ fontSize: 16.5, color: 'rgba(255,255,255,.65)', lineHeight: 1.7, margin: 0 }}>
-            Glaban provides software, cybersecurity, and physical security solutions for oil, gas, refinery, station, propane, and industrial businesses across KRG and the wider region.
-          </p>
-        </div>
+      <PageHero
+        eyebrow="ENGINEERING HERITAGE"
+        eyebrowColor="var(--color-fog)"
+        title="A technology partner built specifically around fuel and energy operations"
+        subtitle="Glaban provides integrated software, cybersecurity, and physical surveillance systems for oil, gas, refinery, station, propane, and industrial businesses across KRG and the wider region."
+        centered
+        maxWidth={920}
+      />
+
+      <section className="max-w-[1280px] mx-auto py-16 px-8 pb-24">
+        <AboutValuesGrid />
       </section>
 
-      <section style={{ maxWidth: 1280, margin: '0 auto', padding: '80px 32px' }}>
-        <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginBottom: 72 }}>
-          <div style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 16, padding: 36 }}>
-            <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeDark, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 12 }}>
-              Mission
+      <section className="bg-carbon border-y border-graphite">
+        <div className="max-w-[1280px] mx-auto py-20 px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <div className="flex items-center gap-2 font-mono text-[11px] text-fog uppercase tracking-wider mb-2">
+              <Factory />
+              <span>SECTOR SPECIALIZATION</span>
             </div>
-            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: 19, color: colors.textDark, lineHeight: 1.5, margin: 0 }}>
-              To help fuel, oil, gas, and energy companies modernise their operations through reliable software, practical automation, secure systems, physical security, and long-term technical support.
-            </p>
-          </div>
-          <div style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 16, padding: 36 }}>
-            <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeDark, letterSpacing: '.05em', textTransform: 'uppercase', marginBottom: 12 }}>
-              Vision
+            <div className="font-medium text-[20px] text-white mb-2.5 tracking-[-0.01em]">
+              Dedicated Industry Focus
             </div>
-            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: 19, color: colors.textDark, lineHeight: 1.5, margin: 0 }}>
-              To become a trusted technology partner for fuel and energy businesses in KRG and the wider region.
-            </p>
-          </div>
-        </div>
-
-        <div style={{ marginBottom: 24 }}>
-          <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 26, color: colors.textDark, marginBottom: 32, textAlign: 'center' }}>
-            Our values
-          </div>
-          <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18 }}>
-            {values.map((v) => (
-              <div key={v} style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 12, padding: 22, textAlign: 'center' }}>
-                <div style={{ fontWeight: 700, fontSize: 15, color: colors.textDark }}>{v}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section style={{ background: colors.navyMid }}>
-        <div className="glb-grid" style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
-          <div>
-            <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 22, color: '#fff', marginBottom: 10 }}>Industry focus</div>
-            <p style={{ fontSize: 14.5, color: 'rgba(255,255,255,.6)', lineHeight: 1.65, margin: 0 }}>
-              We build exclusively for fuel, oil, gas, refinery, and energy operations — not generic business software adapted after the fact.
+            <p className="text-[15px] text-fog leading-[1.65] m-0 font-normal">
+              We build exclusively for fuel, oil, gas, refinery, and energy
+              operations — not generic business software adapted or patched
+              after the fact.
             </p>
           </div>
           <div>
-            <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 22, color: '#fff', marginBottom: 10 }}>Technical expertise</div>
-            <p style={{ fontSize: 14.5, color: 'rgba(255,255,255,.6)', lineHeight: 1.65, margin: 0 }}>
-              Software development, ERP, cybersecurity, and physical security under one roof, so systems work together by design.
+            <div className="flex items-center gap-2 font-mono text-[11px] text-fog uppercase tracking-wider mb-2">
+              <Cpu />
+              <span>UNIFIED ARCHITECTURE</span>
+            </div>
+            <div className="font-medium text-[20px] text-white mb-2.5 tracking-[-0.01em]">
+              Full Technical Integration
+            </div>
+            <p className="text-[15px] text-fog leading-[1.65] m-0 font-normal">
+              Software development, ERP, cybersecurity, and physical
+              surveillance under one roof, guaranteeing that forecourt sensors
+              and cloud databases work together natively by design.
             </p>
           </div>
           <div>
-            <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 22, color: '#fff', marginBottom: 10 }}>Local understanding</div>
-            <p style={{ fontSize: 14.5, color: 'rgba(255,255,255,.6)', lineHeight: 1.65, margin: 0 }}>
-              We understand the operational, regulatory, and connectivity realities of running a fuel business in KRG and the region.
+            <div className="flex items-center gap-2 font-mono text-[11px] text-fog uppercase tracking-wider mb-2">
+              <MapPin />
+              <span>REGIONAL PRESENCE</span>
+            </div>
+            <div className="font-medium text-[20px] text-white mb-2.5 tracking-[-0.01em]">
+              Direct Local Understanding
+            </div>
+            <p className="text-[15px] text-fog leading-[1.65] m-0 font-normal">
+              Headquartered right here in KRG, we understand the operational,
+              regulatory, and internet connectivity realities of running a 24/7
+              fuel distribution business in the region.
             </p>
           </div>
         </div>
       </section>
 
-      <section style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px', textAlign: 'center' }}>
-        <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 28, color: colors.textDark, margin: '0 0 14px' }}>
-          Let&apos;s talk about your operation
-        </h2>
-        <Link href="/contact" style={{ display: 'inline-block', background: colors.orange, color: colors.navy, fontWeight: 600, fontSize: 15, padding: '14px 26px', borderRadius: 8, textDecoration: 'none' }}>
-          Contact Us
-        </Link>
-      </section>
-
+      <CTABand
+        heading="Let's inspect and modernise your operations"
+        subtitle="Schedule an on-site scoping audit with our senior engineering team across Erbil, Sulaymaniyah, or Dohuk."
+        buttonLabel="Contact Engineering & Support"
+      />
       <Footer />
     </div>
   );

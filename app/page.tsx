@@ -1,303 +1,355 @@
-import Link from 'next/link';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { colors } from '@/lib/colors';
-import { products } from '@/lib/data/products';
-import { industries } from '@/lib/data/industries';
-import { services } from '@/lib/data/services';
-
-const problems = [
-  { icon: 'fa-solid fa-clipboard-list', text: 'Manual sales tracking' },
-  { icon: 'fa-solid fa-boxes-stacked', text: 'Weak stock control' },
-  { icon: 'fa-solid fa-gas-pump', text: 'Uncontrolled employee fuel usage' },
-  { icon: 'fa-solid fa-file-invoice', text: 'Paper-based delivery records' },
-  { icon: 'fa-solid fa-building-circle-exclamation', text: 'Poor branch visibility' },
-  { icon: 'fa-solid fa-chart-pie', text: 'No central ERP reporting' },
-  { icon: 'fa-solid fa-unlock-keyhole', text: 'Weak cybersecurity' },
-  { icon: 'fa-solid fa-video-slash', text: 'Poor physical security' },
-];
-
-const solutionsOverview = [
-  { icon: 'fa-solid fa-calculator', text: 'Fuel ERP' },
-  { icon: 'fa-solid fa-desktop', text: 'Gas Station POS' },
-  { icon: 'fa-solid fa-gauge-high', text: 'Fuel Quotas' },
-  { icon: 'fa-solid fa-fire-flame-simple', text: 'Propane Systems' },
-  { icon: 'fa-solid fa-truck', text: 'Bulk Gas Delivery' },
-  { icon: 'fa-solid fa-location-dot', text: 'Task Management' },
-  { icon: 'fa-solid fa-shield-halved', text: 'Cybersecurity' },
-  { icon: 'fa-solid fa-video', text: 'CCTV & Surveillance' },
-  { icon: 'fa-solid fa-id-badge', text: 'Access Control' },
-  { icon: 'fa-solid fa-screwdriver-wrench', text: 'Asset Maintenance' },
-];
+import type { Metadata } from "next";
+import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import FadeIn from "@/components/FadeIn";
+import { Badge } from "@/components/ui/badge";
+import { products } from "@/lib/data/products";
+import { industries } from "@/lib/data/industries";
+import { services } from "@/lib/data/services";
+import { cn } from "@/lib/utils";
+import HomeIndustriesGrid from "@/components/home/HomeIndustriesGrid";
+import HomeProblemSolutionMapper from "@/components/home/HomeProblemSolutionMapper";
+import { ArrowRight } from "lucide-react";
 
 const whyUs = [
-  'Deeply specialised in the fuel and energy sector',
-  'Software, cybersecurity, and physical protection in one partner',
-  'Direct understanding of KRG business workflows',
-  'Flexible ready-made and custom-built solutions',
-  'Commitment to long-term support and maintenance',
-  'Hands-on staff training and implementation support',
-  'Practical, results-oriented business approach',
+  "Deeply specialised in the fuel and energy sector",
+  "Software, cybersecurity, and physical protection in one partner",
+  "Direct understanding of KRG business workflows",
+  "Flexible ready-made and custom-built solutions",
+  "Commitment to long-term support and maintenance",
+  "Hands-on staff training and implementation support",
+  "Practical, results-oriented business approach",
 ];
 
 const homeProducts = products.filter((p) => p.homeBenefit);
 
+export const metadata: Metadata = {
+  title: "Enterprise Fuel & Energy Operations Platform, POS & ERP Systems",
+  description:
+    "Glaban is the premier enterprise platform delivering gas station POS, fuel forecourt controller automation, bulk delivery ERP, location-based task management, industrial cybersecurity, and CCTV surveillance systems for refineries, stations, and energy businesses across KRG and worldwide.",
+  keywords: [
+    "Enterprise fuel platform",
+    "Gas station POS software",
+    "Forecourt controller deployment",
+    "Fuel ERP modules",
+    "SCADA cybersecurity protection",
+    "CCTV physical security forecourt",
+    "Petroleum enterprise software KRG",
+    "Oil and gas digital platform",
+  ],
+  alternates: {
+    canonical: "https://glaban.com",
+  },
+  openGraph: {
+    title:
+      "Glaban | Enterprise Fuel & Energy Operations Platform, POS & ERP Systems",
+    description:
+      "Purpose-built hardware and software engineered for high-availability fuel operations across refineries, depots, and station networks.",
+    url: "https://glaban.com",
+  },
+};
+
 export default function HomePage() {
   return (
-    <div>
+    <div className="bg-void min-h-screen">
       <Header />
 
       {/* HERO */}
-      <section
-        style={{
-          position: 'relative',
-          background: 'radial-gradient(ellipse at 75% -10%, #16314F 0%, #0A1930 55%, #07101F 100%)',
-          overflow: 'hidden',
-        }}
-      >
+      <section className="relative overflow-hidden bg-void border-b border-graphite min-h-[calc(100vh-68px)] flex flex-col justify-center py-20 px-8">
+        {/* Subtle Grid & Animated Background Light Fields */}
         <div
+          className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
-            position: 'absolute',
-            inset: 0,
             backgroundImage:
-              'linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px)',
-            backgroundSize: '44px 44px',
-            opacity: 0.6,
+              "linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
           }}
         />
-        <div className="glb-grid" style={{ maxWidth: 1280, margin: '0 auto', padding: '88px 32px 96px', position: 'relative', display: 'grid', gridTemplateColumns: '1.1fr .9fr', gap: 56, alignItems: 'center' }}>
-          <div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(226,134,27,.12)', border: '1px solid rgba(226,134,27,.35)', padding: '7px 14px', borderRadius: 20, marginBottom: 24 }}>
-              <span style={{ width: 6, height: 6, borderRadius: '50%', background: colors.orange }} />
-              <span style={{ fontSize: 13, color: colors.orangeLight, fontWeight: 600 }}>Built for the fuel &amp; energy sector</span>
-            </div>
-            <h1 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 52, lineHeight: 1.12, color: '#fff', margin: '0 0 22px', letterSpacing: '-.01em' }}>
-              Complete solutions for energy companies
-            </h1>
-            <p style={{ fontSize: 18, lineHeight: 1.65, color: 'rgba(255,255,255,.68)', maxWidth: 560, margin: '0 0 34px' }}>
-              ERP, POS, fuel quota, propane and bulk gas delivery, location-based task management, cybersecurity, CCTV, and surveillance — built for oil, gas, refinery, station, and energy businesses in KRG and beyond.
-            </p>
-            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-              <Link href="/contact" style={{ background: colors.orange, color: colors.navy, fontWeight: 600, fontSize: 15.5, padding: '15px 28px', borderRadius: 8, textDecoration: 'none' }}>
-                Contact Us
-              </Link>
-              <Link href="/solutions" style={{ background: 'rgba(255,255,255,.08)', border: '1px solid rgba(255,255,255,.18)', color: '#fff', fontWeight: 600, fontSize: 15.5, padding: '15px 28px', borderRadius: 8, textDecoration: 'none' }}>
-                Explore Solutions
-              </Link>
-            </div>
+        <div
+          className="absolute top-1/2 left-1/2 w-[650px] md:w-[900px] h-[360px] pointer-events-none"
+          style={{
+            animation: "ambientDrift1 12s ease-in-out infinite alternate",
+          }}
+        >
+          <div
+            className="absolute -top-10 -left-16 w-[450px] md:w-[600px] h-[280px] bg-white/6 blur-[140px] rounded-full"
+            style={{
+              animation: "ambientDrift2 9s ease-in-out infinite alternate",
+            }}
+          />
+          <div
+            className="absolute -bottom-10 -right-16 w-[450px] md:w-[600px] h-[280px] bg-orange/10 blur-[140px] rounded-full"
+            style={{
+              animation: "ambientDrift3 11s ease-in-out infinite alternate",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-orange/10 to-white/5 blur-[130px] rounded-full" />
+        </div>
+
+        <div className="max-w-[1280px] w-full mx-auto relative z-10 text-center flex flex-col items-center justify-center">
+          {/* Logo Icon placed above the hero title */}
+          <div className="mb-0 opacity-95">
+            <img
+              src="/logo-light.png"
+              alt="Glaban"
+              className="h-48 w-auto object-contain dark:hidden"
+            />
+            <img
+              src="/logo.png"
+              alt="Glaban"
+              className="h-48 w-auto object-contain hidden dark:block"
+            />
           </div>
 
-          <div style={{ position: 'relative' }}>
-            <div style={{ background: '#0F2440', border: '1px solid rgba(255,255,255,.1)', borderRadius: 16, padding: 24, boxShadow: '0 30px 70px rgba(0,0,0,.45)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18 }}>
-                <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,.85)' }}>Network Dashboard — Live</span>
-                <span style={{ display: 'flex', gap: 5, alignItems: 'center', fontSize: 11.5, color: '#5FD68A' }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#5FD68A' }} />
-                  Online
-                </span>
-              </div>
-              <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 14 }}>
-                <div style={{ background: 'rgba(255,255,255,.04)', borderRadius: 10, padding: 16 }}>
-                  <div style={{ fontSize: 12, color: 'rgba(255,255,255,.5)', marginBottom: 6 }}>Stations Online</div>
-                  <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 26, fontWeight: 700, color: '#fff' }}>42/44</div>
-                </div>
-                <div style={{ background: 'rgba(255,255,255,.04)', borderRadius: 10, padding: 16 }}>
-                  <div style={{ fontSize: 12, color: 'rgba(255,255,255,.5)', marginBottom: 6 }}>Deliveries Today</div>
-                  <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 26, fontWeight: 700, color: '#fff' }}>318</div>
-                </div>
-              </div>
-              <div style={{ background: 'rgba(255,255,255,.04)', borderRadius: 10, padding: 16, marginBottom: 14 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, color: 'rgba(255,255,255,.5)', marginBottom: 10 }}>
-                  <span>Fuel Quota Usage</span>
-                  <span>76%</span>
-                </div>
-                <div style={{ height: 8, borderRadius: 5, background: 'rgba(255,255,255,.08)', overflow: 'hidden' }}>
-                  <div style={{ width: '76%', height: '100%', background: `linear-gradient(90deg, ${colors.orange}, ${colors.orangeLight})` }} />
-                </div>
-              </div>
-              <div style={{ display: 'flex', gap: 10 }}>
-                <div style={{ flex: 1, background: 'rgba(226,134,27,.14)', border: '1px solid rgba(226,134,27,.3)', borderRadius: 10, padding: 12, textAlign: 'center' }}>
-                  <div style={{ fontSize: 11, color: colors.orangeLight }}>Security</div>
-                  <div style={{ fontWeight: 600, color: '#fff', fontSize: 13, marginTop: 3 }}>No Threats</div>
-                </div>
-                <div style={{ flex: 1, background: 'rgba(226,134,27,.14)', border: '1px solid rgba(226,134,27,.3)', borderRadius: 10, padding: 12, textAlign: 'center' }}>
-                  <div style={{ fontSize: 11, color: colors.orangeLight }}>CCTV</div>
-                  <div style={{ fontWeight: 600, color: '#fff', fontSize: 13, marginTop: 3 }}>32 Cameras Live</div>
-                </div>
-              </div>
-            </div>
-            <div style={{ position: 'absolute', bottom: -22, left: -22, background: '#fff', borderRadius: 12, padding: '14px 18px', boxShadow: '0 20px 40px rgba(0,0,0,.35)', display: 'flex', alignItems: 'center', gap: 10 }}>
-              <div style={{ width: 34, height: 34, borderRadius: 8, background: colors.orangeTint, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, color: colors.orangeDark }}>
-                <i className="fa-solid fa-gas-pump"></i>
-              </div>
-              <div>
-                <div style={{ fontSize: 12, color: '#8A97A3' }}>System Uptime</div>
-                <div style={{ fontWeight: 700, color: colors.textDark, fontSize: 15 }}>99.9%</div>
-              </div>
-            </div>
+          {/* Centered Headline */}
+          <h1 className="font-medium text-4xl sm:text-[56px] md:text-[66px] leading-[1.08] text-white tracking-[-0.03em] max-w-[960px] mx-auto m-0">
+            Complete solutions for energy companies
+          </h1>
+
+          {/* Centered Subtitle (Shorter & Smaller) */}
+          <p className="text-[15.5px] md:text-[16.5px] leading-[1.6] text-fog max-w-[620px] mx-auto mt-5 mb-9 m-0 font-normal">
+            Integrated software, hardware, and security built for oil companies,
+            refineries, forecourts, and fuel distribution networks across KRG
+            and Iraq.
+          </p>
+
+          {/* Action Buttons */}
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <Button
+              asChild
+              className="bg-orange hover:bg-orangeDark text-white font-medium text-[15px] px-8 py-4 h-auto rounded-lg no-underline shadow-none transition-all"
+            >
+              <Link href="/contact">Contact Us</Link>
+            </Button>
+            <Button
+              asChild
+              variant="secondary"
+              className="font-medium text-[15px] px-8 py-4 h-auto rounded-lg no-underline transition-all"
+            >
+              <Link href="/solutions">Explore Solutions</Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* PROBLEMS */}
-      <section style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 32px' }}>
-        <div style={{ maxWidth: 640, margin: '0 auto 56px', textAlign: 'center' }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeDark, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 12 }}>The problem</div>
-          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 34, color: colors.textDark, margin: '0 0 14px', lineHeight: 1.25 }}>
-            Fuel and energy operations run on too many disconnected systems
-          </h2>
-          <p style={{ fontSize: 16, color: colors.textBody, lineHeight: 1.6, margin: 0 }}>Manual processes and weak security create risk at every branch, station, and depot.</p>
-        </div>
-        <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
-          {problems.map((p) => (
-            <div key={p.text} style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 12, padding: 24 }}>
-              <div style={{ fontSize: 22, color: colors.orange, marginBottom: 16 }}>
-                <i className={p.icon}></i>
-              </div>
-              <div style={{ fontWeight: 600, fontSize: 15, color: colors.textDark, lineHeight: 1.4 }}>{p.text}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* SOLUTIONS OVERVIEW */}
-      <section style={{ background: colors.navyMid }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 32px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 44, flexWrap: 'wrap', gap: 20 }}>
-            <div>
-              <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeLight, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 12 }}>Our solutions</div>
-              <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 34, color: '#fff', margin: 0, maxWidth: 600, lineHeight: 1.25 }}>
-                One connected platform across every part of your operation
-              </h2>
-            </div>
-            <Link href="/solutions" style={{ color: colors.orangeLight, fontWeight: 600, fontSize: 15, textDecoration: 'none', whiteSpace: 'nowrap' }}>
-              Browse all solutions →
-            </Link>
-          </div>
-          <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 16 }}>
-            {solutionsOverview.map((s) => (
-              <div key={s.text} style={{ background: 'rgba(255,255,255,.04)', border: '1px solid rgba(255,255,255,.08)', borderRadius: 12, padding: 20 }}>
-                <div style={{ fontSize: 20, color: colors.orangeLight, marginBottom: 12 }}>
-                  <i className={s.icon}></i>
-                </div>
-                <div style={{ fontWeight: 600, fontSize: 14.5, color: '#fff', lineHeight: 1.35 }}>{s.text}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* CAUSE & EFFECT (PROBLEMS -> SOLUTIONS) */}
+      <HomeProblemSolutionMapper />
 
       {/* PRODUCTS HIGHLIGHT */}
-      <section style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 32px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 44, flexWrap: 'wrap', gap: 20 }}>
-          <div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeDark, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 12 }}>Products</div>
-            <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 34, color: colors.textDark, margin: 0, lineHeight: 1.25 }}>
-              Purpose-built software for fuel operations
-            </h2>
-          </div>
-          <Link href="/products" style={{ color: colors.orangeDark, fontWeight: 600, fontSize: 15, textDecoration: 'none', whiteSpace: 'nowrap' }}>
-            View all products →
-          </Link>
-        </div>
-        <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22 }}>
-          {homeProducts.slice(0, 6).map((p) => (
-            <Link
-              key={p.slug}
-              href={`/products/${p.slug}`}
-              className="glb-card-link"
-              style={{ display: 'block', background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 14, padding: 26, textDecoration: 'none' }}
-            >
-               <div style={{ position: 'relative', width: '100%', height: 180, borderRadius: 10, overflow: 'hidden', marginBottom: 18 }}>
-                <img src={p.image} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(10,25,48,0.05))' }} />
+      <section className="bg-void py-24 border-b border-graphite">
+        <div className="max-w-[1280px] mx-auto px-8">
+          <div className="flex justify-between items-end mb-16 flex-wrap gap-5 relative z-10">
+            <div className="max-w-[800px]">
+              <div className="text-[12px] font-mono text-orange tracking-widest uppercase mb-4 flex items-center gap-3">
+                <span className="w-8 h-[1px] bg-orange"></span>
+                Products
               </div>
-              <div style={{ fontWeight: 700, fontSize: 17, color: colors.textDark, marginBottom: 8 }}>{p.name}</div>
-              <div style={{ fontSize: 14.5, color: colors.textBody, lineHeight: 1.55, marginBottom: 14 }}>{p.listingDesc}</div>
-              <div style={{ fontSize: 13.5, fontWeight: 600, color: colors.orangeDark }}>{p.homeBenefit}</div>
+              <h2 className="font-medium text-[36px] md:text-[48px] text-white tracking-[-0.02em] leading-[1.1] m-0">
+                Purpose-built software for fuel operations
+              </h2>
+            </div>
+            <Link
+              href="/products"
+              className="text-orange hover:text-white font-medium text-[14px] no-underline whitespace-nowrap transition-colors mb-2"
+            >
+              View all products →
             </Link>
-          ))}
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            {homeProducts.slice(0, 5).map((p, i) => {
+              const isFeatured = i === 0;
+              return (
+                <FadeIn
+                  key={p.slug}
+                  delay={i * 0.08}
+                  className={cn(
+                    "h-full",
+                    isFeatured ? "lg:col-span-2" : "col-span-1",
+                  )}
+                >
+                  <Link
+                    href={`/products/${p.slug}`}
+                    className="group glb-card-link block bg-carbon border border-graphite rounded-lg p-6 lg:p-8 no-underline transition-all shadow-none flex flex-col justify-between overflow-hidden h-full relative"
+                  >
+                    <div className="flex flex-col h-full relative z-10">
+                      <div
+                        className={cn(
+                          "relative w-full rounded-lg overflow-hidden mb-6 border border-graphite bg-obsidian",
+                          isFeatured ? "h-[240px] lg:h-[300px]" : "h-[180px]",
+                        )}
+                      >
+                        <img
+                          src={p.image}
+                          alt={p.name}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-void via-void/30 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-void/90 via-void/50 to-orange/5" />
+                        <div className="absolute top-4 left-4 bg-void/85 backdrop-blur-md border border-graphite text-mist font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 rounded">
+                          {p.category}
+                        </div>
+                      </div>
+                      <div
+                        className={cn(
+                          "font-medium text-white mb-3 tracking-[-0.015em] transition-colors",
+                          isFeatured
+                            ? "text-[24px] lg:text-[28px]"
+                            : "text-[18px]",
+                        )}
+                      >
+                        {p.name}
+                      </div>
+                      <div
+                        className={cn(
+                          "text-fog leading-relaxed mb-6",
+                          isFeatured
+                            ? "text-[16px] lg:text-[18px] max-w-[80%]"
+                            : "text-[14px] line-clamp-3",
+                        )}
+                      >
+                        {p.listingDesc}
+                      </div>
+                    </div>
+
+                    <div className="pt-5 border-t border-graphite/60 flex items-center justify-between text-[13px] font-medium text-fog group-hover:text-mist transition-colors relative z-10 mt-auto">
+                      <span>{p.homeBenefit}</span>
+                      <span className="flex items-center gap-1.5 text-orange group-hover:text-orangeLight transition-colors duration-200">
+                        Explore <ArrowRight className="text-[11px]" />
+                      </span>
+                    </div>
+                  </Link>
+                </FadeIn>
+              );
+            })}
+          </div>
         </div>
       </section>
 
       {/* SERVICES HIGHLIGHT */}
-      <section style={{ background: colors.grayBg }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 32px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 44, flexWrap: 'wrap', gap: 20 }}>
-            <div>
-              <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeDark, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 12 }}>Services</div>
-              <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 34, color: colors.textDark, margin: 0, lineHeight: 1.25 }}>
+      <section className="bg-carbon py-24 border-b border-graphite">
+        <div className="max-w-[1280px] mx-auto px-8">
+          <div className="flex justify-between items-end mb-16 flex-wrap gap-5 relative z-10">
+            <div className="max-w-[800px]">
+              <div className="text-[12px] font-mono text-orange tracking-widest uppercase mb-4 flex items-center gap-3">
+                <span className="w-8 h-[1px] bg-orange"></span>
+                Services
+              </div>
+              <h2 className="font-medium text-[36px] md:text-[48px] text-white tracking-[-0.02em] leading-[1.1] m-0">
                 Full lifecycle delivery, security, and support
               </h2>
             </div>
-            <Link href="/services" style={{ color: colors.orangeDark, fontWeight: 600, fontSize: 15, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+            <Link
+              href="/services"
+              className="text-orange hover:text-white font-medium text-[14px] no-underline whitespace-nowrap transition-colors mb-2"
+            >
               View all services →
             </Link>
           </div>
-          <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
-            {services.slice(0, 4).map((s) => (
-              <Link
-                key={s.slug}
-                href={s.slug === 'cybersecurity' || s.slug === 'cctv-physical-security' ? `/${s.slug}` : `/services/${s.slug}`}
-                className="glb-card-link"
-                style={{ display: 'block', background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 12, padding: 22, textDecoration: 'none' }}
-              >
-                <div style={{ position: 'relative', width: '100%', height: 160, borderRadius: 10, overflow: 'hidden', marginBottom: 16 }}>
-                  <img src={s.image} alt={s.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(10,25,48,0.05))' }} />
-                </div>
-                <div style={{ fontWeight: 700, fontSize: 15, color: colors.textDark, marginBottom: 6 }}>{s.name}</div>
-                <div style={{ fontSize: 13.5, color: colors.textBody, lineHeight: 1.5 }}>{s.listingDesc}</div>
-              </Link>
+          <div className="flex flex-col gap-4">
+            {services.slice(0, 4).map((s, i) => (
+              <FadeIn key={s.slug} delay={i * 0.08}>
+                <Link
+                  href={
+                    s.slug === "cybersecurity" ||
+                    s.slug === "cctv-physical-security"
+                      ? `/${s.slug}`
+                      : `/services/${s.slug}`
+                  }
+                  className="group block bg-obsidian border border-graphite rounded-lg p-6 lg:p-8 no-underline transition-all hover:bg-cinder hover:border-smoke"
+                >
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-8 lg:gap-12 flex-1">
+                      <div className="font-mono text-[18px] text-fog/50 group-hover:text-orange transition-colors">
+                        0{i + 1}
+                      </div>
+                      <div>
+                        <div className="font-medium text-[20px] md:text-[22px] text-white mb-2 group-hover:text-orange transition-colors">
+                          {s.name}
+                        </div>
+                        <div className="text-[15px] text-fog leading-relaxed max-w-[600px] font-light">
+                          {s.listingDesc}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="shrink-0">
+                      <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-graphite bg-carbon text-orange group-hover:bg-orange group-hover:text-white transition-all">
+                        <ArrowRight className="text-[12px]" />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       {/* INDUSTRIES */}
-      <section style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 32px' }}>
-        <div style={{ maxWidth: 640, margin: '0 auto 48px', textAlign: 'center' }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeDark, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 12 }}>Industries served</div>
-          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 34, color: colors.textDark, margin: '0 0 14px', lineHeight: 1.25 }}>
-            Trusted across the fuel and energy value chain
-          </h2>
-        </div>
-        <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
-          {industries.map((i) => (
-            <div key={i.name} style={{ display: 'flex', alignItems: 'center', gap: 14, background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 12, padding: '18px 20px' }}>
-              <div style={{ fontSize: 20, color: colors.orange, flex: 'none' }}>
-                <i className={i.icon}></i>
-              </div>
-              <div style={{ fontWeight: 600, fontSize: 14.5, color: colors.textDark }}>{i.name}</div>
+      <section className="bg-void py-24 border-b border-graphite">
+        <div className="max-w-[1280px] mx-auto px-8">
+          <div className="max-w-[800px] mb-16 relative z-10">
+            <div className="text-[12px] font-mono text-orange tracking-widest uppercase mb-4 flex items-center gap-3">
+              <span className="w-8 h-[1px] bg-orange"></span>
+              Industries Served
             </div>
-          ))}
-        </div>
-        <div style={{ textAlign: 'center', marginTop: 28 }}>
-          <Link href="/industries" style={{ color: colors.orange, fontWeight: 600, fontSize: 15, textDecoration: 'none' }}>
-            See industry-specific solutions →
-          </Link>
+            <h2 className="font-medium text-[36px] md:text-[48px] text-white tracking-[-0.02em] leading-[1.1] m-0">
+              Trusted across the fuel and energy value chain
+            </h2>
+          </div>
+
+          <HomeIndustriesGrid />
         </div>
       </section>
 
       {/* WHY CHOOSE US */}
-      <section style={{ background: colors.navy }}>
-        <div className="glb-grid" style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 32px', display: 'grid', gridTemplateColumns: '.9fr 1.1fr', gap: 60, alignItems: 'center' }}>
-          <div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeLight, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 12 }}>Why Glaban</div>
-            <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 34, color: '#fff', margin: '0 0 18px', lineHeight: 1.25 }}>
+      <section className="bg-carbon py-24 border-b border-graphite relative overflow-hidden">
+        {/* Subtle blueprint accent */}
+        <div className="absolute -left-32 -top-32 w-[600px] h-[600px] opacity-5 pointer-events-none">
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 100 100"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="0.5"
+          >
+            <circle cx="50" cy="50" r="40" />
+            <circle cx="50" cy="50" r="30" />
+            <line x1="0" y1="50" x2="100" y2="50" />
+            <line x1="50" y1="0" x2="50" y2="100" />
+          </svg>
+        </div>
+
+        <div className="max-w-[1280px] mx-auto px-8 flex flex-col lg:flex-row gap-16 lg:gap-24 items-start relative z-10">
+          <div className="lg:w-5/12 sticky top-32">
+            <div className="text-[12px] font-mono text-orange tracking-widest uppercase mb-4 flex items-center gap-3">
+              <span className="w-8 h-[1px] bg-orange"></span>
+              Why Glaban
+            </div>
+            <h2 className="font-medium text-[36px] md:text-[44px] text-white tracking-[-0.02em] leading-[1.1] mb-6 m-0">
               A technology partner that understands the fuel business
             </h2>
-            <p style={{ fontSize: 16, color: 'rgba(255,255,255,.65)', lineHeight: 1.65, margin: 0 }}>
-              We combine deep fuel-sector experience with software, security, and physical protection expertise — and stay with you long after go-live.
+            <p className="text-[18px] text-fog leading-relaxed font-light m-0">
+              We combine deep fuel-sector experience with software, security,
+              and physical protection expertise — and stay with you long after
+              go-live.
             </p>
           </div>
-          <div className="glb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18 }}>
-            {whyUs.map((w) => (
-              <div key={w} style={{ display: 'flex', gap: 12 }}>
-                <div style={{ width: 22, height: 22, borderRadius: 6, background: 'rgba(226,134,27,.18)', color: colors.orangeLight, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, flex: 'none', marginTop: 2 }}>
-                  <i className="fa-solid fa-check"></i>
+          <div className="lg:w-7/12 flex flex-col gap-5">
+            {whyUs.map((w, i) => (
+              <div
+                key={w}
+                className="flex gap-5 items-start bg-obsidian border border-graphite rounded-lg p-6 transition-colors hover:border-smoke"
+              >
+                <div className="font-mono text-[14px] text-fog/50 mt-1">
+                  0{i + 1}
                 </div>
-                <div style={{ fontSize: 14.5, color: 'rgba(255,255,255,.82)', fontWeight: 500, lineHeight: 1.5 }}>{w}</div>
+                <div className="text-[16px] md:text-[18px] text-white font-light leading-relaxed">
+                  {w}
+                </div>
               </div>
             ))}
           </div>
@@ -305,19 +357,24 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section style={{ maxWidth: 1280, margin: '0 auto', padding: '80px 32px' }}>
-        <div style={{ background: `linear-gradient(120deg, ${colors.navyLight}, ${colors.navy})`, borderRadius: 20, padding: '64px 56px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle at 85% 20%, rgba(226,134,27,.18), transparent 55%)' }} />
-          <div style={{ position: 'relative' }}>
-            <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 32, color: '#fff', margin: '0 0 14px' }}>
-              Ready to modernise your operations?
-            </h2>
-            <p style={{ fontSize: 16, color: 'rgba(255,255,255,.65)', margin: '0 0 28px', maxWidth: 520, marginLeft: 'auto', marginRight: 'auto' }}>
-              Talk to our team about ERP, security, and surveillance solutions built for your business.
-            </p>
-            <Link href="/contact" style={{ display: 'inline-block', background: colors.orange, color: colors.navy, fontWeight: 600, fontSize: 16, padding: '16px 32px', borderRadius: 8, textDecoration: 'none' }}>
-              Contact Us
-            </Link>
+      <section className="bg-void py-24">
+        <div className="max-w-[1280px] mx-auto px-8">
+          <div className="bg-carbon border border-graphite rounded-lg py-16 px-12 text-center relative overflow-hidden shadow-none">
+            <div className="relative">
+              <h2 className="font-medium text-[32px] md:text-[36px] text-white tracking-[-0.022em] mb-3.5 m-0">
+                Ready to modernise your operations?
+              </h2>
+              <p className="text-[16px] text-fog max-w-[540px] mx-auto mb-8 leading-[1.6] m-0">
+                Talk to our team about ERP, security, and surveillance solutions
+                built for your business.
+              </p>
+              <Button
+                asChild
+                className="bg-orange hover:bg-orangeDark text-white font-medium text-[15px] px-8 py-4 h-auto rounded-md no-underline shadow-none transition-all"
+              >
+                <Link href="/contact">Contact Us</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

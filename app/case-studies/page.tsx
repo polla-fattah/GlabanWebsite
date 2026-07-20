@@ -1,85 +1,116 @@
-import Link from 'next/link';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { colors } from '@/lib/colors';
-import { caseStudies } from '@/lib/data/caseStudies';
+import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
+import CTABand from "@/components/CTABand";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { caseStudies } from "@/lib/data/caseStudies";
 
-export const metadata = { title: 'Customers & Case Studies | Glaban' };
+import type { Metadata } from "next";
+import { TriangleAlert, Lightbulb, TrendingUp } from "lucide-react";
+
+
+export const metadata: Metadata = {
+  title: "Case Studies & Customer Success Stories",
+  description:
+    "Explore real-world deployments and verifiable operational metrics across refineries, retail gas station chains, and bulk LPG distributors powered by Glaban.",
+  keywords: [
+    "Fuel software case studies",
+    "Gas station POS customer stories",
+    "Forecourt automation success metrics",
+    "Refinery SCADA case study KRG",
+    "Bulk propane delivery optimization",
+    "Petroleum software ROI",
+  ],
+  alternates: {
+    canonical: "https://glaban.com/case-studies",
+  },
+  openGraph: {
+    title:
+      "Case Studies & Customer Success Stories | Glaban Enterprise Fuel Platform",
+    description:
+      "Explore real-world fuel & energy deployments with measurable operational metrics across refineries, retail networks, and bulk fuel distributors.",
+    url: "https://glaban.com/case-studies",
+  },
+};
 
 export default function CaseStudiesPage() {
   return (
-    <div>
+    <div className="bg-void min-h-screen">
       <Header />
-      <section style={{ background: colors.navy, padding: '72px 32px 56px' }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: colors.orangeLight, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: 14 }}>
-            Customers &amp; Case Studies
-          </div>
-          <h1 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 40, color: '#fff', margin: '0 0 16px', maxWidth: 720, lineHeight: 1.2 }}>
-            Real problems, real deployments
-          </h1>
-          <p style={{ fontSize: 17, color: 'rgba(255,255,255,.65)', maxWidth: 640, lineHeight: 1.6, margin: 0 }}>
-            Case studies are presented anonymously where customer names are not yet approved for publication.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Customers & Case Studies"
+        title="Real problems, real deployments"
+        subtitle="Case studies are presented anonymously where customer names are not yet approved for publication."
+      />
 
-      <section className="glb-grid" style={{ maxWidth: 1280, margin: '0 auto', padding: '64px 32px 96px', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
+      <section className="max-w-[1280px] mx-auto py-16 px-8 pb-24 grid grid-cols-1 md:grid-cols-2 gap-6">
         {caseStudies.map((c) => (
-          <div key={c.title} style={{ background: '#fff', border: '1px solid rgba(10,25,48,.08)', borderRadius: 16, padding: 32, display: 'flex', flexDirection: 'column' }}>
-            <div style={{ display: 'flex', gap: 10, marginBottom: 16 }}>
-              <span style={{ background: colors.orangeTint, color: colors.orangeDark, fontSize: 12, fontWeight: 600, padding: '6px 12px', borderRadius: 16 }}>
+          <Card
+            key={c.title}
+            className="bg-carbon border border-graphite rounded-lg p-8 flex flex-col shadow-none hover:border-smoke transition-all"
+          >
+            <div className="flex gap-2.5 mb-4">
+              <Badge className="bg-white/5 hover:bg-white/10 text-fog border border-graphite text-[12px] font-normal px-3 py-1 rounded-full shadow-none transition-colors">
                 {c.industry}
-              </span>
+              </Badge>
             </div>
-            <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 19, color: colors.textDark, marginBottom: 20 }}>{c.title}</div>
+            <div className="font-medium text-[20px] text-white mb-5 tracking-[-0.01em]">
+              {c.title}
+            </div>
 
-            <div style={{ flex: 1 }}>
-              <div style={{ display: 'flex', gap: 12, marginBottom: 16 }}>
-                <div style={{ width: 20, height: 20, borderRadius: '50%', background: 'rgba(192,57,43,.1)', color: '#C0392B', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, flex: 'none', marginTop: 2 }}>
-                  <i className="fa-solid fa-triangle-exclamation"></i>
+            <div className="flex-1 flex flex-col gap-5">
+              <div className="flex gap-3.5">
+                <div className="w-5 h-5 rounded-full bg-obsidian border border-graphite text-rose-500 flex items-center justify-center text-[10px] shrink-0 mt-0.5">
+                  <TriangleAlert />
                 </div>
                 <div>
-                  <div style={{ fontSize: 11, fontWeight: 700, color: colors.textBody, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>The Challenge</div>
-                  <p style={{ fontSize: 14, color: colors.textBody2, lineHeight: 1.6, margin: 0 }}>{c.problem}</p>
+                  <div className="text-[11px] font-medium text-fog uppercase tracking-[0.08em] mb-1">
+                    The Challenge
+                  </div>
+                  <p className="text-[14px] text-mist leading-[1.6] m-0">
+                    {c.problem}
+                  </p>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: 12, marginBottom: 16 }}>
-                <div style={{ width: 20, height: 20, borderRadius: '50%', background: 'rgba(226,134,27,.1)', color: colors.orange, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, flex: 'none', marginTop: 2 }}>
-                  <i className="fa-solid fa-lightbulb"></i>
+              <div className="flex gap-3.5">
+                <div className="w-5 h-5 rounded-full bg-obsidian border border-graphite text-white flex items-center justify-center text-[10px] shrink-0 mt-0.5">
+                  <Lightbulb />
                 </div>
                 <div>
-                  <div style={{ fontSize: 11, fontWeight: 700, color: colors.textBody, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>The Solution</div>
-                  <p style={{ fontSize: 14, color: colors.textBody2, lineHeight: 1.6, margin: 0 }}>{c.solution}</p>
+                  <div className="text-[11px] font-medium text-fog uppercase tracking-[0.08em] mb-1">
+                    The Solution
+                  </div>
+                  <p className="text-[14px] text-mist leading-[1.6] m-0">
+                    {c.solution}
+                  </p>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: 12 }}>
-                <div style={{ width: 20, height: 20, borderRadius: '50%', background: 'rgba(226,134,27,.1)', color: colors.orange, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, flex: 'none', marginTop: 2 }}>
-                  <i className="fa-solid fa-chart-line"></i>
+              <div className="flex gap-3.5">
+                <div className="w-5 h-5 rounded-full bg-obsidian border border-graphite text-orange flex items-center justify-center text-[10px] shrink-0 mt-0.5">
+                  <TrendingUp />
                 </div>
                 <div>
-                  <div style={{ fontSize: 11, fontWeight: 700, color: colors.textBody, textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 4 }}>The Result</div>
-                  <p style={{ fontSize: 14, color: colors.orangeDark, fontWeight: 600, lineHeight: 1.6, margin: 0 }}>{c.result}</p>
+                  <div className="text-[11px] font-medium text-fog uppercase tracking-[0.08em] mb-1">
+                    The Result
+                  </div>
+                  <p className="text-[14px] text-white font-medium leading-[1.6] m-0">
+                    {c.result}
+                  </p>
                 </div>
               </div>
             </div>
-          </div>
+          </Card>
         ))}
       </section>
 
-      <section style={{ background: colors.grayBg }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px', textAlign: 'center' }}>
-          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 28, color: colors.textDark, margin: '0 0 14px' }}>
-            Become our next success story
-          </h2>
-          <Link href="/contact" style={{ display: 'inline-block', background: colors.orange, color: colors.navy, fontWeight: 600, fontSize: 15, padding: '14px 26px', borderRadius: 8, textDecoration: 'none' }}>
-            Contact Us
-          </Link>
-        </div>
-      </section>
-
+      <CTABand
+        heading="Become our next success story"
+        buttonLabel="Contact Us"
+      />
       <Footer />
     </div>
   );

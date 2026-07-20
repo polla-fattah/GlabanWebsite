@@ -1,190 +1,360 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { colors } from '@/lib/colors';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import { ArrowRight, ChevronRight, Menu } from "lucide-react";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import { products } from "@/lib/data/products";
+import { services } from "@/lib/data/services";
+import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Products', href: '/products' },
-  { label: 'Services', href: '/services' },
-  { label: 'Industries', href: '/industries' },
-  { label: 'About', href: '/about' },
+  { label: "Home", href: "/" },
+  { label: "Products", href: "/products" },
+  { label: "Services", href: "/services" },
+  { label: "Industries", href: "/industries" },
+  { label: "About", href: "/about" },
 ];
 
 function isActive(pathname: string, href: string) {
-  if (href === '/') return pathname === '/';
-  return pathname.startsWith(href);
+  const cleanPath = pathname.replace(/\/$/, "") || "/";
+  const cleanHref = href.replace(/\/$/, "") || "/";
+  if (cleanHref === "/") return cleanPath === "/";
+  return cleanPath.startsWith(cleanHref);
 }
 
 export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const cleanPath = pathname.replace(/\/$/, "") || "/";
+  const isProductsActive =
+    cleanPath === "/products" || cleanPath.startsWith("/products/");
+  const isServicesActive =
+    cleanPath === "/services" ||
+    cleanPath.startsWith("/services/") ||
+    cleanPath === "/cybersecurity" ||
+    cleanPath === "/cctv-physical-security";
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Check initial state
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
-      style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 100,
-        background: colors.navy,
-        borderBottom: '1px solid rgba(255,255,255,.08)',
-      }}
+      className={cn(
+        "sticky top-0 z-100 bg-void/85 backdrop-blur-md border-b transition-colors duration-300",
+        scrolled ? "border-graphite" : "border-transparent",
+      )}
     >
-      <div
-        style={{
-          maxWidth: 1280,
-          margin: '0 auto',
-          padding: '0 32px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          height: 76,
-        }}
-      >
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-          <div
-            style={{
-              width: 34,
-              height: 34,
-              borderRadius: 7,
-              background: `linear-gradient(135deg, ${colors.orange}, ${colors.orangeDark})`,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontWeight: 700,
-              color: colors.navy,
-              fontSize: 17,
-            }}
-          >
-            G
-          </div>
-          <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 20, color: '#fff', letterSpacing: '.2px' }}>
-            GLABAN
-          </span>
-        </Link>
+      <div className="max-w-[1280px] mx-auto px-8 flex items-center justify-between h-[68px]">
+        {/* Logo moved to Hero section */}
+        <div className="hidden lg:flex items-center">
+          <NavigationMenu>
+            <NavigationMenuList className="gap-1">
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="/"
+                    className={cn(
+                      "text-[13px] no-underline px-3.5 py-2 rounded-lg transition-colors inline-flex items-center",
+                      isActive(cleanPath, "/")
+                        ? "font-medium text-white bg-white/10 border border-graphite shadow-none"
+                        : "font-normal text-mist hover:text-white hover:bg-white/5 border border-transparent",
+                    )}
+                  >
+                    Home
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
 
-        <nav className="glb-desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
-          {navItems.map((item) => {
-            const active = isActive(pathname, item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: 14.5,
-                  fontWeight: active ? 600 : 500,
-                  color: active ? '#fff' : 'rgba(255,255,255,.65)',
-                  textDecoration: 'none',
-                  paddingBottom: 4,
-                  borderBottom: `2px solid ${active ? colors.orange : 'transparent'}`,
-                  whiteSpace: 'nowrap',
-                }}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  className={cn(
+                    "bg-transparent text-[13px] px-3.5 py-2 h-auto rounded-lg transition-colors shadow-none font-normal text-mist hover:text-white hover:bg-white/5 data-[state=open]:bg-white/10 data-[state=open]:text-white border border-transparent data-[state=open]:border-graphite",
+                    isProductsActive &&
+                      "font-medium text-white bg-white/10 border-graphite shadow-none data-[active=true]:bg-white/10 data-[active=true]:text-white",
+                  )}
+                >
+                  Products
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid w-[640px] grid-cols-2 gap-2 p-3.5 bg-carbon">
+                    {products.map((product) => {
+                      const itemHref = `/products/${product.slug}`;
+                      const isItemActive = cleanPath === itemHref;
+                      return (
+                        <NavigationMenuLink
+                          asChild
+                          active={isItemActive}
+                          key={product.slug}
+                        >
+                          <Link
+                            href={itemHref}
+                            className={cn(
+                              "group block select-none rounded-md p-2.5 leading-none no-underline outline-none transition-colors border",
+                              isItemActive
+                                ? "bg-white/10 border-graphite shadow-none data-[active=true]:bg-white/10 data-[active=true]:border-graphite data-[active=true]:shadow-none"
+                                : "hover:bg-white/5 border-transparent hover:border-graphite",
+                            )}
+                          >
+                            <div className="flex items-center gap-2 font-medium text-[13px] text-white leading-none">
+                              <i
+                                className={cn(
+                                  product.listingIcon,
+                                  "text-[12px] w-4 text-center",
+                                  isItemActive
+                                    ? "text-orange"
+                                    : "text-fog group-hover:text-white",
+                                )}
+                              />
+                              <span
+                                className={cn(
+                                  "truncate",
+                                  isItemActive &&
+                                    "text-orange font-semibold data-[active=true]:text-orange",
+                                )}
+                              >
+                                {product.name}
+                              </span>
+                            </div>
+                            <p
+                              className={cn(
+                                "line-clamp-1 text-[11.5px] leading-snug font-normal pt-1.5 pl-6",
+                                isItemActive ? "text-mist" : "text-fog",
+                              )}
+                            >
+                              {product.listingDesc}
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      );
+                    })}
+                    <div className="col-span-2 pt-2 border-t border-graphite mt-1">
+                      <NavigationMenuLink
+                        asChild
+                        active={cleanPath === "/products"}
+                      >
+                        <Link
+                          href="/products"
+                          className={cn(
+                            "flex items-center justify-between rounded-md px-3 py-2 text-[12.5px] font-medium transition-colors no-underline group border",
+                            cleanPath === "/products"
+                              ? "bg-white/10 border-graphite text-orange shadow-none data-[active=true]:bg-white/10 data-[active=true]:border-graphite data-[active=true]:text-orange"
+                              : "text-orange hover:bg-white/5 border-transparent",
+                          )}
+                        >
+                          <span>Explore Full Product Ecosystem</span>
+                          <ArrowRight className="text-[11px]" />
+                        </Link>
+                      </NavigationMenuLink>
+                    </div>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  className={cn(
+                    "bg-transparent text-[13px] px-3.5 py-2 h-auto rounded-lg transition-colors shadow-none font-normal text-mist hover:text-white hover:bg-white/5 data-[state=open]:bg-white/10 data-[state=open]:text-white border border-transparent data-[state=open]:border-graphite",
+                    isServicesActive &&
+                      "font-medium text-white bg-white/10 border-graphite shadow-none data-[active=true]:bg-white/10 data-[active=true]:text-white",
+                  )}
+                >
+                  Services
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid w-[640px] grid-cols-2 gap-2 p-3.5 bg-carbon">
+                    {services.map((service) => {
+                      const itemHref =
+                        service.slug === "cybersecurity" ||
+                        service.slug === "cctv-physical-security"
+                          ? `/${service.slug}`
+                          : `/services/${service.slug}`;
+                      const isItemActive = cleanPath === itemHref;
+                      return (
+                        <NavigationMenuLink
+                          asChild
+                          active={isItemActive}
+                          key={service.slug}
+                        >
+                          <Link
+                            href={itemHref}
+                            className={cn(
+                              "group block select-none rounded-md p-2.5 leading-none no-underline outline-none transition-colors border",
+                              isItemActive
+                                ? "bg-white/10 border-graphite shadow-none data-[active=true]:bg-white/10 data-[active=true]:border-graphite data-[active=true]:shadow-none"
+                                : "hover:bg-white/5 border-transparent hover:border-graphite",
+                            )}
+                          >
+                            <div className="flex items-center gap-2 font-medium text-[13px] text-white leading-none">
+                              <i
+                                className={cn(
+                                  service.listingIcon,
+                                  "text-[12px] w-4 text-center",
+                                  isItemActive
+                                    ? "text-orange"
+                                    : "text-fog group-hover:text-white",
+                                )}
+                              />
+                              <span
+                                className={cn(
+                                  "truncate",
+                                  isItemActive &&
+                                    "text-orange font-semibold data-[active=true]:text-orange",
+                                )}
+                              >
+                                {service.name}
+                              </span>
+                            </div>
+                            <p
+                              className={cn(
+                                "line-clamp-1 text-[11.5px] leading-snug font-normal pt-1.5 pl-6",
+                                isItemActive ? "text-mist" : "text-fog",
+                              )}
+                            >
+                              {service.listingDesc}
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      );
+                    })}
+                    <div className="col-span-2 pt-2 border-t border-graphite mt-1">
+                      <NavigationMenuLink
+                        asChild
+                        active={cleanPath === "/services"}
+                      >
+                        <Link
+                          href="/services"
+                          className={cn(
+                            "flex items-center justify-between rounded-md px-3 py-2 text-[12.5px] font-medium transition-colors no-underline group border",
+                            cleanPath === "/services"
+                              ? "bg-white/10 border-graphite text-orange shadow-none data-[active=true]:bg-white/10 data-[active=true]:border-graphite data-[active=true]:text-orange"
+                              : "text-orange hover:bg-white/5 border-transparent",
+                          )}
+                        >
+                          <span>
+                            View All Engineering Services & Deployment Models
+                          </span>
+                          <ArrowRight className="text-[11px]" />
+                        </Link>
+                      </NavigationMenuLink>
+                    </div>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="/industries"
+                    className={cn(
+                      "text-[13px] no-underline px-3.5 py-2 rounded-lg transition-colors inline-flex items-center",
+                      isActive(cleanPath, "/industries")
+                        ? "font-medium text-white bg-white/10 border border-graphite shadow-none"
+                        : "font-normal text-mist hover:text-white hover:bg-white/5 border border-transparent",
+                    )}
+                  >
+                    Industries
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="/about"
+                    className={cn(
+                      "text-[13px] no-underline px-3.5 py-2 rounded-lg transition-colors inline-flex items-center",
+                      isActive(cleanPath, "/about")
+                        ? "font-medium text-white bg-white/10 border border-graphite shadow-none"
+                        : "font-normal text-mist hover:text-white hover:bg-white/5 border border-transparent",
+                    )}
+                  >
+                    About
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
+
+        <div className="flex items-center gap-4">
+          {false && <ThemeToggle />}
+          <Button
+            asChild
+            className="hidden lg:inline-flex bg-white hover:bg-white/80 text-black font-medium text-[13px] px-4 py-2 h-auto rounded-full shadow-none transition-all"
+          >
+            <Link href="/contact">Contact Us</Link>
+          </Button>
+
+          <Drawer open={mobileOpen} onOpenChange={setMobileOpen}>
+            <DrawerTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Menu"
+                className="flex lg:hidden bg-transparent hover:bg-white/8 text-white w-9 h-9 border border-graphite rounded-full cursor-pointer text-[18px]"
               >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
+                <Menu />
+              </Button>
+            </DrawerTrigger>
+            <DrawerContent className="px-6 pb-8 pt-2">
+              <nav className="flex flex-col gap-2 mt-5 mb-6">
+                {navItems.map((item) => {
+                  const active = isActive(cleanPath, item.href);
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={cn(
+                        "text-[15.5px] no-underline py-3.5 px-4 rounded-lg border transition-colors flex items-center justify-between",
+                        active
+                          ? "font-medium text-white bg-white/10 border-graphite shadow-none"
+                          : "font-normal text-mist hover:text-white hover:bg-white/5 border-transparent hover:border-graphite",
+                      )}
+                    >
+                      <span>{item.label}</span>
+                      <ChevronRight className="text-[11px] text-steel" />
+                    </Link>
+                  );
+                })}
+              </nav>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <Link
-            href="/contact"
-            className="glb-desktop-nav"
-            style={{
-              background: colors.orange,
-              color: colors.navy,
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 600,
-              fontSize: 14.5,
-              padding: '11px 22px',
-              borderRadius: 7,
-              textDecoration: 'none',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Contact Us
-          </Link>
-          <button
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Menu"
-            className="glb-mobile-btn"
-            style={{
-              display: 'none',
-              background: 'none',
-              border: 'none',
-              width: 40,
-              height: 40,
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-            }}
-          >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-              <span style={{ width: 22, height: 2, background: '#fff', display: 'block' }} />
-              <span style={{ width: 22, height: 2, background: '#fff', display: 'block' }} />
-              <span style={{ width: 22, height: 2, background: '#fff', display: 'block' }} />
-            </div>
-          </button>
+              <div className="pt-4 border-t border-graphite">
+                <Button
+                  asChild
+                  className="bg-orange hover:bg-orangeDark text-white font-medium text-[15px] px-6 py-4 h-auto rounded-lg w-full shadow-none flex items-center justify-center gap-2"
+                >
+                  <Link href="/contact" onClick={() => setMobileOpen(false)}>
+                    <span>Contact Us</span>
+                    <ArrowRight className="text-[12px]" />
+                  </Link>
+                </Button>
+              </div>
+            </DrawerContent>
+          </Drawer>
         </div>
       </div>
-
-      {mobileOpen && (
-        <div
-          style={{
-            animation: 'glbMenuIn .15s ease',
-            background: colors.navy,
-            borderTop: '1px solid rgba(255,255,255,.08)',
-            padding: '8px 24px 20px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 2,
-          }}
-        >
-          {navItems.map((item) => {
-            const active = isActive(pathname, item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: 15.5,
-                  fontWeight: active ? 600 : 500,
-                  color: active ? colors.orange : 'rgba(255,255,255,.8)',
-                  textDecoration: 'none',
-                  padding: '12px 4px',
-                  borderBottom: '1px solid rgba(255,255,255,.06)',
-                }}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-          <Link
-            href="/contact"
-            onClick={() => setMobileOpen(false)}
-            style={{
-              marginTop: 12,
-              background: colors.orange,
-              color: colors.navy,
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 600,
-              fontSize: 15,
-              padding: '12px 22px',
-              borderRadius: 7,
-              textDecoration: 'none',
-              textAlign: 'center',
-            }}
-          >
-            Contact Us
-          </Link>
-        </div>
-      )}
     </header>
   );
 }

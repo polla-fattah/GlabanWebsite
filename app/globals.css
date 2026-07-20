@@ -1,14 +1,173 @@
-body {
-  margin: 0;
-  background: #F5F6F4;
+@import "tailwindcss";
+
+@theme {
+  /* Dynamic CSS Variable Mapping */
+  --color-void: var(--theme-void);
+  --color-carbon: var(--theme-carbon);
+  --color-cinder: var(--theme-cinder);
+  --color-obsidian: var(--theme-obsidian);
+  --color-graphite: var(--theme-graphite);
+  --color-smoke: var(--theme-smoke);
+  --color-steel: var(--theme-steel);
+  --color-ash: var(--theme-ash);
+  --color-fog: var(--theme-fog);
+  --color-mist: var(--theme-mist);
+  --color-bone: var(--theme-bone);
+  --color-paper: var(--theme-paper);
+  --color-white: var(--theme-white);
+  --color-black: var(--theme-black);
+
+  --color-acid-lime: #f26522;
+  --color-pulse-green: #27a644;
+  --color-coral-red: #eb5757;
+  --color-signal-teal: #02b8cc;
+  --color-iris-violet: #6366f1;
+  --color-lavender: #8b5cf6;
+
+  /* Legacy Color Aliases mapped to Linear Precision Palette */
+  --color-navy: var(--theme-void);
+  --color-navyMid: var(--theme-carbon);
+  --color-navyLight: var(--theme-obsidian);
+  --color-navyDeep: var(--theme-void);
+  --color-orange: #f26522;
+  --color-orangeDark: #d95418;
+  --color-orangeLight: #ff7a3d;
+  --color-orangeTint: rgba(242, 101, 34, 0.12);
+  --color-cream: var(--theme-white);
+  --color-grayBg: var(--theme-carbon);
+  --color-textDark: var(--theme-black);
+  --color-textBody: var(--theme-mist);
+  --color-textBody2: var(--theme-fog);
+  --color-textMuted: var(--theme-ash);
+  --color-blue: #02b8cc;
+  --color-blueLight: #6366f1;
+  --color-green: #27a644;
+  --color-greenLight: #7fd8b0;
+  --color-greenTint: rgba(39, 166, 68, 0.1);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
 }
 
-a {
-  color: #E2861B;
+@layer base {
+  /* LIGHT MODE (Warm tinted, derived from Orange #f26522) */
+  :root {
+    --theme-void: #fdf9f7;
+    --theme-carbon: #f8f0eb;
+    --theme-cinder: #f1e5de;
+    --theme-obsidian: #e6d5cb;
+    --theme-graphite: #d3beb2;
+    --theme-smoke: #a2948c;
+    --theme-steel: #887a73;
+    --theme-ash: #6d5f58;
+    --theme-fog: #51453f;
+    --theme-mist: #372e29;
+    --theme-bone: #2a221e;
+    --theme-paper: #1d1613;
+    --theme-white: #1d1613;
+    --theme-black: #ffffff;
+
+    --background: #fdf9f7;
+    --foreground: #1d1613;
+    --card: #f8f0eb;
+    --card-foreground: #1d1613;
+    --popover: #f8f0eb;
+    --popover-foreground: #1d1613;
+    --primary: #f1824b;
+    --primary-foreground: #ffffff;
+    --secondary: #e6d5cb;
+    --secondary-foreground: #1d1613;
+    --muted: #e6d5cb;
+    --muted-foreground: #6d5f58;
+    --accent: #d3beb2;
+    --accent-foreground: #1d1613;
+    --destructive: #eb5757;
+    --destructive-foreground: #ffffff;
+    --border: #d3beb2;
+    --input: #d3beb2;
+    --ring: #f26522;
+    --radius: 0.375rem;
+  }
+
+  /* DARK MODE (Warm tinted, derived from Orange #f26522) */
+  .dark {
+    --theme-void: #0c0a09;
+    --theme-carbon: #120e0c;
+    --theme-cinder: #171310;
+    --theme-obsidian: #1d1613;
+    --theme-graphite: #2a221e;
+    --theme-smoke: #453730;
+    --theme-steel: #604e46;
+    --theme-ash: #7b675d;
+    --theme-fog: #a2948c;
+    --theme-mist: #d3beb2;
+    --theme-bone: #efe3dc;
+    --theme-paper: #fbf5f2;
+    --theme-white: #fbf5f2;
+    --theme-black: #0c0a09;
+
+    --background: #0c0a09;
+    --foreground: #fbf5f2;
+    --card: #120e0c;
+    --card-foreground: #fbf5f2;
+    --popover: #120e0c;
+    --popover-foreground: #fbf5f2;
+    --primary: #f26522;
+    --primary-foreground: #ffffff;
+    --secondary: #1d1613;
+    --secondary-foreground: #fbf5f2;
+    --muted: #1d1613;
+    --muted-foreground: #a2948c;
+    --accent: #2a221e;
+    --accent-foreground: #fbf5f2;
+    --destructive: #eb5757;
+    --destructive-foreground: #ffffff;
+    --border: #2a221e;
+    --input: #2a221e;
+    --ring: #f26522;
+  }
 }
 
-a:hover {
-  color: #C96F0F;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: "Inter", system-ui, sans-serif;
+    letter-spacing: -0.011em;
+  }
+
+  a:not([class*="text-"]) {
+    color: var(--color-mist);
+  }
+
+  a:not([class*="text-"]):hover {
+    color: var(--color-paper);
+  }
 }
 
 .glb-input,
@@ -16,53 +175,151 @@ a:hover {
 .glb-textarea {
   width: 100%;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-  font-size: 14.5px;
-  padding: 12px 14px;
-  border-radius: 8px;
-  border: 1px solid rgba(10, 25, 48, 0.15);
-  background: #fff;
-  color: #16212B;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 14px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--color-graphite);
+  background: var(--color-carbon);
+  color: var(--color-paper);
 }
 
 .glb-input:focus,
 .glb-select:focus,
 .glb-textarea:focus {
   outline: none;
-  border-color: #E2861B;
+  border-color: var(--color-mist);
 }
 
 .glb-label {
   font-size: 13px;
-  font-weight: 600;
-  color: #3E4C59;
+  font-weight: 500;
+  color: var(--color-mist);
   margin-bottom: 6px;
   display: block;
 }
 
 .glb-card-link {
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 0 1px inset transparent;
+}
+
+.glb-card-link:hover {
+  border-color: color-mix(in srgb, var(--color-orange) 50%, transparent);
+  box-shadow: 0 0 0 1px inset
+    color-mix(in srgb, var(--color-orange) 25%, transparent);
 }
 
 @keyframes glbFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 @keyframes glbMenuIn {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseSubtle {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes borderGlow {
+  0%,
+  100% {
+    border-color: var(--color-graphite);
+  }
+  50% {
+    border-color: color-mix(in srgb, var(--color-orange) 45%, transparent);
+  }
+}
+
+@keyframes ambientDrift1 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-47%, -54%) scale(1.12);
+  }
+}
+
+@keyframes ambientDrift2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translate(-30px, 25px) scale(1.18);
+    opacity: 0.95;
+  }
+}
+
+@keyframes ambientDrift3 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.65;
+  }
+  50% {
+    transform: translate(30px, -25px) scale(1.2);
+    opacity: 0.85;
+  }
 }
 
 @media (max-width: 1180px) {
-  .glb-desktop-nav { display: none !important; }
-  .glb-mobile-btn { display: flex !important; }
+  .glb-desktop-nav {
+    display: none !important;
+  }
+  .glb-mobile-btn {
+    display: flex !important;
+  }
 }
 
 @media (max-width: 900px) {
-  .glb-grid { grid-template-columns: 1fr 1fr !important; }
+  .glb-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
 }
 
 @media (max-width: 640px) {
-  .glb-grid { grid-template-columns: 1fr !important; }
+  .glb-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+svg.lucide {
+  width: 1em;
+  height: 1em;
 }

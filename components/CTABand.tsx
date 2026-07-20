@@ -1,11 +1,12 @@
-import Link from 'next/link';
-import { colors } from '@/lib/colors';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export default function CTABand({
   heading,
   subtitle,
-  buttonLabel = 'Contact Us',
-  href = '/contact',
+  buttonLabel = "Contact Us",
+  href = "/contact",
   onDark = false,
 }: {
   heading: string;
@@ -15,38 +16,31 @@ export default function CTABand({
   onDark?: boolean;
 }) {
   return (
-    <section style={{ background: onDark ? colors.navyMid : colors.grayBg }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px', textAlign: 'center' }}>
-        <h2
-          style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontWeight: 700,
-            fontSize: 28,
-            color: onDark ? '#fff' : colors.textDark,
-            margin: '0 0 14px',
-          }}
-        >
+    <section
+      className={cn(
+        onDark
+          ? "bg-void border-t border-graphite"
+          : "bg-carbon border-y border-graphite",
+      )}
+    >
+      <div className="max-w-[1280px] mx-auto py-[80px] px-8 text-center">
+        <h2 className="font-medium text-[32px] md:text-[36px] text-white tracking-[-0.022em] mb-3 max-w-[700px] mx-auto">
           {heading}
         </h2>
         {subtitle && (
-          <p style={{ fontSize: 15.5, color: onDark ? 'rgba(255,255,255,.6)' : colors.textBody, margin: '0 0 26px' }}>{subtitle}</p>
+          <p className="text-[16px] text-fog mb-8 max-w-[580px] mx-auto leading-[1.6]">
+            {subtitle}
+          </p>
         )}
-        <Link
-          href={href}
-          style={{
-            display: 'inline-block',
-            background: colors.orange,
-            color: colors.navy,
-            fontWeight: 600,
-            fontSize: 15,
-            padding: '14px 26px',
-            borderRadius: 8,
-            textDecoration: 'none',
-            marginTop: subtitle ? 0 : 8,
-          }}
+        <Button
+          asChild
+          className={cn(
+            "bg-orange hover:bg-orangeDark text-white font-medium text-[14.5px] px-7 py-3.5 h-auto rounded-md no-underline shadow-none transition-all",
+            !subtitle && "mt-4",
+          )}
         >
-          {buttonLabel}
-        </Link>
+          <Link href={href}>{buttonLabel}</Link>
+        </Button>
       </div>
     </section>
   );

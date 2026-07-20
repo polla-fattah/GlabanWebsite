@@ -1,8 +1,10 @@
-import Link from 'next/link';
-import { colors } from '@/lib/colors';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import type { LucideIcon } from "lucide-react";
+import Image from "next/image";
 
 export default function DetailHero({
-  icon,
+  icon: Icon,
   iconBg,
   iconColor,
   eyebrow,
@@ -10,8 +12,9 @@ export default function DetailHero({
   title,
   subtitle,
   ctaLabel,
+  bgImage,
 }: {
-  icon: string;
+  icon: LucideIcon;
   iconBg: string;
   iconColor: string;
   eyebrow: string;
@@ -19,37 +22,63 @@ export default function DetailHero({
   title: string;
   subtitle: string;
   ctaLabel: string;
+  bgImage?: string;
 }) {
   return (
-    <section style={{ background: colors.navy, padding: '72px 32px 64px' }}>
-      <div className="glb-grid" style={{ maxWidth: 1280, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr auto', gap: 40, alignItems: 'center' }}>
+    <section className="relative bg-void border-b border-graphite py-[96px] pb-[88px] overflow-hidden">
+      {bgImage && (
+        <div className="absolute inset-0 z-0 pointer-events-none select-none">
+          <Image
+            src={bgImage}
+            alt="Background"
+            fill
+            className="object-cover opacity-[0.25]"
+            priority
+          />
+          {/* Fades from the sides and bottom */}
+          <div className="absolute inset-0 bg-gradient-to-r from-void via-transparent to-void"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-void via-transparent to-void"></div>
+        </div>
+      )}
+
+      <div className="relative z-10 max-w-[1280px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 items-center">
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 20 }}>
-            <div style={{ fontSize: 24, color: iconColor }}>
-              <i className={icon} />
+          <div className="flex items-center gap-3.5 mb-5">
+            <div
+              className="w-10 h-10 rounded-lg flex items-center justify-center text-xl bg-carbon border border-graphite shadow-none"
+              style={{
+                color:
+                  iconColor === "legacy-orange" || iconColor === "legacy-orange"
+                    ? "var(--color-orange)"
+                    : iconColor || "var(--color-orange)",
+              }}
+            >
+              <Icon />
             </div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: eyebrowColor, letterSpacing: '.06em', textTransform: 'uppercase' }}>{eyebrow}</div>
+            <div
+              className="text-[12px] font-medium tracking-[0.08em] uppercase text-fog"
+              style={
+                eyebrowColor && eyebrowColor !== "legacy-orange"
+                  ? { color: eyebrowColor }
+                  : undefined
+              }
+            >
+              {eyebrow}
+            </div>
           </div>
-          <h1 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: 38, color: '#fff', margin: '0 0 16px', maxWidth: 680, lineHeight: 1.2 }}>
+          <h1 className="font-medium text-[38px] md:text-[46px] text-white tracking-[-0.022em] leading-[1.1] mb-4 max-w-[680px]">
             {title}
           </h1>
-          <p style={{ fontSize: 16.5, color: 'rgba(255,255,255,.65)', maxWidth: 620, lineHeight: 1.65, margin: 0 }}>{subtitle}</p>
+          <p className="text-[16px] text-fog max-w-[620px] leading-[1.65] m-0">
+            {subtitle}
+          </p>
         </div>
-        <Link
-          href="/contact"
-          style={{
-            background: colors.orange,
-            color: colors.navy,
-            fontWeight: 600,
-            fontSize: 15,
-            padding: '14px 26px',
-            borderRadius: 8,
-            textDecoration: 'none',
-            whiteSpace: 'nowrap',
-          }}
+        <Button
+          asChild
+          className="bg-orange hover:bg-orangeDark text-white font-medium text-[14px] px-6 py-3.5 h-auto rounded-md whitespace-nowrap no-underline shadow-none"
         >
-          {ctaLabel}
-        </Link>
+          <Link href="/contact">{ctaLabel}</Link>
+        </Button>
       </div>
     </section>
   );

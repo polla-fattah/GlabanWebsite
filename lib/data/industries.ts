@@ -1,5 +1,7 @@
+import { Building2, Droplets, Flame, Fuel, Gauge, Factory, Landmark, Truck, Warehouse } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 export interface Industry {
-  icon: string;
+  icon: LucideIcon;
   name: string;
   desc: string;
   problems: string[];
@@ -9,7 +11,7 @@ export interface Industry {
 
 export const industries: Industry[] = [
   {
-    icon: 'fa-solid fa-droplet',
+    icon: Droplets,
     name: 'Oil Companies',
     desc: 'Secure, centralised systems for multi-branch operations needing full visibility.',
     problems: ['Fragmented branch reporting', 'Weak cybersecurity posture', 'Manual reconciliation'],
@@ -17,7 +19,7 @@ export const industries: Industry[] = [
     image: '/images/industries/oil company .jpg'
   },
   {
-    icon: 'fa-solid fa-industry',
+    icon: Factory,
     name: 'Refineries',
     desc: 'Industrial-grade security and maintenance tracking for critical infrastructure.',
     problems: ['Untracked maintenance', 'OT and network exposure', 'Limited site security'],
@@ -25,7 +27,7 @@ export const industries: Industry[] = [
     image: '/images/industries/Refineries.jpeg'
   },
   {
-    icon: 'fa-solid fa-gas-pump',
+    icon: Fuel,
     name: 'Gas Stations',
     desc: 'Reliable POS and surveillance for high-volume forecourt environments.',
     problems: ['Cashier discrepancies', 'No forecourt visibility', 'Weak station security'],
@@ -33,7 +35,7 @@ export const industries: Industry[] = [
     image: '/images/industries/gas station pos.jpeg'
   },
   {
-    icon: 'fa-solid fa-truck-moving',
+    icon: Truck,
     name: 'Fuel Distribution Companies',
     desc: 'Logistics solutions to track fuel movement from depots to customer sites.',
     problems: ['Poor delivery visibility', 'Manual invoicing', 'Driver accountability'],
@@ -41,7 +43,7 @@ export const industries: Industry[] = [
     image: '/images/industries/Delivery Dispatch & Route Optimisation System.webp'
   },
   {
-    icon: 'fa-solid fa-fire-flame-simple',
+    icon: Flame,
     name: 'Propane Cylinder Companies',
     desc: 'Specialised tracking for cylinder deposits, returns, and home deliveries.',
     problems: ['Lost or unreturned cylinders', 'Manual order taking', 'Poor delivery accountability'],
@@ -49,7 +51,7 @@ export const industries: Industry[] = [
     image: '/images/industries/Propane Cylinder Management.webp'
   },
   {
-    icon: 'fa-solid fa-truck',
+    icon: Truck,
     name: 'Bulk Gas Delivery Companies',
     desc: 'Contract management and scheduling for tonnage-based industrial gas sales.',
     problems: ['Contract tracking gaps', 'Manual consumption reports', 'Delivery confirmation delays'],
@@ -57,7 +59,7 @@ export const industries: Industry[] = [
     image: '/images/industries/Bulk Gas Delivery System.png'
   },
   {
-    icon: 'fa-solid fa-warehouse',
+    icon: Warehouse,
     name: 'Fuel Depots',
     desc: 'Strict inventory control and perimeter security for large storage sites.',
     problems: ['Stock discrepancies', 'Limited perimeter security', 'Manual stock transfers'],
@@ -65,7 +67,7 @@ export const industries: Industry[] = [
     image: '/images/industries/Fuel ERP Platform.jpg'
   },
   {
-    icon: 'fa-solid fa-building',
+    icon: Building2,
     name: 'Industrial Gas Customers',
     desc: 'Consumption tracking and automated billing for high-volume users.',
     problems: ['No consumption tracking', 'Manual billing disputes', 'Delivery scheduling gaps'],
@@ -73,7 +75,7 @@ export const industries: Industry[] = [
     image: '/images/industries/Business Intelligence Dashboard.webp'
   },
   {
-    icon: 'fa-solid fa-gauge-high',
+    icon: Gauge,
     name: 'Companies with Fuel Limits',
     desc: 'Automated enforcement of fuel quotas for staff and company vehicles.',
     problems: ['Uncontrolled fuel spending', 'No approval workflow', 'Limited usage reporting'],
@@ -81,7 +83,7 @@ export const industries: Industry[] = [
     image: '/images/industries/Eliminate Internal Fuel Waste.jpeg'
   },
   {
-    icon: 'fa-solid fa-landmark',
+    icon: Landmark,
     name: 'Government & Regulated Operations',
     desc: 'Compliance-first solutions with strict audit trails and security standards.',
     problems: ['Audit and compliance gaps', 'Weak access control', 'Limited reporting transparency'],
